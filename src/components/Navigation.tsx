@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
 import { Menu } from "lucide-react";
 import { useState } from "react";
+import logoImage from "@/assets/softgogy.bmp";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,23 +15,36 @@ const Navigation = () => {
     { name: "5Paisa", path: "/5paisa" },
   ];
 
+  const navLinks = [
+    { name: "Home", path: "/" },
+    { name: "Success Stories", path: "/success-stories" },
+  ];
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-xl">S</span>
-            </div>
+            <img 
+              src={logoImage} 
+              alt="Softgogy Logo" 
+              className="h-10 w-auto object-contain"
+            />
             <span className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
               Softgogy
             </span>
           </Link>
 
           <div className="hidden md:flex items-center space-x-6">
-            <Link to="/" className="text-foreground hover:text-primary transition-colors">
-              Home
-            </Link>
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                className="text-foreground hover:text-primary transition-colors"
+              >
+                {link.name}
+              </Link>
+            ))}
             <div className="relative group">
               <button className="text-foreground hover:text-primary transition-colors">
                 Platforms
@@ -59,23 +73,29 @@ const Navigation = () => {
 
         {isOpen && (
           <div className="md:hidden mt-4 space-y-2">
-            <Link
-              to="/"
-              className="block py-2 text-foreground hover:text-primary transition-colors"
-              onClick={() => setIsOpen(false)}
-            >
-              Home
-            </Link>
-            {platforms.map((platform) => (
+            {navLinks.map((link) => (
               <Link
-                key={platform.path}
-                to={platform.path}
+                key={link.path}
+                to={link.path}
                 className="block py-2 text-foreground hover:text-primary transition-colors"
                 onClick={() => setIsOpen(false)}
               >
-                {platform.name}
+                {link.name}
               </Link>
             ))}
+            <div className="border-t border-border pt-2 mt-2">
+              <p className="text-sm text-muted-foreground mb-2 px-2">Platforms:</p>
+              {platforms.map((platform) => (
+                <Link
+                  key={platform.path}
+                  to={platform.path}
+                  className="block py-2 text-foreground hover:text-primary transition-colors pl-4"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {platform.name}
+                </Link>
+              ))}
+            </div>
             <Button variant="hero" size="sm" className="w-full">
               Download Trial
             </Button>

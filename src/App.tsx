@@ -9,6 +9,7 @@ import Groww from "./pages/Groww";
 import AngelOne from "./pages/AngelOne";
 import Upstox from "./pages/Upstox";
 import FivePaisa from "./pages/FivePaisa";
+import SuccessStories from "./pages/SuccessStories";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/angel-one" element={<AngelOne />} />
           <Route path="/upstox" element={<Upstox />} />
           <Route path="/5paisa" element={<FivePaisa />} />
+          <Route path="/success-stories" element={<SuccessStories />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
