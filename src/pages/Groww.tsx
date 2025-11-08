@@ -38,7 +38,7 @@ const Groww = () => {
         },
       ]}
       limitations="Note: Access to Groww Trading API requires a paid subscription. MCX commodity trading is not available as Groww's API does not currently support this segment."
-      downloadLink="https://www.jotform.com/build/253095948424466"
+      downloadLink="https://form.jotform.com/253095948424466"
     />
   );
 };
