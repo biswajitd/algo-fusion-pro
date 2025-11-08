@@ -37,6 +37,7 @@ const AngelOne = () => {
             "Trade across NSE equities, Futures & Options, and MCX commodities all from a single integrated platform.",
         },
       ]}
+      downloadLink="https://www.jotform.com/build/251021979985469"
     />
   );
 };

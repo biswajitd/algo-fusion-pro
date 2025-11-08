@@ -37,6 +37,7 @@ const Upstox = () => {
             "Smart connectivity eliminates manual verification steps, streamlining your trading workflow from day one.",
         },
       ]}
+      downloadLink="https://www.jotform.com/build/251934671293463"
     />
   );
 };

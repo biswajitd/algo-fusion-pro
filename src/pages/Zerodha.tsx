@@ -37,6 +37,7 @@ const Zerodha = () => {
             "Take advantage of commodity trading on MCX with support until 11:30 PM from Monday to Friday.",
         },
       ]}
+      downloadLink="https://www.jotform.com/build/251293183396463"
     />
   );
 };

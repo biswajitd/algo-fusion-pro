@@ -37,6 +37,7 @@ const FivePaisa = () => {
             "Access NSE equities, Futures & Options, and MCX commodities with comprehensive support across all segments.",
         },
       ]}
+      downloadLink="https://www.jotform.com/build/252822152070447"
     />
   );
 };

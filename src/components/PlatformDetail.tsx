@@ -16,6 +16,7 @@ interface PlatformDetailProps {
     description: string;
   }[];
   limitations?: string;
+  downloadLink: string;
 }
 
 const PlatformDetail = ({
@@ -27,6 +28,7 @@ const PlatformDetail = ({
   segments,
   keyFeatures,
   limitations,
+  downloadLink,
 }: PlatformDetailProps) => {
   return (
     <div className="min-h-screen">
@@ -116,9 +118,11 @@ const PlatformDetail = ({
                   </div>
                 </div>
 
-                <Button variant="hero" size="lg" className="w-full mb-4 text-lg">
-                  <Download className="w-5 h-5" />
-                  Download 3-Day Trial
+                <Button variant="hero" size="lg" className="w-full mb-4 text-lg" asChild>
+                  <a href={downloadLink} target="_blank" rel="noopener noreferrer">
+                    <Download className="w-5 h-5" />
+                    Download 3-Day Trial
+                  </a>
                 </Button>
 
                 <p className="text-center text-sm text-muted-foreground mb-6">
@@ -157,9 +161,11 @@ const PlatformDetail = ({
               Let our revolutionary solution work hard, so you don't have to. 🚀
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="hero" size="lg">
-                <Download className="w-5 h-5" />
-                Download Free Trial
+              <Button variant="hero" size="lg" asChild>
+                <a href={downloadLink} target="_blank" rel="noopener noreferrer">
+                  <Download className="w-5 h-5" />
+                  Download Free Trial
+                </a>
               </Button>
               <Link to="/">
                 <Button variant="outline" size="lg">
