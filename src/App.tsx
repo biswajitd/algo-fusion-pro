@@ -11,6 +11,7 @@ import Upstox from "./pages/Upstox";
 import FivePaisa from "./pages/FivePaisa";
 import SuccessStories from "./pages/SuccessStories";
 import Pricing from "./pages/Pricing";
+import FAQ from "./pages/FAQ";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -30,6 +31,7 @@ const App = () => (
           <Route path="/5paisa" element={<FivePaisa />} />
           <Route path="/success-stories" element={<SuccessStories />} />
           <Route path="/pricing" element={<Pricing />} />
+          <Route path="/faq" element={<FAQ />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
