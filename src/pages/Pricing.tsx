@@ -1,6 +1,6 @@
 import Navigation from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
-import { Check, X } from "lucide-react";
+import { Check } from "lucide-react";
 import {
   Table,
   TableBody,
@@ -10,62 +10,73 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import qrBasic from "@/assets/qr-basic.png";
+import qrProfessional from "@/assets/qr-professional.png";
+import qrEnterprise from "@/assets/qr-enterprise.png";
 
 const Pricing = () => {
   const plans = [
     {
       name: "Basic",
       price: "₹2,999",
-      period: "/month",
+      period: "per month",
       description: "Perfect for individual traders getting started",
       features: [
         { name: "Single Platform Integration", included: true },
         { name: "Real-time Market Data", included: true },
         { name: "Basic Trading Automation", included: true },
         { name: "Email Support", included: true },
-        { name: "Multi-Platform Support", included: false },
-        { name: "Advanced Analytics", included: false },
-        { name: "Priority Support", included: false },
-        { name: "Custom API Integration", included: false },
+        { name: "Tools for Buy/Sell signals", included: true },
+        { name: "Advanced Analytics", included: true },
+        { name: "Custom API Integration", included: true },
       ],
-      cta: "Start Free Trial",
+      cta: "Subscription",
       popular: false,
+      qrCode: qrBasic,
     },
     {
       name: "Professional",
-      price: "₹5,999",
-      period: "/month",
+      price: "₹4,999",
+      period: "for every 6 months",
       description: "Ideal for active traders with multiple accounts",
       features: [
         { name: "Up to 3 Platform Integrations", included: true },
         { name: "Real-time Market Data", included: true },
         { name: "Advanced Trading Automation", included: true },
         { name: "Email & Chat Support", included: true },
-        { name: "Multi-Platform Support", included: true },
+        { name: "Tools for Buy/Sell signals", included: true },
         { name: "Advanced Analytics & Reports", included: true },
-        { name: "Priority Support", included: false },
-        { name: "Custom API Integration", included: false },
+        { name: "Custom API Integration", included: true },
       ],
-      cta: "Start Free Trial",
+      cta: "Subscription",
       popular: true,
+      qrCode: qrProfessional,
     },
     {
       name: "Enterprise",
-      price: "₹12,999",
-      period: "/month",
+      price: "₹6,499",
+      period: "for every six months",
       description: "Comprehensive solution for professional traders",
       features: [
         { name: "Unlimited Platform Integrations", included: true },
         { name: "Real-time Market Data", included: true },
         { name: "Premium Trading Automation", included: true },
         { name: "24/7 Priority Support", included: true },
-        { name: "Multi-Platform Support", included: true },
+        { name: "Tools for Buy/Sell signals", included: true },
         { name: "Advanced Analytics & Reports", included: true },
-        { name: "Priority Support", included: true },
         { name: "Custom API Integration", included: true },
       ],
-      cta: "Contact Sales",
+      cta: "Subscription",
       popular: false,
+      qrCode: qrEnterprise,
     },
   ];
 
@@ -73,7 +84,7 @@ const Pricing = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       <main className="container mx-auto px-4 py-12">
-        <div className="text-center mb-12">
+        <div className="text-center mb-16 pt-12">
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
             Choose Your Perfect Plan
           </h1>
@@ -96,22 +107,48 @@ const Pricing = () => {
                 <CardDescription>{plan.description}</CardDescription>
                 <div className="mt-4">
                   <span className="text-4xl font-bold text-foreground">{plan.price}</span>
-                  <span className="text-muted-foreground">{plan.period}</span>
+                  <span className="text-muted-foreground"> {plan.period}</span>
                 </div>
               </CardHeader>
               <CardContent>
-                <Button className="w-full mb-6" variant={plan.popular ? "default" : "outline"}>
-                  {plan.cta}
-                </Button>
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button className="w-full mb-6" variant={plan.popular ? "default" : "outline"}>
+                      {plan.cta}
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="max-w-md">
+                    <DialogHeader>
+                      <DialogTitle>{plan.name}</DialogTitle>
+                      <DialogDescription>
+                        {plan.price} {plan.period}
+                      </DialogDescription>
+                    </DialogHeader>
+                    <div className="space-y-4 py-4">
+                      <div className="flex justify-center">
+                        <img 
+                          src={plan.qrCode} 
+                          alt={`${plan.name} GPay QR Code`}
+                          className="w-48 h-48 object-contain"
+                        />
+                      </div>
+                      <div className="text-center">
+                        <p className="font-semibold mb-2">GPay Scan</p>
+                      </div>
+                      <div className="bg-muted p-4 rounded-lg text-sm space-y-2">
+                        <p className="font-medium">After payment:</p>
+                        <p>Please send email with the screen shot of Payment and your mobile no.</p>
+                        <p className="text-primary font-medium">Our team will connect you within 24 hours and install the software remotely or by physically visiting your site.</p>
+                        <p className="italic">Quick setup, satisfaction guaranteed or your money back.</p>
+                      </div>
+                    </div>
+                  </DialogContent>
+                </Dialog>
                 <ul className="space-y-3">
                   {plan.features.map((feature, index) => (
                     <li key={index} className="flex items-start gap-2">
-                      {feature.included ? (
-                        <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                      ) : (
-                        <X className="h-5 w-5 text-muted-foreground flex-shrink-0 mt-0.5" />
-                      )}
-                      <span className={feature.included ? "text-foreground" : "text-muted-foreground"}>
+                      <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-foreground">
                         {feature.name}
                       </span>
                     </li>
@@ -141,9 +178,39 @@ const Pricing = () => {
                         <div className="text-sm text-muted-foreground mt-2 mb-4">{plan.description}</div>
                         <div className="text-3xl font-bold text-foreground mb-1">{plan.price}</div>
                         <div className="text-sm text-muted-foreground mb-4">{plan.period}</div>
-                        <Button className="w-full" variant={plan.popular ? "default" : "outline"}>
-                          {plan.cta}
-                        </Button>
+                        <Dialog>
+                          <DialogTrigger asChild>
+                            <Button className="w-full" variant={plan.popular ? "default" : "outline"}>
+                              {plan.cta}
+                            </Button>
+                          </DialogTrigger>
+                          <DialogContent className="max-w-md">
+                            <DialogHeader>
+                              <DialogTitle>{plan.name}</DialogTitle>
+                              <DialogDescription>
+                                {plan.price} {plan.period}
+                              </DialogDescription>
+                            </DialogHeader>
+                            <div className="space-y-4 py-4">
+                              <div className="flex justify-center">
+                                <img 
+                                  src={plan.qrCode} 
+                                  alt={`${plan.name} GPay QR Code`}
+                                  className="w-48 h-48 object-contain"
+                                />
+                              </div>
+                              <div className="text-center">
+                                <p className="font-semibold mb-2">GPay Scan</p>
+                              </div>
+                              <div className="bg-muted p-4 rounded-lg text-sm space-y-2">
+                                <p className="font-medium">After payment:</p>
+                                <p>Please send email with the screen shot of Payment and your mobile no.</p>
+                                <p className="text-primary font-medium">Our team will connect you within 24 hours and install the software remotely or by physically visiting your site.</p>
+                                <p className="italic">Quick setup, satisfaction guaranteed or your money back.</p>
+                              </div>
+                            </div>
+                          </DialogContent>
+                        </Dialog>
                       </div>
                     </TableHead>
                   ))}
@@ -155,11 +222,7 @@ const Pricing = () => {
                     <TableCell className="font-medium">{feature.name}</TableCell>
                     {plans.map((plan) => (
                       <TableCell key={plan.name} className="text-center">
-                        {plan.features[featureIndex].included ? (
-                          <Check className="h-6 w-6 text-primary mx-auto" />
-                        ) : (
-                          <X className="h-6 w-6 text-muted-foreground mx-auto" />
-                        )}
+                        <Check className="h-6 w-6 text-primary mx-auto" />
                       </TableCell>
                     ))}
                   </TableRow>

@@ -19,7 +19,7 @@ const Upstox = () => {
         "Real-time portfolio analytics",
       ]}
       size="1.2 GB"
-      segments={["NSE", "F&O", "MCX"]}
+      segments={["NSE", "F&O"]}
       keyFeatures={[
         {
           title: "Native API Advantage",

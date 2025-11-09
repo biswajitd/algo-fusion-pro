@@ -31,13 +31,17 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button variant="hero" size="lg" className="group">
-              <Download className="w-5 h-5" />
-              Download 3-Day Trial
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            <Button variant="hero" size="lg" className="group" asChild>
+              <a href="/#platforms">
+                <Download className="w-5 h-5" />
+                Download 3-Day Trial
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </a>
             </Button>
-            <Button variant="outline" size="lg">
-              Explore Platforms
+            <Button variant="outline" size="lg" asChild>
+              <a href="/#platforms">
+                Explore Platforms
+              </a>
             </Button>
           </div>
 

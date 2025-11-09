@@ -19,7 +19,7 @@ const FivePaisa = () => {
         "Risk management automation",
       ]}
       size="1.5 GB"
-      segments={["NSE", "F&O", "MCX"]}
+      segments={["NSE", "F&O"]}
       keyFeatures={[
         {
           title: "XtreamAPI Integration",

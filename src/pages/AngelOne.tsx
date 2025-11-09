@@ -19,7 +19,7 @@ const AngelOne = () => {
         "Portfolio and P&L tracking",
       ]}
       size="1.9 GB"
-      segments={["NSE", "F&O", "MCX"]}
+      segments={["NSE", "F&O"]}
       keyFeatures={[
         {
           title: "SmartAPI Integration",
