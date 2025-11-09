@@ -12,6 +12,7 @@ import FivePaisa from "./pages/FivePaisa";
 import SuccessStories from "./pages/SuccessStories";
 import Pricing from "./pages/Pricing";
 import FAQ from "./pages/FAQ";
+import Platforms from "./pages/Platforms";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/platforms" element={<Platforms />} />
           <Route path="/zerodha" element={<Zerodha />} />
           <Route path="/groww" element={<Groww />} />
           <Route path="/angel-one" element={<AngelOne />} />

@@ -63,8 +63,8 @@ const Navigation = () => {
                 ))}
               </div>
             </div>
-            <Button variant="hero" size="sm">
-              Download Trial
+            <Button variant="hero" size="sm" asChild>
+              <a href="/platforms">Download Trial</a>
             </Button>
           </div>
 
@@ -98,8 +98,8 @@ const Navigation = () => {
                 </Link>
               ))}
             </div>
-            <Button variant="hero" size="sm" className="w-full">
-              Download Trial
+            <Button variant="hero" size="sm" className="w-full" asChild>
+              <a href="/platforms">Download Trial</a>
             </Button>
           </div>
         )}

@@ -125,9 +125,12 @@ const PlatformDetail = ({
                   </a>
                 </Button>
 
-                <p className="text-center text-sm text-muted-foreground mb-6">
-                  For installation guide and support
-                </p>
+                <Button variant="outline" size="lg" className="w-full mb-6 text-lg" asChild>
+                  <a href="/Installation Guide.docx" download>
+                    <Download className="w-5 h-5" />
+                    For installation guide and support
+                  </a>
+                </Button>
 
                 <div className="bg-card/50 rounded-lg p-4 border border-border">
                   <p className="text-sm text-foreground leading-relaxed">

@@ -32,7 +32,7 @@ const Hero = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button variant="hero" size="lg" className="group" asChild>
-              <a href="/#platforms">
+              <a href="/platforms">
                 <Download className="w-5 h-5" />
                 Download 3-Day Trial
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
