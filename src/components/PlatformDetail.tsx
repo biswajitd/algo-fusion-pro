@@ -126,7 +126,7 @@ const PlatformDetail = ({
                 </Button>
 
                 <Button variant="outline" size="lg" className="w-full mb-6 text-lg" asChild>
-                  <a href="/Installation Guide.docx" download>
+                  <a href="/Installation Guide.pdf" download>
                     <Download className="w-5 h-5" />
                     For installation guide and support
                   </a>

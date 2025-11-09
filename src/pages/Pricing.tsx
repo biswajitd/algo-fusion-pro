@@ -45,7 +45,7 @@ const Pricing = () => {
     {
       name: "Professional",
       price: "₹4,999",
-      period: "for every 6 months",
+      period: "for every four months",
       description: "Ideal for active traders with multiple accounts",
       features: [
         { name: "Up to 3 Platform Integrations", included: true },

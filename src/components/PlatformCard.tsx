@@ -10,6 +10,7 @@ interface PlatformCardProps {
   features: string[];
   size: string;
   link: string;
+  downloadLink: string;
   limitations?: string;
 }
 
@@ -20,6 +21,7 @@ const PlatformCard = ({
   features,
   size,
   link,
+  downloadLink,
   limitations,
 }: PlatformCardProps) => {
   return (
@@ -54,17 +56,19 @@ const PlatformCard = ({
       )}
 
       <div className="flex flex-col sm:flex-row gap-3 mb-4">
-        <Button variant="hero" className="flex-1 group">
-          <Download className="w-4 h-4" />
-          Download Trial
-          <span className="text-xs">({size})</span>
-        </Button>
-        <Link to={link} className="flex-1">
+        <a href={downloadLink} target="_blank" rel="noopener noreferrer" className="flex-1">
+          <Button variant="hero" className="w-full group">
+            <Download className="w-4 h-4" />
+            Download Trial
+            <span className="text-xs">({size})</span>
+          </Button>
+        </a>
+        <a href="/Installation Guide.pdf" target="_blank" rel="noopener noreferrer" className="flex-1">
           <Button variant="outline" className="w-full group">
-            Learn More
+            Installation Guide
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Button>
-        </Link>
+        </a>
       </div>
 
       <p className="text-xs text-muted-foreground text-center">

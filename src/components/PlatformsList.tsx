@@ -16,6 +16,7 @@ const PlatformsList = () => {
       ],
       size: "1.9 GB",
       link: "/zerodha",
+      downloadLink: "https://form.jotform.com/biswajitdvc/zerodha-customer-registration-form",
     },
     {
       name: "Groww",
@@ -31,6 +32,7 @@ const PlatformsList = () => {
       ],
       size: "1.9 GB",
       link: "/groww",
+      downloadLink: "https://form.jotform.com/253095948424466",
       limitations: "Note: Groww Trading API requires paid subscription for access.",
     },
     {
@@ -47,6 +49,7 @@ const PlatformsList = () => {
       ],
       size: "1.9 GB",
       link: "/angel-one",
+      downloadLink: "https://form.jotform.com/biswajitdvc/angle-customer-registration-form",
     },
     {
       name: "Upstox",
@@ -62,6 +65,7 @@ const PlatformsList = () => {
       ],
       size: "1.2 GB",
       link: "/upstox",
+      downloadLink: "https://form.jotform.com/biswajitdvc/upstox-customer-registration-form",
     },
     {
       name: "5Paisa",
@@ -77,6 +81,7 @@ const PlatformsList = () => {
       ],
       size: "1.5 GB",
       link: "/5paisa",
+      downloadLink: "https://form.jotform.com/252822152070447",
     },
   ];
 

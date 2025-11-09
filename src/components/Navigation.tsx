@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
 import { Menu } from "lucide-react";
 import { useState } from "react";
-import logoImage from "@/assets/softgogy.bmp";
+import logoImage from "@/assets/softgogy.png";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,7 +30,7 @@ const Navigation = () => {
             <img 
               src={logoImage} 
               alt="Softgogy Logo" 
-              className="h-10 w-auto object-contain"
+              className="h-10 w-10 object-cover rounded-full"
             />
             <span className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
               Softgogy
