@@ -3,56 +3,68 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
-import featureMenu from "@/assets/feature-menu.png";
-import featureMacd from "@/assets/feature-macd.png";
-import featurePriceDiff from "@/assets/feature-price-diff.png";
-import featureAdx from "@/assets/feature-adx.png";
-import featureFibonacci from "@/assets/feature-fibonacci.png";
-import featurePrice60s from "@/assets/feature-price-60s.png";
-import featureDashboard from "@/assets/feature-dashboard.png";
-import featureBollinger from "@/assets/feature-bollinger.png";
+import outputMenu from "@/assets/output-menu.png";
+import outputMacd from "@/assets/output-macd.png";
+import outputPriceDiff from "@/assets/output-price-diff.png";
+import outputAdx from "@/assets/output-adx.png";
+import outputFibonacci from "@/assets/output-fibonacci.png";
+import output60s from "@/assets/output-60s.png";
+import outputVolume from "@/assets/output-volume.png";
+import outputDashboard from "@/assets/output-dashboard.png";
+import outputBollinger from "@/assets/output-bollinger.png";
+import outputMl from "@/assets/output-ml.png";
 
 const SoftwareFeatures = () => {
   const features = [
     {
-      image: featureMenu,
-      title: "Comprehensive Trading Options Menu",
-      description: "Navigate effortlessly through 25+ advanced trading strategies with our intuitive menu interface. From algorithmic options to AI-powered signals, every tool is designed to maximize your trading efficiency and profitability."
+      image: outputMenu,
+      title: "Your Command Center: 25+ Trading Strategies at Your Fingertips",
+      description: "Experience the ultimate trading arsenal with our intuitive strategy selector. From simple buy-sell patterns to sophisticated options strategies and AI-powered predictions, every tool is just one click away. Choose from algorithmic trading, technical indicator signals, or machine learning predictions—all designed to transform market opportunities into profits."
     },
     {
-      image: featureMacd,
-      title: "MACD & RSI Signal Visualization",
-      description: "Witness precision in action with real-time MACD and RSI indicators. Our intelligent system identifies optimal buy and sell signals with crystal-clear visual markers, empowering you to make confident trading decisions at the perfect moment."
+      image: outputMacd,
+      title: "Visual Intelligence: MACD & RSI Precision Signals",
+      description: "Watch the market's heartbeat through stunning real-time visualizations. Our advanced MACD and RSI indicators reveal hidden momentum shifts with crystal-clear buy and sell signals. The elegant fusion of blue MACD curves, red signal lines, and purple RSI oscillations creates a symphony of trading intelligence that guides you to perfect entry and exit points."
     },
     {
-      image: featurePriceDiff,
-      title: "Real-Time Price Movement Analysis",
-      description: "Stay ahead of the market with live price difference tracking and cumulative volume insights. This powerful visualization helps you spot market momentum shifts instantly, revealing lucrative trading opportunities before the crowd."
+      image: outputPriceDiff,
+      title: "Market Pulse: Real-Time Price Momentum Tracking",
+      description: "Discover where the smart money flows with our dynamic price difference analyzer. Vibrant green bars signal bullish surges while red bars warn of bearish pressure, all synchronized with cumulative volume trends. This powerful dual-axis visualization reveals the true market sentiment, helping you ride the waves of profit-generating momentum."
     },
     {
-      image: featureAdx,
-      title: "ADX Trend Strength Signals",
-      description: "Harness the power of the ADX indicator to identify strong trending markets automatically. Our system scans every 10 minutes, delivering actionable buy and sell signals based on sophisticated trend strength analysis and directional movement indicators."
+      image: outputAdx,
+      title: "Trend Master: ADX-Powered Trading Signals Every 10 Minutes",
+      description: "Never miss a strong trend again with our intelligent ADX scanner. Refreshed every 10 minutes, this feature delivers precision-filtered buy and sell signals based on directional movement strength. Each signal comes complete with price data, ADX values, and timestamps—giving you the confidence to trade only the most promising trending opportunities."
     },
     {
-      image: featureFibonacci,
-      title: "Fibonacci Retracement Signals",
-      description: "Unlock professional-grade technical analysis with automated Fibonacci retracement levels. The software identifies key entry zones at the 0.618 golden ratio, highlighting precise uptrend and downtrend opportunities for strategic position entries."
+      image: outputFibonacci,
+      title: "Golden Ratio Trading: Fibonacci Retracement Magic",
+      description: "Unlock the ancient secret of market harmony with automated Fibonacci analysis. Our system identifies the sacred 0.618 golden ratio entry points in both uptrends and downtrends. Each signal reveals the perfect retracement zone where price respects mathematical precision, offering you high-probability entry positions trusted by professional traders worldwide."
     },
     {
-      image: featurePrice60s,
-      title: "60-Second Price Volatility Scanner",
-      description: "Capture rapid market movements with our high-frequency price difference analyzer. Track price fluctuations over 60-second intervals across multiple stocks simultaneously, perfect for scalping and short-term trading strategies."
+      image: output60s,
+      title: "Speed Trading: 60-Second Price Volatility Radar",
+      description: "Catch lightning-fast profit opportunities with our ultra-high-frequency scanner. Monitor price swings across dozens of stocks every 60 seconds, displayed in a stunning visual format. Green spikes reveal explosive upward moves, red drops signal selling pressure—perfect for scalpers and day traders who thrive on rapid-fire market action."
     },
     {
-      image: featureDashboard,
-      title: "Interactive Stock Price Dashboard",
-      description: "Experience data visualization excellence with our comprehensive stock dashboard. Monitor current open prices, previous close, and real-time price changes with elegant bar chart representations that make complex data instantly understandable."
+      image: outputVolume,
+      title: "Smart Money Detector: Price-Volume Correlation Analysis",
+      description: "See beyond the surface with our revolutionary price-volume correlation chart. Giant green bars signal strong buying with heavy volume, while red bars expose selling pressure. The elegant blue dotted line reveals volume trends, helping you distinguish between genuine breakouts and false moves. Trade with the conviction that comes from understanding true market strength."
     },
     {
-      image: featureBollinger,
-      title: "Bollinger Bands Breakout Detector",
-      description: "Spot volatility breakouts and price surges automatically with Bollinger Bands analysis. Our system continuously monitors price action relative to upper and lower bands, alerting you to potential explosive moves and trend reversals."
+      image: outputDashboard,
+      title: "Data Elegance: Interactive Multi-Stock Dashboard",
+      description: "Transform chaos into clarity with our beautifully designed stock dashboard. Monitor last prices, current opens, and previous closes for multiple stocks simultaneously through sleek horizontal bar charts. Color-coded metrics make instant decision-making effortless—purple for baseline reference, vibrant orange for current levels, and emerald green for real-time prices."
+    },
+    {
+      image: outputBollinger,
+      title: "Volatility Hunter: Bollinger Bands Breakout Alerts",
+      description: "Capture explosive market moves before they happen with our Bollinger Bands scanner. Updated every 10 minutes, this system identifies stocks breaking through upper bands (sell signals) or bouncing off lower bands (buy signals). Each alert provides exact price levels, band values, and timestamps—your early warning system for volatility-driven profits."
+    },
+    {
+      image: outputMl,
+      title: "AI Crystal Ball: Machine Learning Trading Predictions",
+      description: "Step into the future with our cutting-edge quantum machine learning engine. Powered by advanced AI algorithms, this feature analyzes 35+ stocks simultaneously, delivering buy and sell predictions with probability scores and accuracy ratings. Watch as artificial intelligence processes millions of data points to forecast short-term price movements with remarkable precision."
     }
   ];
 
