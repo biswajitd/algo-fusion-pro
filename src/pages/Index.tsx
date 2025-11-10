@@ -4,6 +4,7 @@ import Features from "@/components/Features";
 import PlatformsList from "@/components/PlatformsList";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import { Smartphone, Shield, Zap } from "lucide-react";
 
 const Index = () => {
@@ -81,12 +82,16 @@ const Index = () => {
               Start with a 3-day free trial. Experience the power of AI-driven trading with full features.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="secondary" size="lg" className="font-bold">
-                Download Free Trial
-              </Button>
-              <Button variant="outline" size="lg" className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
-                View Documentation
-              </Button>
+              <Link to="/platforms">
+                <Button variant="secondary" size="lg" className="font-bold">
+                  Download Free Trial
+                </Button>
+              </Link>
+              <Link to="/documentation">
+                <Button variant="outline" size="lg" className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
+                  View Documentation
+                </Button>
+              </Link>
             </div>
             <p className="text-sm text-primary-foreground/70 mt-6">
               No credit card required • Full feature access • 3-day trial period
@@ -124,18 +129,20 @@ const Index = () => {
             <div>
               <h4 className="font-bold mb-4">Resources</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="#" className="hover:text-primary transition-colors">Documentation</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Installation Guide</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Video Tutorials</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">FAQ</a></li>
+                <li><a href="/documentation" className="hover:text-primary transition-colors">Documentation</a></li>
+                <li><a href="/Installation Guide.pdf" className="hover:text-primary transition-colors">Installation Guide</a></li>
+                <li><a href="/software-features" className="hover:text-primary transition-colors">Software Features</a></li>
+                <li><a href="/faq" className="hover:text-primary transition-colors">FAQ</a></li>
               </ul>
             </div>
             
             <div>
               <h4 className="font-bold mb-4">Contact</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>Email: support@softgogy.in</li>
-                <li>Website: www.softgogy.in</li>
+                <li>Email: biswajit@softgogy.com</li>
+                <li>Contact: 9830046647</li>
+                <li>Address: 397 Motilal Colony,</li>
+                <li>Gr. Floor, Kolkata 700081, India</li>
               </ul>
             </div>
           </div>

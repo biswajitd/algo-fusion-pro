@@ -236,10 +236,20 @@ const Pricing = () => {
             All plans include a 3-day free trial. No credit card required.
           </p>
           <p className="text-sm text-muted-foreground">
-            Need a custom solution? <a href="/success-stories" className="text-primary hover:underline">Contact us</a> for enterprise pricing.
+            Need a custom solution? <a href="mailto:biswajit@softgogy.com" className="text-primary hover:underline">Contact us</a> for enterprise pricing.
           </p>
         </div>
       </main>
+
+      <footer className="border-t border-border py-12">
+        <div className="container mx-auto px-4">
+          <div className="text-center text-sm text-muted-foreground space-y-2">
+            <p>Email: biswajit@softgogy.com | Contact: 9830046647</p>
+            <p>Address: 397 Motilal Colony, Gr. Floor, Kolkata 700081, India</p>
+            <p className="mt-4">© 2025 Softgogy. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
