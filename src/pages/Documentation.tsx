@@ -34,10 +34,10 @@ const Documentation = () => {
                 <p className="text-muted-foreground">
                   Download the complete installation guide PDF for detailed setup instructions:
                 </p>
-                <a href="/Installation Guide.pdf" download>
+                <a href="/Installation Guide.pdf" target="_blank" rel="noopener noreferrer">
                   <Button variant="outline" className="w-full">
                     <Download className="mr-2 h-4 w-4" />
-                    Download Installation Guide PDF
+                    Open Installation Guide PDF
                   </Button>
                 </a>
               </CardContent>

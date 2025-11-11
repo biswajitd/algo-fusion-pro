@@ -87,11 +87,11 @@ const Index = () => {
                   Download Free Trial
                 </Button>
               </Link>
-              <Link to="/documentation">
+              <a href="/Help.pdf" target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" size="lg" className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
                   View Documentation
                 </Button>
-              </Link>
+              </a>
             </div>
             <p className="text-sm text-primary-foreground/70 mt-6">
               No credit card required • Full feature access • 3-day trial period

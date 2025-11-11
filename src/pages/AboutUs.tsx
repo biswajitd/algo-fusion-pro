@@ -3,28 +3,36 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Target, Users, TrendingUp, Shield } from "lucide-react";
+import teamB from "@/assets/team-b.png";
+import teamC from "@/assets/team-c.png";
+import teamD from "@/assets/team-d.png";
+import teamE from "@/assets/team-e.png";
 
 const AboutUs = () => {
   const team = [
     {
       name: "B Dutta",
       role: "Chief Executive Officer",
-      description: "Founder and visionary, Dutta is the driving force and main developer behind the trading software. He actively engages in software development, marketing, and enhancing user experience strategies."
+      description: "Founder and visionary, Dutta is the driving force and main developer behind the trading software. He actively engages in software development, marketing, and enhancing user experience strategies.",
+      image: teamB
     },
     {
       name: "D Kumar",
       role: "Chief Operations Officer",
-      description: "Kumar thrives on challenges. With years of experience as a Trading Director in the tech industry, Kumar has been instrumental in our growth. He is one of the brightest minds in trading technology."
+      description: "Kumar thrives on challenges. With years of experience as a Trading Director in the tech industry, Kumar has been instrumental in our growth. He is one of the brightest minds in trading technology.",
+      image: teamC
     },
     {
       name: "S Chakraborty",
       role: "Chief Technology Officer",
-      description: "Chakraborty is a passionate leader who loves her work. Chakraborty mentors over 50 developers and nurtures a community of thousands of traders."
+      description: "Chakraborty is a passionate leader who loves her work. Chakraborty mentors over 50 developers and nurtures a community of thousands of traders.",
+      image: teamD
     },
     {
       name: "G Choudhury",
       role: "Chief Technology Officer",
-      description: "Choudhury, with his extensive market experience, helps us analyze trends and optimize performance. He is committed to driving success and elevating our platform."
+      description: "Choudhury, with his extensive market experience, helps us analyze trends and optimize performance. He is committed to driving success and elevating our platform.",
+      image: teamE
     }
   ];
 
@@ -103,11 +111,11 @@ const AboutUs = () => {
                       Download Trial
                     </Button>
                   </Link>
-                  <Link to="/documentation">
+                  <a href="/Help.pdf" target="_blank" rel="noopener noreferrer">
                     <Button variant="outline" size="lg">
                       View Documentation
                     </Button>
-                  </Link>
+                  </a>
                 </div>
               </div>
             </Card>
@@ -132,10 +140,19 @@ const AboutUs = () => {
               {team.map((member, index) => (
                 <Card key={index} className="hover:shadow-lg transition-shadow">
                   <CardHeader>
-                    <CardTitle className="text-2xl">{member.name}</CardTitle>
-                    <CardDescription className="text-lg font-semibold text-primary">
-                      {member.role}
-                    </CardDescription>
+                    <div className="flex items-center gap-4">
+                      <img 
+                        src={member.image} 
+                        alt={member.name}
+                        className="w-16 h-16 rounded-full object-cover border-2 border-primary/20"
+                      />
+                      <div>
+                        <CardTitle className="text-2xl">{member.name}</CardTitle>
+                        <CardDescription className="text-lg font-semibold text-primary">
+                          {member.role}
+                        </CardDescription>
+                      </div>
+                    </div>
                   </CardHeader>
                   <CardContent>
                     <p className="text-muted-foreground leading-relaxed">
