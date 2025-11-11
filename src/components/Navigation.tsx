@@ -18,6 +18,7 @@ const Navigation = () => {
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "About Us", path: "/about-us" },
+    { name: "Software Features", path: "/software-features" },
     { name: "Success Stories", path: "/success-stories" },
     { name: "Pricing", path: "/pricing" },
     { name: "FAQ", path: "/faq" },
