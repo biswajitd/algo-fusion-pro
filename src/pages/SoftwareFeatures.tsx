@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import Navigation from "@/components/Navigation";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -15,6 +16,32 @@ import outputBollinger from "@/assets/output-bollinger.png";
 import outputMl from "@/assets/output-ml.png";
 
 const SoftwareFeatures = () => {
+  const [visibleCards, setVisibleCards] = useState<Set<number>>(new Set());
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = Number(entry.target.getAttribute('data-index'));
+            setVisibleCards(prev => new Set([...prev, index]));
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '50px'
+      }
+    );
+
+    cardRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   const features = [
     {
       image: outputMenu,
@@ -89,18 +116,50 @@ const SoftwareFeatures = () => {
 
             <div className="space-y-8">
               {features.map((feature, index) => (
-                <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow">
+                <Card 
+                  key={index} 
+                  ref={(el) => (cardRefs.current[index] = el)}
+                  data-index={index}
+                  className={`overflow-hidden hover:shadow-lg transition-all duration-500 ${
+                    visibleCards.has(index) 
+                      ? 'opacity-100 translate-y-0' 
+                      : 'opacity-0 translate-y-10'
+                  }`}
+                  style={{
+                    transitionDelay: `${(index % 3) * 100}ms`
+                  }}
+                >
                   <div className="grid md:grid-cols-2 gap-6">
-                    <div className="relative aspect-video md:aspect-auto">
+                    <div className="relative aspect-video md:aspect-auto overflow-hidden">
                       <img 
                         src={feature.image} 
                         alt={feature.title}
-                        className="w-full h-full object-cover"
+                        className={`w-full h-full object-cover transition-transform duration-700 ${
+                          visibleCards.has(index) ? 'scale-100' : 'scale-110'
+                        }`}
                       />
                     </div>
                     <CardHeader className="flex flex-col justify-center">
-                      <CardTitle className="text-2xl mb-3">{feature.title}</CardTitle>
-                      <CardDescription className="text-base leading-relaxed">
+                      <CardTitle className={`text-2xl mb-3 transition-all duration-500 ${
+                        visibleCards.has(index) 
+                          ? 'opacity-100 translate-x-0' 
+                          : 'opacity-0 -translate-x-4'
+                      }`}
+                      style={{
+                        transitionDelay: `${(index % 3) * 100 + 100}ms`
+                      }}
+                      >
+                        {feature.title}
+                      </CardTitle>
+                      <CardDescription className={`text-base leading-relaxed transition-all duration-500 ${
+                        visibleCards.has(index) 
+                          ? 'opacity-100 translate-x-0' 
+                          : 'opacity-0 -translate-x-4'
+                      }`}
+                      style={{
+                        transitionDelay: `${(index % 3) * 100 + 200}ms`
+                      }}
+                      >
                         {feature.description}
                       </CardDescription>
                     </CardHeader>
