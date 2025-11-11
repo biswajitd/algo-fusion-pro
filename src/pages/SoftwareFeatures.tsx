@@ -2,8 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import Navigation from "@/components/Navigation";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Link } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ZoomIn, ZoomOut, X } from "lucide-react";
 import outputMenu from "@/assets/output-menu.png";
 import outputMacd from "@/assets/output-macd.png";
 import outputPriceDiff from "@/assets/output-price-diff.png";
@@ -17,6 +18,8 @@ import outputMl from "@/assets/output-ml.png";
 
 const SoftwareFeatures = () => {
   const [visibleCards, setVisibleCards] = useState<Set<number>>(new Set());
+  const [selectedImage, setSelectedImage] = useState<{ src: string; title: string } | null>(null);
+  const [zoomLevel, setZoomLevel] = useState(1);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
@@ -41,6 +44,24 @@ const SoftwareFeatures = () => {
 
     return () => observer.disconnect();
   }, []);
+
+  const handleImageClick = (image: string, title: string) => {
+    setSelectedImage({ src: image, title });
+    setZoomLevel(1);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedImage(null);
+    setZoomLevel(1);
+  };
+
+  const handleZoomIn = () => {
+    setZoomLevel(prev => Math.min(prev + 0.25, 3));
+  };
+
+  const handleZoomOut = () => {
+    setZoomLevel(prev => Math.max(prev - 0.25, 0.5));
+  };
 
   const features = [
     {
@@ -130,14 +151,20 @@ const SoftwareFeatures = () => {
                   }}
                 >
                   <div className="grid md:grid-cols-2 gap-6">
-                    <div className="relative aspect-video md:aspect-auto overflow-hidden">
+                    <div 
+                      className="relative aspect-video md:aspect-auto overflow-hidden cursor-pointer group"
+                      onClick={() => handleImageClick(feature.image, feature.title)}
+                    >
                       <img 
                         src={feature.image} 
                         alt={feature.title}
-                        className={`w-full h-full object-cover transition-transform duration-700 ${
+                        className={`w-full h-full object-cover transition-all duration-700 group-hover:scale-105 ${
                           visibleCards.has(index) ? 'scale-100' : 'scale-110'
                         }`}
                       />
+                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <ZoomIn className="w-12 h-12 text-white" />
+                      </div>
                     </div>
                     <CardHeader className="flex flex-col justify-center">
                       <CardTitle className={`text-2xl mb-3 transition-all duration-500 ${
@@ -179,6 +206,58 @@ const SoftwareFeatures = () => {
           </div>
         </div>
       </main>
+
+      <Dialog open={!!selectedImage} onOpenChange={handleCloseModal}>
+        <DialogContent className="max-w-7xl w-[95vw] h-[95vh] p-0">
+          <div className="relative w-full h-full bg-black/95 flex flex-col">
+            <div className="absolute top-4 right-4 z-50 flex gap-2">
+              <Button
+                variant="secondary"
+                size="icon"
+                onClick={handleZoomOut}
+                disabled={zoomLevel <= 0.5}
+                className="bg-white/10 hover:bg-white/20 text-white border-white/20"
+              >
+                <ZoomOut className="h-4 w-4" />
+              </Button>
+              <Button
+                variant="secondary"
+                size="icon"
+                onClick={handleZoomIn}
+                disabled={zoomLevel >= 3}
+                className="bg-white/10 hover:bg-white/20 text-white border-white/20"
+              >
+                <ZoomIn className="h-4 w-4" />
+              </Button>
+              <Button
+                variant="secondary"
+                size="icon"
+                onClick={handleCloseModal}
+                className="bg-white/10 hover:bg-white/20 text-white border-white/20"
+              >
+                <X className="h-4 w-4" />
+              </Button>
+            </div>
+            
+            <div className="flex-1 overflow-auto flex items-center justify-center p-8">
+              {selectedImage && (
+                <img
+                  src={selectedImage.src}
+                  alt={selectedImage.title}
+                  className="max-w-full max-h-full object-contain transition-transform duration-300"
+                  style={{ transform: `scale(${zoomLevel})` }}
+                />
+              )}
+            </div>
+            
+            {selectedImage && (
+              <div className="bg-black/80 text-white p-4 text-center">
+                <p className="text-sm md:text-base font-medium">{selectedImage.title}</p>
+              </div>
+            )}
+          </div>
+        </DialogContent>
+      </Dialog>
 
       <footer className="border-t border-border py-12">
         <div className="container mx-auto px-4">
