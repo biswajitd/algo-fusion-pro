@@ -235,9 +235,6 @@ const Pricing = () => {
           <p className="text-muted-foreground mb-4">
             All plans include a 3-day free trial. No credit card required.
           </p>
-          <p className="text-sm text-muted-foreground">
-            Need a custom solution? <a href="mailto:biswajit@softgogy.com" className="text-primary hover:underline">Contact us</a> for enterprise pricing.
-          </p>
         </div>
       </main>
 

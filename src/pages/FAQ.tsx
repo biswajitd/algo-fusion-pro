@@ -18,7 +18,7 @@ const FAQ = () => {
         },
         {
           question: "Can I use multiple trading platforms simultaneously?",
-          answer: "Yes! Our Professional and Enterprise plans allow you to connect multiple trading platforms. The Professional plan supports up to 3 platforms, while the Enterprise plan offers unlimited platform integrations."
+          answer: "No! You have to subscribe separately for using in multiple platforms."
         },
         {
           question: "What is the difference between the various platform APIs?",
@@ -46,8 +46,8 @@ const FAQ = () => {
           answer: "Our system includes automatic reconnection mechanisms and real-time monitoring. You'll receive instant notifications if any connectivity issues occur, ensuring you're always aware of your connection status."
         },
         {
-          question: "Can I customize the API settings?",
-          answer: "Yes, our Enterprise plan includes custom API integration options. You can configure rate limits, timeout settings, and implement custom trading logic based on your specific requirements."
+          question: "How do the real-time buy and sell signals work?",
+          answer: "Our advanced trading system generates intelligent buy and sell signals in real-time using a sophisticated combination of technical analysis indicators, machine learning algorithms, and artificial intelligence. The system continuously monitors market data across multiple timeframes and analyzes patterns using tools like Moving Averages (SMA/EMA), MACD, RSI, Bollinger Bands, Fibonacci retracements, ADX, Stochastic Oscillator, and Volume analysis. Our proprietary ML models are trained on historical market data to identify high-probability trading opportunities, while AI algorithms adapt to changing market conditions to filter out false signals. These signals appear instantly on your dashboard with clear entry and exit points, stop-loss recommendations, and confidence scores, helping you make informed trading decisions for both Stocks and Futures & Options segments."
         }
       ]
     },
@@ -64,7 +64,7 @@ const FAQ = () => {
         },
         {
           question: "What payment methods do you accept?",
-          answer: "We accept all major credit cards, debit cards, UPI, net banking, and digital wallets. All payments are processed securely through our payment gateway."
+          answer: "We are presently not accepting major credit cards, debit cards, net banking. We only accept 'UPI' payment as mentioned in the 'Pricing' page. All payments are processed securely through UPI."
         },
         {
           question: "Is there a refund policy?",
@@ -124,7 +124,7 @@ const FAQ = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       <main className="container mx-auto px-4 py-12">
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 pt-[2cm]">
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
             Frequently Asked Questions
           </h1>
