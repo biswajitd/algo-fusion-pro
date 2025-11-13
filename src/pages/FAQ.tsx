@@ -26,7 +26,7 @@ const FAQ = () => {
         },
 		{
           question: "Which strategy among the 23 options in the software offers the potential for consistent profit with minimal risk?",
-          answer: "Yes, among the 23 active strategies available in the software, Option 5: “Short Straddle or Sell CE/PE, Then Buy on Target Achieved” has shown strong potential for generating sustained profits with relatively low downside risk.
+          answer: "Yes, among the 23 active strategies available in the software, Option 5: 'Short Straddle or Sell CE/PE, Then Buy on Target Achieved' has shown strong potential for generating sustained profits with relatively low downside risk.
 By executing the strategy, users can typically earn a minimum of ₹2000 per day using a capital base of approximately ₹5 lakhs. The approach involves selling both Call (CE) and Put (PE) options at any strike price, provided the premium difference between the two legs does not exceed ₹30. This setup allows traders to benefit from time decay and range-bound price movement, while maintaining a controlled risk profile."
         },
         {
