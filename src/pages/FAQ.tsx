@@ -24,6 +24,11 @@ const FAQ = () => {
           question: "What is the difference between the various platform APIs?",
           answer: "Each platform offers different API capabilities. Zerodha provides the most comprehensive API with full market segment support. Groww requires a paid subscription for API access. Angel One, Upstox, and 5Paisa offer robust APIs with varying features. Check individual platform pages for detailed comparisons."
         },
+	{
+          question: "Which strategy among the 23 options in the software offers the potential for consistent profit with minimal risk?",
+          answer: "Yes, among the 23 active strategies available in the software, Option 5: “Short Straddle or Sell CE/PE, Then Buy on Target Achieved” has shown strong potential for generating sustained profits with relatively low downside risk.
+By executing this strategy, users can typically earn a minimum of ₹2000 per day using a capital base of approximately ₹5 lakhs. The approach involves selling both Call (CE) and Put (PE) options at any strike price, provided the premium difference between the two legs does not exceed ₹30. This setup allows traders to benefit from time decay and range-bound price movement, while maintaining a controlled risk profile."
+        },
         {
           question: "Do I need separate accounts for each trading platform?",
           answer: "Yes, you need to have an active trading account with each platform you wish to integrate. Our software connects to your existing accounts through secure API authentication."
@@ -72,7 +77,7 @@ const FAQ = () => {
         },
         {
           question: "Do you offer discounts for annual subscriptions?",
-          answer: "Yes! Annual subscriptions receive a 15% discount compared to monthly billing. Enterprise customers can also discuss custom pricing based on their specific needs."
+          answer: "Yes! Annual subscriptions receive a 15% discount compared to monthly billing."
         }
       ]
     },
@@ -81,19 +86,19 @@ const FAQ = () => {
       questions: [
         {
           question: "What kind of support do you provide?",
-          answer: "Basic plan includes email support with 24-hour response time. Professional plan adds live chat support. Enterprise plan provides 24/7 priority support with dedicated account management and phone support."
+          answer: "Basic plan includes email support with 24-hour response time. Enterprise plan provides 24/7 priority support with dedicated account management and phone support."
         },
         {
           question: "Do you provide training or onboarding?",
-          answer: "Yes! All plans include access to our comprehensive documentation and video tutorials. Enterprise customers receive personalized onboarding sessions and training for their team."
+          answer: "Yes! All plans include access to our comprehensive documentation training."
         },
         {
           question: "What are the system requirements?",
-          answer: "Our software is cloud-based and accessible through any modern web browser. For optimal performance, we recommend Chrome, Firefox, or Edge. A stable internet connection with at least 2 Mbps speed is recommended."
+          answer: "Our software is accessible through any modern web browser. For optimal performance, we recommend Chrome. A stable internet connection with at least 2 Mbps speed is recommended."
         },
         {
           question: "Can I use the software on mobile devices?",
-          answer: "Yes, our platform is fully responsive and works on mobile browsers. We also offer dedicated mobile apps for iOS and Android with all essential trading features."
+          answer: "Yes, our platform is fully responsive and works on mobile using a compatible Windows emulator or via secure remote desktop access."
         }
       ]
     },
@@ -102,15 +107,11 @@ const FAQ = () => {
       questions: [
         {
           question: "What trading automation features are available?",
-          answer: "Our platform offers automated order execution, stop-loss management, bracket orders, and custom trading strategies. Advanced features include algorithmic trading capabilities available in Professional and Enterprise plans."
-        },
-        {
-          question: "Can I backtest my trading strategies?",
-          answer: "Yes, Professional and Enterprise plans include backtesting tools that allow you to test your strategies against historical data before deploying them in live markets."
+          answer: "Our platform offers automated order execution, stop-loss management, custom trading strategies. Advanced features include real-time based predictions for buy and sell, momemtum analysis etc."
         },
         {
           question: "Do you provide market analytics and reports?",
-          answer: "All plans include basic market data and trade reports. Professional and Enterprise plans offer advanced analytics, performance metrics, and customizable reporting features."
+          answer: "All plans include basic market data and trade reports."
         },
         {
           question: "Is there a limit on the number of trades I can execute?",
