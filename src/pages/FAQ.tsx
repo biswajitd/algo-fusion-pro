@@ -18,16 +18,16 @@ const FAQ = () => {
         },
         {
           question: "Can I use multiple trading platforms simultaneously?",
-          answer: "No! You have to subscribe separately for using in multiple platforms."
+          answer: "No! You have to subscribe separately for multiple platforms."
         },
         {
           question: "What is the difference between the various platform APIs?",
           answer: "Each platform offers different API capabilities. Zerodha provides the most comprehensive API with full market segment support. Groww requires a paid subscription for API access. Angel One, Upstox, and 5Paisa offer robust APIs with varying features. Check individual platform pages for detailed comparisons."
         },
-	{
+		{
           question: "Which strategy among the 23 options in the software offers the potential for consistent profit with minimal risk?",
           answer: "Yes, among the 23 active strategies available in the software, Option 5: “Short Straddle or Sell CE/PE, Then Buy on Target Achieved” has shown strong potential for generating sustained profits with relatively low downside risk.
-By executing this strategy, users can typically earn a minimum of ₹2000 per day using a capital base of approximately ₹5 lakhs. The approach involves selling both Call (CE) and Put (PE) options at any strike price, provided the premium difference between the two legs does not exceed ₹30. This setup allows traders to benefit from time decay and range-bound price movement, while maintaining a controlled risk profile."
+By executing the strategy, users can typically earn a minimum of ₹2000 per day using a capital base of approximately ₹5 lakhs. The approach involves selling both Call (CE) and Put (PE) options at any strike price, provided the premium difference between the two legs does not exceed ₹30. This setup allows traders to benefit from time decay and range-bound price movement, while maintaining a controlled risk profile."
         },
         {
           question: "Do I need separate accounts for each trading platform?",
@@ -69,7 +69,7 @@ By executing this strategy, users can typically earn a minimum of ₹2000 per da
         },
         {
           question: "What payment methods do you accept?",
-          answer: "We are presently not accepting major credit cards, debit cards, net banking. We only accept 'UPI' payment as mentioned in the 'Pricing' page. All payments are processed securely through UPI."
+          answer: "We are presently not accepting major credit cards, debit cards, Netbanking. We only accept 'UPI' payment as mentioned in the 'Pricing' page. All payments are processed securely through UPI."
         },
         {
           question: "Is there a refund policy?",
@@ -107,7 +107,7 @@ By executing this strategy, users can typically earn a minimum of ₹2000 per da
       questions: [
         {
           question: "What trading automation features are available?",
-          answer: "Our platform offers automated order execution, stop-loss management, custom trading strategies. Advanced features include real-time based predictions for buy and sell, momemtum analysis etc."
+          answer: "Our platform offers automated order execution, stop-loss management, useful trading strategies. Advanced features include real-time based predictions for buy and sell, momemtum analysis etc."
         },
         {
           question: "Do you provide market analytics and reports?",
