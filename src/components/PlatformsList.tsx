@@ -89,16 +89,38 @@ const PlatformsList = () => {
     <section id="platforms" className="py-20 relative">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Choose Your{" "}
-            <span className="bg-gradient-primary bg-clip-text text-transparent">
-              Trading Platform
-            </span>
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Optimized versions for all major Indian trading platforms with seamless integration
-          </p>
-        </div>
+  <h2 className="text-4xl md:text-5xl font-bold mb-4">
+    Choose Your{" "}
+    <span className="bg-gradient-primary bg-clip-text text-transparent">
+      Trading Platform
+    </span>
+  </h2>
+
+  <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+    Optimized versions for all major Indian trading platforms with seamless integration
+  </p>
+
+  <div className="mt-6">
+    <a
+      href="https://www.youtube.com/watch?v=gbHlmatnFc4"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <button
+        className="
+          bg-gradient-to-r from-blue-600 to-teal-400
+          text-white font-semibold text-lg
+          px-8 py-4 rounded-xl shadow-xl
+          hover:scale-105 hover:shadow-2xl
+          transition-all duration-300
+        "
+      >
+        🎥 Watch Video Tutorial
+      </button>
+    </a>
+  </div>
+</div>
+
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {platforms.map((platform, index) => (
