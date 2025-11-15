@@ -1,5 +1,3 @@
-const [selectedPlan, setSelectedPlan] = useState("");
-
 "use client";
 
 import Navigation from "@/components/Navigation";
@@ -13,7 +11,13 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import {
   Dialog,
   DialogContent,
@@ -27,13 +31,13 @@ import qrBasic from "@/assets/qr-basic.png";
 import qrProfessional from "@/assets/qr-professional.png";
 import qrEnterprise from "@/assets/qr-enterprise.png";
 
-// ⭐ Added imports
 import { useState } from "react";
 import UserDetailsForm from "@/components/UserDetailsForm";
 
 const Pricing = () => {
   const [openForm, setOpenForm] = useState(false);
   const [selectedAmount, setSelectedAmount] = useState(0);
+  const [selectedPlan, setSelectedPlan] = useState(""); // ⭐ CORRECTLY ADDED
 
   const plans = [
     {
@@ -43,13 +47,13 @@ const Pricing = () => {
       amountNumber: 3000,
       description: "Perfect for individual traders getting started",
       features: [
-        { name: "No 2FA, Easy API Integration", included: true },
-        { name: "Real-Time Market Data & Charts", included: true },
-        { name: "Advanced Trading Automation", included: true },
-        { name: "Commodity Trading Support for Zerodha", included: true },
-        { name: "ML/AI Tools for Buy/Sell Signals with Technicals", included: true },
-        { name: "Advanced Analytics & Prediction Reports", included: true },
-        { name: "Email & Phone call Support", included: true },
+        { name: "No 2FA, Easy API Integration" },
+        { name: "Real-Time Market Data & Charts" },
+        { name: "Advanced Trading Automation" },
+        { name: "Commodity Trading Support for Zerodha" },
+        { name: "ML/AI Tools for Buy/Sell Signals with Technicals" },
+        { name: "Advanced Analytics & Prediction Reports" },
+        { name: "Email & Phone call Support" },
       ],
       cta: "Subscription",
       popular: false,
@@ -62,13 +66,13 @@ const Pricing = () => {
       amountNumber: 5000,
       description: "Ideal for active traders with multiple accounts",
       features: [
-        { name: "No 2FA, Easy API Integration", included: true },
-        { name: "Real-Time Market Data & Charts", included: true },
-        { name: "Advanced Trading Automation", included: true },
-        { name: "Commodity Trading Support for Zerodha", included: true },
-        { name: "ML/AI Tools for Buy/Sell Signals with Technicals", included: true },
-        { name: "Advanced Analytics & Prediction Reports", included: true },
-        { name: "Email & Phone call Support", included: true },
+        { name: "No 2FA, Easy API Integration" },
+        { name: "Real-Time Market Data & Charts" },
+        { name: "Advanced Trading Automation" },
+        { name: "Commodity Trading Support for Zerodha" },
+        { name: "ML/AI Tools for Buy/Sell Signals with Technicals" },
+        { name: "Advanced Analytics & Prediction Reports" },
+        { name: "Email & Phone call Support" },
       ],
       cta: "Subscription",
       popular: true,
@@ -81,13 +85,13 @@ const Pricing = () => {
       amountNumber: 6500,
       description: "Comprehensive solution for professional traders",
       features: [
-        { name: "No 2FA, Easy API Integration", included: true },
-        { name: "Real-Time Market Data & Charts", included: true },
-        { name: "Advanced Trading Automation", included: true },
-        { name: "Commodity Trading Support for Zerodha", included: true },
-        { name: "ML/AI Tools for Buy/Sell Signals with Technicals", included: true },
-        { name: "Advanced Analytics & Prediction Reports", included: true },
-        { name: "Email & Phone call Support", included: true },
+        { name: "No 2FA, Easy API Integration" },
+        { name: "Real-Time Market Data & Charts" },
+        { name: "Advanced Trading Automation" },
+        { name: "Commodity Trading Support for Zerodha" },
+        { name: "ML/AI Tools for Buy/Sell Signals with Technicals" },
+        { name: "Advanced Analytics & Prediction Reports" },
+        { name: "Email & Phone call Support" },
       ],
       cta: "Subscription",
       popular: false,
@@ -95,12 +99,19 @@ const Pricing = () => {
     },
   ];
 
+  const openDetailsForm = (plan) => {
+    setSelectedAmount(plan.amountNumber);
+    setSelectedPlan(plan.name); // ⭐ PLAN NAME SENT
+    setOpenForm(true);
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
+
       <main className="container mx-auto px-4 py-12">
         <div className="text-center mb-16 pt-24">
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Choose Your Perfect Plan
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -108,7 +119,7 @@ const Pricing = () => {
           </p>
         </div>
 
-        {/* Mobile Pricing Cards */}
+        {/* ====================== MOBILE CARDS ========================= */}
         <div className="grid md:grid-cols-3 gap-6 mb-12 lg:hidden">
           {plans.map((plan) => (
             <Card key={plan.name} className={plan.popular ? "border-primary shadow-lg" : ""}>
@@ -117,24 +128,25 @@ const Pricing = () => {
                   Most Popular
                 </div>
               )}
+
               <CardHeader>
                 <CardTitle className="text-2xl">{plan.name}</CardTitle>
                 <CardDescription>{plan.description}</CardDescription>
                 <div className="mt-4">
-                  <span className="text-4xl font-bold text-foreground">{plan.price}</span>
+                  <span className="text-4xl font-bold">{plan.price}</span>
                   <span className="text-muted-foreground"> {plan.period}</span>
                 </div>
               </CardHeader>
 
               <CardContent>
+                {/* QR POPUP */}
                 <Dialog>
                   <DialogTrigger asChild>
-                    <Button className="w-full mb-6" variant={plan.popular ? "default" : "outline"}>
+                    <Button className="w-full mb-6">
                       {plan.cta}
                     </Button>
                   </DialogTrigger>
 
-                  {/* QR Popup */}
                   <DialogContent className="max-w-md">
                     <DialogHeader>
                       <DialogTitle>{plan.name}</DialogTitle>
@@ -147,49 +159,45 @@ const Pricing = () => {
                       <div className="flex justify-center">
                         <img
                           src={plan.qrCode}
-                          alt={`${plan.name} GPay QR Code`}
+                          alt={`${plan.name} QR`}
                           className="w-48 h-48 object-contain"
                         />
                       </div>
 
-                      <div className="text-center">
-                        <p className="font-semibold mb-2">GPay Scan</p>
-                      </div>
+                      <div className="text-center font-semibold">GPay Scan</div>
 
                       <div className="bg-muted p-4 rounded-lg text-sm space-y-2">
                         <p className="font-medium">After payment:</p>
-                        <p>Please send email with the screenshot of Payment and your mobile no.</p>
+                        <p>Email screenshot & your mobile no.</p>
                         <p className="text-primary font-medium">
-                          Our team will connect you within 24 hours and install the software remotely or physically visit your site.
+                          We will connect within 24 hours.
                         </p>
                       </div>
                     </div>
 
-                    {/* NEW BUTTON */}
+                    {/* BUTTON → OPEN DETAILS FORM */}
                     <Button
                       className="w-full mt-4"
-                      onClick={() => {
-                        setSelectedAmount(plan.amountNumber);
-                        setOpenForm(true);
-                      }}
+                      onClick={() => openDetailsForm(plan)}
                     >
                       I Have Completed Payment → Continue
                     </Button>
                   </DialogContent>
                 </Dialog>
 
-                {/* NEW: FORM POPUP */}
+                {/* USER DETAILS FORM */}
                 <UserDetailsForm
                   open={openForm}
                   onClose={() => setOpenForm(false)}
                   amount={selectedAmount}
+                  planName={selectedPlan} // ⭐ PASSING PLAN NAME
                 />
 
-                <ul className="space-y-3">
-                  {plan.features.map((feature, index) => (
-                    <li key={index} className="flex items-start gap-2">
-                      <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-foreground">{feature.name}</span>
+                <ul className="space-y-3 mt-4">
+                  {plan.features.map((f, i) => (
+                    <li key={i} className="flex gap-2">
+                      <Check className="h-5 w-5 text-primary" />
+                      <span>{f.name}</span>
                     </li>
                   ))}
                 </ul>
@@ -198,34 +206,33 @@ const Pricing = () => {
           ))}
         </div>
 
-        {/* Desktop Table Pricing */}
+        {/* ====================== DESKTOP TABLE ========================= */}
         <div className="hidden lg:block">
           <Card>
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead className="w-[300px] text-lg font-semibold">Features</TableHead>
+                  <TableHead className="w-64 text-lg font-semibold">Features</TableHead>
+
                   {plans.map((plan) => (
                     <TableHead key={plan.name} className="text-center">
                       <div className="py-4">
                         {plan.popular && (
-                          <div className="bg-primary text-primary-foreground text-xs font-semibold py-1 px-3 rounded-full inline-block mb-2">
+                          <div className="bg-primary text-primary-foreground text-xs font-semibold py-1 px-3 rounded-full mb-2">
                             Most Popular
                           </div>
                         )}
-                        <div className="text-xl font-bold text-foreground">{plan.name}</div>
-                        <div className="text-sm text-muted-foreground mt-2 mb-4">{plan.description}</div>
-                        <div className="text-3xl font-bold text-foreground mb-1">{plan.price}</div>
+
+                        <div className="text-xl font-bold">{plan.name}</div>
+                        <div className="text-sm text-muted-foreground">{plan.description}</div>
+                        <div className="text-3xl font-bold mt-3">{plan.price}</div>
                         <div className="text-sm text-muted-foreground mb-4">{plan.period}</div>
 
                         <Dialog>
                           <DialogTrigger asChild>
-                            <Button className="w-full" variant={plan.popular ? "default" : "outline"}>
-                              {plan.cta}
-                            </Button>
+                            <Button className="w-full">{plan.cta}</Button>
                           </DialogTrigger>
 
-                          {/* QR POPUP */}
                           <DialogContent className="max-w-md">
                             <DialogHeader>
                               <DialogTitle>{plan.name}</DialogTitle>
@@ -238,44 +245,37 @@ const Pricing = () => {
                               <div className="flex justify-center">
                                 <img
                                   src={plan.qrCode}
-                                  alt={`${plan.name} GPay QR Code`}
                                   className="w-48 h-48 object-contain"
                                 />
                               </div>
 
-                              <div className="text-center">
-                                <p className="font-semibold mb-2">GPay Scan</p>
-                              </div>
+                              <div className="text-center font-semibold">GPay Scan</div>
 
                               <div className="bg-muted p-4 rounded-lg text-sm space-y-2">
                                 <p className="font-medium">After payment:</p>
-                                <p>Please send email with the screenshot of Payment and your mobile no.</p>
+                                <p>Email screenshot & mobile no.</p>
                                 <p className="text-primary font-medium">
-                                  Our team will connect you within 24 hours and install the software.
+                                  We will assist within 24 hours.
                                 </p>
                               </div>
                             </div>
 
-                            {/* NEW BUTTON */}
-                           <Button
+                            {/* DESKTOP BUTTON */}
+                            <Button
                               className="w-full mt-4"
-                              onClick={() => {
-                              setSelectedAmount(plan.amountNumber);
-                              setSelectedPlan(plan.name);     // ⭐ ADD THIS
-                              setOpenForm(true);
-                              }}
+                              onClick={() => openDetailsForm(plan)}
                             >
                               I Have Completed Payment → Continue
                             </Button>
-
                           </DialogContent>
                         </Dialog>
 
-                        {/* NEW F0RM */}
+                        {/* FORM */}
                         <UserDetailsForm
                           open={openForm}
                           onClose={() => setOpenForm(false)}
                           amount={selectedAmount}
+                          planName={selectedPlan}
                         />
                       </div>
                     </TableHead>
@@ -284,11 +284,12 @@ const Pricing = () => {
               </TableHeader>
 
               <TableBody>
-                {plans[0].features.map((feature, featureIndex) => (
-                  <TableRow key={featureIndex}>
+                {plans[0].features.map((feature, idx) => (
+                  <TableRow key={idx}>
                     <TableCell className="font-medium">{feature.name}</TableCell>
-                    {plans.map((plan) => (
-                      <TableCell key={plan.name} className="text-center">
+
+                    {plans.map((p) => (
+                      <TableCell key={p.name} className="text-center">
                         <Check className="h-6 w-6 text-primary mx-auto" />
                       </TableCell>
                     ))}
@@ -299,20 +300,16 @@ const Pricing = () => {
           </Card>
         </div>
 
-        <div className="mt-12 text-center">
-          <p className="text-muted-foreground mb-4">
-            All plans include a 3-day free trial. No credit card required.
-          </p>
+        <div className="mt-12 text-center text-muted-foreground">
+          All plans include a 3-day free trial. No credit card required.
         </div>
       </main>
 
-      <footer className="border-t border-border py-12">
-        <div className="container mx-auto px-4">
-          <div className="text-center text-sm text-muted-foreground space-y-2">
-            <p>Email: biswajit@softgogy.com | Contact: 9830046647</p>
-            <p>Address: 397 Motilal Colony, Gr. Floor, Kolkata 700081, India</p>
-            <p className="mt-4">© 2025 Softgogy. All rights reserved.</p>
-          </div>
+      <footer className="border-t py-12">
+        <div className="text-center text-sm text-muted-foreground space-y-2">
+          <p>Email: biswajit@softgogy.com | Contact: 9830046647</p>
+          <p>397 Motilal Colony, Gr. Floor, Kolkata 700081, India</p>
+          <p className="mt-4">© 2025 Softgogy. All rights reserved.</p>
         </div>
       </footer>
     </div>
