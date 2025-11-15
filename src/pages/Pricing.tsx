@@ -1,3 +1,5 @@
+"use client";
+
 import Navigation from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
@@ -18,23 +20,29 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+
 import qrBasic from "@/assets/qr-basic.png";
 import qrProfessional from "@/assets/qr-professional.png";
 import qrEnterprise from "@/assets/qr-enterprise.png";
-// ⭐⭐⭐ ADD THESE TWO LINES BELOW ⭐⭐⭐
+
+// ⭐ Added imports
 import { useState } from "react";
 import UserDetailsForm from "@/components/UserDetailsForm";
 
 const Pricing = () => {
+  const [openForm, setOpenForm] = useState(false);
+  const [selectedAmount, setSelectedAmount] = useState(0);
+
   const plans = [
     {
       name: "Basic",
       price: "₹3,000",
       period: "per month",
+      amountNumber: 3000,
       description: "Perfect for individual traders getting started",
       features: [
         { name: "No 2FA, Easy API Integration", included: true },
-        { name: "Real‑Time Market Data & Charts", included: true },
+        { name: "Real-Time Market Data & Charts", included: true },
         { name: "Advanced Trading Automation", included: true },
         { name: "Commodity Trading Support for Zerodha", included: true },
         { name: "ML/AI Tools for Buy/Sell Signals with Technicals", included: true },
@@ -49,10 +57,11 @@ const Pricing = () => {
       name: "Professional",
       price: "₹5,000",
       period: "for every three months",
+      amountNumber: 5000,
       description: "Ideal for active traders with multiple accounts",
       features: [
         { name: "No 2FA, Easy API Integration", included: true },
-        { name: "Real‑Time Market Data & Charts", included: true },
+        { name: "Real-Time Market Data & Charts", included: true },
         { name: "Advanced Trading Automation", included: true },
         { name: "Commodity Trading Support for Zerodha", included: true },
         { name: "ML/AI Tools for Buy/Sell Signals with Technicals", included: true },
@@ -67,10 +76,11 @@ const Pricing = () => {
       name: "Enterprise",
       price: "₹6,500",
       period: "for every six months",
+      amountNumber: 6500,
       description: "Comprehensive solution for professional traders",
       features: [
         { name: "No 2FA, Easy API Integration", included: true },
-        { name: "Real‑Time Market Data & Charts", included: true },
+        { name: "Real-Time Market Data & Charts", included: true },
         { name: "Advanced Trading Automation", included: true },
         { name: "Commodity Trading Support for Zerodha", included: true },
         { name: "ML/AI Tools for Buy/Sell Signals with Technicals", included: true },
@@ -96,7 +106,7 @@ const Pricing = () => {
           </p>
         </div>
 
-        {/* Card-based pricing display for mobile/tablet */}
+        {/* Mobile Pricing Cards */}
         <div className="grid md:grid-cols-3 gap-6 mb-12 lg:hidden">
           {plans.map((plan) => (
             <Card key={plan.name} className={plan.popular ? "border-primary shadow-lg" : ""}>
@@ -113,6 +123,7 @@ const Pricing = () => {
                   <span className="text-muted-foreground"> {plan.period}</span>
                 </div>
               </CardHeader>
+
               <CardContent>
                 <Dialog>
                   <DialogTrigger asChild>
@@ -120,6 +131,8 @@ const Pricing = () => {
                       {plan.cta}
                     </Button>
                   </DialogTrigger>
+
+                  {/* QR Popup */}
                   <DialogContent className="max-w-md">
                     <DialogHeader>
                       <DialogTitle>{plan.name}</DialogTitle>
@@ -127,33 +140,54 @@ const Pricing = () => {
                         {plan.price} {plan.period}
                       </DialogDescription>
                     </DialogHeader>
+
                     <div className="space-y-4 py-4">
                       <div className="flex justify-center">
-                        <img 
-                          src={plan.qrCode} 
+                        <img
+                          src={plan.qrCode}
                           alt={`${plan.name} GPay QR Code`}
                           className="w-48 h-48 object-contain"
                         />
                       </div>
+
                       <div className="text-center">
                         <p className="font-semibold mb-2">GPay Scan</p>
                       </div>
+
                       <div className="bg-muted p-4 rounded-lg text-sm space-y-2">
                         <p className="font-medium">After payment:</p>
                         <p>Please send email with the screenshot of Payment and your mobile no.</p>
-                        <p className="text-primary font-medium">Our team will connect you within 24 hours and install the software remotely or by physically visiting your site.</p>
-                        <p className="italic">Quick setup, satisfaction guaranteed or your money back.</p>
+                        <p className="text-primary font-medium">
+                          Our team will connect you within 24 hours and install the software remotely or physically visit your site.
+                        </p>
                       </div>
                     </div>
+
+                    {/* NEW BUTTON */}
+                    <Button
+                      className="w-full mt-4"
+                      onClick={() => {
+                        setSelectedAmount(plan.amountNumber);
+                        setOpenForm(true);
+                      }}
+                    >
+                      I Have Completed Payment → Continue
+                    </Button>
                   </DialogContent>
                 </Dialog>
+
+                {/* NEW: FORM POPUP */}
+                <UserDetailsForm
+                  open={openForm}
+                  onClose={() => setOpenForm(false)}
+                  amount={selectedAmount}
+                />
+
                 <ul className="space-y-3">
                   {plan.features.map((feature, index) => (
                     <li key={index} className="flex items-start gap-2">
                       <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-foreground">
-                        {feature.name}
-                      </span>
+                      <span className="text-foreground">{feature.name}</span>
                     </li>
                   ))}
                 </ul>
@@ -162,7 +196,7 @@ const Pricing = () => {
           ))}
         </div>
 
-        {/* Table-based comparison for desktop */}
+        {/* Desktop Table Pricing */}
         <div className="hidden lg:block">
           <Card>
             <Table>
@@ -181,12 +215,15 @@ const Pricing = () => {
                         <div className="text-sm text-muted-foreground mt-2 mb-4">{plan.description}</div>
                         <div className="text-3xl font-bold text-foreground mb-1">{plan.price}</div>
                         <div className="text-sm text-muted-foreground mb-4">{plan.period}</div>
+
                         <Dialog>
                           <DialogTrigger asChild>
                             <Button className="w-full" variant={plan.popular ? "default" : "outline"}>
                               {plan.cta}
                             </Button>
                           </DialogTrigger>
+
+                          {/* QR POPUP */}
                           <DialogContent className="max-w-md">
                             <DialogHeader>
                               <DialogTitle>{plan.name}</DialogTitle>
@@ -194,31 +231,54 @@ const Pricing = () => {
                                 {plan.price} {plan.period}
                               </DialogDescription>
                             </DialogHeader>
+
                             <div className="space-y-4 py-4">
                               <div className="flex justify-center">
-                                <img 
-                                  src={plan.qrCode} 
+                                <img
+                                  src={plan.qrCode}
                                   alt={`${plan.name} GPay QR Code`}
                                   className="w-48 h-48 object-contain"
                                 />
                               </div>
+
                               <div className="text-center">
                                 <p className="font-semibold mb-2">GPay Scan</p>
                               </div>
+
                               <div className="bg-muted p-4 rounded-lg text-sm space-y-2">
                                 <p className="font-medium">After payment:</p>
-                                <p>Please send email with the screen shot of Payment and your mobile no.</p>
-                                <p className="text-primary font-medium">Our team will connect you within 24 hours and install the software remotely or by physically visiting your site.</p>
-                                <p className="italic">Quick setup, satisfaction guaranteed or your money back.</p>
+                                <p>Please send email with the screenshot of Payment and your mobile no.</p>
+                                <p className="text-primary font-medium">
+                                  Our team will connect you within 24 hours and install the software.
+                                </p>
                               </div>
                             </div>
+
+                            {/* NEW BUTTON */}
+                            <Button
+                              className="w-full mt-4"
+                              onClick={() => {
+                                setSelectedAmount(plan.amountNumber);
+                                setOpenForm(true);
+                              }}
+                            >
+                              I Have Completed Payment → Continue
+                            </Button>
                           </DialogContent>
                         </Dialog>
+
+                        {/* NEW F0RM */}
+                        <UserDetailsForm
+                          open={openForm}
+                          onClose={() => setOpenForm(false)}
+                          amount={selectedAmount}
+                        />
                       </div>
                     </TableHead>
                   ))}
                 </TableRow>
               </TableHeader>
+
               <TableBody>
                 {plans[0].features.map((feature, featureIndex) => (
                   <TableRow key={featureIndex}>
