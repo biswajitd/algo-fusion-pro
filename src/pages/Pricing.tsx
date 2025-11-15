@@ -1,3 +1,5 @@
+const [selectedPlan, setSelectedPlan] = useState("");
+
 "use client";
 
 import Navigation from "@/components/Navigation";
@@ -255,15 +257,17 @@ const Pricing = () => {
                             </div>
 
                             {/* NEW BUTTON */}
-                            <Button
+                           <Button
                               className="w-full mt-4"
                               onClick={() => {
-                                setSelectedAmount(plan.amountNumber);
-                                setOpenForm(true);
+                              setSelectedAmount(plan.amountNumber);
+                              setSelectedPlan(plan.name);     // ⭐ ADD THIS
+                              setOpenForm(true);
                               }}
                             >
                               I Have Completed Payment → Continue
                             </Button>
+
                           </DialogContent>
                         </Dialog>
 
