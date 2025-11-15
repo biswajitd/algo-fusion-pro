@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import jsPDF from "jspdf";
+import emailjs from "@emailjs/browser";
 import {
   Dialog,
   DialogContent,
@@ -10,7 +11,10 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 
-export default function UserDetailsForm({ open, onClose, amount }) {
+// Import your Softgogy logo
+import SoftgogyLogo from "@/assets/softgogy.png";
+
+export default function UserDetailsForm({ open, onClose, amount, planName }) {
   const [form, setForm] = useState({
     name: "",
     address: "",
@@ -22,24 +26,72 @@ export default function UserDetailsForm({ open, onClose, amount }) {
     setForm({ ...form, [field]: value });
   };
 
-  // Generate PDF
+  // Unique invoice number generator
+  const generateInvoiceNumber = () => {
+    return "INV-" + Date.now();
+  };
+
+  // Send Email via EmailJS
+  const sendEmail = (invoiceNumber) => {
+    const templateParams = {
+      to_name: "Biswajit Dutta",
+      from_name: form.name,
+      address: form.address,
+      email: form.email,
+      phone: form.phone,
+      amount: amount,
+      plan: planName,
+      invoice: invoiceNumber,
+      date: new Date().toLocaleString(),
+    };
+
+    emailjs.send(
+      "service_softgogy",
+      "template_w9ou0rt",
+      templateParams,
+      "Y1zfR0TDFuC7Dwnmt"
+    );
+  };
+
+  // Generate PDF Receipt
   const generatePDF = () => {
     const doc = new jsPDF();
+    const invoiceNumber = generateInvoiceNumber();
 
-    doc.setFontSize(20);
-    doc.text("Softgogy Payment Receipt", 20, 20);
+    // Add logo
+    doc.addImage(SoftgogyLogo, "PNG", 150, 10, 40, 40);
+
+    doc.setFontSize(22);
+    doc.text("Softgogy - Payment Receipt", 20, 30);
 
     doc.setFontSize(12);
-    doc.text(`Name: ${form.name}`, 20, 40);
-    doc.text(`Address: ${form.address}`, 20, 50);
-    doc.text(`Email: ${form.email}`, 20, 60);
-    doc.text(`Phone: ${form.phone}`, 20, 70);
+    doc.text(`Invoice No: ${invoiceNumber}`, 20, 50);
+    doc.text(`Date: ${new Date().toLocaleString()}`, 20, 58);
 
-    doc.text(`Amount Paid: ₹${amount}`, 20, 90);
-    doc.text(`Payment Method: GPay QR`, 20, 100);
-    doc.text(`Date: ${new Date().toLocaleString()}`, 20, 110);
+    doc.text("Customer Details:", 20, 75);
+    doc.text(`Name: ${form.name}`, 20, 85);
+    doc.text(`Address: ${form.address}`, 20, 95);
+    doc.text(`Email: ${form.email}`, 20, 105);
+    doc.text(`Phone: ${form.phone}`, 20, 115);
 
-    doc.save("Softgogy-Payment-Receipt.pdf");
+    doc.text("Payment Details:", 20, 135);
+    doc.text(`Plan: ${planName}`, 20, 145);
+    doc.text(`Amount Paid: ₹${amount}`, 20, 155);
+    doc.text(`Payment Method: GPay QR Scan`, 20, 165);
+
+    // Save Receipt
+    doc.save(`Softgogy-Receipt-${invoiceNumber}.pdf`);
+
+    // Email notification
+    sendEmail(invoiceNumber);
+
+    // Open WhatsApp confirmation
+    window.open(
+      "https://wa.me/919830046647?text=I%20have%20completed%20payment",
+      "_blank"
+    );
+
+    // Close form
     onClose();
   };
 
@@ -80,7 +132,7 @@ export default function UserDetailsForm({ open, onClose, amount }) {
           />
 
           <Button className="w-full" onClick={generatePDF}>
-            Generate Receipt
+            Generate Receipt & Send Confirmation
           </Button>
         </div>
       </DialogContent>
