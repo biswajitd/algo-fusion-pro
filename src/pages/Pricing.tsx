@@ -26,17 +26,17 @@ const Pricing = () => {
   const plans = [
     {
       name: "Basic",
-      price: "₹2,999",
+      price: "₹3,000",
       period: "per month",
       description: "Perfect for individual traders getting started",
       features: [
-        { name: "Single Platform Integration", included: true },
-        { name: "Real-time Market Data", included: true },
-        { name: "Basic Trading Automation", included: true },
-        { name: "Email Support", included: true },
-        { name: "Tools for Buy/Sell signals", included: true },
-        { name: "Advanced Analytics", included: true },
-        { name: "Custom API Integration", included: true },
+        { name: "No 2FA, Easy API Integration", included: true },
+        { name: "Real‑Time Market Data & Charts", included: true },
+        { name: "Advanced Trading Automation", included: true },
+        { name: "Commodity Trading Support for Zerodha", included: true },
+        { name: "ML/AI Tools for Buy/Sell Signals with Technicals", included: true },
+        { name: "Advanced Analytics & Prediction Reports", included: true },
+        { name: "Email & Phone call Support", included: true },
       ],
       cta: "Subscription",
       popular: false,
@@ -44,17 +44,17 @@ const Pricing = () => {
     },
     {
       name: "Professional",
-      price: "₹4,999",
-      period: "for every four months",
+      price: "₹5,000",
+      period: "for every three months",
       description: "Ideal for active traders with multiple accounts",
       features: [
-        { name: "Up to 3 Platform Integrations", included: true },
-        { name: "Real-time Market Data", included: true },
+        { name: "No 2FA, Easy API Integration", included: true },
+        { name: "Real‑Time Market Data & Charts", included: true },
         { name: "Advanced Trading Automation", included: true },
-        { name: "Email & Chat Support", included: true },
-        { name: "Tools for Buy/Sell signals", included: true },
-        { name: "Advanced Analytics & Reports", included: true },
-        { name: "Custom API Integration", included: true },
+        { name: "Commodity Trading Support for Zerodha", included: true },
+        { name: "ML/AI Tools for Buy/Sell Signals with Technicals", included: true },
+        { name: "Advanced Analytics & Prediction Reports", included: true },
+        { name: "Email & Phone call Support", included: true },
       ],
       cta: "Subscription",
       popular: true,
@@ -62,16 +62,17 @@ const Pricing = () => {
     },
     {
       name: "Enterprise",
-      price: "₹6,499",
+      price: "₹6,500",
       period: "for every six months",
       description: "Comprehensive solution for professional traders",
       features: [
-        { name: "Unlimited Platform Integrations", included: true },
-        { name: "Real-time Market Data", included: true },
-        { name: "Premium Trading Automation", included: true },
-        { name: "Tools for Buy/Sell signals", included: true },
-        { name: "Advanced Analytics & Reports", included: true },
-        { name: "Custom API Integration", included: true },
+        { name: "No 2FA, Easy API Integration", included: true },
+        { name: "Real‑Time Market Data & Charts", included: true },
+        { name: "Advanced Trading Automation", included: true },
+        { name: "Commodity Trading Support for Zerodha", included: true },
+        { name: "ML/AI Tools for Buy/Sell Signals with Technicals", included: true },
+        { name: "Advanced Analytics & Prediction Reports", included: true },
+        { name: "Email & Phone call Support", included: true },
       ],
       cta: "Subscription",
       popular: false,
@@ -136,7 +137,7 @@ const Pricing = () => {
                       </div>
                       <div className="bg-muted p-4 rounded-lg text-sm space-y-2">
                         <p className="font-medium">After payment:</p>
-                        <p>Please send email with the screen shot of Payment and your mobile no.</p>
+                        <p>Please send email with the screenshot of Payment and your mobile no.</p>
                         <p className="text-primary font-medium">Our team will connect you within 24 hours and install the software remotely or by physically visiting your site.</p>
                         <p className="italic">Quick setup, satisfaction guaranteed or your money back.</p>
                       </div>
