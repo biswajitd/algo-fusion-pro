@@ -58,7 +58,7 @@ const Documentation = () => {
                       <p><strong>Operating System:</strong> Windows 10 or later</p>
                       <p><strong>Framework:</strong> .NET Framework 9.0</p>
                       <p><strong>RAM:</strong> 4GB minimum, 8GB recommended</p>
-                      <p><strong>Storage:</strong> 500MB available space</p>
+                      <p><strong>Storage:</strong> 2.5GB available space</p>
                       <p><strong>Internet:</strong> Stable broadband connection required</p>
                     </AccordionContent>
                   </AccordionItem>
@@ -72,7 +72,8 @@ const Documentation = () => {
                         <li>Follow the installation wizard</li>
                         <li>Install .NET Framework 9.0 if prompted</li>
                         <li>Launch the application and enter your license key</li>
-                        <li>Configure your broker API credentials</li>
+                        <li>Zerodha & Groww require Chrome Extensions (included in EasyTrading package)</li>
+                        <li>For other platforms, enter credentials once in pop‑up form</li>
                       </ol>
                     </AccordionContent>
                   </AccordionItem>
@@ -81,10 +82,10 @@ const Documentation = () => {
                     <AccordionTrigger>Platform Configuration</AccordionTrigger>
                     <AccordionContent className="space-y-2">
                       <p><strong>Zerodha:</strong> Enable Kite Connect API and generate API keys</p>
-                      <p><strong>Groww:</strong> Login with your Groww credentials</p>
-                      <p><strong>Angel One:</strong> Configure Angel API key and client ID</p>
-                      <p><strong>Upstox:</strong> Set up Upstox API access token</p>
-                      <p><strong>5Paisa:</strong> Enter your 5Paisa API credentials</p>
+                      <p><strong>Groww:</strong> Login with your Groww credentials and generate API keys</p>
+                      <p><strong>Angel One:</strong> Configure Angel API key and client ID and other credentials</p>
+                      <p><strong>Upstox:</strong> Configure Upstox API key and client ID and other credentials</p>
+                      <p><strong>5Paisa:</strong> Configure 5Paisa API key and client ID and other credentials</p>
                     </AccordionContent>
                   </AccordionItem>
 
@@ -93,11 +94,10 @@ const Documentation = () => {
                     <AccordionContent className="space-y-2">
                       <ol className="list-decimal list-inside space-y-2">
                         <li>Select your preferred trading platform from the dropdown</li>
-                        <li>Configure risk management settings (stop-loss, position size)</li>
+                        <li>Configure risk management settings (stop-loss, carry forward)</li>
                         <li>Choose your trading strategies from the options menu</li>
                         <li>Set up notifications and alerts</li>
                         <li>Test the connection with your broker</li>
-                        <li>Start with paper trading to familiarize yourself</li>
                       </ol>
                     </AccordionContent>
                   </AccordionItem>
@@ -114,7 +114,7 @@ const Documentation = () => {
               </CardHeader>
               <CardContent className="space-y-3">
                 <div className="space-y-2">
-                  <h4 className="font-semibold">25+ Trading Strategies</h4>
+                  <h4 className="font-semibold">23+ Trading Strategies</h4>
                   <p className="text-sm text-muted-foreground">
                     Access algorithmic, AI-powered, and technical analysis strategies for all market conditions
                   </p>
@@ -128,7 +128,7 @@ const Documentation = () => {
                 <div className="space-y-2">
                   <h4 className="font-semibold">Risk Management</h4>
                   <p className="text-sm text-muted-foreground">
-                    Advanced stop-loss, position sizing, and portfolio protection tools
+                    Advanced stop-loss, position sizing, and portfolio protection
                   </p>
                 </div>
                 <div className="space-y-2">
