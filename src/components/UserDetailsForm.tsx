@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import jsPDF from "jspdf";
+import { jsPDF } from "jspdf";
+
 import emailjs from "@emailjs/browser";
 import {
   Dialog,
