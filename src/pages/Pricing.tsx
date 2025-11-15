@@ -21,6 +21,9 @@ import {
 import qrBasic from "@/assets/qr-basic.png";
 import qrProfessional from "@/assets/qr-professional.png";
 import qrEnterprise from "@/assets/qr-enterprise.png";
+// ⭐⭐⭐ ADD THESE TWO LINES BELOW ⭐⭐⭐
+import { useState } from "react";
+import UserDetailsForm from "@/components/UserDetailsForm";
 
 const Pricing = () => {
   const plans = [
