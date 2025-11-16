@@ -1,0 +1,17 @@
+/* FORCE VISIBLE TEXT IN POPUP FORMS */
+
+dialog input,
+dialog textarea,
+[data-state="open"] input,
+[data-state="open"] textarea {
+  color: #000 !important;          /* Black text */
+  -webkit-text-fill-color: #000 !important; /* Fix for Chrome autofill */
+}
+
+html.dark dialog input,
+html.dark dialog textarea,
+html.dark [data-state="open"] input,
+html.dark [data-state="open"] textarea {
+  color: #fff !important;          /* White text for dark mode */
+  -webkit-text-fill-color: #fff !important;
+}
