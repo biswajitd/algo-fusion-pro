@@ -80,10 +80,7 @@ export default function UserDetailsForm({ open, onClose, amount, planName }) {
 
     sendEmail(invoice);
 
-    window.open(
-      "https://wa.me/919830046647?text=I%20have%20completed%20payment",
-      "_blank"
-    );
+    
 
     onClose();
   };
