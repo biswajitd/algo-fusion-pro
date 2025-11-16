@@ -49,6 +49,8 @@ const Navigation = () => {
                 {link.name}
               </Link>
             ))}
+
+            {/* Platforms Dropdown */}
             <div className="relative group">
               <button className="text-foreground hover:text-primary transition-colors">
                 Platforms
@@ -65,8 +67,10 @@ const Navigation = () => {
                 ))}
               </div>
             </div>
+
+            {/* FIXED DOWNLOAD TRIAL BUTTON */}
             <Button variant="hero" size="sm" asChild>
-              <a href="/platforms">Download Trial</a>
+              <Link to="/platforms">Download Trial</Link>
             </Button>
           </div>
 
@@ -87,6 +91,7 @@ const Navigation = () => {
                 {link.name}
               </Link>
             ))}
+
             <div className="border-t border-border pt-2 mt-2">
               <p className="text-sm text-muted-foreground mb-2 px-2">Platforms:</p>
               {platforms.map((platform) => (
@@ -100,8 +105,10 @@ const Navigation = () => {
                 </Link>
               ))}
             </div>
+
+            {/* FIXED MOBILE DOWNLOAD TRIAL BUTTON */}
             <Button variant="hero" size="sm" className="w-full" asChild>
-              <a href="/platforms">Download Trial</a>
+              <Link to="/platforms">Download Trial</Link>
             </Button>
           </div>
         )}
