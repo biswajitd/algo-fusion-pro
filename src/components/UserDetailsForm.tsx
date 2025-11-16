@@ -92,38 +92,51 @@ export default function UserDetailsForm({ open, onClose, amount, planName }) {
     <Dialog open={open} onOpenChange={onClose}>
       <DialogContent className="max-w-md">
         <DialogHeader>
-          <DialogTitle>Enter Your Details</DialogTitle>
+          <DialogTitle className="text-xl font-bold">
+            Enter Your Details
+          </DialogTitle>
         </DialogHeader>
 
         {/* FIXED FORM */}
         <div className="flex flex-col gap-4 mt-4">
+
+          {/* FULL NAME */}
           <Input
             placeholder="Full Name"
             value={form.name}
             onChange={(e) => update("name", e.target.value)}
+            className="border p-2 rounded text-foreground bg-white dark:bg-neutral-900 placeholder:text-muted-foreground"
           />
 
+          {/* ADDRESS */}
           <Textarea
             placeholder="Full Address"
             value={form.address}
             onChange={(e) => update("address", e.target.value)}
+            className="border p-2 rounded text-foreground bg-white dark:bg-neutral-900 placeholder:text-muted-foreground resize-none"
+            rows={3}
           />
 
+          {/* EMAIL */}
           <Input
             placeholder="Email Address"
             type="email"
             value={form.email}
             onChange={(e) => update("email", e.target.value)}
+            className="border p-2 rounded text-foreground bg-white dark:bg-neutral-900 placeholder:text-muted-foreground"
           />
 
+          {/* PHONE */}
           <Input
             placeholder="Mobile Number"
             type="tel"
             value={form.phone}
             onChange={(e) => update("phone", e.target.value)}
+            className="border p-2 rounded text-foreground bg-white dark:bg-neutral-900 placeholder:text-muted-foreground"
           />
 
-          <Button className="w-full" onClick={createPDF}>
+          {/* BUTTON */}
+          <Button className="w-full mt-2" onClick={createPDF}>
             Generate Receipt & Send Confirmation
           </Button>
         </div>
