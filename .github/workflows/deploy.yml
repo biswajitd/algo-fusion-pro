@@ -3,7 +3,11 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # Trigger deployment when you push to main
+      - main
+  workflow_dispatch:   # 👈 allows manual trigger from Actions tab
+
+permissions:
+  contents: write      # 👈 this is the key fix
 
 jobs:
   build-and-deploy:
@@ -28,4 +32,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist  # Change to ./build if your output folder is named build
+          publish_dir: ./dist
