@@ -5,6 +5,8 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  base: '/',  // ✅ REQUIRED for GitHub Pages + custom domain
+
   server: {
     host: "::",
     port: 8080,
@@ -21,6 +23,6 @@ export default defineConfig(({ mode }) => ({
 
   // ⭐ REQUIRED FIX FOR NETLIFY + VITE + JSPDF
   optimizeDeps: {
-    include: ["jspdf"],   // <-- this forces Vite to pre-bundle jsPDF
+    include: ["jspdf"],
   },
 }));
