@@ -37,7 +37,8 @@ import UserDetailsForm from "@/components/UserDetailsForm";
 const Pricing = () => {
   const [openForm, setOpenForm] = useState(false);
   const [selectedAmount, setSelectedAmount] = useState(0);
-  const [selectedPlan, setSelectedPlan] = useState(""); // ⭐ CORRECTLY ADDED
+  const [selectedPlan, setSelectedPlan] = useState("");
+  const [paymentConfirmed, setPaymentConfirmed] = useState(false); // ⭐ NEW
 
   const plans = [
     {
@@ -101,7 +102,7 @@ const Pricing = () => {
 
   const openDetailsForm = (plan) => {
     setSelectedAmount(plan.amountNumber);
-    setSelectedPlan(plan.name); // ⭐ PLAN NAME SENT
+    setSelectedPlan(plan.name);
     setOpenForm(true);
   };
 
@@ -119,10 +120,13 @@ const Pricing = () => {
           </p>
         </div>
 
-        {/* ====================== MOBILE CARDS ========================= */}
+        {/* ========= MOBILE (CARDS) ========= */}
         <div className="grid md:grid-cols-3 gap-6 mb-12 lg:hidden">
           {plans.map((plan) => (
-            <Card key={plan.name} className={plan.popular ? "border-primary shadow-lg" : ""}>
+            <Card
+              key={plan.name}
+              className={plan.popular ? "border-primary shadow-lg" : ""}
+            >
               {plan.popular && (
                 <div className="bg-primary text-primary-foreground text-center py-2 text-sm font-semibold">
                   Most Popular
@@ -140,11 +144,13 @@ const Pricing = () => {
 
               <CardContent>
                 {/* QR POPUP */}
-                <Dialog>
+                <Dialog
+                  onOpenChange={() => {
+                    setPaymentConfirmed(false); // ⭐ Reset checkbox on close
+                  }}
+                >
                   <DialogTrigger asChild>
-                    <Button className="w-full mb-6">
-                      {plan.cta}
-                    </Button>
+                    <Button className="w-full mb-6">{plan.cta}</Button>
                   </DialogTrigger>
 
                   <DialogContent className="max-w-md">
@@ -159,7 +165,7 @@ const Pricing = () => {
                       <div className="flex justify-center">
                         <img
                           src={plan.qrCode}
-                          alt={`${plan.name} QR`}
+                          alt="QR"
                           className="w-48 h-48 object-contain"
                         />
                       </div>
@@ -168,16 +174,29 @@ const Pricing = () => {
 
                       <div className="bg-muted p-4 rounded-lg text-sm space-y-2">
                         <p className="font-medium">After payment:</p>
-                        <p>Email screenshot & your mobile no.</p>
+                        <p>Email screenshot & mobile no.</p>
                         <p className="text-primary font-medium">
                           We will connect within 24 hours.
                         </p>
                       </div>
+
+                      {/* ⭐ PAYMENT CONFIRMATION CHECKBOX */}
+                      <div className="flex items-center gap-2">
+                        <input
+                          type="checkbox"
+                          checked={paymentConfirmed}
+                          onChange={(e) =>
+                            setPaymentConfirmed(e.target.checked)
+                          }
+                        />
+                        <label>I have completed the payment</label>
+                      </div>
                     </div>
 
-                    {/* BUTTON → OPEN DETAILS FORM */}
+                    {/* BUTTON (DISABLED UNTIL PAYMENT CONFIRMED) */}
                     <Button
-                      className="w-full mt-4"
+                      className="w-full mt-2"
+                      disabled={!paymentConfirmed} // ⭐
                       onClick={() => openDetailsForm(plan)}
                     >
                       I Have Completed Payment → Continue
@@ -190,7 +209,7 @@ const Pricing = () => {
                   open={openForm}
                   onClose={() => setOpenForm(false)}
                   amount={selectedAmount}
-                  planName={selectedPlan} // ⭐ PASSING PLAN NAME
+                  planName={selectedPlan}
                 />
 
                 <ul className="space-y-3 mt-4">
@@ -206,7 +225,7 @@ const Pricing = () => {
           ))}
         </div>
 
-        {/* ====================== DESKTOP TABLE ========================= */}
+        {/* ========= DESKTOP TABLE ========= */}
         <div className="hidden lg:block">
           <Card>
             <Table>
@@ -224,11 +243,21 @@ const Pricing = () => {
                         )}
 
                         <div className="text-xl font-bold">{plan.name}</div>
-                        <div className="text-sm text-muted-foreground">{plan.description}</div>
-                        <div className="text-3xl font-bold mt-3">{plan.price}</div>
-                        <div className="text-sm text-muted-foreground mb-4">{plan.period}</div>
+                        <div className="text-sm text-muted-foreground">
+                          {plan.description}
+                        </div>
+                        <div className="text-3xl font-bold mt-3">
+                          {plan.price}
+                        </div>
+                        <div className="text-sm text-muted-foreground mb-4">
+                          {plan.period}
+                        </div>
 
-                        <Dialog>
+                        <Dialog
+                          onOpenChange={() => {
+                            setPaymentConfirmed(false); // ⭐ Reset on close
+                          }}
+                        >
                           <DialogTrigger asChild>
                             <Button className="w-full">{plan.cta}</Button>
                           </DialogTrigger>
@@ -249,7 +278,9 @@ const Pricing = () => {
                                 />
                               </div>
 
-                              <div className="text-center font-semibold">GPay Scan</div>
+                              <div className="text-center font-semibold">
+                                GPay Scan
+                              </div>
 
                               <div className="bg-muted p-4 rounded-lg text-sm space-y-2">
                                 <p className="font-medium">After payment:</p>
@@ -258,11 +289,23 @@ const Pricing = () => {
                                   We will assist within 24 hours.
                                 </p>
                               </div>
+
+                              {/* ⭐ DESKTOP CHECKBOX */}
+                              <div className="flex items-center gap-2">
+                                <input
+                                  type="checkbox"
+                                  checked={paymentConfirmed}
+                                  onChange={(e) =>
+                                    setPaymentConfirmed(e.target.checked)
+                                  }
+                                />
+                                <label>I have completed the payment</label>
+                              </div>
                             </div>
 
-                            {/* DESKTOP BUTTON */}
                             <Button
-                              className="w-full mt-4"
+                              className="w-full mt-2"
+                              disabled={!paymentConfirmed} // ⭐
                               onClick={() => openDetailsForm(plan)}
                             >
                               I Have Completed Payment → Continue
@@ -286,7 +329,9 @@ const Pricing = () => {
               <TableBody>
                 {plans[0].features.map((feature, idx) => (
                   <TableRow key={idx}>
-                    <TableCell className="font-medium">{feature.name}</TableCell>
+                    <TableCell className="font-medium">
+                      {feature.name}
+                    </TableCell>
 
                     {plans.map((p) => (
                       <TableCell key={p.name} className="text-center">
