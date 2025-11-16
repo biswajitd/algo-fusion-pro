@@ -105,7 +105,7 @@ export default function UserDetailsForm({ open, onClose, amount, planName }) {
             placeholder="Full Name"
             value={form.name}
             onChange={(e) => update("name", e.target.value)}
-            className="border p-2 rounded text-foreground bg-black dark:bg-neutral-900 placeholder:text-muted-foreground"
+            className="border p-2 rounded text-foreground bg-white dark:bg-neutral-900 placeholder:text-muted-foreground"
           />
 
           {/* ADDRESS */}
@@ -113,7 +113,7 @@ export default function UserDetailsForm({ open, onClose, amount, planName }) {
             placeholder="Full Address"
             value={form.address}
             onChange={(e) => update("address", e.target.value)}
-            className="border p-2 rounded text-foreground bg-black dark:bg-neutral-900 placeholder:text-muted-foreground resize-none"
+            className="border p-2 rounded text-foreground bg-white dark:bg-neutral-900 placeholder:text-muted-foreground resize-none"
             rows={3}
           />
 
@@ -123,7 +123,7 @@ export default function UserDetailsForm({ open, onClose, amount, planName }) {
             type="email"
             value={form.email}
             onChange={(e) => update("email", e.target.value)}
-            className="border p-2 rounded text-foreground bg-black dark:bg-neutral-900 placeholder:text-muted-foreground"
+            className="border p-2 rounded text-foreground bg-white dark:bg-neutral-900 placeholder:text-muted-foreground"
           />
 
           {/* PHONE */}
@@ -132,7 +132,7 @@ export default function UserDetailsForm({ open, onClose, amount, planName }) {
             type="tel"
             value={form.phone}
             onChange={(e) => update("phone", e.target.value)}
-            className="border p-2 rounded text-foreground bg-black dark:bg-neutral-900 placeholder:text-muted-foreground"
+            className="border p-2 rounded text-foreground bg-white dark:bg-neutral-900 placeholder:text-muted-foreground"
           />
 
           {/* BUTTON */}
