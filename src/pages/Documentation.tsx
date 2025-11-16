@@ -1,17 +1,17 @@
-import Navigation from "@/components/Navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowLeft, Download, BookOpen, Settings, Play, HelpCircle } from "lucide-react";
+import { ArrowLeft, Download, BookOpen, Settings, HelpCircle } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const Documentation = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <Navigation />
-      <main className="pt-24 pb-20">
+    <div className="min-h-screen bg-background pt-24 pb-20">
+      <main>
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
+            
+            {/* HEADER */}
             <div className="text-center mb-12">
               <h1 className="text-4xl md:text-5xl font-bold mb-4">
                 <span className="bg-gradient-primary bg-clip-text text-transparent">
@@ -23,6 +23,7 @@ const Documentation = () => {
               </p>
             </div>
 
+            {/* INSTALLATION GUIDE CARD */}
             <Card className="mb-8">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
@@ -43,6 +44,7 @@ const Documentation = () => {
               </CardContent>
             </Card>
 
+            {/* QUICK START GUIDE */}
             <Card className="mb-8">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
@@ -51,7 +53,9 @@ const Documentation = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
+
                 <Accordion type="single" collapsible className="w-full">
+                  
                   <AccordionItem value="item-1">
                     <AccordionTrigger>System Requirements</AccordionTrigger>
                     <AccordionContent className="space-y-2">
@@ -72,8 +76,8 @@ const Documentation = () => {
                         <li>Follow the installation wizard</li>
                         <li>Install .NET Framework 9.0 if prompted</li>
                         <li>Launch the application and enter your license key</li>
-                        <li>Zerodha & Groww require Chrome Extensions (included in EasyTrading package)</li>
-                        <li>For other platforms, enter credentials once in pop‑up form</li>
+                        <li>Zerodha & Groww require Chrome Extensions</li>
+                        <li>Other brokers require one-time credential configuration</li>
                       </ol>
                     </AccordionContent>
                   </AccordionItem>
@@ -81,11 +85,11 @@ const Documentation = () => {
                   <AccordionItem value="item-3">
                     <AccordionTrigger>Platform Configuration</AccordionTrigger>
                     <AccordionContent className="space-y-2">
-                      <p><strong>Zerodha:</strong> Enable Kite Connect API and generate API keys</p>
-                      <p><strong>Groww:</strong> Login with your Groww credentials and generate API keys</p>
-                      <p><strong>Angel One:</strong> Configure Angel API key and client ID and other credentials</p>
-                      <p><strong>Upstox:</strong> Configure Upstox API key and client ID and other credentials</p>
-                      <p><strong>5Paisa:</strong> Configure 5Paisa API key and client ID and other credentials</p>
+                      <p><strong>Zerodha:</strong> Enable Kite API & generate API keys</p>
+                      <p><strong>Groww:</strong> Login & generate API keys</p>
+                      <p><strong>Angel One:</strong> Enter API key & client ID</p>
+                      <p><strong>Upstox:</strong> Enter API key & client ID</p>
+                      <p><strong>5Paisa:</strong> Enter API key & client ID</p>
                     </AccordionContent>
                   </AccordionItem>
 
@@ -93,18 +97,21 @@ const Documentation = () => {
                     <AccordionTrigger>First Time Setup</AccordionTrigger>
                     <AccordionContent className="space-y-2">
                       <ol className="list-decimal list-inside space-y-2">
-                        <li>Select your preferred trading platform from the dropdown</li>
-                        <li>Configure risk management settings (stop-loss, carry forward)</li>
-                        <li>Choose your trading strategies from the options menu</li>
-                        <li>Set up notifications and alerts</li>
-                        <li>Test the connection with your broker</li>
+                        <li>Select your trading platform</li>
+                        <li>Configure risk management settings</li>
+                        <li>Select trading strategies</li>
+                        <li>Enable notifications</li>
+                        <li>Test broker connectivity</li>
                       </ol>
                     </AccordionContent>
                   </AccordionItem>
+
                 </Accordion>
+
               </CardContent>
             </Card>
 
+            {/* FEATURES */}
             <Card className="mb-8">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
@@ -113,33 +120,37 @@ const Documentation = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
-                <div className="space-y-2">
+                <div>
                   <h4 className="font-semibold">23+ Trading Strategies</h4>
                   <p className="text-sm text-muted-foreground">
-                    Access algorithmic, AI-powered, and technical analysis strategies for all market conditions
+                    Algorithmic, AI-powered, and technical analysis-based strategies.
                   </p>
                 </div>
-                <div className="space-y-2">
+
+                <div>
                   <h4 className="font-semibold">Real-Time Signals</h4>
                   <p className="text-sm text-muted-foreground">
-                    Receive instant buy/sell signals based on MACD, RSI, Bollinger Bands, and more
+                    Instant buy/sell signals based on technical indicators.
                   </p>
                 </div>
-                <div className="space-y-2">
+
+                <div>
                   <h4 className="font-semibold">Risk Management</h4>
                   <p className="text-sm text-muted-foreground">
-                    Advanced stop-loss, position sizing, and portfolio protection
+                    Stop-loss, position sizing, auto-exit and risk control.
                   </p>
                 </div>
-                <div className="space-y-2">
+
+                <div>
                   <h4 className="font-semibold">Multi-Platform Support</h4>
                   <p className="text-sm text-muted-foreground">
-                    Compatible with Zerodha, Groww, Angel One, Upstox, and 5Paisa
+                    Zerodha, Groww, Angel One, Upstox & 5Paisa supported.
                   </p>
                 </div>
               </CardContent>
             </Card>
 
+            {/* SUPPORT */}
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
@@ -148,14 +159,13 @@ const Documentation = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <p className="text-muted-foreground">
-                  Our support team is here to assist you with installation, configuration, and usage.
-                </p>
-                <div className="space-y-2 text-sm">
+                <p className="text-muted-foreground">We’re here to assist you.</p>
+                <div className="text-sm space-y-1">
                   <p><strong>Email:</strong> biswajit@softgogy.com</p>
                   <p><strong>Phone:</strong> 9830046647</p>
-                  <p><strong>Support Hours:</strong> Monday - Saturday, 9:00 AM - 6:00 PM IST</p>
+                  <p><strong>Hours:</strong> Mon–Sat · 9 AM – 6 PM</p>
                 </div>
+
                 <Link to="/faq">
                   <Button variant="outline" className="w-full">
                     View Frequently Asked Questions
@@ -172,19 +182,10 @@ const Documentation = () => {
                 </Button>
               </Link>
             </div>
+
           </div>
         </div>
       </main>
-
-      <footer className="border-t border-border py-12">
-        <div className="container mx-auto px-4">
-          <div className="text-center text-sm text-muted-foreground space-y-2">
-            <p>Email: biswajit@softgogy.com | Contact: 9830046647</p>
-            <p>Address: 397 Motilal Colony, Gr. Floor, Kolkata 700081, India</p>
-            <p className="mt-4">© 2025 Softgogy. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 };
