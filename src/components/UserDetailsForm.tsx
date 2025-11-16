@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { jsPDF } from "jspdf";
-
 import emailjs from "@emailjs/browser";
 import {
   Dialog,
@@ -10,9 +9,11 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 
-// Import your Softgogy logo
 import SoftgogyLogo from "@/assets/softgogy.png";
 
 export default function UserDetailsForm({ open, onClose, amount, planName }) {
@@ -27,46 +28,41 @@ export default function UserDetailsForm({ open, onClose, amount, planName }) {
     setForm({ ...form, [field]: value });
   };
 
-  // Unique invoice number generator
-  const generateInvoiceNumber = () => {
-    return "INV-" + Date.now();
-  };
+  // Invoice generator
+  const generateInvoiceNumber = () => "INV-" + Date.now();
 
-  // Send Email via EmailJS
-  const sendEmail = (invoiceNumber) => {
-    const templateParams = {
-      to_name: "Biswajit Dutta",
-      from_name: form.name,
-      address: form.address,
-      email: form.email,
-      phone: form.phone,
-      amount: amount,
-      plan: planName,
-      invoice: invoiceNumber,
-      date: new Date().toLocaleString(),
-    };
-
+  // EmailJS
+  const sendEmail = (invoice) => {
     emailjs.send(
       "service_softgogy",
       "template_w9ou0rt",
-      templateParams,
+      {
+        from_name: form.name,
+        address: form.address,
+        email: form.email,
+        phone: form.phone,
+        amount: amount,
+        plan: planName,
+        invoice,
+        date: new Date().toLocaleString(),
+      },
       "Y1zfR0TDFuC7Dwnmt"
     );
   };
 
-  // Generate PDF Receipt
-  const generatePDF = () => {
+  // PDF
+  const createPDF = () => {
+    const invoice = generateInvoiceNumber();
     const doc = new jsPDF();
-    const invoiceNumber = generateInvoiceNumber();
 
-    // Add logo
+    // Logo
     doc.addImage(SoftgogyLogo, "PNG", 150, 10, 40, 40);
 
     doc.setFontSize(22);
     doc.text("Softgogy - Payment Receipt", 20, 30);
 
     doc.setFontSize(12);
-    doc.text(`Invoice No: ${invoiceNumber}`, 20, 50);
+    doc.text(`Invoice No: ${invoice}`, 20, 50);
     doc.text(`Date: ${new Date().toLocaleString()}`, 20, 58);
 
     doc.text("Customer Details:", 20, 75);
@@ -78,21 +74,17 @@ export default function UserDetailsForm({ open, onClose, amount, planName }) {
     doc.text("Payment Details:", 20, 135);
     doc.text(`Plan: ${planName}`, 20, 145);
     doc.text(`Amount Paid: ₹${amount}`, 20, 155);
-    doc.text(`Payment Method: GPay QR Scan`, 20, 165);
+    doc.text(`Payment Method: GPay`, 20, 165);
 
-    // Save Receipt
-    doc.save(`Softgogy-Receipt-${invoiceNumber}.pdf`);
+    doc.save(`Softgogy-Receipt-${invoice}.pdf`);
 
-    // Email notification
-    sendEmail(invoiceNumber);
+    sendEmail(invoice);
 
-    // Open WhatsApp confirmation
     window.open(
       "https://wa.me/919830046647?text=I%20have%20completed%20payment",
       "_blank"
     );
 
-    // Close form
     onClose();
   };
 
@@ -103,36 +95,35 @@ export default function UserDetailsForm({ open, onClose, amount, planName }) {
           <DialogTitle>Enter Your Details</DialogTitle>
         </DialogHeader>
 
+        {/* FIXED FORM */}
         <div className="flex flex-col gap-4 mt-4">
-          <input
-            className="border p-2 rounded"
+          <Input
             placeholder="Full Name"
             value={form.name}
             onChange={(e) => update("name", e.target.value)}
           />
 
-          <textarea
-            className="border p-2 rounded"
+          <Textarea
             placeholder="Full Address"
             value={form.address}
             onChange={(e) => update("address", e.target.value)}
           />
 
-          <input
-            className="border p-2 rounded"
+          <Input
             placeholder="Email Address"
+            type="email"
             value={form.email}
             onChange={(e) => update("email", e.target.value)}
           />
 
-          <input
-            className="border p-2 rounded"
+          <Input
             placeholder="Mobile Number"
+            type="tel"
             value={form.phone}
             onChange={(e) => update("phone", e.target.value)}
           />
 
-          <Button className="w-full" onClick={generatePDF}>
+          <Button className="w-full" onClick={createPDF}>
             Generate Receipt & Send Confirmation
           </Button>
         </div>
