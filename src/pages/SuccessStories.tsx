@@ -1,4 +1,4 @@
-import Navigation from "@/components/Navigation";
+
 import { Card, CardContent } from "@/components/ui/card";
 import arnabImage from "@/assets/arnab.png";
 import mitiImage from "@/assets/miti.png";
