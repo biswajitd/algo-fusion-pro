@@ -100,58 +100,61 @@ const Index = () => {
         </div>
       </section>
 
-      <footer className="border-t border-border py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="space-y-4">
-              <div className="flex items-center space-x-2">
-                <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-                  <span className="text-primary-foreground font-bold">S</span>
-                </div>
-                <span className="text-lg font-bold">Softgogy</span>
-              </div>
-              <p className="text-sm text-muted-foreground">
-                Revolutionary algo trading software powered by AI and machine learning
-              </p>
-            </div>
-            
-            <div>
-              <h4 className="font-bold mb-4">Platforms</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="/zerodha" className="hover:text-primary transition-colors">Zerodha</a></li>
-                <li><a href="/groww" className="hover:text-primary transition-colors">Groww</a></li>
-                <li><a href="/angel-one" className="hover:text-primary transition-colors">Angel One</a></li>
-                <li><a href="/upstox" className="hover:text-primary transition-colors">Upstox</a></li>
-                <li><a href="/5paisa" className="hover:text-primary transition-colors">5Paisa</a></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="font-bold mb-4">Resources</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="/documentation" className="hover:text-primary transition-colors">Documentation</a></li>
-                <li><a href="/Installation Guide.pdf" className="hover:text-primary transition-colors">Installation Guide</a></li>
-                <li><a href="/software-features" className="hover:text-primary transition-colors">Software Features</a></li>
-                <li><a href="/faq" className="hover:text-primary transition-colors">FAQ</a></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="font-bold mb-4">Contact</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>Email: biswajit@softgogy.com</li>
-                <li>Contact: 9830046647</li>
-                <li>Address: 397 Motilal Colony,</li>
-                <li>Gr. Floor, Kolkata 700081, India</li>
-              </ul>
-            </div>
+    <footer className="border-t border-border py-12">
+  <div className="container mx-auto px-4">
+    <div className="grid md:grid-cols-4 gap-8">
+
+      <div className="space-y-4">
+        <div className="flex items-center space-x-2">
+          <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
+            <span className="text-primary-foreground font-bold">S</span>
           </div>
-          
-          <div className="border-t border-border mt-8 pt-8 text-center text-sm text-muted-foreground">
-            <p>© 2025 Softgogy. All rights reserved. Built with cutting-edge AI technology.</p>
-          </div>
+          <span className="text-lg font-bold">Softgogy</span>
         </div>
-      </footer>
+        <p className="text-sm text-muted-foreground">
+          Revolutionary algo trading software powered by AI and machine learning
+        </p>
+      </div>
+
+      <div>
+        <h4 className="font-bold mb-4">Platforms</h4>
+        <ul className="space-y-2 text-sm text-muted-foreground">
+          <li><Link to="/zerodha" className="hover:text-primary transition-colors">Zerodha</Link></li>
+          <li><Link to="/groww" className="hover:text-primary transition-colors">Groww</Link></li>
+          <li><Link to="/angelone" className="hover:text-primary transition-colors">Angel One</Link></li>
+          <li><Link to="/upstox" className="hover:text-primary transition-colors">Upstox</Link></li>
+          <li><Link to="/fivepaisa" className="hover:text-primary transition-colors">5Paisa</Link></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 className="font-bold mb-4">Resources</h4>
+        <ul className="space-y-2 text-sm text-muted-foreground">
+          <li><Link to="/documentation" className="hover:text-primary transition-colors">Documentation</Link></li>
+          <li><a href="/Installation Guide.pdf" className="hover:text-primary transition-colors" target="_blank">Installation Guide</a></li>
+          <li><Link to="/software-features" className="hover:text-primary transition-colors">Software Features</Link></li>
+          <li><Link to="/faq" className="hover:text-primary transition-colors">FAQ</Link></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 className="font-bold mb-4">Contact</h4>
+        <ul className="space-y-2 text-sm text-muted-foreground">
+          <li>Email: biswajit@softgogy.com</li>
+          <li>Contact: 9830046647</li>
+          <li>Address: 397 Motilal Colony,</li>
+          <li>Gr. Floor, Kolkata 700081, India</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div className="border-t border-border mt-8 pt-8 text-center text-sm text-muted-foreground">
+      <p>© 2025 Softgogy. All rights reserved. Built with cutting-edge AI technology.</p>
+    </div>
+  </div>
+</footer>
+
     </div>
   );
 };
