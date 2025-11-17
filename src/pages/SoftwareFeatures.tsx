@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import Navigation from "@/components/Navigation";
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
@@ -118,7 +118,7 @@ const SoftwareFeatures = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Navigation />
+
       <main className="pt-24 pb-20">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">

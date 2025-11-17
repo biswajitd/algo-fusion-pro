@@ -1,4 +1,4 @@
-import Navigation from "@/components/Navigation";
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -38,8 +38,7 @@ const AboutUs = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Navigation />
-      
+
       <section className="pt-24 pb-12 relative">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">

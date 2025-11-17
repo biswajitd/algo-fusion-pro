@@ -1,6 +1,5 @@
 "use client";
 
-
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 import {
@@ -108,7 +107,6 @@ const Pricing = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Navigation />
 
       <main className="container mx-auto px-4 py-12">
         <div className="text-center mb-16 pt-24">

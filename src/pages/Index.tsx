@@ -10,7 +10,7 @@ import { Smartphone, Shield, Zap } from "lucide-react";
 const Index = () => {
   return (
     <div className="min-h-screen">
-      <Navigation />
+
       <Hero />
       <Features />
       <PlatformsList />
