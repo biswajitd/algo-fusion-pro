@@ -3,6 +3,9 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Navigation from "@/components/Navigation";   // ✅ RESTORED
+
 import Index from "./pages/Index";
 import Zerodha from "./pages/Zerodha";
 import Groww from "./pages/Groww";
@@ -26,23 +29,30 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/platforms" element={<Platforms />} />
-          <Route path="/zerodha" element={<Zerodha />} />
-          <Route path="/groww" element={<Groww />} />
-          <Route path="/angel-one" element={<AngelOne />} />
-          <Route path="/upstox" element={<Upstox />} />
-          <Route path="/5paisa" element={<FivePaisa />} />
-          <Route path="/success-stories" element={<SuccessStories />} />
-          <Route path="/pricing" element={<Pricing />} />
-          <Route path="/faq" element={<FAQ />} />
-          <Route path="/software-features" element={<SoftwareFeatures />} />
-          <Route path="/documentation" element={<Documentation />} />
-          <Route path="/about-us" element={<AboutUs />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+
+        {/* ⭐ GLOBAL SITE NAVIGATION (must be here & ONLY here) */}
+        <Navigation />
+
+        {/* ⭐ ALL SITE ROUTES */}
+        <main className="pt-20">
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/platforms" element={<Platforms />} />
+            <Route path="/zerodha" element={<Zerodha />} />
+            <Route path="/groww" element={<Groww />} />
+            <Route path="/angel-one" element={<AngelOne />} />
+            <Route path="/upstox" element={<Upstox />} />
+            <Route path="/5paisa" element={<FivePaisa />} />
+            <Route path="/success-stories" element={<SuccessStories />} />
+            <Route path="/pricing" element={<Pricing />} />
+            <Route path="/faq" element={<FAQ />} />
+            <Route path="/software-features" element={<SoftwareFeatures />} />
+            <Route path="/documentation" element={<Documentation />} />
+            <Route path="/about-us" element={<AboutUs />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </main>
+
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
