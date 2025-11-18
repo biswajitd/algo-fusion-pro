@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Softgogy – Algo Trading Software</title>
   </head>
+  <script>
+  // After loading index.html, restore original route
+  (function() {
+    var redirect = sessionStorage.getItem("spa_redirect");
+    if (redirect) {
+      sessionStorage.removeItem("spa_redirect");
+      history.replaceState(null, null, redirect);
+    }
+  })();
+</script>
+
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
