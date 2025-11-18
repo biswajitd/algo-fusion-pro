@@ -11,7 +11,7 @@ import Zerodha from "./pages/Zerodha";
 import Groww from "./pages/Groww";
 import AngelOne from "./pages/AngelOne";
 import Upstox from "./pages/Upstox";
-import FivePaisa from "./pages/5Paisa";
+import FivePaisa from "./pages/fivePaisa";
 import SuccessStories from "./pages/SuccessStories";
 import Pricing from "./pages/Pricing";
 import FAQ from "./pages/FAQ";
