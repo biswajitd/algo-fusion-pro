@@ -81,7 +81,7 @@ const Pricing = () => {
     {
       name: "Enterprise",
       price: "₹6,500",
-      period: "for every six months",
+      period: "for every four months",
       amountNumber: 6500,
       description: "Comprehensive solution for professional traders",
       features: [
