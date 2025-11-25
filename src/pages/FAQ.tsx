@@ -82,7 +82,7 @@ This setup allows traders to benefit from time decay and range-bound price movem
         },
         {
           question: "Do you offer discounts for annual subscriptions?",
-          answer: "Yes! Annual subscriptions receive a 15% discount compared to monthly billing."
+          answer: "Yes! Annual subscriptions receive a 10% discount compared to enterprise plan."
         }
       ]
     },
