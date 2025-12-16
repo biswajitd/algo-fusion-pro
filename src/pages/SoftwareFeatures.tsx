@@ -66,7 +66,7 @@ const SoftwareFeatures = () => {
   const features = [
     {
       image: outputMenu,
-      title: "Your Command Center: 25+ Trading Strategies at Your Fingertips",
+      title: "Your Command Center: 35+ Trading Strategies at Your Fingertips",
       description: "Experience the ultimate trading arsenal with our intuitive strategy selector. From simple buy-sell patterns to sophisticated options strategies and AI-powered predictions, every tool is just one click away. Choose from algorithmic trading, technical indicator signals, or machine learning predictions—all designed to transform market opportunities into profits."
     },
     {
