@@ -114,6 +114,11 @@ const SoftwareFeatures = () => {
       title: "AI Crystal Ball: Machine Learning Trading Predictions",
       description: "Step into the future with our cutting-edge quantum machine learning engine. Powered by advanced AI algorithms, this feature analyzes 35+ stocks simultaneously, delivering buy and sell predictions with probability scores and accuracy ratings. Watch as artificial intelligence processes millions of data points to forecast short-term price movements with remarkable precision."
     }
+    {
+      image: outputIron,
+      title: "AI Crystal Ball: Machine Learning Trading Predictions",
+      description: "The Iron Condor is a majestic bird of options trading, soaring on the wings of limited risk and defined reward. 🦅 It blends a bear call spread and a bull put spread, creating a fortress of premium income while capping exposure. With auto‑hedging, the strategy transforms into a self‑defending shield—adjusting positions dynamically as volatility storms approach. Think of it as a profit corridor, where time decay works tirelessly in your favor while risk is quietly neutralized. Traders love its balanced symmetry, earning from sideways markets without sleepless nights. The auto‑hedging layer acts like a guardian angel, trimming losses and locking gains when the market tries to break free. In short, the Iron Condor with auto‑hedging is not just a strategy—it’s a smart survival instinct in the jungle of options."
+    }
   ];
 
   return (
