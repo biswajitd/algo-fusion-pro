@@ -15,7 +15,7 @@ import outputVolume from "@/assets/output-volume.png";
 import outputDashboard from "@/assets/output-dashboard.png";
 import outputBollinger from "@/assets/output-bollinger.png";
 import outputMl from "@/assets/output-ml.png";
-
+import outputMl from "@/assets/outputIron.png";
 const SoftwareFeatures = () => {
   const [visibleCards, setVisibleCards] = useState<Set<number>>(new Set());
   const [selectedImage, setSelectedImage] = useState<{ src: string; title: string } | null>(null);
