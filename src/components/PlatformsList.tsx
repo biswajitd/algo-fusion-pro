@@ -102,7 +102,7 @@ const PlatformsList = () => {
 
   <div className="mt-6">
     <a
-      href="https://www.youtube.com/watch?v=gbHlmatnFc4"
+      href="https://www.youtube.com/watch?v=H6nxpLD2OLI"
       target="_blank"
       rel="noopener noreferrer"
     >
