@@ -113,7 +113,7 @@ const SoftwareFeatures = () => {
       image: outputMl,
       title: "AI Crystal Ball: Machine Learning Trading Predictions",
       description: "Step into the future with our cutting-edge quantum machine learning engine. Powered by advanced AI algorithms, this feature analyzes 35+ stocks simultaneously, delivering buy and sell predictions with probability scores and accuracy ratings. Watch as artificial intelligence processes millions of data points to forecast short-term price movements with remarkable precision."
-    }
+    },
     {
       image: outputIron,
       title: "Iron Condor Strategy: Iron Condor Strategy with Auto Hedging",
