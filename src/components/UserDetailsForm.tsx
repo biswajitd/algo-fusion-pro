@@ -26,7 +26,7 @@ export default function UserDetailsForm({ open, onClose, amount, planName }) {
     address: "",
     email: "",
     phone: "",
-    utrNumber: "", // UTR/Transaction ID for payment verification
+    utrNumber: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -34,71 +34,15 @@ export default function UserDetailsForm({ open, onClose, amount, planName }) {
     setForm({ ...form, [field]: value });
   };
 
-  // Invoice generator
   const generateInvoiceNumber = () => "INV-" + Date.now();
 
-  // Validate UTR Number (basic validation - 12-22 alphanumeric characters)
   const isValidUTR = (utr: string) => {
     const trimmed = utr.trim();
     return trimmed.length >= 10 && /^[A-Za-z0-9]+$/.test(trimmed);
   };
 
-  // Send email to recipient (admin)
-  const sendEmailToRecipient = (invoice: string) => {
-    return emailjs.send(
-      "service_softgogy",
-      "template_w9ou0rt",
-      {
-        from_name: form.name,
-        address: form.address,
-        email: form.email,
-        phone: form.phone,
-        amount: amount,
-        plan: planName,
-        invoice,
-        utr_number: form.utrNumber,
-        date: new Date().toLocaleString(),
-      },
-      "Y1zfR0TDFuC7Dwnmt"
-    );
-  };
-
-  // Send email to user (customer confirmation)
-  const sendEmailToUser = (invoice: string) => {
-    return emailjs.send(
-      "service_softgogy",
-      "template_w9ou0rt", // You may want to create a separate template for user
-      {
-        to_email: form.email,
-        from_name: "Softgogy",
-        customer_name: form.name,
-        address: form.address,
-        email: form.email,
-        phone: form.phone,
-        amount: amount,
-        plan: planName,
-        invoice,
-        utr_number: form.utrNumber,
-        date: new Date().toLocaleString(),
-        message: `Thank you for subscribing to the ${planName} plan! Your payment of ₹${amount} has been received. UTR: ${form.utrNumber}`,
-      },
-      "Y1zfR0TDFuC7Dwnmt"
-    );
-  };
-
-  // Open WhatsApp with payment details
-  const openWhatsApp = (phoneNumber: string, invoice: string, isRecipient: boolean) => {
-    const message = isRecipient
-      ? `🎉 New Payment Received!\n\n📋 Invoice: ${invoice}\n👤 Customer: ${form.name}\n📧 Email: ${form.email}\n📱 Phone: ${form.phone}\n📍 Address: ${form.address}\n\n💳 Plan: ${planName}\n💰 Amount: ₹${amount}\n🔢 UTR/Transaction ID: ${form.utrNumber}\n📅 Date: ${new Date().toLocaleString()}\n\n✅ Please verify the payment using UTR number.`
-      : `🎉 Payment Confirmation - Softgogy\n\nDear ${form.name},\n\nThank you for your payment!\n\n📋 Invoice: ${invoice}\n💳 Plan: ${planName}\n💰 Amount: ₹${amount}\n🔢 UTR/Transaction ID: ${form.utrNumber}\n📅 Date: ${new Date().toLocaleString()}\n\n✅ Your subscription is being processed. We will contact you within 24 hours.\n\nTeam Softgogy`;
-
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-    window.open(whatsappUrl, "_blank");
-  };
-
-  // Generate PDF
-  const generatePDF = (invoice: string) => {
+  // Generate PDF and return as base64
+  const generatePDF = (invoice: string): { doc: jsPDF; base64: string } => {
     const doc = new jsPDF();
 
     // Logo
@@ -127,13 +71,113 @@ export default function UserDetailsForm({ open, onClose, amount, planName }) {
     doc.text("Note: Please keep this receipt for your records.", 20, 195);
     doc.text("For any queries, contact: biswajit@softgogy.com | 9830046647", 20, 205);
 
+    // Get base64 for email
+    const base64 = doc.output("datauristring");
+    
+    // Save locally for user
     doc.save(`Softgogy-Receipt-${invoice}.pdf`);
-    return doc;
+    
+    return { doc, base64 };
   };
 
-  // Main submit handler
+  // Send email to recipient (admin) with PDF link
+  const sendEmailToRecipient = (invoice: string, pdfBase64: string) => {
+    return emailjs.send(
+      "service_softgogy",
+      "template_w9ou0rt",
+      {
+        from_name: form.name,
+        to_email: RECIPIENT_EMAIL,
+        address: form.address,
+        email: form.email,
+        phone: form.phone,
+        amount: amount,
+        plan: planName,
+        invoice,
+        utr_number: form.utrNumber,
+        date: new Date().toLocaleString(),
+        pdf_link: pdfBase64,
+        message: `New subscription payment received!\n\nCustomer: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\nAddress: ${form.address}\n\nPlan: ${planName}\nAmount: ₹${amount}\nUTR: ${form.utrNumber}\nInvoice: ${invoice}\n\nNote: PDF receipt is attached as a download link below.`,
+      },
+      "Y1zfR0TDFuC7Dwnmt"
+    );
+  };
+
+  // Send email to user (customer) with PDF link
+  const sendEmailToUser = (invoice: string, pdfBase64: string) => {
+    return emailjs.send(
+      "service_softgogy",
+      "template_w9ou0rt",
+      {
+        from_name: "Softgogy",
+        to_email: form.email,
+        customer_name: form.name,
+        address: form.address,
+        email: form.email,
+        phone: form.phone,
+        amount: amount,
+        plan: planName,
+        invoice,
+        utr_number: form.utrNumber,
+        date: new Date().toLocaleString(),
+        pdf_link: pdfBase64,
+        message: `Dear ${form.name},\n\nThank you for subscribing to the ${planName} plan!\n\nPayment Details:\n- Amount: ₹${amount}\n- UTR: ${form.utrNumber}\n- Invoice: ${invoice}\n\nYour PDF receipt is attached below. Click the link to download.\n\nWe will contact you within 24 hours to complete your setup.\n\nBest regards,\nTeam Softgogy\nContact: 9830046647 | biswajit@softgogy.com`,
+      },
+      "Y1zfR0TDFuC7Dwnmt"
+    );
+  };
+
+  // Open WhatsApp with payment details (user must click Send)
+  const openWhatsAppForRecipient = (invoice: string) => {
+    const message = `🎉 *New Payment Received!*
+
+📋 *Invoice:* ${invoice}
+👤 *Customer:* ${form.name}
+📧 *Email:* ${form.email}
+📱 *Phone:* ${form.phone}
+📍 *Address:* ${form.address}
+
+💳 *Plan:* ${planName}
+💰 *Amount:* ₹${amount}
+🔢 *UTR:* ${form.utrNumber}
+📅 *Date:* ${new Date().toLocaleString()}
+
+✅ Please verify payment using UTR.`;
+
+    const encodedMessage = encodeURIComponent(message);
+    window.open(`https://wa.me/${RECIPIENT_PHONE}?text=${encodedMessage}`, "_blank");
+  };
+
+  const openWhatsAppForUser = (invoice: string) => {
+    const userPhone = form.phone.replace(/\D/g, "");
+    if (userPhone.length < 10) return;
+    
+    const formattedPhone = userPhone.startsWith("91") ? userPhone : `91${userPhone}`;
+    
+    const message = `🎉 *Payment Confirmation - Softgogy*
+
+Dear ${form.name},
+
+Thank you for your payment!
+
+📋 *Invoice:* ${invoice}
+💳 *Plan:* ${planName}
+💰 *Amount:* ₹${amount}
+🔢 *UTR:* ${form.utrNumber}
+📅 *Date:* ${new Date().toLocaleString()}
+
+✅ Your subscription is being processed. We will contact you within 24 hours.
+
+📧 Check your email (${form.email}) for the PDF receipt.
+
+Team Softgogy
+📞 9830046647`;
+
+    const encodedMessage = encodeURIComponent(message);
+    window.open(`https://wa.me/${formattedPhone}?text=${encodedMessage}`, "_blank");
+  };
+
   const handleSubmit = async () => {
-    // Validation
     if (!form.name.trim() || !form.email.trim() || !form.phone.trim() || !form.utrNumber.trim()) {
       toast.error("Please fill all required fields including UTR/Transaction ID");
       return;
@@ -148,37 +192,35 @@ export default function UserDetailsForm({ open, onClose, amount, planName }) {
     const invoice = generateInvoiceNumber();
 
     try {
-      // 1. Generate and download PDF
-      generatePDF(invoice);
+      // 1. Generate PDF and get base64
+      toast.info("Generating PDF receipt...");
+      const { base64: pdfBase64 } = generatePDF(invoice);
+      toast.success("PDF downloaded to your device!");
 
-      // 2. Send emails to both recipient and user
+      // 2. Send emails with PDF link
+      toast.info("Sending confirmation emails...");
       await Promise.all([
-        sendEmailToRecipient(invoice),
-        sendEmailToUser(invoice),
+        sendEmailToRecipient(invoice, pdfBase64),
+        sendEmailToUser(invoice, pdfBase64),
       ]);
+      toast.success("Emails sent to you and Softgogy!");
 
-      toast.success("Receipt generated and emails sent successfully!");
-
-      // 3. Open WhatsApp for recipient (admin)
+      // 3. Open WhatsApp windows (user needs to click Send)
+      toast.info("Opening WhatsApp... Please click SEND on each window!", { duration: 5000 });
+      
       setTimeout(() => {
-        openWhatsApp(RECIPIENT_PHONE, invoice, true);
-      }, 500);
+        openWhatsAppForRecipient(invoice);
+      }, 1000);
 
-      // 4. Open WhatsApp for user (if valid Indian number)
-      const userPhone = form.phone.replace(/\D/g, "");
-      if (userPhone.length >= 10) {
-        const formattedUserPhone = userPhone.startsWith("91") ? userPhone : `91${userPhone}`;
-        setTimeout(() => {
-          openWhatsApp(formattedUserPhone, invoice, false);
-        }, 1500);
-      }
-
-      toast.info("WhatsApp windows opened for confirmation. Please send the messages.");
+      setTimeout(() => {
+        openWhatsAppForUser(invoice);
+        toast.warning("⚠️ Important: Click SEND on both WhatsApp windows to complete!", { duration: 8000 });
+      }, 2500);
 
       onClose();
     } catch (error) {
       console.error("Error processing payment:", error);
-      toast.error("Something went wrong. Please try again or contact support.");
+      toast.error("Something went wrong. Please try again or contact support at 9830046647");
     } finally {
       setIsSubmitting(false);
     }
@@ -193,10 +235,7 @@ export default function UserDetailsForm({ open, onClose, amount, planName }) {
           </DialogTitle>
         </DialogHeader>
 
-        {/* FIXED FORM */}
         <div className="flex flex-col gap-4 mt-4">
-
-          {/* FULL NAME */}
           <Input
             placeholder="Full Name *"
             value={form.name}
@@ -204,7 +243,6 @@ export default function UserDetailsForm({ open, onClose, amount, planName }) {
             className="border p-2 rounded text-foreground bg-white dark:bg-neutral-900 placeholder:text-muted-foreground"
           />
 
-          {/* ADDRESS */}
           <Textarea
             placeholder="Full Address"
             value={form.address}
@@ -213,7 +251,6 @@ export default function UserDetailsForm({ open, onClose, amount, planName }) {
             rows={3}
           />
 
-          {/* EMAIL */}
           <Input
             placeholder="Email Address *"
             type="email"
@@ -222,7 +259,6 @@ export default function UserDetailsForm({ open, onClose, amount, planName }) {
             className="border p-2 rounded text-foreground bg-white dark:bg-neutral-900 placeholder:text-muted-foreground"
           />
 
-          {/* PHONE */}
           <Input
             placeholder="Mobile Number (WhatsApp) *"
             type="tel"
@@ -231,7 +267,6 @@ export default function UserDetailsForm({ open, onClose, amount, planName }) {
             className="border p-2 rounded text-foreground bg-white dark:bg-neutral-900 placeholder:text-muted-foreground"
           />
 
-          {/* UTR/TRANSACTION ID */}
           <div className="space-y-1">
             <Input
               placeholder="UTR/Transaction ID from GPay *"
@@ -244,7 +279,14 @@ export default function UserDetailsForm({ open, onClose, amount, planName }) {
             </p>
           </div>
 
-          {/* BUTTON */}
+          {/* Info box about what happens next */}
+          <div className="bg-muted/50 p-3 rounded-lg text-sm space-y-1">
+            <p className="font-medium">After clicking submit:</p>
+            <p>✓ PDF receipt downloads automatically</p>
+            <p>✓ Email sent to you & Softgogy</p>
+            <p>✓ WhatsApp windows open - <strong>click SEND on each</strong></p>
+          </div>
+
           <Button 
             className="w-full mt-2" 
             onClick={handleSubmit}
