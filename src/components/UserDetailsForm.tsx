@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { jsPDF } from "jspdf";
-import emailjs from "@emailjs/browser";
 import {
   Dialog,
   DialogContent,
@@ -14,11 +13,11 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 
 import SoftgogyLogo from "@/assets/softgogy.png";
 
-const RECIPIENT_PHONE = "919830046647"; // Softgogy WhatsApp number
-const RECIPIENT_EMAIL = "biswajit@softgogy.com";
+const RECIPIENT_PHONE = "919830046647";
 
 export default function UserDetailsForm({ open, onClose, amount, planName }) {
   const [form, setForm] = useState({
@@ -41,7 +40,7 @@ export default function UserDetailsForm({ open, onClose, amount, planName }) {
     return trimmed.length >= 10 && /^[A-Za-z0-9]+$/.test(trimmed);
   };
 
-  // Generate PDF and return as base64
+  // Generate PDF and return as base64 (without data URI prefix)
   const generatePDF = (invoice: string): { doc: jsPDF; base64: string } => {
     const doc = new jsPDF();
 
@@ -71,8 +70,9 @@ export default function UserDetailsForm({ open, onClose, amount, planName }) {
     doc.text("Note: Please keep this receipt for your records.", 20, 195);
     doc.text("For any queries, contact: biswajit@softgogy.com | 9830046647", 20, 205);
 
-    // Get base64 for email
-    const base64 = doc.output("datauristring");
+    // Get base64 from data URI (remove the prefix)
+    const dataUri = doc.output("datauristring");
+    const base64 = dataUri.split(",")[1]; // Remove "data:application/pdf;base64," prefix
     
     // Save locally for user
     doc.save(`Softgogy-Receipt-${invoice}.pdf`);
@@ -80,51 +80,28 @@ export default function UserDetailsForm({ open, onClose, amount, planName }) {
     return { doc, base64 };
   };
 
-  // Send email to recipient (admin) with PDF link
-  const sendEmailToRecipient = (invoice: string, pdfBase64: string) => {
-    return emailjs.send(
-      "service_softgogy",
-      "template_w9ou0rt",
-      {
-        from_name: form.name,
-        to_email: RECIPIENT_EMAIL,
-        address: form.address,
-        email: form.email,
-        phone: form.phone,
+  // Send emails via edge function with PDF attachment
+  const sendEmailsWithPDF = async (invoice: string, pdfBase64: string) => {
+    const { data, error } = await supabase.functions.invoke("send-payment-email", {
+      body: {
+        customerName: form.name,
+        customerEmail: form.email,
+        customerPhone: form.phone,
+        customerAddress: form.address,
+        planName: planName,
         amount: amount,
-        plan: planName,
-        invoice,
-        utr_number: form.utrNumber,
-        date: new Date().toLocaleString(),
-        pdf_link: pdfBase64,
-        message: `New subscription payment received!\n\nCustomer: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\nAddress: ${form.address}\n\nPlan: ${planName}\nAmount: ₹${amount}\nUTR: ${form.utrNumber}\nInvoice: ${invoice}\n\nNote: PDF receipt is attached as a download link below.`,
+        utrNumber: form.utrNumber,
+        invoiceNumber: invoice,
+        pdfBase64: pdfBase64,
       },
-      "Y1zfR0TDFuC7Dwnmt"
-    );
-  };
+    });
 
-  // Send email to user (customer) with PDF link
-  const sendEmailToUser = (invoice: string, pdfBase64: string) => {
-    return emailjs.send(
-      "service_softgogy",
-      "template_w9ou0rt",
-      {
-        from_name: "Softgogy",
-        to_email: form.email,
-        customer_name: form.name,
-        address: form.address,
-        email: form.email,
-        phone: form.phone,
-        amount: amount,
-        plan: planName,
-        invoice,
-        utr_number: form.utrNumber,
-        date: new Date().toLocaleString(),
-        pdf_link: pdfBase64,
-        message: `Dear ${form.name},\n\nThank you for subscribing to the ${planName} plan!\n\nPayment Details:\n- Amount: ₹${amount}\n- UTR: ${form.utrNumber}\n- Invoice: ${invoice}\n\nYour PDF receipt is attached below. Click the link to download.\n\nWe will contact you within 24 hours to complete your setup.\n\nBest regards,\nTeam Softgogy\nContact: 9830046647 | biswajit@softgogy.com`,
-      },
-      "Y1zfR0TDFuC7Dwnmt"
-    );
+    if (error) {
+      console.error("Edge function error:", error);
+      throw new Error(error.message || "Failed to send emails");
+    }
+
+    return data;
   };
 
   // Open WhatsApp with payment details (user must click Send)
@@ -197,13 +174,10 @@ Team Softgogy
       const { base64: pdfBase64 } = generatePDF(invoice);
       toast.success("PDF downloaded to your device!");
 
-      // 2. Send emails with PDF link
-      toast.info("Sending confirmation emails...");
-      await Promise.all([
-        sendEmailToRecipient(invoice, pdfBase64),
-        sendEmailToUser(invoice, pdfBase64),
-      ]);
-      toast.success("Emails sent to you and Softgogy!");
+      // 2. Send emails with PDF attachment via edge function
+      toast.info("Sending confirmation emails with PDF attachment...");
+      await sendEmailsWithPDF(invoice, pdfBase64);
+      toast.success("Emails with PDF sent to you and Softgogy!");
 
       // 3. Open WhatsApp windows (user needs to click Send)
       toast.info("Opening WhatsApp... Please click SEND on each window!", { duration: 5000 });
@@ -283,7 +257,7 @@ Team Softgogy
           <div className="bg-muted/50 p-3 rounded-lg text-sm space-y-1">
             <p className="font-medium">After clicking submit:</p>
             <p>✓ PDF receipt downloads automatically</p>
-            <p>✓ Email sent to you & Softgogy</p>
+            <p>✓ Email with PDF attachment sent to you & Softgogy</p>
             <p>✓ WhatsApp windows open - <strong>click SEND on each</strong></p>
           </div>
 
