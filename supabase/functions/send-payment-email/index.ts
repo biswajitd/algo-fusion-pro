@@ -118,20 +118,32 @@ const handler = async (req: Request): Promise<Response> => {
       </div>
     `;
 
-    // Convert base64 to buffer for attachment
-    const pdfBuffer = Uint8Array.from(atob(pdfBase64), c => c.charCodeAt(0));
+    // Clean base64 (in case frontend sends a data URI)
+    const pdfBase64Clean = (pdfBase64 ?? "").replace(
+      /^data:application\/pdf;base64,/, 
+      ""
+    );
+
+    if (!pdfBase64Clean) {
+      throw new Error("Missing pdfBase64 for PDF attachment");
+    }
+
+    console.log("PDF base64 length:", pdfBase64Clean.length);
+
+    const fromAddress = "Softgogy <payments@softgogy.in>";
 
     console.log("Sending email to admin: biswajit@softgogy.com");
     // Send email to admin
     const adminResult = await resend.emails.send({
-      from: "Softgogy <onboarding@resend.dev>",
+      from: fromAddress,
       to: ["biswajit@softgogy.com"],
       subject: `🎉 New Payment: ${planName} - ₹${amount} from ${customerName}`,
       html: adminEmailHtml,
       attachments: [
         {
           filename: `Softgogy-Receipt-${invoiceNumber}.pdf`,
-          content: pdfBuffer,
+          content: pdfBase64Clean,
+          contentType: "application/pdf",
         },
       ],
     });
@@ -140,14 +152,15 @@ const handler = async (req: Request): Promise<Response> => {
     console.log("Sending email to customer:", customerEmail);
     // Send email to customer
     const customerResult = await resend.emails.send({
-      from: "Softgogy <onboarding@resend.dev>",
+      from: fromAddress,
       to: [customerEmail],
       subject: `✅ Payment Confirmation - ${planName} Subscription | Softgogy`,
       html: customerEmailHtml,
       attachments: [
         {
           filename: `Softgogy-Receipt-${invoiceNumber}.pdf`,
-          content: pdfBuffer,
+          content: pdfBase64Clean,
+          contentType: "application/pdf",
         },
       ],
     });
