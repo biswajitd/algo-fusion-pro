@@ -280,6 +280,19 @@ Team Softgogy
             <p>✓ WhatsApp windows open - <strong>click SEND on each</strong></p>
           </div>
 
+          {/* Fraud warning */}
+          <div className="bg-destructive/10 border border-destructive/30 p-3 rounded-lg text-xs space-y-1">
+            <p className="font-semibold text-destructive flex items-center gap-1">
+              ⚠️ Important Notice
+            </p>
+            <p className="text-muted-foreground">
+              All submissions are logged with timestamps and device information. 
+              UTR numbers are verified against bank records. Fake or fraudulent 
+              submissions will result in service denial and may be reported to 
+              appropriate authorities.
+            </p>
+          </div>
+
           <Button 
             className="w-full mt-2" 
             onClick={handleSubmit}
