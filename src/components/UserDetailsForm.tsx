@@ -80,25 +80,44 @@ export default function UserDetailsForm({ open, onClose, amount, planName }) {
     return { doc, base64 };
   };
 
+  // API token for secure edge function calls
+  const API_TOKEN = "softgogy-payment-2025-secure";
+
   // Send emails via edge function with PDF attachment
   const sendEmailsWithPDF = async (invoice: string, pdfBase64: string) => {
+    // Validate inputs before sending
+    const phoneDigits = form.phone.replace(/\D/g, "");
+    if (phoneDigits.length < 10 || phoneDigits.length > 15) {
+      throw new Error("Phone number must be 10-15 digits");
+    }
+    
+    if (form.address.trim().length < 10) {
+      throw new Error("Please provide a complete address (at least 10 characters)");
+    }
+
     const { data, error } = await supabase.functions.invoke("send-payment-email", {
       body: {
-        customerName: form.name,
-        customerEmail: form.email,
-        customerPhone: form.phone,
-        customerAddress: form.address,
+        customerName: form.name.trim(),
+        customerEmail: form.email.trim(),
+        customerPhone: phoneDigits,
+        customerAddress: form.address.trim(),
         planName: planName,
-        amount: amount,
-        utrNumber: form.utrNumber,
+        amount: typeof amount === 'number' ? amount : parseFloat(amount),
+        utrNumber: form.utrNumber.trim(),
         invoiceNumber: invoice,
         pdfBase64: pdfBase64,
+        apiToken: API_TOKEN,
       },
     });
 
     if (error) {
       console.error("Edge function error:", error);
       throw new Error(error.message || "Failed to send emails");
+    }
+
+    if (data && !data.success) {
+      console.error("Edge function returned error:", data);
+      throw new Error(data.error || "Failed to send emails");
     }
 
     return data;

@@ -1,23 +1,61 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { Resend } from "https://esm.sh/resend@4.0.0";
+import { z } from "https://deno.land/x/zod@v3.22.4/mod.ts";
 
 const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
 
+// Secret token for API authentication (set this in Supabase secrets)
+const API_SECRET_TOKEN = Deno.env.get("PAYMENT_EMAIL_SECRET") || "softgogy-payment-2025-secure";
+
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type, x-api-token",
 };
 
-interface PaymentEmailRequest {
-  customerName: string;
-  customerEmail: string;
-  customerPhone: string;
-  customerAddress: string;
-  planName: string;
-  amount: number;
-  utrNumber: string;
-  invoiceNumber: string;
-  pdfBase64: string; // Base64 PDF data (without data URI prefix)
+// Input validation schema using Zod
+const PaymentEmailSchema = z.object({
+  customerName: z.string().min(2, "Name must be at least 2 characters").max(100, "Name too long").regex(/^[a-zA-Z\s.'-]+$/, "Name contains invalid characters"),
+  customerEmail: z.string().email("Invalid email address").max(255, "Email too long"),
+  customerPhone: z.string().regex(/^[0-9]{10,15}$/, "Phone must be 10-15 digits"),
+  customerAddress: z.string().min(10, "Address too short").max(500, "Address too long"),
+  planName: z.string().min(1, "Plan name required").max(100, "Plan name too long"),
+  amount: z.number().positive("Amount must be positive").max(10000000, "Amount too large"),
+  utrNumber: z.string().regex(/^[A-Za-z0-9]{6,30}$/, "UTR must be 6-30 alphanumeric characters"),
+  invoiceNumber: z.string().regex(/^INV-[0-9]+$/, "Invalid invoice format"),
+  pdfBase64: z.string().min(100, "PDF data too short").max(10000000, "PDF too large"),
+  apiToken: z.string().min(1, "API token required"),
+});
+
+// HTML escape function to prevent XSS
+function escapeHtml(unsafe: string): string {
+  return unsafe
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+// Simple in-memory rate limiting (resets on function cold start)
+const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
+const RATE_LIMIT_MAX = 5; // Max 5 requests per hour per email
+const RATE_LIMIT_WINDOW = 3600000; // 1 hour in milliseconds
+
+function checkRateLimit(email: string): boolean {
+  const now = Date.now();
+  const record = rateLimitMap.get(email);
+  
+  if (!record || now > record.resetTime) {
+    rateLimitMap.set(email, { count: 1, resetTime: now + RATE_LIMIT_WINDOW });
+    return true;
+  }
+  
+  if (record.count >= RATE_LIMIT_MAX) {
+    return false;
+  }
+  
+  record.count++;
+  return true;
 }
 
 const handler = async (req: Request): Promise<Response> => {
@@ -29,20 +67,55 @@ const handler = async (req: Request): Promise<Response> => {
   }
 
   try {
-    const payload: PaymentEmailRequest = await req.json();
-    console.log("Received payload for:", payload.customerName, payload.customerEmail);
+    // Parse and validate input
+    const rawPayload = await req.json();
+    
+    // Validate using Zod schema
+    const validationResult = PaymentEmailSchema.safeParse(rawPayload);
+    
+    if (!validationResult.success) {
+      console.error("Validation failed:", validationResult.error.errors);
+      return new Response(
+        JSON.stringify({ 
+          success: false, 
+          error: "Invalid input data",
+          details: validationResult.error.errors.map(e => `${e.path.join('.')}: ${e.message}`)
+        }),
+        { status: 400, headers: { "Content-Type": "application/json", ...corsHeaders } }
+      );
+    }
 
-    const {
-      customerName,
-      customerEmail,
-      customerPhone,
-      customerAddress,
-      planName,
-      amount,
-      utrNumber,
-      invoiceNumber,
-      pdfBase64,
-    } = payload;
+    const payload = validationResult.data;
+
+    // Verify API token
+    if (payload.apiToken !== API_SECRET_TOKEN) {
+      console.error("Invalid API token provided");
+      return new Response(
+        JSON.stringify({ success: false, error: "Unauthorized request" }),
+        { status: 401, headers: { "Content-Type": "application/json", ...corsHeaders } }
+      );
+    }
+
+    // Check rate limit
+    if (!checkRateLimit(payload.customerEmail)) {
+      console.error("Rate limit exceeded for:", payload.customerEmail);
+      return new Response(
+        JSON.stringify({ success: false, error: "Too many requests. Please try again later." }),
+        { status: 429, headers: { "Content-Type": "application/json", ...corsHeaders } }
+      );
+    }
+
+    console.log("Validated payload for:", payload.customerName, payload.customerEmail);
+
+    // Escape all user inputs for HTML
+    const safeName = escapeHtml(payload.customerName);
+    const safeEmail = escapeHtml(payload.customerEmail);
+    const safePhone = escapeHtml(payload.customerPhone);
+    const safeAddress = escapeHtml(payload.customerAddress);
+    const safePlan = escapeHtml(payload.planName);
+    const safeUtr = escapeHtml(payload.utrNumber);
+    const safeInvoice = escapeHtml(payload.invoiceNumber);
+    const safeAmount = payload.amount.toFixed(2);
 
     const currentDate = new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
 
@@ -54,20 +127,20 @@ const handler = async (req: Request): Promise<Response> => {
         <div style="background: #f7fafc; padding: 20px; border-radius: 8px; margin: 20px 0;">
           <h2 style="color: #2d3748; margin-top: 0;">Customer Details</h2>
           <table style="width: 100%; border-collapse: collapse;">
-            <tr><td style="padding: 8px 0; color: #718096;">Name:</td><td style="padding: 8px 0; font-weight: bold;">${customerName}</td></tr>
-            <tr><td style="padding: 8px 0; color: #718096;">Email:</td><td style="padding: 8px 0;">${customerEmail}</td></tr>
-            <tr><td style="padding: 8px 0; color: #718096;">Phone:</td><td style="padding: 8px 0;">${customerPhone}</td></tr>
-            <tr><td style="padding: 8px 0; color: #718096;">Address:</td><td style="padding: 8px 0;">${customerAddress}</td></tr>
+            <tr><td style="padding: 8px 0; color: #718096;">Name:</td><td style="padding: 8px 0; font-weight: bold;">${safeName}</td></tr>
+            <tr><td style="padding: 8px 0; color: #718096;">Email:</td><td style="padding: 8px 0;">${safeEmail}</td></tr>
+            <tr><td style="padding: 8px 0; color: #718096;">Phone:</td><td style="padding: 8px 0;">${safePhone}</td></tr>
+            <tr><td style="padding: 8px 0; color: #718096;">Address:</td><td style="padding: 8px 0;">${safeAddress}</td></tr>
           </table>
         </div>
 
         <div style="background: #e6fffa; padding: 20px; border-radius: 8px; margin: 20px 0;">
           <h2 style="color: #234e52; margin-top: 0;">Payment Details</h2>
           <table style="width: 100%; border-collapse: collapse;">
-            <tr><td style="padding: 8px 0; color: #718096;">Invoice:</td><td style="padding: 8px 0; font-weight: bold;">${invoiceNumber}</td></tr>
-            <tr><td style="padding: 8px 0; color: #718096;">Plan:</td><td style="padding: 8px 0; font-weight: bold;">${planName}</td></tr>
-            <tr><td style="padding: 8px 0; color: #718096;">Amount:</td><td style="padding: 8px 0; font-weight: bold; color: #38a169;">₹${amount}</td></tr>
-            <tr><td style="padding: 8px 0; color: #718096;">UTR Number:</td><td style="padding: 8px 0; font-weight: bold; color: #d69e2e;">${utrNumber}</td></tr>
+            <tr><td style="padding: 8px 0; color: #718096;">Invoice:</td><td style="padding: 8px 0; font-weight: bold;">${safeInvoice}</td></tr>
+            <tr><td style="padding: 8px 0; color: #718096;">Plan:</td><td style="padding: 8px 0; font-weight: bold;">${safePlan}</td></tr>
+            <tr><td style="padding: 8px 0; color: #718096;">Amount:</td><td style="padding: 8px 0; font-weight: bold; color: #38a169;">₹${safeAmount}</td></tr>
+            <tr><td style="padding: 8px 0; color: #718096;">UTR Number:</td><td style="padding: 8px 0; font-weight: bold; color: #d69e2e;">${safeUtr}</td></tr>
             <tr><td style="padding: 8px 0; color: #718096;">Date:</td><td style="padding: 8px 0;">${currentDate}</td></tr>
           </table>
         </div>
@@ -84,20 +157,20 @@ const handler = async (req: Request): Promise<Response> => {
           <p style="color: #718096;">Your AI-Powered Trading Partner</p>
         </div>
 
-        <h2 style="color: #2d3748;">Thank You, ${customerName}! 🎉</h2>
+        <h2 style="color: #2d3748;">Thank You, ${safeName}! 🎉</h2>
         
         <p style="color: #4a5568; line-height: 1.6;">
-          We have received your payment for the <strong>${planName}</strong> plan. 
+          We have received your payment for the <strong>${safePlan}</strong> plan. 
           Your subscription is being processed and our team will contact you within 24 hours.
         </p>
 
         <div style="background: #f7fafc; padding: 20px; border-radius: 8px; margin: 20px 0;">
           <h3 style="color: #2d3748; margin-top: 0;">Payment Summary</h3>
           <table style="width: 100%; border-collapse: collapse;">
-            <tr><td style="padding: 8px 0; color: #718096;">Invoice:</td><td style="padding: 8px 0; font-weight: bold;">${invoiceNumber}</td></tr>
-            <tr><td style="padding: 8px 0; color: #718096;">Plan:</td><td style="padding: 8px 0;">${planName}</td></tr>
-            <tr><td style="padding: 8px 0; color: #718096;">Amount Paid:</td><td style="padding: 8px 0; font-weight: bold; color: #38a169;">₹${amount}</td></tr>
-            <tr><td style="padding: 8px 0; color: #718096;">UTR Number:</td><td style="padding: 8px 0;">${utrNumber}</td></tr>
+            <tr><td style="padding: 8px 0; color: #718096;">Invoice:</td><td style="padding: 8px 0; font-weight: bold;">${safeInvoice}</td></tr>
+            <tr><td style="padding: 8px 0; color: #718096;">Plan:</td><td style="padding: 8px 0;">${safePlan}</td></tr>
+            <tr><td style="padding: 8px 0; color: #718096;">Amount Paid:</td><td style="padding: 8px 0; font-weight: bold; color: #38a169;">₹${safeAmount}</td></tr>
+            <tr><td style="padding: 8px 0; color: #718096;">UTR Number:</td><td style="padding: 8px 0;">${safeUtr}</td></tr>
             <tr><td style="padding: 8px 0; color: #718096;">Date:</td><td style="padding: 8px 0;">${currentDate}</td></tr>
           </table>
         </div>
@@ -119,7 +192,7 @@ const handler = async (req: Request): Promise<Response> => {
     `;
 
     // Clean base64 (in case frontend sends a data URI)
-    const pdfBase64Clean = (pdfBase64 ?? "").replace(
+    const pdfBase64Clean = payload.pdfBase64.replace(
       /^data:application\/pdf;base64,/, 
       ""
     );
@@ -137,11 +210,11 @@ const handler = async (req: Request): Promise<Response> => {
     const adminResult = await resend.emails.send({
       from: fromAddress,
       to: ["biswajit@softgogy.com"],
-      subject: `🎉 New Payment: ${planName} - ₹${amount} from ${customerName}`,
+      subject: `🎉 New Payment: ${safePlan} - ₹${safeAmount} from ${safeName}`,
       html: adminEmailHtml,
       attachments: [
         {
-          filename: `Softgogy-Receipt-${invoiceNumber}.pdf`,
+          filename: `Softgogy-Receipt-${safeInvoice}.pdf`,
           content: pdfBase64Clean,
           contentType: "application/pdf",
         },
@@ -149,16 +222,16 @@ const handler = async (req: Request): Promise<Response> => {
     });
     console.log("Admin email result:", adminResult);
 
-    console.log("Sending email to customer:", customerEmail);
-    // Send email to customer
+    console.log("Sending email to customer:", payload.customerEmail);
+    // Send email to customer (use original validated email, not escaped)
     const customerResult = await resend.emails.send({
       from: fromAddress,
-      to: [customerEmail],
-      subject: `✅ Payment Confirmation - ${planName} Subscription | Softgogy`,
+      to: [payload.customerEmail],
+      subject: `✅ Payment Confirmation - ${safePlan} Subscription | Softgogy`,
       html: customerEmailHtml,
       attachments: [
         {
-          filename: `Softgogy-Receipt-${invoiceNumber}.pdf`,
+          filename: `Softgogy-Receipt-${safeInvoice}.pdf`,
           content: pdfBase64Clean,
           contentType: "application/pdf",
         },
@@ -180,7 +253,7 @@ const handler = async (req: Request): Promise<Response> => {
   } catch (error: any) {
     console.error("Error in send-payment-email:", error);
     return new Response(
-      JSON.stringify({ success: false, error: error.message }),
+      JSON.stringify({ success: false, error: "An error occurred processing your request" }),
       {
         status: 500,
         headers: { "Content-Type": "application/json", ...corsHeaders },
