@@ -1,9 +1,14 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { Resend } from "https://esm.sh/resend@4.0.0";
 import { z } from "https://deno.land/x/zod@v3.22.4/mod.ts";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2.39.3";
 
 const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
 
+// Supabase client for logging (uses service role for RLS bypass)
+const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
+const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
+const supabaseAdmin = createClient(supabaseUrl, supabaseServiceKey);
 // Secret token for API authentication (set this in Supabase secrets)
 const API_SECRET_TOKEN = Deno.env.get("PAYMENT_EMAIL_SECRET") || "softgogy-payment-2025-secure";
 
@@ -65,6 +70,13 @@ const handler = async (req: Request): Promise<Response> => {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
+
+  // Extract client info for audit logging
+  const clientIp = req.headers.get("x-forwarded-for") || 
+                   req.headers.get("x-real-ip") || 
+                   req.headers.get("cf-connecting-ip") || 
+                   "unknown";
+  const userAgent = req.headers.get("user-agent") || "unknown";
 
   try {
     // Parse and validate input
@@ -239,6 +251,31 @@ const handler = async (req: Request): Promise<Response> => {
     });
     console.log("Customer email result:", customerResult);
 
+    // Log successful submission to audit table
+    const { error: auditError } = await supabaseAdmin
+      .from("payment_audit_log")
+      .insert({
+        customer_name: payload.customerName,
+        customer_email: payload.customerEmail,
+        customer_phone: payload.customerPhone,
+        customer_address: payload.customerAddress,
+        plan_name: payload.planName,
+        amount: payload.amount,
+        utr_number: payload.utrNumber,
+        invoice_number: payload.invoiceNumber,
+        ip_address: clientIp,
+        user_agent: userAgent,
+        status: "success",
+        admin_email_sent: !adminResult.error,
+        customer_email_sent: !customerResult.error,
+      });
+
+    if (auditError) {
+      console.error("Failed to log to audit table:", auditError);
+    } else {
+      console.log("Payment logged to audit table");
+    }
+
     return new Response(
       JSON.stringify({
         success: true,
@@ -252,6 +289,34 @@ const handler = async (req: Request): Promise<Response> => {
     );
   } catch (error: any) {
     console.error("Error in send-payment-email:", error);
+    
+    // Try to log failed submission if we have the data
+    try {
+      const rawPayload = await req.clone().json().catch(() => null);
+      if (rawPayload?.customerEmail) {
+        await supabaseAdmin
+          .from("payment_audit_log")
+          .insert({
+            customer_name: rawPayload.customerName || "unknown",
+            customer_email: rawPayload.customerEmail || "unknown",
+            customer_phone: rawPayload.customerPhone || "unknown",
+            customer_address: rawPayload.customerAddress || "",
+            plan_name: rawPayload.planName || "unknown",
+            amount: rawPayload.amount || 0,
+            utr_number: rawPayload.utrNumber || "unknown",
+            invoice_number: rawPayload.invoiceNumber || "unknown",
+            ip_address: clientIp,
+            user_agent: userAgent,
+            status: "failed",
+            admin_email_sent: false,
+            customer_email_sent: false,
+            notes: error.message || "Unknown error",
+          });
+      }
+    } catch (logError) {
+      console.error("Failed to log error to audit table:", logError);
+    }
+
     return new Response(
       JSON.stringify({ success: false, error: "An error occurred processing your request" }),
       {

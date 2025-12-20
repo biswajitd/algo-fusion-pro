@@ -14,7 +14,63 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      payment_audit_log: {
+        Row: {
+          admin_email_sent: boolean | null
+          amount: number
+          created_at: string
+          customer_address: string | null
+          customer_email: string
+          customer_email_sent: boolean | null
+          customer_name: string
+          customer_phone: string
+          id: string
+          invoice_number: string
+          ip_address: string | null
+          notes: string | null
+          plan_name: string
+          status: string
+          user_agent: string | null
+          utr_number: string
+        }
+        Insert: {
+          admin_email_sent?: boolean | null
+          amount: number
+          created_at?: string
+          customer_address?: string | null
+          customer_email: string
+          customer_email_sent?: boolean | null
+          customer_name: string
+          customer_phone: string
+          id?: string
+          invoice_number: string
+          ip_address?: string | null
+          notes?: string | null
+          plan_name: string
+          status?: string
+          user_agent?: string | null
+          utr_number: string
+        }
+        Update: {
+          admin_email_sent?: boolean | null
+          amount?: number
+          created_at?: string
+          customer_address?: string | null
+          customer_email?: string
+          customer_email_sent?: boolean | null
+          customer_name?: string
+          customer_phone?: string
+          id?: string
+          invoice_number?: string
+          ip_address?: string | null
+          notes?: string | null
+          plan_name?: string
+          status?: string
+          user_agent?: string | null
+          utr_number?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
