@@ -31,7 +31,11 @@ const FAQ = () => {
         {
           question: "Do I need separate accounts for each trading platform?",
           answer: "Yes, you need to have an active trading account with each platform you wish to integrate. Our software connects to your existing accounts through secure API authentication."
-        }
+        },
+		{
+          question: "Which platform would you recommend as the most user friendly and efficient?",
+          answer: "All platforms provide the same set of strategies and predictions, with trading options available in both NSE and MCX exchanges. The only exception is the Groww platform, which does not support commodity trading for Algo applications. However, in terms of user friendliness and efficient trading, the Algo software is most suitable when used with the Zerodha platform."
+        } 
       ]
     },
     {
