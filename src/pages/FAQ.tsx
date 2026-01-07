@@ -34,7 +34,7 @@ const FAQ = () => {
         },
         {
           question: "Please give some tricks for profitable trading.",
-          answer: `I can share a few practical strategies that have consistently helped me achieve profitable trades. My approach usually revolves around using options 1, 2, 5, and 10, combined with the powerful Strategy 23.
+          answer: `I can share a few practical strategies that have consistently helped achieving profitable trades. My approach usually revolves around using options 1, 2, 5, and 10, combined with the powerful Strategy 23.
 
 
 𝗦𝘁𝗿𝗮𝘁𝗲𝗴𝘆 𝟭: Neutral Stock Play (Morning Setup)
