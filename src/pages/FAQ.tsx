@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Accordion,
   AccordionContent,
@@ -13,97 +12,178 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-type FAQItem = {
-  question: string;
-  answer: React.ReactNode;
-};
-
-type FAQCategory = {
-  category: string;
-  questions: FAQItem[];
-};
-
 const FAQ = () => {
-  const faqCategories: FAQCategory[] = [
+  const faqCategories = [
     {
       category: "Trading Platforms",
       questions: [
         {
           question: "Which trading platforms do you support?",
-          answer: (
-            <p>
-              We support Zerodha, Groww, Angel One, Upstox, and 5Paisa covering
-              NSE equities, Futures & Options, and MCX commodities.
-            </p>
-          ),
+          answer:
+            "We support integration with Zerodha, Groww, Angel One, Upstox, and 5Paisa. Each platform offers unique features and market segment access including NSE equities, Futures & Options, and MCX commodities.",
         },
         {
           question: "Can I use multiple trading platforms simultaneously?",
-          answer: <p>No. Separate subscriptions are required per platform.</p>,
+          answer:
+            "No! You have to subscribe separately for multiple platforms.",
+        },
+        {
+          question: "What is the difference between the various platform APIs?",
+          answer:
+            "Each platform offers different API capabilities. Zerodha provides the most comprehensive API with full market segment support. Groww requires a paid subscription for API access. Angel One, Upstox, and 5Paisa offer robust APIs with varying features. Check individual platform pages for detailed comparisons.",
         },
         {
           question:
-            "Which strategy among the 35 options offers consistent profit with minimal risk?",
-          answer: (
-            <div className="space-y-3">
-              <p>
-                Among the available strategies, the following have shown strong
-                consistency:
-              </p>
-              <ul className="list-disc pl-6">
-                <li>
-                  <b>Option 5:</b> Short Straddle (Sell CE/PE, Buy on Target)
-                </li>
-                <li>
-                  <b>Option 10:</b> Auto Buy/Sell using Last Traded Price (LTP)
-                </li>
-              </ul>
-              <p>
-                Option 5 typically yields ₹2000/day with ~₹4 lakh capital.
-              </p>
-              <p>
-                Option 10 typically yields ₹6000/day with ~₹4.5 lakh capital.
-              </p>
-            </div>
-          ),
+            "Which strategy among the 35 options in the software offers the potential for consistent profit with minimal risk?",
+          answer: `Yes, among the 35 active strategies available in the software, Option 5: "Short Straddle or Sell CE/PE, Then Buy on Target Achieved" and Option 10: "Auto Buy/Sell Showing Last Price" have shown strong potential for generating sustained profits with relatively low downside risk.
+
+By executing Option 5, users can typically earn a minimum of ₹2000 per day using a capital base of approximately ₹4 lakhs.  
+By executing Option 10, users can typically earn a minimum of ₹6000 per day using a capital base of approximately ₹4.5 lakhs.
+
+Option 5 focuses on selling both CE and PE within a controlled premium difference to benefit from time decay.  
+Option 10 leverages real-time LTP-based auto execution, reducing emotional bias and enabling faster reaction in volatile markets.`,
         },
         {
-          question: "Please give some tricks for profitable trading.",
-          answer: (
-            <div className="space-y-4">
-              <p>
-                Below are practical strategies used consistently for profits:
-              </p>
-
-              <div>
-                <b>Strategy 1 – Neutral Stock Play</b>
-                <ul className="list-disc pl-6">
-                  <li>Timing: 10:00–10:30 AM</li>
-                  <li>Tool: Option 23 (HH/LL analysis)</li>
-                  <li>Capital: ₹5 lakh</li>
-                  <li>Expected Profit: ~₹5,000</li>
-                </ul>
-              </div>
-
-              <div>
-                <b>Strategy 2 – Extreme Buy/Sell</b>
-                <ul className="list-disc pl-6">
-                  <li>Use Option 23 signals</li>
-                  <li>Repetition: 4</li>
-                  <li>Expected Profit: ~₹5,000</li>
-                </ul>
-              </div>
-
-              <div>
-                <b>Strategy 3 – Straddle (Option 5)</b>
-                <ul className="list-disc pl-6">
-                  <li>Profit from time decay</li>
-                  <li>95% consistency</li>
-                  <li>₹1,000 commodity profit after 3:30 PM</li>
-                </ul>
-              </div>
-            </div>
-          ),
+          question: "Do I need separate accounts for each trading platform?",
+          answer:
+            "Yes, you need to have an active trading account with each platform you wish to integrate. Our software connects to your existing accounts through secure API authentication.",
+        },
+        {
+          question:
+            "Which platform would you recommend as the most user friendly and efficient?",
+          answer:
+            "All platforms provide the same set of strategies and predictions, with trading options available in both NSE and MCX exchanges. The only exception is the Groww platform, which does not support commodity trading for Algo applications. However, in terms of user friendliness and efficient trading, the Algo software is most suitable when used with the Zerodha platform.",
+        },
+        {
+          question:
+            "Please give some tricks for profitable trading.",
+          answer:
+            "I can share a few practical strategies that have consistently helped me achieve profitable trades. My approach usually revolves around using options 1, 2, 5, and 10, combined with the powerful Strategy 23.
+📊 Strategy 1: Neutral Stock Play (Morning Setup)
+•	Timing: Around 10:00–10:30 AM, run Option 23 to analyze trends of higher high and lower low bars (3–4 minute intervals).
+•	Selection: Focus on stocks showing a neutral trend — where the number of higher high and lower low bars are nearly equal.
+•	Condition: Check if the stock’s price movement (up or down) is within ±50% of its range.
+•	Execution: With a fund size of at least ₹5 lakh, initiate Option 13 using a 1.5 incremental value and a repetition of 4.
+•	Outcome: This setup generally yields around ₹5,000 profit without requiring constant monitoring.
+•	Optional: A stop loss can be added if confidence is low, though it’s usually not necessary.
+📊 Strategy 2: Extreme Buy/Sell Signals
+•	Timing: Run Option 23 at any point during market hours.
+•	Selection: Identify stocks flagged as “Extreme Buy” or “Extreme Sell.”
+•	Execution:
+o	For Extreme Buy, place a buy order.
+o	For Extreme Sell, place a sell order.
+o	Use increments of 1.5–2 with a repetition of 4.
+•	Fund Requirement:
+o	₹1–2 lakh for buy orders.
+o	₹5 lakh for sell orders.
+•	Outcome: This strategy typically delivers around ₹5,000 profit most of the time.
+📊 Strategy 3: Straddle Option (Safe & Steady)
+•	Tool: Use Option 5 (Straddle).
+•	Setup: Ensure the combined value of CE (Call) and PE (Put) instruments is nearly equal for the chosen quantity.
+•	Mechanism: Profit arises from time decay and gamma decay, which work in your favor as expiry approaches.
+•	Success Rate: Around 95% of the time, this strategy yields a small but consistent profit.
+•	Commodity Angle: After 3:30 PM, apply this strategy in commodity trading to earn approximately ₹1,000 profit by the end of the session.
+",
+        },
+      ],
+    },
+    {
+      category: "API Integration",
+      questions: [
+        {
+          question: "How does the API integration work?",
+          answer:
+            "Our software connects to your broker's official API using secure authentication tokens. Once connected, you can execute trades, monitor positions, and access real-time market data directly through our unified interface.",
+        },
+        {
+          question: "Is my trading data secure?",
+          answer:
+            "Absolutely. We use industry-standard encryption and security protocols. Your API credentials are stored securely, and all communications with broker APIs are encrypted. We never store your trading passwords.",
+        },
+        {
+          question: "What happens if the API connection fails?",
+          answer:
+            "Our system includes automatic reconnection mechanisms and real-time monitoring. You'll receive instant notifications if any connectivity issues occur, ensuring you're always aware of your connection status.",
+        },
+        {
+          question: "How do the real-time buy and sell signals work?",
+          answer:
+            "Our system generates intelligent real-time buy/sell signals using technical indicators, machine learning, and AI. Signals include entry, exit, stop-loss guidance, and confidence scoring for informed decisions.",
+        },
+      ],
+    },
+    {
+      category: "Subscription Plans",
+      questions: [
+        {
+          question: "What is included in the free trial?",
+          answer:
+            "All plans include a 3-day free trial with full access to features. No credit card required.",
+        },
+        {
+          question: "Can I upgrade or downgrade my plan?",
+          answer:
+            "Yes, you can change your subscription plan at any time.",
+        },
+        {
+          question: "What payment methods do you accept?",
+          answer:
+            "We only accept UPI payments as mentioned on the Pricing page.",
+        },
+        {
+          question: "Is there a refund policy?",
+          answer:
+            "We offer a 7-day money-back guarantee on all new subscriptions.",
+        },
+        {
+          question: "Do you offer discounts for annual subscriptions?",
+          answer:
+            "Yes! Annual subscriptions receive a 10% discount.",
+        },
+      ],
+    },
+    {
+      category: "Technical Support",
+      questions: [
+        {
+          question: "What kind of support do you provide?",
+          answer:
+            "Basic plan includes email support. Enterprise plan includes 24/7 priority support.",
+        },
+        {
+          question: "Do you provide training or onboarding?",
+          answer:
+            "Yes! All plans include access to documentation and training.",
+        },
+        {
+          question: "What are the system requirements?",
+          answer:
+            "Any modern browser with a stable internet connection.",
+        },
+        {
+          question: "Can I use the software on mobile devices?",
+          answer:
+            "Yes, via compatible Windows emulator or secure remote desktop.",
+        },
+      ],
+    },
+    {
+      category: "Trading Features",
+      questions: [
+        {
+          question: "What trading automation features are available?",
+          answer:
+            "Automated order execution, stop-loss management, strategies, and real-time predictions.",
+        },
+        {
+          question: "Do you provide market analytics and reports?",
+          answer:
+            "All plans include basic market data and trade reports.",
+        },
+        {
+          question: "Is there a limit on the number of trades?",
+          answer:
+            "No artificial limits. Broker API limits still apply.",
         },
       ],
     },
@@ -117,8 +197,7 @@ const FAQ = () => {
             Frequently Asked Questions
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Find answers to common questions about platforms, APIs, and
-            subscriptions.
+            Find answers to common questions about platforms, APIs, and subscriptions.
           </p>
         </div>
 
@@ -130,17 +209,23 @@ const FAQ = () => {
                   {category.category}
                 </CardTitle>
                 <CardDescription>
-                  Common questions about{" "}
-                  {category.category.toLowerCase()}
+                  Common questions about {category.category.toLowerCase()}
                 </CardDescription>
               </CardHeader>
 
               <CardContent>
-                <Accordion type="single" collapsible className="w-full">
-                  {category.questions.map((faq, index) => (
+                <Accordion
+                  type="single"
+                  collapsible
+                  className="w-full"
+                  defaultValue={
+                    categoryIndex === 0 ? "item-0-5" : undefined
+                  }
+                >
+                  {category.questions.map((faq, questionIndex) => (
                     <AccordionItem
-                      key={index}
-                      value={`item-${categoryIndex}-${index}`}
+                      key={questionIndex}
+                      value={`item-${categoryIndex}-${questionIndex}`}
                     >
                       <AccordionTrigger className="text-left">
                         {faq.question}
@@ -154,6 +239,28 @@ const FAQ = () => {
               </CardContent>
             </Card>
           ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <Card className="max-w-2xl mx-auto">
+            <CardHeader>
+              <CardTitle>Still have questions?</CardTitle>
+              <CardDescription>
+                Our support team is here to help.
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground mb-4">
+                Email us at support@softgogy.com
+              </p>
+              <a
+                href="/success-stories"
+                className="text-primary hover:underline font-medium"
+              >
+                Contact Support →
+              </a>
+            </CardContent>
+          </Card>
         </div>
       </main>
     </div>
