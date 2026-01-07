@@ -36,7 +36,8 @@ const FAQ = () => {
           question: "Please give some tricks for profitable trading.",
           answer: `I can share a few practical strategies that have consistently helped me achieve profitable trades. My approach usually revolves around using options 1, 2, 5, and 10, combined with the powerful Strategy 23.
 
-**Strategy 1: Neutral Stock Play (Morning Setup)**
+
+𝗦𝘁𝗿𝗮𝘁𝗲𝗴𝘆 𝟭: Neutral Stock Play (Morning Setup)
 • Timing: Around 10:00–10:30 AM, run Option 23 to analyze trends of higher-high and lower-low bars (3–4 minute intervals).
 • Selection: Focus on stocks showing a neutral trend — where the number of higher-high and lower-low bars are nearly equal.
 • Condition: Check if the stock's price movement (up or down) is within ±50% of its range.
@@ -44,14 +45,16 @@ const FAQ = () => {
 • Outcome: This setup generally yields around ₹5,000 profit without requiring constant monitoring.
 • Optional: A stop-loss can be added if confidence is low, though it's usually not necessary.
 
-**Strategy 2: Extreme Buy/Sell Signals**
+
+𝗦𝘁𝗿𝗮𝘁𝗲𝗴𝘆 𝟮: Extreme Buy/Sell Signals
 • Timing: Run Option 23 at any point during market hours.
 • Selection: Identify stocks flagged as "Extreme Buy" or "Extreme Sell."
 • Execution: For Extreme Buy, place a buy order. For Extreme Sell, place a sell order. Use increments of 1.5–2 with a repetition of 4.
 • Fund Requirement: ₹1–2 lakh for buy orders, ₹5 lakh for sell orders.
 • Outcome: This strategy typically delivers around ₹5,000 profit most of the time.
 
-**Strategy 3: Straddle Option (Safe & Steady)**
+
+𝗦𝘁𝗿𝗮𝘁𝗲𝗴𝘆 𝟯: Straddle Option (Safe & Steady)
 • Tool: Use Option 5 (Straddle).
 • Setup: Ensure the combined value of CE (Call) and PE (Put) instruments is nearly equal for the chosen quantity.
 • Mechanism: Profit arises from time decay and gamma decay, which work in your favor as expiry approaches.
