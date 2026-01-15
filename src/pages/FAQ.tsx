@@ -60,6 +60,18 @@ const FAQ = () => {
 • Mechanism: Profit arises from time decay and gamma decay, which work in your favor as expiry approaches.
 • Success Rate: Around 95% of the time, this strategy yields a small but consistent profit.
 • Commodity Angle: After 3:30 PM, apply this strategy in commodity trading to earn approximately ₹1,000 profit by the end of the session.`
+
+
+Strategy 4: High Accuracy Commodity Trading (Crude Oil CE/PE)
+•	Tool: Option 24 – A powerful indicator to detect whether commodity prices are entering a strong upward or downward trend.
+•	Setup:
+	o	Bullish Trend: Buy Call Options (CE) when the price shows clear upward momentum, and exit at your target selling price.
+	o	Bearish Trend: Buy Put Options (PE) when the trend is downward, and close the position once your profit target is achieved.
+•	Mechanism: Commodity prices, especially Crude Oil, often sustain strong intraday movements—either rising or falling for extended periods. This strategy capitalizes on those long swings, enabling consistent daily profits.
+•	Success Rate: Proven to deliver results in ~95% of trades, with relatively low capital requirements since positions begin with buying options rather than margin heavy futures.
+•	Trading Window:
+	o	Crude Oil: Active from 9:00 AM to 11:55 PM, offering nearly the entire day for opportunities.
+	o	Other Commodities: Tradable until 11:30 PM.		
         }
       ]
     },
