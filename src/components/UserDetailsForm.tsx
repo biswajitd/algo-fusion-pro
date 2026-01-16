@@ -17,7 +17,7 @@ import { supabase } from "@/integrations/supabase/client";
 
 import SoftgogyLogo from "@/assets/softgogy.png";
 
-const RECIPIENT_PHONE = "919830046647";
+const RECIPIENT_PHONE = "917003460866";
 
 export default function UserDetailsForm({ open, onClose, amount, planName }) {
   const [form, setForm] = useState({
@@ -68,7 +68,7 @@ export default function UserDetailsForm({ open, onClose, amount, planName }) {
 
     doc.setFontSize(10);
     doc.text("Note: Please keep this receipt for your records.", 20, 195);
-    doc.text("For any queries, contact: biswajit@softgogy.com | 9830046647", 20, 205);
+    doc.text("For any queries, contact: biswajit@softgogy.com | 7003460866", 20, 205);
 
     // Get base64 from data URI (remove the prefix)
     const dataUri = doc.output("datauristring");
@@ -167,7 +167,7 @@ Thank you for your payment!
 📧 Check your email (${form.email}) for the PDF receipt.
 
 Team Softgogy
-📞 9830046647`;
+📞 7003460866`;
 
     const encodedMessage = encodeURIComponent(message);
     window.open(`https://wa.me/${formattedPhone}?text=${encodedMessage}`, "_blank");
@@ -213,7 +213,7 @@ Team Softgogy
       onClose();
     } catch (error) {
       console.error("Error processing payment:", error);
-      toast.error("Something went wrong. Please try again or contact support at 9830046647");
+      toast.error("Something went wrong. Please try again or contact support at 7003460866");
     } finally {
       setIsSubmitting(false);
     }

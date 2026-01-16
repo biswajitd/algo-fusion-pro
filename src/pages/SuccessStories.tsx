@@ -99,12 +99,12 @@ It's an indispensable tool for anyone serious about achieving financial success 
       <footer className="bg-muted/30 border-t border-border py-8">
         <div className="container mx-auto px-4 text-center">
           <p className="text-muted-foreground mb-2">
-            397 Motilal Colony, Kolkata 700081, India
+            397 Motilal Colony, Kolkata, India
           </p>
           <p className="text-muted-foreground">
             <i className="fa fa-phone me-2"></i>
-            <a href="tel:+91-9830046647" className="hover:text-primary transition-colors">
-              +91-9830046647
+            <a href="tel:+91-7003460866" className="hover:text-primary transition-colors">
+              +91-7003460866
             </a>
           </p>
         </div>
