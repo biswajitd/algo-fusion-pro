@@ -350,8 +350,8 @@ const Pricing = () => {
 
       <footer className="border-t py-12">
         <div className="text-center text-sm text-muted-foreground space-y-2">
-          <p>Email: biswajit@softgogy.com | Contact: 9830046647</p>
-          <p>397 Motilal Colony, Gr. Floor, Kolkata 700081, India</p>
+          <p>Email: biswajit@softgogy.com | Contact: 7003460866</p>
+          <p>397 Motilal Colony, Gr. Floor, Kolkata, India</p>
           <p className="mt-4">© 2025 Softgogy. All rights reserved.</p>
         </div>
       </footer>

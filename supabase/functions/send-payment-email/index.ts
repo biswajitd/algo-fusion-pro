@@ -193,12 +193,12 @@ const handler = async (req: Request): Promise<Response> => {
 
         <div style="background: #ebf8ff; padding: 15px; border-radius: 8px; margin: 20px 0; text-align: center;">
           <p style="margin: 0; color: #2b6cb0;">Need help? Contact us:</p>
-          <p style="margin: 5px 0; font-weight: bold;">📧 biswajit@softgogy.com | 📞 9830046647</p>
+          <p style="margin: 5px 0; font-weight: bold;">📧 biswajit@softgogy.com | 📞 7003460866</p>
         </div>
 
         <p style="color: #a0aec0; font-size: 12px; text-align: center; margin-top: 30px;">
           © 2025 Softgogy. All rights reserved.<br>
-          397 Motilal Colony, Gr. Floor, Kolkata 700081, India
+          397 Motilal Colony, Gr. Floor, Kolkata, India
         </p>
       </div>
     `;

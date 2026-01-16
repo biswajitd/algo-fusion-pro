@@ -162,7 +162,7 @@ const Documentation = () => {
                 <p className="text-muted-foreground">We’re here to assist you.</p>
                 <div className="text-sm space-y-1">
                   <p><strong>Email:</strong> biswajit@softgogy.com</p>
-                  <p><strong>Phone:</strong> 9830046647</p>
+                  <p><strong>Phone:</strong> 7003460866</p>
                   <p><strong>Hours:</strong> Mon–Sat · 9 AM – 6 PM</p>
                 </div>
 

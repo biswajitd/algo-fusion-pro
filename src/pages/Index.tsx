@@ -141,9 +141,9 @@ const Index = () => {
         <h4 className="font-bold mb-4">Contact</h4>
         <ul className="space-y-2 text-sm text-muted-foreground">
           <li>Email: biswajit@softgogy.com</li>
-          <li>Contact: 9830046647</li>
+          <li>Contact: 7003460866</li>
           <li>Address: 397 Motilal Colony,</li>
-          <li>Gr. Floor, Kolkata 700081, India</li>
+          <li>Gr. Floor, Kolkata, India</li>
         </ul>
       </div>
 
