@@ -17,6 +17,7 @@ import Pricing from "./pages/Pricing";
 import FAQ from "./pages/FAQ";
 import Platforms from "./pages/Platforms";
 import SoftwareFeatures from "./pages/SoftwareFeatures";
+import Essentials from "./pages/Essentials";
 import Documentation from "./pages/Documentation";
 import AboutUs from "./pages/AboutUs";
 import NotFound from "./pages/NotFound";
@@ -46,6 +47,7 @@ const App = () => (
             <Route path="/success-stories" element={<SuccessStories />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/faq" element={<FAQ />} />
+            <Route path="/essentials" element={<Essentials />} />
             <Route path="/software-features" element={<SoftwareFeatures />} />
             <Route path="/documentation" element={<Documentation />} />
             <Route path="/about-us" element={<AboutUs />} />
