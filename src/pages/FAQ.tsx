@@ -25,7 +25,7 @@ const FAQ = () => {
           answer: "Each platform offers different API capabilities. Zerodha provides the most comprehensive API with full market segment support. Groww requires a paid subscription for API access. Angel One, Upstox, and 5Paisa offer robust APIs with varying features. Check individual platform pages for detailed comparisons."
         },
 		{
-          question: "Which strategy among the 35 options in the software offers the potential for consistent profit with minimal risk?",
+          question: "Which strategy among the 38 options in the software offers the potential for consistent profit with minimal risk?",
           answer: `Yes, among the 35 active strategies available in the software, Option 5: "Short Straddle or Sell CE/PE, Then Buy on Target Achieved" and Option 10: "Auto Buy/Sell Showing Last Price" have shown strong potential for generating sustained profits with relatively low downside risk. By executing this option 5 strategy, users can typically earn a minimum of ₹2000 per day using a capital base of approximately ₹4 lakhs and by executing this option 10, users can typically earn a minimum of ₹6000 per day using a capital base of approximately ₹4.5 lakhs. For Option 5: The approach involves selling both Call (CE) and Put (PE) options at any strike price, provided the premium difference between the two legs does not exceed ₹30. This setup allows traders to benefit from time decay and range-bound price movement, while maintaining a controlled risk profile. For Option 10: The approach leverages an auto buy/sell mechanism that instantly reacts to the last traded price (LTP) displayed on the screen. This ensures traders can capture opportunities without delay, reducing manual intervention and emotional bias. By aligning orders directly with the LTP, the system provides a real time execution edge, enhancing precision in volatile markets. The auto trigger acts as a smart assistant, seamlessly balancing entry and exit points while maintaining discipline. This setup empowers traders to stay ahead of sudden price swings, turning automation into a decisive advantage in fast moving conditions.`
         },
         {
@@ -41,7 +41,7 @@ const FAQ = () => {
 • Timing: Around 10:00–10:30 AM, run Option 23 to analyze trends of higher-high and lower-low bars (3–4 minute intervals).
 • Selection: Focus on stocks showing a neutral trend — where the number of higher-high and lower-low bars are nearly equal.
 • Condition: Check if the stock's price movement (up or down) is within ±50% of its range.
-• Execution: With a fund size of at least ₹5 lakh, initiate Option 13 using a 1.5 incremental value and a repetition of 4.
+• Execution: With a fund size of at least ₹5 lakh, initiate Option 10 using a 1.5 incremental value and a repetition of 4.
 • Outcome: This setup generally yields around ₹5,000 profit without requiring constant monitoring.
 • Optional: A stop-loss can be added if confidence is low, though it's usually not necessary.
 
