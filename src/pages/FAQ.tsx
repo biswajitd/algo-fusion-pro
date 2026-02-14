@@ -214,7 +214,7 @@ const FAQ = () => {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground mb-4">
-                Contact us through our Success Stories page or email us at support@softgogy.com
+                Contact us through our Success Stories page or email us at biswajit@softgogy.com
               </p>
               <a 
                 href="/success-stories" 
