@@ -13,7 +13,7 @@ import AngelOne from "./pages/AngelOne";
 import Upstox from "./pages/Upstox";
 import FivePaisa from "./pages/FivePaisa";
 import SuccessStories from "./pages/SuccessStories";
-// import Pricing from "./pages/Pricing";
+import Pricing from "./pages/Pricing";
 import FAQ from "./pages/FAQ";
 import Platforms from "./pages/Platforms";
 import SoftwareFeatures from "./pages/SoftwareFeatures";
