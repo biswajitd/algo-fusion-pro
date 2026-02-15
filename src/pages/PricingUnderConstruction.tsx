@@ -46,11 +46,8 @@ const PricingUnderConstruction = () => {
           <p className="text-sm text-muted-foreground mb-3">
             Need immediate assistance? Reach out to us directly.
           </p>
-          <Button
-            variant="outline"
-            onClick={() => window.location.href = "mailto:biswajit@softgogy.com"}
-          >
-            Contact Us
+          <Button variant="outline" asChild>
+            <a href="/#contact">Contact Us</a>
           </Button>
         </div>
       </div>

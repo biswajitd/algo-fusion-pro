@@ -100,7 +100,7 @@ const Index = () => {
         </div>
       </section>
 
-    <footer className="border-t border-border py-12">
+    <footer id="contact" className="border-t border-border py-12">
   <div className="container mx-auto px-4">
     <div className="grid md:grid-cols-4 gap-8">
 
