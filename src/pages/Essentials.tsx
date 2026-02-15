@@ -209,8 +209,23 @@ const Essentials = () => {
             </div>
           </Card>
 
+          {/* Regulatory Compliance Banner */}
+          <div className="mt-12 border border-primary/30 bg-primary/5 rounded-2xl p-6 md:p-8 flex items-start gap-4">
+            <div className="w-12 h-12 bg-primary/15 rounded-xl flex items-center justify-center shrink-0">
+              <Shield className="w-6 h-6 text-primary" />
+            </div>
+            <div>
+              <h3 className="text-lg font-bold text-foreground mb-1">Regulatory Compliance</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Approval of our Algo Trading Software under{" "}
+                <span className="text-primary font-semibold">SEBI guidelines</span>{" "}
+                is in progress. We are committed to full regulatory compliance to ensure a secure and trustworthy trading experience for all users.
+              </p>
+            </div>
+          </div>
+
           {/* Summary */}
-          <div className="mt-12 bg-gradient-primary rounded-2xl p-8 md:p-10 text-center">
+          <div className="mt-8 bg-gradient-primary rounded-2xl p-8 md:p-10 text-center">
             <h2 className="text-2xl md:text-3xl font-bold text-primary-foreground mb-4">
               Complete Trading Ecosystem
             </h2>
