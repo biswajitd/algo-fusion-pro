@@ -69,7 +69,6 @@ const sections = [
     points: [
       "Works seamlessly with Zerodha, Groww, Angel One, Upstox, and 5paisa.",
       "Commodity Algo Trading: Supported on all except Groww.",
-      "Zerodha Advantage: Normally charges ₹1000/month for Algo trading — but with EasyTrading Dashboard, no subscription is required.",
       "Observed to perform most efficiently on Zerodha.",
     ],
   },
