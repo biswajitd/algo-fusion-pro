@@ -1,5 +1,6 @@
 import { Construction, Clock, Bell } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const PricingUnderConstruction = () => {
   return (
@@ -47,7 +48,7 @@ const PricingUnderConstruction = () => {
             Need immediate assistance? Reach out to us directly.
           </p>
           <Button variant="outline" asChild>
-            <a href="/#contact">Contact Us</a>
+            <Link to="/#contact">Contact Us</Link>
           </Button>
         </div>
       </div>
