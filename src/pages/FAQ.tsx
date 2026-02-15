@@ -106,18 +106,6 @@ const FAQ = () => {
         {
           question: "Can I upgrade or downgrade my plan?",
           answer: "Yes, you can change your subscription plan at any time. Upgrades take effect immediately, while downgrades will apply at the start of your next billing cycle."
-        },
-        {
-          question: "What payment methods do you accept?",
-          answer: "We are presently not accepting major credit cards, debit cards, Netbanking. We only accept 'UPI' payment as mentioned in the 'Pricing' page. All payments are processed securely through UPI."
-        },
-        {
-          question: "Is there a refund policy?",
-          answer: "We offer a 7-day money-back guarantee on all new subscriptions. If you're not satisfied with our service within the first 7 days, contact our support team for a full refund."
-        },
-        {
-          question: "Do you offer discounts for annual subscriptions?",
-          answer: "Yes! Annual subscriptions receive a 10% discount compared to enterprise plan."
         }
       ]
     },
@@ -130,11 +118,15 @@ const FAQ = () => {
         },
         {
           question: "Do you provide training or onboarding?",
-          answer: "Yes! All plans include access to our comprehensive documentation training."
+          answer: "Yes! You are provided training or onboarding."
         },
         {
           question: "What are the system requirements?",
           answer: "Our software is accessible through any modern web browser. For optimal performance, we recommend Chrome. A stable internet connection with at least 2 Mbps speed is recommended."
+        },
+		{
+          question: "Can I use Dynamic IP address for executing Algo Software?",
+          answer: "No. As per SEBI rule, Traders must have to use Static IP Address for the use of Algo programs and have to share such IP address to the concerned Broker."
         },
         {
           question: "Can I use the software on mobile devices?",
