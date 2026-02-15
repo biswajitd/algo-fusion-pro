@@ -13,7 +13,7 @@ import AngelOne from "./pages/AngelOne";
 import Upstox from "./pages/Upstox";
 import FivePaisa from "./pages/FivePaisa";
 import SuccessStories from "./pages/SuccessStories";
-import Pricing from "./pages/Pricing";
+// import Pricing from "./pages/Pricing";
 import FAQ from "./pages/FAQ";
 import Platforms from "./pages/Platforms";
 import SoftwareFeatures from "./pages/SoftwareFeatures";
@@ -45,7 +45,7 @@ const App = () => (
             <Route path="/upstox" element={<Upstox />} />
             <Route path="/5paisa" element={<FivePaisa />} />
             <Route path="/success-stories" element={<SuccessStories />} />
-            // <Route path="/pricing" element={<Pricing />} />
+            <Route path="/pricing" element={<Pricing />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/essentials" element={<Essentials />} />
             <Route path="/software-features" element={<SoftwareFeatures />} />
