@@ -95,7 +95,7 @@ const faqCategories = [
       },
       {
         question: "Does the software comply with SEBI regulations for algorithmic trading?",
-        answer: "Yes. Our software is fully aligned with SEBI's guidelines for algorithmic trading. All API-based order executions are routed through SEBI-registered brokers, and traders are required to use a static IP address as mandated by regulatory norms. We recommend traders consult their respective brokers for additional compliance requirements."
+        answer: "Yes. Our software is fully compliant with SEBI’s guidelines for algorithmic trading, and formal approval from SEBI is currently in progress. All API‑based order executions are routed exclusively through SEBI‑registered brokers, and traders must operate from a static IP address as mandated by regulatory norms. We strongly advise traders to consult their respective brokers for any additional compliance requirements."
       }
     ]
   },
@@ -133,11 +133,11 @@ const faqCategories = [
     questions: [
       {
         question: "What trading automation features are available?",
-        answer: "Our platform offers automated order execution, stop-loss management, and over 35 active trading strategies. Advanced features include real-time AI-driven buy/sell signals, momentum analysis, Fibonacci retracements, Bollinger Band analysis, MACD indicators, and ADX trend detection — all integrated into a single powerful dashboard."
+        answer: "Our platform offers automated order execution, stop-loss management, and over 38 active trading strategies. Advanced features include real-time AI-driven buy/sell signals, momentum analysis, Fibonacci retracements, Bollinger Band analysis, MACD indicators, and ADX trend detection — all integrated into a single powerful dashboard."
       },
       {
         question: "How many trading strategies does the software support?",
-        answer: "The software currently supports 38 built-in strategies, of which 35 are actively maintained and optimized. These range from simple moving average crossovers to complex multi-leg options strategies including straddles, strangles, and Iron Condors."
+        answer: "In this software, there are total 40 options or strategies out of which 38 are effective ones. All the options are framed under five different headings like Basic Order types, Strategy Spreads with Auto Hedging, Signal Prediction, Technical Analysis Chart, Performance Center and System Utilities."
       },
       {
         question: "Can I customize or create my own trading strategies?",
