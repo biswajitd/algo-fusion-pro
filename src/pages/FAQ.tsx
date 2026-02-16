@@ -7,34 +7,33 @@ import {
 } from "@/components/ui/accordion";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
-const FAQ = () => {
-  const faqCategories = [
-    {
-      category: "Trading Platforms",
-      questions: [
-        {
-          question: "Which trading platforms do you support?",
-          answer: "We support integration with Zerodha, Groww, Angel One, Upstox, and 5Paisa. Each platform offers unique features and market segment access including NSE equities, Futures & Options, and MCX commodities."
-        },
-        {
-          question: "Can I use multiple trading platforms simultaneously?",
-          answer: "No! You have to subscribe separately for multiple platforms."
-        },
-        {
-          question: "What is the difference between the various platform APIs?",
-          answer: "Each platform offers different API capabilities. Zerodha provides the most comprehensive API with full market segment support. Groww requires a paid subscription for API access. Angel One, Upstox, and 5Paisa offer robust APIs with varying features. Check individual platform pages for detailed comparisons."
-        },
-		{
-          question: "Which strategy among the 38 options in the software offers the potential for consistent profit with minimal risk?",
-          answer: `Yes, among the 35 active strategies available in the software, Option 5: "Short Straddle or Sell CE/PE, Then Buy on Target Achieved" and Option 10: "Auto Buy/Sell Showing Last Price" have shown strong potential for generating sustained profits with relatively low downside risk. By executing this option 5 strategy, users can typically earn a minimum of ₹2000 per day using a capital base of approximately ₹4 lakhs and by executing this option 10, users can typically earn a minimum of ₹6000 per day using a capital base of approximately ₹4.5 lakhs. For Option 5: The approach involves selling both Call (CE) and Put (PE) options at any strike price, provided the premium difference between the two legs does not exceed ₹30. This setup allows traders to benefit from time decay and range-bound price movement, while maintaining a controlled risk profile. For Option 10: The approach leverages an auto buy/sell mechanism that instantly reacts to the last traded price (LTP) displayed on the screen. This ensures traders can capture opportunities without delay, reducing manual intervention and emotional bias. By aligning orders directly with the LTP, the system provides a real time execution edge, enhancing precision in volatile markets. The auto trigger acts as a smart assistant, seamlessly balancing entry and exit points while maintaining discipline. This setup empowers traders to stay ahead of sudden price swings, turning automation into a decisive advantage in fast moving conditions.`
-        },
-        {
-          question: "Do I need separate accounts for each trading platform?",
-          answer: "Yes, you need to have an active trading account with each platform you wish to integrate. Our software connects to your existing accounts through secure API authentication."
-        },
-        {
-          question: "Please give some tricks for profitable trading.",
-          answer: `I can share a few practical strategies that have consistently helped achieving profitable trades. My approach usually revolves around using options 1, 2, 5, and 10, combined with the powerful Strategy 23.
+const faqCategories = [
+  {
+    category: "Trading Platforms",
+    questions: [
+      {
+        question: "Which trading platforms do you support?",
+        answer: "We support integration with Zerodha, Groww, Angel One, Upstox, and 5Paisa. Each platform offers unique features and market segment access including NSE equities, Futures & Options, and MCX commodities."
+      },
+      {
+        question: "Can I use multiple trading platforms simultaneously?",
+        answer: "No! You have to subscribe separately for multiple platforms."
+      },
+      {
+        question: "What is the difference between the various platform APIs?",
+        answer: "Each platform offers different API capabilities. Zerodha provides the most comprehensive API with full market segment support. Groww requires a paid subscription for API access. Angel One, Upstox, and 5Paisa offer robust APIs with varying features. Check individual platform pages for detailed comparisons."
+      },
+      {
+        question: "Which strategy among the 38 options in the software offers the potential for consistent profit with minimal risk?",
+        answer: `Yes, among the 35 active strategies available in the software, Option 5: "Short Straddle or Sell CE/PE, Then Buy on Target Achieved" and Option 10: "Auto Buy/Sell Showing Last Price" have shown strong potential for generating sustained profits with relatively low downside risk. By executing this option 5 strategy, users can typically earn a minimum of ₹2000 per day using a capital base of approximately ₹4 lakhs and by executing this option 10, users can typically earn a minimum of ₹6000 per day using a capital base of approximately ₹4.5 lakhs. For Option 5: The approach involves selling both Call (CE) and Put (PE) options at any strike price, provided the premium difference between the two legs does not exceed ₹30. This setup allows traders to benefit from time decay and range-bound price movement, while maintaining a controlled risk profile. For Option 10: The approach leverages an auto buy/sell mechanism that instantly reacts to the last traded price (LTP) displayed on the screen. This ensures traders can capture opportunities without delay, reducing manual intervention and emotional bias. By aligning orders directly with the LTP, the system provides a real time execution edge, enhancing precision in volatile markets. The auto trigger acts as a smart assistant, seamlessly balancing entry and exit points while maintaining discipline. This setup empowers traders to stay ahead of sudden price swings, turning automation into a decisive advantage in fast moving conditions.`
+      },
+      {
+        question: "Do I need separate accounts for each trading platform?",
+        answer: "Yes, you need to have an active trading account with each platform you wish to integrate. Our software connects to your existing accounts through secure API authentication."
+      },
+      {
+        question: "Please give some tricks for profitable trading.",
+        answer: `I can share a few practical strategies that have consistently helped achieving profitable trades. My approach usually revolves around using options 1, 2, 5, and 10, combined with the powerful Strategy 23.
 
 
 𝗦𝘁𝗿𝗮𝘁𝗲𝗴𝘆 𝟭: Neutral Stock Play (Morning Setup)
@@ -72,97 +71,100 @@ const FAQ = () => {
 • Trading Window:
     ○ Crude Oil: Active from 9:00 AM to 11:55 PM, offering nearly the entire day for opportunities.
     ○ Other Commodities: Tradable until 11:30 PM.`
-        }
-      ]
-    },
-    {
-      category: "API Integration",
-      questions: [
-        {
-          question: "How does the API integration work?",
-          answer: "Our software connects to your broker's official API using secure authentication tokens. Once connected, you can execute trades, monitor positions, and access real-time market data directly through our unified interface."
-        },
-        {
-          question: "Is my trading data secure?",
-          answer: "Absolutely. We use industry-standard encryption and security protocols. Your API credentials are stored securely, and all communications with broker APIs are encrypted. We never store your trading passwords."
-        },
-        {
-          question: "What happens if the API connection fails?",
-          answer: "Our system includes automatic reconnection mechanisms and real-time monitoring. You'll receive instant notifications if any connectivity issues occur, ensuring you're always aware of your connection status."
-        },
-        {
-          question: "How do the real-time buy and sell signals work?",
-          answer: "Our advanced trading system generates intelligent buy and sell signals in real-time using a sophisticated combination of technical analysis indicators, machine learning algorithms, and artificial intelligence. The system continuously monitors market data across multiple timeframes and analyzes patterns using tools like Moving Averages (SMA/EMA), MACD, RSI, Bollinger Bands, Fibonacci retracements, ADX, Stochastic Oscillator, and Volume analysis. Our proprietary ML models are trained on historical market data to identify high-probability trading opportunities, while AI algorithms adapt to changing market conditions to filter out false signals. These signals appear instantly on your dashboard with clear entry and exit points, stop-loss recommendations, and confidence scores, helping you make informed trading decisions for both Stocks and Futures & Options segments."
-        }
-      ]
-    },
-    {
-      category: "Subscription Plans",
-      questions: [
-        {
-          question: "What is included in the free trial?",
-          answer: "All plans include a 3-day free trial with full access to features. You can test the software with real-time data, execute trades, and explore all functionalities before committing to a paid subscription. No credit card required."
-        },
-        {
-          question: "Can I upgrade or downgrade my plan?",
-          answer: "Yes, you can change your subscription plan at any time. Upgrades take effect immediately, while downgrades will apply at the start of your next billing cycle."
-        }
-      ]
-    },
-    {
-      category: "Technical Support",
-      questions: [
-        {
-          question: "What kind of support do you provide?",
-          answer: "Basic plan includes email support with 24-hour response time. Enterprise plan provides 24/7 priority support with dedicated account management and phone support."
-        },
-        {
-          question: "Do you provide training or onboarding?",
-          answer: "Yes! You are provided training or onboarding."
-        },
-        {
-          question: "What are the system requirements?",
-          answer: "Our software is accessible through any modern web browser. For optimal performance, we recommend Chrome. A stable internet connection with at least 2 Mbps speed is recommended."
-        },
-		{
-          question: "Can I use Dynamic IP address for executing Algo Software?",
-          answer: "No. As per SEBI rule, Traders must have to use Static IP Address for the use of Algo programs and have to share such IP address to the concerned Broker."
-        },
-        {
-          question: "Can I use the software on mobile devices?",
-          answer: "Yes, our platform is fully responsive and works on mobile using a compatible Windows emulator or via secure remote desktop access."
-        }
-      ]
-    },
-    {
-      category: "Trading Features",
-      questions: [
-        {
-          question: "What trading automation features are available?",
-          answer: "Our platform offers automated order execution, stop-loss management, useful trading strategies. Advanced features include real-time based predictions for buy and sell, momemtum analysis etc."
-        },
-        {
-          question: "Do you provide market analytics and reports?",
-          answer: "All plans include basic market data and trade reports."
-        },
-        {
-          question: "Is there a limit on the number of trades I can execute?",
-          answer: "No, there are no artificial limits on trade execution. However, your broker's API rate limits and trading restrictions still apply based on your account type with them."
-        }
-      ]
-    }
-  ];
+      }
+    ]
+  },
+  {
+    category: "API Integration & Security",
+    questions: [
+      {
+        question: "How does the API integration work?",
+        answer: "Our software connects to your broker's official API using secure authentication tokens. Once connected, you can execute trades, monitor positions, and access real-time market data directly through our unified interface."
+      },
+      {
+        question: "Is my trading data secure?",
+        answer: "Absolutely. We use industry-standard encryption and security protocols. Your API credentials are stored securely, and all communications with broker APIs are encrypted. We never store your trading passwords."
+      },
+      {
+        question: "What happens if the API connection fails?",
+        answer: "Our system includes automatic reconnection mechanisms and real-time monitoring. You'll receive instant notifications if any connectivity issues occur, ensuring you're always aware of your connection status."
+      },
+      {
+        question: "How do the real-time buy and sell signals work?",
+        answer: "Our advanced trading system generates intelligent buy and sell signals in real-time using a sophisticated combination of technical analysis indicators, machine learning algorithms, and artificial intelligence. The system continuously monitors market data across multiple timeframes and analyzes patterns using tools like Moving Averages (SMA/EMA), MACD, RSI, Bollinger Bands, Fibonacci retracements, ADX, Stochastic Oscillator, and Volume analysis. Our proprietary ML models are trained on historical market data to identify high-probability trading opportunities, while AI algorithms adapt to changing market conditions to filter out false signals. These signals appear instantly on your dashboard with clear entry and exit points, stop-loss recommendations, and confidence scores, helping you make informed trading decisions for both Stocks and Futures & Options segments."
+      },
+      {
+        question: "Does the software comply with SEBI regulations for algorithmic trading?",
+        answer: "Yes. Our software is fully aligned with SEBI's guidelines for algorithmic trading. All API-based order executions are routed through SEBI-registered brokers, and traders are required to use a static IP address as mandated by regulatory norms. We recommend traders consult their respective brokers for additional compliance requirements."
+      }
+    ]
+  },
+  {
+    category: "Technical Requirements & Support",
+    questions: [
+      {
+        question: "What are the system requirements?",
+        answer: "Our software is accessible through any modern web browser. For optimal performance, we recommend Google Chrome. A stable internet connection with at least 2 Mbps speed is recommended for real-time data streaming."
+      },
+      {
+        question: "Can I use a Dynamic IP address for executing the Algo Software?",
+        answer: "No. As per SEBI rule, traders must use a Static IP Address for the use of Algo programs and share such IP address with the concerned broker."
+      },
+      {
+        question: "Can I use the software on mobile devices?",
+        answer: "Yes, our platform is fully responsive and works on mobile using a compatible Windows emulator or via secure remote desktop access."
+      },
+      {
+        question: "What kind of support do you provide?",
+        answer: "We offer dedicated customer support via email at biswajit@softgogy.com and phone at +91 7003460866. Our team is available during market hours and beyond to assist with technical issues, onboarding, and strategy guidance."
+      },
+      {
+        question: "Do you provide training or onboarding?",
+        answer: "Yes! Every subscriber receives comprehensive onboarding assistance, including a live walkthrough of the software, documentation guides, and ongoing support to ensure you can leverage the platform effectively from day one."
+      },
+      {
+        question: "How frequently is the software updated?",
+        answer: "We release regular updates to improve performance, add new strategies, and ensure compatibility with broker API changes. All updates are delivered seamlessly without requiring manual installation."
+      }
+    ]
+  },
+  {
+    category: "Trading Features & Strategies",
+    questions: [
+      {
+        question: "What trading automation features are available?",
+        answer: "Our platform offers automated order execution, stop-loss management, and over 35 active trading strategies. Advanced features include real-time AI-driven buy/sell signals, momentum analysis, Fibonacci retracements, Bollinger Band analysis, MACD indicators, and ADX trend detection — all integrated into a single powerful dashboard."
+      },
+      {
+        question: "How many trading strategies does the software support?",
+        answer: "The software currently supports 38 built-in strategies, of which 35 are actively maintained and optimized. These range from simple moving average crossovers to complex multi-leg options strategies including straddles, strangles, and Iron Condors."
+      },
+      {
+        question: "Can I customize or create my own trading strategies?",
+        answer: "The software provides a comprehensive set of pre-built strategies that cover most trading scenarios. While custom strategy creation is not currently available, our team continuously adds new strategies based on user feedback and market research."
+      },
+      {
+        question: "Is there a limit on the number of trades I can execute?",
+        answer: "No, there are no artificial limits on trade execution from our side. However, your broker's API rate limits and trading restrictions still apply based on your account type with them."
+      },
+      {
+        question: "Does the software support commodity trading?",
+        answer: "Yes, our software supports MCX commodity trading including Crude Oil, Natural Gas, Gold, and Silver. Strategies like Option 24 are specifically designed for commodity markets, leveraging strong intraday momentum patterns for consistent profit opportunities."
+      }
+    ]
+  }
+];
 
+const FAQ = () => {
   return (
     <div className="min-h-screen bg-background">
-
       <main className="container mx-auto px-4 py-12">
         <div className="text-center mb-12 pt-[2cm]">
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
             Frequently Asked Questions
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Find answers to common questions about our trading platform integration, API features, and subscription plans.
+            Find answers to common questions about our algo trading platform, API integration, strategies, and technical requirements.
           </p>
         </div>
 
@@ -178,8 +180,8 @@ const FAQ = () => {
               <CardContent>
                 <Accordion type="single" collapsible className="w-full">
                   {category.questions.map((faq, questionIndex) => (
-                    <AccordionItem 
-                      key={questionIndex} 
+                    <AccordionItem
+                      key={questionIndex}
                       value={`item-${categoryIndex}-${questionIndex}`}
                     >
                       <AccordionTrigger className="text-left">
@@ -208,8 +210,8 @@ const FAQ = () => {
               <p className="text-muted-foreground mb-4">
                 Contact us through our Success Stories page or email us at biswajit@softgogy.com
               </p>
-              <a 
-                href="/success-stories" 
+              <a
+                href="/success-stories"
                 className="text-primary hover:underline font-medium"
               >
                 Contact Support →
