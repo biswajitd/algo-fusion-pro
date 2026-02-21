@@ -1,5 +1,6 @@
 import { Button } from "./ui/button";
 import { ArrowRight, Download } from "lucide-react";
+import heroImage from "@/assets/hero-trading.jpg";
 
 const Hero = () => {
   return (
@@ -10,8 +11,9 @@ const Hero = () => {
         muted
         playsInline
         className="absolute inset-0 w-full h-full object-cover opacity-30"
+        poster={heroImage}
       >
-        <source src="/videos/EasyTrading_software.mkv" type="video/x-matroska" />
+        <source src="/videos/EasyTrading_software.mp4" type="video/mp4" />
       </video>
       <div className="absolute inset-0 bg-gradient-dark opacity-60" />
       
