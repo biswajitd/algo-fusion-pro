@@ -1,19 +1,19 @@
 import { Button } from "./ui/button";
 import { ArrowRight, Download } from "lucide-react";
-import heroImage from "@/assets/hero-trading.jpg";
 
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      <div
-        className="absolute inset-0 opacity-20"
-        style={{
-          backgroundImage: `url(${heroImage})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      />
-      <div className="absolute inset-0 bg-gradient-dark opacity-70" />
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover opacity-30"
+      >
+        <source src="/videos/EasyTrading_software.mkv" type="video/x-matroska" />
+      </video>
+      <div className="absolute inset-0 bg-gradient-dark opacity-60" />
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center space-y-8">
