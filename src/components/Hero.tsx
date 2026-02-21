@@ -13,7 +13,7 @@ const Hero = () => {
             playsInline
             className="w-full h-auto"
           >
-            <source src="/videos/EasyTrading_software.mp4" type="video/mp4" />
+            <source src="/videos/EasyTrading_demo.mp4" type="video/mp4" />
           </video>
         </div>
       </div>
