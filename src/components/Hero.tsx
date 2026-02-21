@@ -1,21 +1,23 @@
 import { Button } from "./ui/button";
 import { ArrowRight, Download } from "lucide-react";
-import heroImage from "@/assets/hero-trading.jpg";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover opacity-30"
-        poster={heroImage}
-      >
-        <source src="/videos/EasyTrading_software.mp4" type="video/mp4" />
-      </video>
-      <div className="absolute inset-0 bg-gradient-dark opacity-60" />
+    <section className="relative min-h-screen flex flex-col items-center justify-start overflow-hidden pt-24">
+      <div className="w-full max-w-3xl mx-auto px-4 mb-8">
+        <div className="rounded-xl overflow-hidden shadow-glow border border-border">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-auto"
+          >
+            <source src="/videos/EasyTrading_software.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+      <div className="absolute inset-0 bg-gradient-dark opacity-40 -z-10" />
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center space-y-8">
