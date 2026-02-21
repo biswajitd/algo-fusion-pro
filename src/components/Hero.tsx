@@ -9,8 +9,8 @@ const Hero = () => {
           <video
             autoPlay
             loop
-            muted
             playsInline
+            controls
             className="w-full h-auto"
           >
             <source src="/videos/EasyTrading_demo.mp4" type="video/mp4" />
