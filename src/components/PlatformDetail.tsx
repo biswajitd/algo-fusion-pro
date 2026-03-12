@@ -1,4 +1,4 @@
-import Navigation from "./Navigation";
+import { Button } from "./ui/button";
 import { Button } from "./ui/button";
 import { Card } from "./ui/card";
 import { Download, CheckCircle, ArrowLeft } from "lucide-react";
