@@ -11,6 +11,7 @@ const FivePaisa = () => {
         "Intelligent automatic connectivity",
         "Comprehensive market access",
         "Real-time data and order execution",
+        "Paper Mode trading for Basic Strategies",
         "Advanced technical indicators",
         "AI-powered signal detection",
         "Full manual control capability",
