@@ -32,9 +32,7 @@ const PlatformDetail = ({
 }: PlatformDetailProps) => {
   return (
     <div className="min-h-screen">
-      <Navigation />
-      
-      <section className="pt-32 pb-20">
+      <section className="pt-12 pb-20">
         <div className="container mx-auto px-4">
           <Link to="/" className="inline-flex items-center text-primary hover:text-primary/80 transition-colors mb-8">
             <ArrowLeft className="w-4 h-4 mr-2" />
