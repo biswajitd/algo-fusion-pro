@@ -11,6 +11,7 @@ const AngelOne = () => {
         "Intelligent automatic connectivity",
         "Multi-segment trading support (NSE, F&O, MCX)",
         "Real-time market data streaming",
+        "Paper Mode trading for Basic Strategies",
         "Advanced charting with technical indicators",
         "AI-powered trade signal generation",
         "Complete manual override capability",
