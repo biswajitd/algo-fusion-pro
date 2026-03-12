@@ -11,6 +11,7 @@ const Upstox = () => {
         "Intelligent automatic connectivity",
         "Multi-market trading support",
         "Real-time data feeds and execution",
+        "Paper Mode trading for Basic Strategies",
         "Advanced technical analysis tools",
         "AI-driven trading signals",
         "Full manual control available",
