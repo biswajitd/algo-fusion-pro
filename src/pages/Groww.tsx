@@ -11,6 +11,7 @@ const Groww = () => {
         "Intelligent automatic connectivity feature",
         "Compatible with NSE and F&O segments",
         "Real-time market data and execution",
+        "Paper Mode trading for Basic Strategies",
         "Advanced technical indicators built-in",
         "AI-driven signal detection system",
         "Full manual control when needed",
