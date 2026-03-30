@@ -90,8 +90,7 @@ const handler = async (req: Request): Promise<Response> => {
       return new Response(
         JSON.stringify({ 
           success: false, 
-          error: "Invalid input data",
-          details: validationResult.error.errors.map(e => `${e.path.join('.')}: ${e.message}`)
+          error: "Invalid request data. Please check all fields and try again."
         }),
         { status: 400, headers: { "Content-Type": "application/json", ...corsHeaders } }
       );
