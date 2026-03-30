@@ -1,6 +1,25 @@
+import { useState, useRef, useEffect } from "react";
 import PlatformCard from "./PlatformCard";
 
 const PlatformsList = () => {
+  const [showLangMenu, setShowLangMenu] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setShowLangMenu(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const videoLinks = [
+    { label: "Bengali", url: "https://www.youtube.com/watch?v=y7O2BNodoag" },
+    { label: "Hindi", url: "https://www.youtube.com/watch?v=H6nxpLD2OLI" },
+    { label: "English", url: "https://www.youtube.com/watch?v=H6nxpLD2OLI" },
+  ];
   const platforms = [
     {
       name: "Zerodha",
