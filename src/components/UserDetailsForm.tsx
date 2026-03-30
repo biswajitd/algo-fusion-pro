@@ -180,13 +180,11 @@ Team Softgogy
   };
 
   const handleSubmit = async () => {
-    if (!form.name.trim() || !form.email.trim() || !form.phone.trim() || !form.utrNumber.trim()) {
-      toast.error("Please fill all required fields including UTR/Transaction ID");
-      return;
-    }
-
-    if (!isValidUTR(form.utrNumber)) {
-      toast.error("Please enter a valid UTR/Transaction ID (minimum 10 alphanumeric characters)");
+    const validation = formSchema.safeParse(form);
+    if (!validation.success) {
+      validation.error.errors.forEach(err => {
+        toast.error(err.message);
+      });
       return;
     }
 
