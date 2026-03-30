@@ -52,7 +52,7 @@ const SoftwareFeatures = () => {
   const features = [
     {
       image: outputMenu,
-      title: "Your Command Center: 35+ Trading Strategies at Your Fingertips",
+      title: "Your Command Center: 38+ Trading Strategies at Your Fingertips",
       description:
         "Experience the ultimate trading arsenal with our intuitive strategy selector."
     },
