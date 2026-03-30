@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { jsPDF } from "jspdf";
+import { z } from "zod";
 import {
   Dialog,
   DialogContent,
@@ -35,10 +36,15 @@ export default function UserDetailsForm({ open, onClose, amount, planName }) {
 
   const generateInvoiceNumber = () => "INV-" + Date.now();
 
-  const isValidUTR = (utr: string) => {
-    const trimmed = utr.trim();
-    return trimmed.length >= 10 && /^[A-Za-z0-9]+$/.test(trimmed);
-  };
+  const formSchema = z.object({
+    name: z.string().trim().min(2, "Name must be at least 2 characters").max(100, "Name too long")
+      .regex(/^[a-zA-Z\s.'-]+$/, "Name can only contain letters, spaces, and .-'"),
+    email: z.string().trim().email("Invalid email address").max(255, "Email too long"),
+    phone: z.string().transform(v => v.replace(/\D/g, ""))
+      .pipe(z.string().regex(/^[0-9]{10,15}$/, "Phone must be 10-15 digits")),
+    address: z.string().trim().min(10, "Address must be at least 10 characters").max(500, "Address too long"),
+    utrNumber: z.string().trim().regex(/^[A-Za-z0-9]{6,30}$/, "UTR must be 6-30 alphanumeric characters"),
+  });
 
   // Generate PDF and return as base64 (without data URI prefix)
   const generatePDF = (invoice: string): { doc: jsPDF; base64: string } => {
@@ -174,13 +180,11 @@ Team Softgogy
   };
 
   const handleSubmit = async () => {
-    if (!form.name.trim() || !form.email.trim() || !form.phone.trim() || !form.utrNumber.trim()) {
-      toast.error("Please fill all required fields including UTR/Transaction ID");
-      return;
-    }
-
-    if (!isValidUTR(form.utrNumber)) {
-      toast.error("Please enter a valid UTR/Transaction ID (minimum 10 alphanumeric characters)");
+    const validation = formSchema.safeParse(form);
+    if (!validation.success) {
+      validation.error.errors.forEach(err => {
+        toast.error(err.message);
+      });
       return;
     }
 
