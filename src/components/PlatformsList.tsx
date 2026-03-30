@@ -1,6 +1,25 @@
+import { useState, useRef, useEffect } from "react";
 import PlatformCard from "./PlatformCard";
 
 const PlatformsList = () => {
+  const [showLangMenu, setShowLangMenu] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setShowLangMenu(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const videoLinks = [
+    { label: "Bengali", url: "https://www.youtube.com/watch?v=y7O2BNodoag" },
+    { label: "Hindi", url: "https://www.youtube.com/watch?v=H6nxpLD2OLI" },
+    { label: "English", url: "https://www.youtube.com/watch?v=H6nxpLD2OLI" },
+  ];
   const platforms = [
     {
       name: "Zerodha",
@@ -100,24 +119,35 @@ const PlatformsList = () => {
     Optimized versions for all major Indian trading platforms with seamless integration
   </p>
 
-  <div className="mt-6">
-    <a
-      href="https://www.youtube.com/watch?v=H6nxpLD2OLI"
-      target="_blank"
-      rel="noopener noreferrer"
+  <div className="mt-6 relative inline-block" ref={menuRef}>
+    <button
+      onClick={() => setShowLangMenu(!showLangMenu)}
+      className="
+        bg-gradient-to-r from-blue-600 to-teal-400
+        text-white font-semibold text-lg
+        px-8 py-4 rounded-xl shadow-xl
+        hover:scale-105 hover:shadow-2xl
+        transition-all duration-300
+      "
     >
-      <button
-        className="
-          bg-gradient-to-r from-blue-600 to-teal-400
-          text-white font-semibold text-lg
-          px-8 py-4 rounded-xl shadow-xl
-          hover:scale-105 hover:shadow-2xl
-          transition-all duration-300
-        "
-      >
-        🎥 Watch Video Tutorial
-      </button>
-    </a>
+      🎥 Watch Video Tutorial
+    </button>
+    {showLangMenu && (
+      <div className="absolute left-1/2 -translate-x-1/2 mt-2 w-48 rounded-lg border border-border bg-card shadow-lg z-50 overflow-hidden">
+        {videoLinks.map((item) => (
+          <a
+            key={item.label}
+            href={item.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setShowLangMenu(false)}
+            className="block px-4 py-3 text-sm font-medium text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+          >
+            {item.label}
+          </a>
+        ))}
+      </div>
+    )}
   </div>
 </div>
 
