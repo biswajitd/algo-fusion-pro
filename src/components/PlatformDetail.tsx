@@ -99,7 +99,7 @@ const PlatformDetail = ({
                 <div className="space-y-4 mb-8">
                   <div className="flex items-center justify-between py-3 border-b border-border">
                     <span className="text-muted-foreground">Trial Period</span>
-                    <span className="font-bold text-secondary">3 Days</span>
+                    <span className="font-bold text-secondary">5 Days</span>
                   </div>
                   <div className="flex items-center justify-between py-3 border-b border-border">
                     <span className="text-muted-foreground">Download Size</span>
