@@ -92,7 +92,7 @@ const Index = () => {
               Ready to Transform Your Trading?
             </h2>
             <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
-              Start with a 3-day free trial. Experience the power of AI-driven trading with full features.
+              Start with a 5-day free trial. Experience the power of AI-driven trading with full features.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/platforms">
