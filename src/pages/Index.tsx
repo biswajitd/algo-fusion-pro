@@ -107,7 +107,7 @@ const Index = () => {
               </a>
             </div>
             <p className="text-sm text-primary-foreground/70 mt-6">
-              No credit card required • Full feature access • 3-day trial period
+              No credit card required • Full feature access • 5-day trial period
             </p>
           </div>
         </div>

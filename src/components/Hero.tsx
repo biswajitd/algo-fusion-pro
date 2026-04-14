@@ -38,7 +38,7 @@ const Hero = () => {
             <Button variant="hero" size="lg" className="group" asChild>
               <a href="/platforms">
                 <Download className="w-5 h-5" />
-                Download 3-Day Trial
+                Download 5-Day Trial
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
