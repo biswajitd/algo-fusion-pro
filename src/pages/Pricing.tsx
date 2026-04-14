@@ -342,7 +342,7 @@ const Pricing = () => {
         </div>
 
         <div className="mt-12 text-center text-muted-foreground">
-          All plans include a 3-day free trial. No credit card required.
+          All plans include a 5-day free trial. No credit card required.
         </div>
       </main>
 
