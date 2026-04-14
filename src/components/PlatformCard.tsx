@@ -72,7 +72,7 @@ const PlatformCard = ({
       </div>
 
       <p className="text-xs text-muted-foreground text-center">
-        3-Day Trial • Full Features • No Credit Card Required
+        5-Day Trial • Full Features • No Credit Card Required
       </p>
     </Card>
   );

@@ -118,7 +118,7 @@ const PlatformDetail = ({
                 <Button variant="hero" size="lg" className="w-full mb-4 text-lg" asChild>
                   <a href={downloadLink} target="_blank" rel="noopener noreferrer">
                     <Download className="w-5 h-5" />
-                    Download 3-Day Trial
+                    Download 5-Day Trial
                   </a>
                 </Button>
 

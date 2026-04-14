@@ -112,7 +112,7 @@ const Pricing = () => {
             Choose Your Perfect Plan
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Select the subscription plan that best fits your trading needs. All plans include a 3-day free trial.
+            Select the subscription plan that best fits your trading needs. All plans include a 5-day free trial.
           </p>
         </div>
 
@@ -342,7 +342,7 @@ const Pricing = () => {
         </div>
 
         <div className="mt-12 text-center text-muted-foreground">
-          All plans include a 3-day free trial. No credit card required.
+          All plans include a 5-day free trial. No credit card required.
         </div>
       </main>
 
