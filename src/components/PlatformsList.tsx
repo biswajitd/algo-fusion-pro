@@ -18,7 +18,7 @@ const PlatformsList = () => {
   const videoLinks = [
     { label: "Bengali", url: "https://www.youtube.com/watch?v=y7O2BNodoag" },
     { label: "Hindi", url: "https://www.youtube.com/watch?v=H6nxpLD2OLI" },
-    { label: "English", url: "https://www.youtube.com/watch?v=H6nxpLD2OLI" },
+    { label: "English", url: "https://youtu.be/CyfcZ5ZXOvU" },
   ];
   const platforms = [
     {
