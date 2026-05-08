@@ -24,8 +24,8 @@ const faqCategories = [
         answer: "Each platform offers different API capabilities. Zerodha provides the most comprehensive API with full market segment support. Groww requires a paid subscription for API access. Angel One, Upstox, and 5Paisa offer robust APIs with varying features. Check individual platform pages for detailed comparisons."
       },
       {
-        question: "Which strategy among the 38 options in the software offers the potential for consistent profit with minimal risk?",
-        answer: `Yes, among the 35 active strategies available in the software, Option 5: "Short Straddle or Sell CE/PE, Then Buy on Target Achieved" and Option 10: "Auto Buy/Sell Showing Last Price" have shown strong potential for generating sustained profits with relatively low downside risk. By executing this option 5 strategy, users can typically earn a minimum of ₹2000 per day using a capital base of approximately ₹4 lakhs and by executing this option 10, users can typically earn a minimum of ₹6000 per day using a capital base of approximately ₹4.5 lakhs. For Option 5: The approach involves selling both Call (CE) and Put (PE) options at any strike price, provided the premium difference between the two legs does not exceed ₹30. This setup allows traders to benefit from time decay and range-bound price movement, while maintaining a controlled risk profile. For Option 10: The approach leverages an auto buy/sell mechanism that instantly reacts to the last traded price (LTP) displayed on the screen. This ensures traders can capture opportunities without delay, reducing manual intervention and emotional bias. By aligning orders directly with the LTP, the system provides a real time execution edge, enhancing precision in volatile markets. The auto trigger acts as a smart assistant, seamlessly balancing entry and exit points while maintaining discipline. This setup empowers traders to stay ahead of sudden price swings, turning automation into a decisive advantage in fast moving conditions.`
+        question: "Which strategy among the 47 options in the software offers the potential for consistent profit with minimal risk?",
+        answer: `Yes, among the 45 active strategies available in the software, Option 6: "Short Straddle or Sell CE/PE, Then Buy on Target Achieved" and Option 11: "Auto Buy/Sell Showing Last Price" have shown strong potential for generating sustained profits with relatively low downside risk. By executing this option 5 strategy, users can typically earn a minimum of ₹2000 per day using a capital base of approximately ₹4 lakhs and by executing this option 10, users can typically earn a minimum of ₹6000 per day using a capital base of approximately ₹4.5 lakhs. For Option 5: The approach involves selling both Call (CE) and Put (PE) options at any strike price, provided the premium difference between the two legs does not exceed ₹30. This setup allows traders to benefit from time decay and range-bound price movement, while maintaining a controlled risk profile. For Option 10: The approach leverages an auto buy/sell mechanism that instantly reacts to the last traded price (LTP) displayed on the screen. This ensures traders can capture opportunities without delay, reducing manual intervention and emotional bias. By aligning orders directly with the LTP, the system provides a real time execution edge, enhancing precision in volatile markets. The auto trigger acts as a smart assistant, seamlessly balancing entry and exit points while maintaining discipline. This setup empowers traders to stay ahead of sudden price swings, turning automation into a decisive advantage in fast moving conditions.`
       },
       {
         question: "Do I need separate accounts for each trading platform?",
@@ -37,7 +37,7 @@ const faqCategories = [
 
 
 𝗦𝘁𝗿𝗮𝘁𝗲𝗴𝘆 𝟭: Neutral Stock Play (Morning Setup)
-• Timing: Around 10:00–10:30 AM, run Option 23 to analyze trends of higher-high and lower-low bars (3–4 minute intervals).
+• Timing: Around 10:00–10:30 AM, run Option 26 to analyze trends of higher-high and lower-low bars (3–4 minute intervals).
 • Selection: Focus on stocks showing a neutral trend — where the number of higher-high and lower-low bars are nearly equal.
 • Condition: Check if the stock's price movement (up or down) is within ±50% of its range.
 • Execution: With a fund size of at least ₹5 lakh, initiate Option 10 using a 1.5 incremental value and a repetition of 4.
@@ -46,7 +46,7 @@ const faqCategories = [
 
 
 𝗦𝘁𝗿𝗮𝘁𝗲𝗴𝘆 𝟮: Extreme Buy/Sell Signals
-• Timing: Run Option 23 at any point during market hours.
+• Timing: Run Option 26 at any point during market hours.
 • Selection: Identify stocks flagged as "Extreme Buy" or "Extreme Sell."
 • Execution: For Extreme Buy, place a buy order. For Extreme Sell, place a sell order. Use increments of 1.5–2 with a repetition of 4.
 • Fund Requirement: ₹1–2 lakh for buy orders, ₹5 lakh for sell orders.
@@ -54,7 +54,7 @@ const faqCategories = [
 
 
 𝗦𝘁𝗿𝗮𝘁𝗲𝗴𝘆 𝟯: Straddle Option (Safe & Steady)
-• Tool: Use Option 5 (Straddle).
+• Tool: Use Option 6 (Straddle).
 • Setup: Ensure the combined value of CE (Call) and PE (Put) instruments is nearly equal for the chosen quantity.
 • Mechanism: Profit arises from time decay and gamma decay, which work in your favor as expiry approaches.
 • Success Rate: Around 95% of the time, this strategy yields a small but consistent profit.
@@ -62,7 +62,7 @@ const faqCategories = [
 
 
 𝗦𝘁𝗿𝗮𝘁𝗲𝗴𝘆 𝟰: High‑Accuracy Commodity Trading (Crude Oil CE/PE)
-• Tool: Option 24 – A powerful indicator to detect whether commodity prices are entering a strong upward or downward trend.
+• Tool: Option 27, 28 and 29 – A powerful and advanced indicator to detect whether commodity prices are entering a strong upward or downward trend.
 • Setup:
     ○ Bullish Trend: Buy Call Options (CE) when the price shows clear upward momentum, and exit at your target selling price.
     ○ Bearish Trend: Buy Put Options (PE) when the trend is downward, and close the position once your profit target is achieved.
@@ -137,7 +137,7 @@ const faqCategories = [
       },
       {
         question: "How many trading strategies does the software support?",
-        answer: "In this software, there are total 40 options or strategies out of which 38 are effective ones. All the options are framed under five different headings like Basic Order types, Strategy Spreads with Auto Hedging, Signal Prediction, Technical Analysis Chart, Performance Center and System Utilities."
+        answer: "In this software, there are total 45 options or strategies out of which 38 are effective ones. All the options are framed under five different headings like Basic Order types, Strategy Spreads with Auto Hedging, Signal Prediction, Technical Analysis Chart, Performance Center and System Utilities."
       },
       {
         question: "Can I customize or create my own trading strategies?",
