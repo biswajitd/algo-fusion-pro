@@ -145,7 +145,7 @@ const faqCategories = [
       },
       {
         question: "Is there a limit on the number of trades I can execute?",
-        answer: "No, there are no artificial limits on trade execution from our side. However, your broker's API rate limits and trading restrictions still apply based on your account type with them."
+        answer: "Since this software relies on human input with multiple parameters, it is not possible for a person to manually enter those parameters and execute trades ten times within a single second. In addition, your broker’s API rate limits and trading restrictions will still apply, depending on the type of account you hold with them."
       },
       {
         question: "Does the software support commodity trading?",
