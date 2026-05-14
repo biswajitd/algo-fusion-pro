@@ -8,7 +8,8 @@ const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const platforms = [
-    { name: "Zerodha", path: "/zerodha" },
+    { name: "Zerodha – on Unofficial API", path: "/zerodha" },
+    { name: "Zerodha – on Official API", path: "/zerodha-official" },
     { name: "Groww", path: "/groww" },
     { name: "Angel One", path: "/angel-one" },
     { name: "Upstox", path: "/upstox" },
