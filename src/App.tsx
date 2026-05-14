@@ -42,6 +42,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/platforms" element={<Platforms />} />
             <Route path="/zerodha" element={<Zerodha />} />
+            <Route path="/zerodha-official" element={<ZerodhaOfficial />} />
             <Route path="/groww" element={<Groww />} />
             <Route path="/angel-one" element={<AngelOne />} />
             <Route path="/upstox" element={<Upstox />} />
