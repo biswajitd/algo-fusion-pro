@@ -22,8 +22,8 @@ const PlatformsList = () => {
   ];
   const platforms = [
     {
-      name: "Zerodha",
-      api: "KiteConnect API",
+      name: "Zerodha – on Unofficial API",
+      api: "Unofficial KiteConnect API",
       description:
         "Intelligent automatic connectivity to Zerodha, eliminating tedious two-way verifications. Supports NSE, F&O, and MCX for commodity trading until 11:30 PM.",
       features: [
@@ -36,6 +36,22 @@ const PlatformsList = () => {
       size: "2.7 GB",
       link: "/zerodha",
       downloadLink: "https://form.jotform.com/biswajitdvc/zerodha-customer-registration-form",
+    },
+    {
+      name: "Zerodha – on Official API",
+      api: "Official KiteConnect API",
+      description:
+        "Intelligent automatic connectivity to Zerodha using the Official KiteConnect API. Supports NSE, F&O, and MCX for commodity trading until 11:30 PM.",
+      features: [
+        "Seamless KiteConnect API integration",
+        "Auto-connect without 2FA hassle",
+        "NSE, F&O, and MCX support",
+        "Extended trading hours (Mon-Fri till 11:30 PM)",
+        "Real-time execution and monitoring",
+      ],
+      size: "2.7 GB",
+      link: "/zerodha-official",
+      downloadLink: "https://form.jotform.com/261336490212450",
     },
     {
       name: "Groww",

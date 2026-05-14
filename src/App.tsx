@@ -8,6 +8,7 @@ import Navigation from "@/components/Navigation";   // ✅ RESTORED
 
 import Index from "./pages/Index";
 import Zerodha from "./pages/Zerodha";
+import ZerodhaOfficial from "./pages/ZerodhaOfficial";
 import Groww from "./pages/Groww";
 import AngelOne from "./pages/AngelOne";
 import Upstox from "./pages/Upstox";
@@ -41,6 +42,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/platforms" element={<Platforms />} />
             <Route path="/zerodha" element={<Zerodha />} />
+            <Route path="/zerodha-official" element={<ZerodhaOfficial />} />
             <Route path="/groww" element={<Groww />} />
             <Route path="/angel-one" element={<AngelOne />} />
             <Route path="/upstox" element={<Upstox />} />
