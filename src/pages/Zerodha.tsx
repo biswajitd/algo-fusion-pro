@@ -3,7 +3,7 @@ import PlatformDetail from "@/components/PlatformDetail";
 const Zerodha = () => {
   return (
     <PlatformDetail
-      name="Zerodha"
+      name="Zerodha – on Unofficial API"
       api="Unofficial KiteConnect API"
       description="Fully optimized for the Zerodha platform, this Algo Trading Software stands out by offering smooth and hassle-free integration to run algo strategies on Zerodha's platform. What truly sets this software apart is its intelligent automatic connectivity to Zerodha, eliminating the need for tedious two-way verifications."
       features={[
