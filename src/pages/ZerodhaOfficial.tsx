@@ -8,6 +8,7 @@ const ZerodhaOfficial = () => {
       description="Fully optimized for the Zerodha platform, this Algo Trading Software stands out by offering smooth and hassle-free integration to run algo strategies on Zerodha's platform. What truly sets this software apart is its intelligent automatic connectivity to Zerodha, eliminating the need for tedious two-way verifications."
       features={[
         "Based on Official KiteConnect API — fully compliant with Zerodha Terms & Conditions",
+        "A subscription fee of Rs. 500 per month is required to use this API with Zerodha",
         "Seamless integration with KiteConnect API",
         "Intelligent automatic connectivity without 2FA hassles",
         "Compatible with NSE, F&O, and MCX segments",
