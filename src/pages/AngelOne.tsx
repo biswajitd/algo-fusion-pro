@@ -8,6 +8,7 @@ const AngelOne = () => {
       description="Fully optimized for the Angel One platform, this Algo Trading Software stands out by offering smooth and hassle-free integration to run algo strategies on Angel One's platform. What truly sets this software apart is its intelligent automatic connectivity to Angel One & SmartAPI, eliminating the need for tedious two-way verifications."
       features={[
         "Seamless integration with SmartAPI",
+        "No sunscription is required with Angle One to use this API",
         "Intelligent automatic connectivity",
         "Multi-segment trading support (NSE, F&O, MCX)",
         "Real-time market data streaming",
