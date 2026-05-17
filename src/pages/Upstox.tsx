@@ -8,6 +8,7 @@ const Upstox = () => {
       description="Fully optimized for the Upstox platform, this Algo Trading Software stands out by offering smooth and hassle-free integration to run algo strategies on Upstox's platform. What truly sets this software apart is its intelligent automatic connectivity to Upstox & its Native API, eliminating the need for tedious two-way verifications."
       features={[
         "Native API integration for optimal performance",
+        "No Upstox subscripon is required",
         "Intelligent automatic connectivity",
         "Multi-market trading support",
         "Real-time data feeds and execution",
