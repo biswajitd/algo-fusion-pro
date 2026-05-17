@@ -7,7 +7,8 @@ const Zerodha = () => {
       api="Unofficial KiteConnect API"
       description="Fully optimized for the Zerodha platform, this Algo Trading Software stands out by offering smooth and hassle-free integration to run algo strategies on Zerodha's platform. What truly sets this software apart is its intelligent automatic connectivity to Zerodha, eliminating the need for tedious two-way verifications."
       features={[
-        "Based on Unofficial KiteConnection API. VIOLATES ZERODHA TERMS & CONDITIONS. To be used purely for practice only",
+        "The program is based on the unofficial KiteConnection API. Zerodha does not support the use of this unofficial API, as it violates their terms and conditions",
+        "No Zerodha subscripon is required",
         "Seamless integration with KiteConnect API",
         "Intelligent automatic connectivity without 2FA hassles",
         "Compatible with NSE, F&O, and MCX segments",
