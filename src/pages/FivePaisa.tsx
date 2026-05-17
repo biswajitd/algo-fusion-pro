@@ -8,6 +8,7 @@ const FivePaisa = () => {
       description="Fully optimized for the 5paisa platform, this Algo Trading Software stands out by offering smooth and hassle-free integration to run algo strategies on 5paisa's platform. What truly sets this software apart is its intelligent automatic connectivity to 5paisa, eliminating the need for tedious two-way verifications."
       features={[
         "Seamless integration with XtreamAPI",
+        "No sunscription is required with 5paisa to use this API",
         "Intelligent automatic connectivity",
         "Comprehensive market access",
         "Real-time data and order execution",
