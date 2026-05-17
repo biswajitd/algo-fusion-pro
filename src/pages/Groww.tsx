@@ -8,6 +8,7 @@ const Groww = () => {
       description="Fully optimized for the Groww platform, this Algo Trading Software stands out by offering smooth and hassle-free integration to run algo strategies on Groww's platform. What truly sets this software apart is its intelligent automatic connectivity to Groww, eliminating the need for tedious two-way verifications."
       features={[
         "Seamless integration with Groww Trading API",
+        "A subscription fee of Rs. 500 per month is required to use this API with Groww",
         "Intelligent automatic connectivity feature",
         "Compatible with NSE and F&O segments",
         "Real-time market data and execution",
