@@ -29,13 +29,13 @@ import qrProfessional from "@/assets/qr-professional.png";
 import qrEnterprise from "@/assets/qr-enterprise.png";
 
 import { useState } from "react";
-import UserDetailsForm from "@/components/UserDetailsForm";
+import PaymentFlow from "@/components/PaymentFlow";
+import { ShieldCheck } from "lucide-react";
 
 const Pricing = () => {
   const [openForm, setOpenForm] = useState(false);
   const [selectedAmount, setSelectedAmount] = useState(0);
   const [selectedPlan, setSelectedPlan] = useState("");
-  const [paymentConfirmed, setPaymentConfirmed] = useState(false); // ⭐ NEW
 
   const plans = [
     {
