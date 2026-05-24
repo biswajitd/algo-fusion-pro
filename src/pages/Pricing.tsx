@@ -139,74 +139,9 @@ const Pricing = () => {
               </CardHeader>
 
               <CardContent>
-                {/* QR POPUP */}
-                <Dialog
-                  onOpenChange={() => {
-                    setPaymentConfirmed(false); // ⭐ Reset checkbox on close
-                  }}
-                >
-                  <DialogTrigger asChild>
-                    <Button className="w-full mb-6">{plan.cta}</Button>
-                  </DialogTrigger>
-
-                  <DialogContent className="max-w-md">
-                    <DialogHeader>
-                      <DialogTitle>{plan.name}</DialogTitle>
-                      <DialogDescription>
-                        {plan.price} {plan.period}
-                      </DialogDescription>
-                    </DialogHeader>
-
-                    <div className="space-y-4 py-4">
-                      <div className="flex justify-center">
-                        <img
-                          src={plan.qrCode}
-                          alt="QR"
-                          className="w-48 h-48 object-contain"
-                        />
-                      </div>
-
-                      <div className="text-center font-semibold">GPay Scan</div>
-
-                      <div className="bg-muted p-4 rounded-lg text-sm space-y-2">
-                        <p className="font-medium">After payment:</p>
-                        <p>Email screenshot & mobile no.</p>
-                        <p className="text-primary font-medium">
-                          We will connect within 24 hours.
-                        </p>
-                      </div>
-
-                      {/* ⭐ PAYMENT CONFIRMATION CHECKBOX */}
-                      <div className="flex items-center gap-2">
-                        <input
-                          type="checkbox"
-                          checked={paymentConfirmed}
-                          onChange={(e) =>
-                            setPaymentConfirmed(e.target.checked)
-                          }
-                        />
-                        <label>I have completed the payment</label>
-                      </div>
-                    </div>
-
-                    {/* BUTTON (DISABLED UNTIL PAYMENT CONFIRMED) */}
-                    <Button
-                      className="w-full mt-2"
-                      disabled={!paymentConfirmed} // ⭐
-                      onClick={() => openDetailsForm(plan)}
-                    >
-                      I Have Completed Payment → Continue
-                    </Button>
-                  </DialogContent>
-                </Dialog>
-
-                {/* USER DETAILS FORM */}
-                <UserDetailsForm
-                  open={openForm}
-                  onClose={() => setOpenForm(false)}
-                  amount={selectedAmount}
-                  planName={selectedPlan}
-                />
+                <Button className="w-full mb-6" onClick={() => openDetailsForm(plan)}>
+                  {plan.cta}
+                </Button>
 
                 <ul className="space-y-3 mt-4">
                   {plan.features.map((f, i) => (
