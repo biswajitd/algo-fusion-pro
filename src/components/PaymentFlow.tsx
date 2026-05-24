@@ -16,7 +16,7 @@ import qrBasic from "@/assets/qr-basic.png";
 import qrProfessional from "@/assets/qr-professional.png";
 import qrEnterprise from "@/assets/qr-enterprise.png";
 
-const UPI_ID = "softgogy@upi";
+const UPI_ID = "biswajit.dvc@oksbi";
 
 const QR_BY_PLAN: Record<string, string> = {
   Basic: qrBasic,
