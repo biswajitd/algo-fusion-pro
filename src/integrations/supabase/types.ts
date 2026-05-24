@@ -71,6 +71,72 @@ export type Database = {
         }
         Relationships: []
       }
+      payment_submissions: {
+        Row: {
+          amount: number
+          approval_email_sent: boolean | null
+          approval_token: string
+          created_at: string
+          customer_ack_sent: boolean | null
+          customer_email: string
+          customer_name: string
+          customer_phone: string
+          id: string
+          ip_address: string | null
+          notes: string | null
+          owner_notification_sent: boolean | null
+          plan_name: string
+          reviewed_at: string | null
+          reviewed_by: string | null
+          status: string
+          updated_at: string
+          user_agent: string | null
+          utr_number: string
+        }
+        Insert: {
+          amount: number
+          approval_email_sent?: boolean | null
+          approval_token?: string
+          created_at?: string
+          customer_ack_sent?: boolean | null
+          customer_email: string
+          customer_name: string
+          customer_phone: string
+          id?: string
+          ip_address?: string | null
+          notes?: string | null
+          owner_notification_sent?: boolean | null
+          plan_name: string
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          status?: string
+          updated_at?: string
+          user_agent?: string | null
+          utr_number: string
+        }
+        Update: {
+          amount?: number
+          approval_email_sent?: boolean | null
+          approval_token?: string
+          created_at?: string
+          customer_ack_sent?: boolean | null
+          customer_email?: string
+          customer_name?: string
+          customer_phone?: string
+          id?: string
+          ip_address?: string | null
+          notes?: string | null
+          owner_notification_sent?: boolean | null
+          plan_name?: string
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          status?: string
+          updated_at?: string
+          user_agent?: string | null
+          utr_number?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
