@@ -110,20 +110,23 @@ export default function PaymentFlow({ open, onClose, amount, planName }: Props) 
                 {planName} plan • <span className="font-semibold text-foreground">₹{amount.toLocaleString("en-IN")}</span>
               </DialogDescription>
             </DialogHeader>
-            <div className="space-y-3 mt-2">
+           <div className="space-y-3 mt-2">
               <div>
                 <Label htmlFor="pf-name">Full Name *</Label>
                 <Input id="pf-name" value={form.name}
+                  className="bg-white text-black dark:bg-white dark:text-black"
                   onChange={(e) => setForm({ ...form, name: e.target.value })} />
               </div>
               <div>
                 <Label htmlFor="pf-email">Email Address *</Label>
                 <Input id="pf-email" type="email" value={form.email}
+                  className="bg-white text-black dark:bg-white dark:text-black"
                   onChange={(e) => setForm({ ...form, email: e.target.value })} />
               </div>
               <div>
                 <Label htmlFor="pf-phone">Mobile Number (WhatsApp) *</Label>
                 <Input id="pf-phone" type="tel" value={form.phone}
+                  className="bg-white text-black dark:bg-white dark:text-black"
                   onChange={(e) => setForm({ ...form, phone: e.target.value })} />
               </div>
               <Button className="w-full mt-2" onClick={goToPayment}>Continue to Payment →</Button>
@@ -164,9 +167,10 @@ export default function PaymentFlow({ open, onClose, amount, planName }: Props) 
                 Please pay the exact amount shown. Do <strong>not</strong> close this window after payment.
               </div>
 
-              <div>
+             <div>
                 <Label htmlFor="pf-utr">UPI Transaction ID / UTR Number *</Label>
                 <Input id="pf-utr" value={utr} onChange={(e) => setUtr(e.target.value)}
+                  className="bg-white text-black dark:bg-white dark:text-black"
                   placeholder="12-digit UTR from your UPI app" />
                 <p className="text-xs text-muted-foreground mt-1">
                   Find it in your UPI app under transaction details.
