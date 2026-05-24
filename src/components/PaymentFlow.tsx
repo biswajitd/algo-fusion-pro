@@ -114,19 +114,19 @@ export default function PaymentFlow({ open, onClose, amount, planName }: Props) 
               <div>
                 <Label htmlFor="pf-name">Full Name *</Label>
                 <Input id="pf-name" value={form.name}
-                  className="bg-white text-black dark:bg-white dark:text-black"
+                  className="bg-white text-black dark:bg-white dark:text-white"
                   onChange={(e) => setForm({ ...form, name: e.target.value })} />
               </div>
               <div>
                 <Label htmlFor="pf-email">Email Address *</Label>
                 <Input id="pf-email" type="email" value={form.email}
-                  className="bg-white text-black dark:bg-white dark:text-black"
+                  className="bg-white text-black dark:bg-white dark:text-white"
                   onChange={(e) => setForm({ ...form, email: e.target.value })} />
               </div>
               <div>
                 <Label htmlFor="pf-phone">Mobile Number (WhatsApp) *</Label>
                 <Input id="pf-phone" type="tel" value={form.phone}
-                  className="bg-white text-black dark:bg-white dark:text-black"
+                  className="bg-white text-black dark:bg-white dark:text-white"
                   onChange={(e) => setForm({ ...form, phone: e.target.value })} />
               </div>
               <Button className="w-full mt-2" onClick={goToPayment}>Continue to Payment →</Button>
