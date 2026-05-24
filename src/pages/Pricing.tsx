@@ -212,9 +212,20 @@ const Pricing = () => {
           </Card>
         </div>
 
-        <div className="mt-12 text-center text-muted-foreground">
-          All plans include a 5-day free trial. No credit card required.
+        <div className="mt-12 flex flex-col items-center gap-3 text-muted-foreground">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-muted text-sm">
+            <ShieldCheck className="w-4 h-4 text-primary" />
+            <span>Secure UPI Payment • Manually verified within 2–4 hours</span>
+          </div>
+          <p>All plans include a 5-day free trial. No credit card required.</p>
         </div>
+
+        <PaymentFlow
+          open={openForm}
+          onClose={() => setOpenForm(false)}
+          amount={selectedAmount}
+          planName={selectedPlan}
+        />
       </main>
 
       <footer className="border-t py-12">
