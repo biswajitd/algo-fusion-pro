@@ -131,17 +131,9 @@ export default function PaymentFlow({ open, onClose, amount, planName }: Props) 
               </div>
               <Button className="w-full mt-2" onClick={goToPayment}>Continue to Payment →</Button>
             </div>
-             <div>
-                <Label htmlFor="pf-utr">UPI Transaction ID / UTR Number *</Label>
-                <Input id="pf-utr" value={utr} onChange={(e) => setUtr(e.target.value)}
-                  style={{ backgroundColor: "white", color: "black" }}
-                  placeholder="12-digit UTR from your UPI app" />
-                <p className="text-xs text-muted-foreground mt-1">
-                  Find it in your UPI app under transaction details.
-                </p>
-              </div>
           </>
         )}
+
 
         {step === 2 && (
           <>
@@ -201,12 +193,19 @@ export default function PaymentFlow({ open, onClose, amount, planName }: Props) 
         {step === 3 && (
           <>
             <DialogHeader>
-              <DialogTitle>✅ Submitted Successfully</DialogTitle>
+              <DialogTitle>Submission Received — Verification Pending</DialogTitle>
             </DialogHeader>
             <div className="space-y-3 mt-2 text-sm">
+              <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 p-3 rounded">
+                <p className="font-medium text-amber-900 dark:text-amber-200">No receipt is issued yet.</p>
+                <p className="text-amber-800 dark:text-amber-300 text-xs mt-1">
+                  Your payment receipt and account activation will be emailed to <strong>{form.email}</strong> only
+                  <strong> after our team manually verifies the UTR against bank records</strong> (within 2–4 hours).
+                </p>
+              </div>
               <p>
-                Thank you! Your payment details have been submitted. You will receive a confirmation
-                email at <strong>{form.email}</strong> within <strong>2–4 hours</strong> after verification.
+                A "Payment Received — Verification in Progress" acknowledgement has been sent to your email.
+                The official confirmation will follow once the payment is verified.
               </p>
               <div className="bg-muted p-3 rounded text-xs space-y-1">
                 <p>Need help? Contact <strong>biswajit@softgogy.com</strong> or <strong>+91 7003460866</strong>.</p>
@@ -215,6 +214,7 @@ export default function PaymentFlow({ open, onClose, amount, planName }: Props) 
             </div>
           </>
         )}
+
       </DialogContent>
     </Dialog>
   );
