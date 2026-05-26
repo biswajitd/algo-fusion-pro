@@ -8,7 +8,8 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import { Copy, Check, ShieldCheck, Loader2 } from "lucide-react";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Copy, Check, ShieldCheck, Loader2, AlertTriangle } from "lucide-react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -43,12 +44,13 @@ export default function PaymentFlow({ open, onClose, amount, planName }: Props) 
   const [step, setStep] = useState<1 | 2 | 3>(1);
   const [form, setForm] = useState({ name: "", email: "", phone: "" });
   const [utr, setUtr] = useState("");
+  const [paymentDeclared, setPaymentDeclared] = useState(false);
   const [copied, setCopied] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
   const reset = () => {
     setStep(1); setForm({ name: "", email: "", phone: "" });
-    setUtr(""); setCopied(false); setSubmitting(false);
+    setUtr(""); setPaymentDeclared(false); setCopied(false); setSubmitting(false);
   };
   const handleClose = () => { reset(); onClose(); };
 
@@ -76,6 +78,10 @@ export default function PaymentFlow({ open, onClose, amount, planName }: Props) 
   const submitPayment = async () => {
     if (!/^[A-Za-z0-9]{6,30}$/.test(utr.trim())) {
       toast.error("UTR must be 6–30 letters/digits");
+      return;
+    }
+    if (!paymentDeclared) {
+      toast.error("Please confirm that you have completed the UPI payment before submitting.");
       return;
     }
     setSubmitting(true);
@@ -142,7 +148,7 @@ export default function PaymentFlow({ open, onClose, amount, planName }: Props) 
                 <ShieldCheck className="w-5 h-5 text-primary" /> Secure UPI Payment
               </DialogTitle>
               <DialogDescription>
-                Pay <span className="font-bold text-foreground">₹{amount.toLocaleString("en-IN")}</span> for the {planName} plan
+                Pay first, then submit the UPI Transaction ID for manual verification.
               </DialogDescription>
             </DialogHeader>
 
@@ -165,7 +171,7 @@ export default function PaymentFlow({ open, onClose, amount, planName }: Props) 
               </a>
 
               <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 text-xs p-2 rounded">
-                Please pay the exact amount shown. Do <strong>not</strong> close this window after payment.
+                Please pay the exact amount shown. Submission of UTR is <strong>not a receipt</strong>; it only starts manual verification.
               </div>
 
              <div>
@@ -178,12 +184,24 @@ export default function PaymentFlow({ open, onClose, amount, planName }: Props) 
                 </p>
               </div>
 
+              <label className="flex items-start gap-2 rounded-md border bg-muted/40 p-3 text-xs leading-relaxed">
+                <Checkbox
+                  className="mt-0.5"
+                  checked={paymentDeclared}
+                  onCheckedChange={(checked) => setPaymentDeclared(checked === true)}
+                />
+                <span>
+                  I confirm that I have completed the UPI payment of ₹{amount.toLocaleString("en-IN")} and understand
+                  that a receipt will be emailed only after Softgogy verifies this UTR against bank records.
+                </span>
+              </label>
+
               <div className="flex gap-2">
                 <Button variant="outline" className="flex-1" onClick={() => setStep(1)} disabled={submitting}>
                   Back
                 </Button>
-                <Button className="flex-1" onClick={submitPayment} disabled={submitting}>
-                  {submitting ? <><Loader2 className="w-4 h-4 mr-1 animate-spin" /> Submitting…</> : "Submit Payment Confirmation"}
+                <Button className="flex-1" onClick={submitPayment} disabled={submitting || !paymentDeclared}>
+                  {submitting ? <><Loader2 className="w-4 h-4 mr-1 animate-spin" /> Submitting…</> : "Submit for Verification"}
                 </Button>
               </div>
             </div>
@@ -203,9 +221,10 @@ export default function PaymentFlow({ open, onClose, amount, planName }: Props) 
                   <strong> after our team manually verifies the UTR against bank records</strong> (within 2–4 hours).
                 </p>
               </div>
-              <p>
-                A "Payment Received — Verification in Progress" acknowledgement has been sent to your email.
-                The official confirmation will follow once the payment is verified.
+              <p className="flex gap-2">
+                <AlertTriangle className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                <span>A verification-request acknowledgement has been sent to your email. The official receipt and activation
+                email will follow only after admin approval based on bank/UPI record matching.</span>
               </p>
               <div className="bg-muted p-3 rounded text-xs space-y-1">
                 <p>Need help? Contact <strong>biswajit@softgogy.com</strong> or <strong>+91 7003460866</strong>.</p>

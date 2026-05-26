@@ -4,9 +4,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "sonner";
 import { Loader2, ShieldCheck, RefreshCw } from "lucide-react";
-import { useSearchParams } from "react-router-dom";
 
 type Submission = {
   id: string;
@@ -25,16 +25,16 @@ type Submission = {
 const STORAGE_KEY = "softgogy_admin_pw";
 
 const Admin = () => {
-  const [params] = useSearchParams();
   const [password, setPassword] = useState(localStorage.getItem(STORAGE_KEY) || "");
   const [authed, setAuthed] = useState(false);
   const [loading, setLoading] = useState(false);
   const [rows, setRows] = useState<Submission[]>([]);
   const [actionId, setActionId] = useState<string | null>(null);
+  const [verifiedRows, setVerifiedRows] = useState<Record<string, boolean>>({});
 
-  const call = async (action: "list" | "approve" | "reject", id?: string) => {
+  const call = async (action: "list" | "approve" | "reject", id?: string, verifiedAgainstBank = false) => {
     const { data, error } = await supabase.functions.invoke("admin-payment-action", {
-      body: { password, action, id },
+      body: { password, action, id, verifiedAgainstBank },
     });
     if (error || !data?.success) {
       throw new Error(data?.error || error?.message || "Request failed");
@@ -62,37 +62,22 @@ const Admin = () => {
     await fetchList();
   };
 
-  // Auto-login + auto-approve via email link
+  // Auto-login only. Approval must be completed manually after bank/UPI statement verification.
   useEffect(() => {
     document.title = "Admin – Softgogy";
     if (password && !authed) fetchList();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  useEffect(() => {
-    const token = params.get("token");
-    const action = params.get("action");
-    const id = params.get("id");
-    if (authed && action === "approve" && id && token) {
-      (async () => {
-        try {
-          setActionId(id);
-          await call("approve", id);
-          toast.success("Payment approved. Customer notified.");
-          await fetchList();
-        } catch (e: any) {
-          toast.error(e.message);
-        } finally { setActionId(null); }
-      })();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [authed]);
-
   const act = async (id: string, action: "approve" | "reject") => {
+    if (action === "approve" && !verifiedRows[id]) {
+      toast.error("Confirm bank/UPI statement verification before approval.");
+      return;
+    }
     setActionId(id);
     try {
-      await call(action, id);
-      toast.success(action === "approve" ? "Approved & email sent" : "Rejected");
+      await call(action, id, action === "approve" && verifiedRows[id]);
+      toast.success(action === "approve" ? "Approved after verification & receipt sent" : "Rejected");
       await fetchList();
     } catch (e: any) {
       toast.error(e.message);
@@ -137,7 +122,9 @@ const Admin = () => {
       <div className="flex items-center justify-between mb-6">
         <div>
           <h1 className="text-2xl font-bold">Payment Submissions</h1>
-          <p className="text-sm text-muted-foreground">{rows.length} record(s)</p>
+          <p className="text-sm text-muted-foreground">
+            {rows.length} record(s). Approve only after matching UTR and amount in bank/UPI records.
+          </p>
         </div>
         <div className="flex gap-2">
           <Button size="sm" variant="outline" onClick={fetchList} disabled={loading}>
@@ -170,13 +157,23 @@ const Admin = () => {
                 </div>
               </div>
               {r.status === "pending" ? (
-                <div className="flex gap-2">
-                  <Button size="sm" onClick={() => act(r.id, "approve")} disabled={actionId === r.id}>
+                <div className="space-y-3 md:min-w-72">
+                  <label className="flex items-start gap-2 rounded-md border bg-muted/40 p-3 text-xs leading-relaxed">
+                    <Checkbox
+                      checked={!!verifiedRows[r.id]}
+                      onCheckedChange={(checked) => setVerifiedRows((prev) => ({ ...prev, [r.id]: checked === true }))}
+                      disabled={actionId === r.id}
+                    />
+                    <span>I verified this UTR and exact amount in the bank/UPI statement.</span>
+                  </label>
+                  <div className="flex gap-2">
+                  <Button size="sm" onClick={() => act(r.id, "approve")} disabled={actionId === r.id || !verifiedRows[r.id]}>
                     {actionId === r.id ? <Loader2 className="w-4 h-4 animate-spin" /> : "Approve"}
                   </Button>
                   <Button size="sm" variant="destructive" onClick={() => act(r.id, "reject")} disabled={actionId === r.id}>
                     Reject
                   </Button>
+                  </div>
                 </div>
               ) : (
                 <div className="text-xs text-muted-foreground">
