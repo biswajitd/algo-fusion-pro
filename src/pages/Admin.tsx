@@ -62,37 +62,22 @@ const Admin = () => {
     await fetchList();
   };
 
-  // Auto-login + auto-approve via email link
+  // Auto-login only. Approval must be completed manually after bank/UPI statement verification.
   useEffect(() => {
     document.title = "Admin – Softgogy";
     if (password && !authed) fetchList();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  useEffect(() => {
-    const token = params.get("token");
-    const action = params.get("action");
-    const id = params.get("id");
-    if (authed && action === "approve" && id && token) {
-      (async () => {
-        try {
-          setActionId(id);
-          await call("approve", id);
-          toast.success("Payment approved. Customer notified.");
-          await fetchList();
-        } catch (e: any) {
-          toast.error(e.message);
-        } finally { setActionId(null); }
-      })();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [authed]);
-
   const act = async (id: string, action: "approve" | "reject") => {
+    if (action === "approve" && !verifiedRows[id]) {
+      toast.error("Confirm bank/UPI statement verification before approval.");
+      return;
+    }
     setActionId(id);
     try {
-      await call(action, id);
-      toast.success(action === "approve" ? "Approved & email sent" : "Rejected");
+      await call(action, id, action === "approve" && verifiedRows[id]);
+      toast.success(action === "approve" ? "Approved after verification & receipt sent" : "Rejected");
       await fetchList();
     } catch (e: any) {
       toast.error(e.message);
