@@ -8,6 +8,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Copy, Check, ShieldCheck, Loader2, AlertTriangle } from "lucide-react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
@@ -184,11 +185,10 @@ export default function PaymentFlow({ open, onClose, amount, planName }: Props) 
               </div>
 
               <label className="flex items-start gap-2 rounded-md border bg-muted/40 p-3 text-xs leading-relaxed">
-                <input
-                  type="checkbox"
-                  className="mt-0.5 h-4 w-4 accent-primary"
+                <Checkbox
+                  className="mt-0.5"
                   checked={paymentDeclared}
-                  onChange={(e) => setPaymentDeclared(e.target.checked)}
+                  onCheckedChange={(checked) => setPaymentDeclared(checked === true)}
                 />
                 <span>
                   I confirm that I have completed the UPI payment of ₹{amount.toLocaleString("en-IN")} and understand
