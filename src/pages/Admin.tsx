@@ -4,9 +4,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "sonner";
 import { Loader2, ShieldCheck, RefreshCw } from "lucide-react";
-import { useSearchParams } from "react-router-dom";
 
 type Submission = {
   id: string;
@@ -25,16 +25,16 @@ type Submission = {
 const STORAGE_KEY = "softgogy_admin_pw";
 
 const Admin = () => {
-  const [params] = useSearchParams();
   const [password, setPassword] = useState(localStorage.getItem(STORAGE_KEY) || "");
   const [authed, setAuthed] = useState(false);
   const [loading, setLoading] = useState(false);
   const [rows, setRows] = useState<Submission[]>([]);
   const [actionId, setActionId] = useState<string | null>(null);
+  const [verifiedRows, setVerifiedRows] = useState<Record<string, boolean>>({});
 
-  const call = async (action: "list" | "approve" | "reject", id?: string) => {
+  const call = async (action: "list" | "approve" | "reject", id?: string, verifiedAgainstBank = false) => {
     const { data, error } = await supabase.functions.invoke("admin-payment-action", {
-      body: { password, action, id },
+      body: { password, action, id, verifiedAgainstBank },
     });
     if (error || !data?.success) {
       throw new Error(data?.error || error?.message || "Request failed");
