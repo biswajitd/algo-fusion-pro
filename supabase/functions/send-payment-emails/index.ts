@@ -72,7 +72,6 @@ serve(async (req) => {
     if (insErr || !row) throw new Error(insErr?.message || "DB insert failed");
 
     const origin = p.siteOrigin?.replace(/\/$/, "") || "https://algo-fusion-pro.lovable.app";
-    const approveUrl = `${origin}/admin?token=${row.approval_token}&action=approve&id=${row.id}`;
     const adminUrl = `${origin}/admin`;
     const when = new Date(row.created_at).toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
 
@@ -83,10 +82,10 @@ serve(async (req) => {
       <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;padding:20px;color:#1a1a1a">
         <div style="text-align:center;padding:20px 0;border-bottom:3px solid #3182ce">
           <h1 style="color:#1a365d;margin:0">Softgogy</h1>
-          <p style="color:#718096;margin:4px 0 0">Payment Received — Verification in Progress</p>
+          <p style="color:#718096;margin:4px 0 0">UPI Submission Received — Verification in Progress</p>
         </div>
         <h2>Hi ${N},</h2>
-        <p>Thank you for your payment. We have received your submission and our team is verifying it now. Your access will be activated within <strong>2–4 hours</strong> after verification.</p>
+        <p>Thank you for submitting your UPI transaction details. No receipt has been issued yet. Our team will verify the UTR against bank records, and your access will be activated within <strong>2–4 hours</strong> only after successful verification.</p>
         <div style="background:#f7fafc;padding:16px;border-radius:8px;margin:16px 0">
           <table style="width:100%;font-size:14px">
             <tr><td style="color:#718096;padding:4px 0">Plan</td><td style="text-align:right"><strong>${Pl}</strong></td></tr>
@@ -101,8 +100,8 @@ serve(async (req) => {
 
     const ownerHtml = `
       <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;padding:20px">
-        <h1 style="color:#1a365d">🔔 New Payment Submission</h1>
-        <p><strong>${N}</strong> just submitted a payment for <strong>${Pl}</strong>.</p>
+        <h1 style="color:#1a365d">🔔 New UPI Verification Request</h1>
+        <p><strong>${N}</strong> submitted UPI details for <strong>${Pl}</strong>. Treat this as unverified until the UTR is matched against bank records.</p>
         <div style="background:#f7fafc;padding:16px;border-radius:8px;margin:16px 0">
           <table style="width:100%;font-size:14px">
             <tr><td style="color:#718096;padding:4px 0">Name</td><td><strong>${N}</strong></td></tr>
@@ -115,14 +114,14 @@ serve(async (req) => {
           </table>
         </div>
         <div style="text-align:center;margin:24px 0">
-          <a href="${approveUrl}" style="display:inline-block;background:#38a169;color:#fff;padding:12px 28px;border-radius:6px;text-decoration:none;font-weight:bold">✅ Approve Payment</a>
+          <a href="${adminUrl}" style="display:inline-block;background:#1a365d;color:#fff;padding:12px 28px;border-radius:6px;text-decoration:none;font-weight:bold">Open Admin Verification Dashboard</a>
         </div>
-        <p style="text-align:center;font-size:13px;color:#718096">Or open the <a href="${adminUrl}">admin dashboard</a> to review all pending submissions.</p>
+        <p style="text-align:center;font-size:13px;color:#718096">Approve only after confirming the amount and UTR in the bank/UPI merchant statement. The customer receipt is sent only after that approval.</p>
       </div>`;
 
     const [cust, own] = await Promise.all([
       resend.emails.send({ from: FROM_ADDRESS, to: [p.customerEmail],
-        subject: "Payment Received – Verification in Progress | Softgogy", html: customerHtml }),
+        subject: "UPI Details Submitted – Verification in Progress | Softgogy", html: customerHtml }),
       resend.emails.send({ from: FROM_ADDRESS, to: [OWNER_EMAIL],
         subject: `🔔 New Payment Submission – ${p.customerName} – ₹${Am}`, html: ownerHtml }),
     ]);
