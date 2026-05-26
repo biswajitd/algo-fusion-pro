@@ -71,6 +71,14 @@ const handler = async (req: Request): Promise<Response> => {
     return new Response(null, { headers: corsHeaders });
   }
 
+  return new Response(
+    JSON.stringify({
+      success: false,
+      error: "This legacy receipt endpoint is disabled. Receipts are issued only after manual admin verification.",
+    }),
+    { status: 410, headers: { "Content-Type": "application/json", ...corsHeaders } },
+  );
+
   // Extract client info for audit logging
   const clientIp = req.headers.get("x-forwarded-for") || 
                    req.headers.get("x-real-ip") || 
