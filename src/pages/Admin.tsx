@@ -122,7 +122,9 @@ const Admin = () => {
       <div className="flex items-center justify-between mb-6">
         <div>
           <h1 className="text-2xl font-bold">Payment Submissions</h1>
-          <p className="text-sm text-muted-foreground">{rows.length} record(s)</p>
+          <p className="text-sm text-muted-foreground">
+            {rows.length} record(s). Approve only after matching UTR and amount in bank/UPI records.
+          </p>
         </div>
         <div className="flex gap-2">
           <Button size="sm" variant="outline" onClick={fetchList} disabled={loading}>
@@ -155,13 +157,23 @@ const Admin = () => {
                 </div>
               </div>
               {r.status === "pending" ? (
-                <div className="flex gap-2">
-                  <Button size="sm" onClick={() => act(r.id, "approve")} disabled={actionId === r.id}>
+                <div className="space-y-3 md:min-w-72">
+                  <label className="flex items-start gap-2 rounded-md border bg-muted/40 p-3 text-xs leading-relaxed">
+                    <Checkbox
+                      checked={!!verifiedRows[r.id]}
+                      onCheckedChange={(checked) => setVerifiedRows((prev) => ({ ...prev, [r.id]: checked === true }))}
+                      disabled={actionId === r.id}
+                    />
+                    <span>I verified this UTR and exact amount in the bank/UPI statement.</span>
+                  </label>
+                  <div className="flex gap-2">
+                  <Button size="sm" onClick={() => act(r.id, "approve")} disabled={actionId === r.id || !verifiedRows[r.id]}>
                     {actionId === r.id ? <Loader2 className="w-4 h-4 animate-spin" /> : "Approve"}
                   </Button>
                   <Button size="sm" variant="destructive" onClick={() => act(r.id, "reject")} disabled={actionId === r.id}>
                     Reject
                   </Button>
+                  </div>
                 </div>
               ) : (
                 <div className="text-xs text-muted-foreground">
