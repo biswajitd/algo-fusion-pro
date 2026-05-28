@@ -208,7 +208,15 @@ export default function PaymentFlow({ open, onClose, amount, planName }: Props) 
           </>
         )}
 
-        {step === 3 && (
+        {step === 3 && (() => {
+          const businessWa = "919830046647";
+          const waMsg = `Hello Softgogy, I have submitted my UPI payment for verification.%0A%0AName: ${encodeURIComponent(form.name)}%0APlan: ${encodeURIComponent(planName)}%0AAmount: ₹${amount}%0AUTR: ${encodeURIComponent(utr)}%0AEmail: ${encodeURIComponent(form.email)}%0A%0APlease confirm activation on this number once verified.`;
+          const waLink = `https://wa.me/${businessWa}?text=${waMsg}`;
+          if (typeof window !== "undefined" && !(window as any).__sgWaOpened) {
+            (window as any).__sgWaOpened = true;
+            setTimeout(() => window.open(waLink, "_blank", "noopener"), 600);
+          }
+          return (
           <>
             <DialogHeader>
               <DialogTitle>Submission Received — Verification Pending</DialogTitle>
@@ -226,13 +234,25 @@ export default function PaymentFlow({ open, onClose, amount, planName }: Props) 
                 <span>A verification-request acknowledgement has been sent to your email. The official receipt and activation
                 email will follow only after admin approval based on bank/UPI record matching.</span>
               </p>
+              <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 p-3 rounded text-xs">
+                <p className="font-medium text-green-900 dark:text-green-200 mb-1">📱 WhatsApp confirmation</p>
+                <p className="text-green-800 dark:text-green-300">
+                  A WhatsApp chat with our team has been opened in a new tab. Please tap <strong>Send</strong>
+                  in WhatsApp so we can share verification updates directly on your number <strong>{form.phone}</strong>.
+                </p>
+                <a href={waLink} target="_blank" rel="noopener noreferrer"
+                  className="inline-block mt-2 bg-green-600 hover:bg-green-700 text-white px-3 py-1.5 rounded font-medium">
+                  Open WhatsApp chat
+                </a>
+              </div>
               <div className="bg-muted p-3 rounded text-xs space-y-1">
                 <p>Need help? Contact <strong>biswajit@softgogy.com</strong> or <strong>+91 7003460866</strong>.</p>
               </div>
               <Button className="w-full" onClick={handleClose}>Done</Button>
             </div>
           </>
-        )}
+          );
+        })()}
 
       </DialogContent>
     </Dialog>
