@@ -51,6 +51,7 @@ export default function PaymentFlow({ open, onClose, amount, planName }: Props) 
   const reset = () => {
     setStep(1); setForm({ name: "", email: "", phone: "" });
     setUtr(""); setPaymentDeclared(false); setCopied(false); setSubmitting(false);
+    if (typeof window !== "undefined") (window as any).__sgWaOpened = false;
   };
   const handleClose = () => { reset(); onClose(); };
 
