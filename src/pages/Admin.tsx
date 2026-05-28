@@ -6,7 +6,29 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "sonner";
-import { Loader2, ShieldCheck, RefreshCw } from "lucide-react";
+import { Loader2, ShieldCheck, RefreshCw, MessageCircle } from "lucide-react";
+
+const toE164India = (phone: string) => {
+  const d = (phone || "").replace(/\D/g, "");
+  if (d.length === 10) return "91" + d;
+  if (d.length === 12 && d.startsWith("91")) return d;
+  if (d.length === 11 && d.startsWith("0")) return "91" + d.slice(1);
+  return d;
+};
+
+const buildWaLink = (r: Submission, kind: "pending" | "approved" | "rejected") => {
+  const phone = toE164India(r.customer_phone);
+  const amt = `₹${Number(r.amount).toLocaleString("en-IN")}`;
+  let msg = "";
+  if (kind === "pending") {
+    msg = `Hello ${r.customer_name}, this is Softgogy. We have received your UPI payment submission for the ${r.plan_name} plan (${amt}, UTR ${r.utr_number}). No receipt has been issued yet — our team will verify the UTR against bank records and activate your access within 2–4 hours after successful verification. — Softgogy Team`;
+  } else if (kind === "approved") {
+    msg = `Hello ${r.customer_name}, your UPI payment of ${amt} (UTR ${r.utr_number}) for the ${r.plan_name} plan has been verified successfully. Your Softgogy subscription is now active. The official receipt has been emailed to ${r.customer_email}. — Softgogy Team`;
+  } else {
+    msg = `Hello ${r.customer_name}, we could not verify your UPI payment (UTR ${r.utr_number}) for the ${r.plan_name} plan against our bank records. Please reply with a screenshot of the successful UPI transaction so we can re-check. — Softgogy Team`;
+  }
+  return `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+};
 
 type Submission = {
   id: string;
