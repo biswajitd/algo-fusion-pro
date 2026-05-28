@@ -188,18 +188,26 @@ const Admin = () => {
                     />
                     <span>I verified this UTR and exact amount in the bank/UPI statement.</span>
                   </label>
-                  <div className="flex gap-2">
-                  <Button size="sm" onClick={() => act(r.id, "approve")} disabled={actionId === r.id || !verifiedRows[r.id]}>
-                    {actionId === r.id ? <Loader2 className="w-4 h-4 animate-spin" /> : "Approve"}
-                  </Button>
-                  <Button size="sm" variant="destructive" onClick={() => act(r.id, "reject")} disabled={actionId === r.id}>
-                    Reject
-                  </Button>
+                  <div className="flex flex-wrap gap-2">
+                    <Button size="sm" onClick={() => act(r.id, "approve")} disabled={actionId === r.id || !verifiedRows[r.id]}>
+                      {actionId === r.id ? <Loader2 className="w-4 h-4 animate-spin" /> : "Approve"}
+                    </Button>
+                    <Button size="sm" variant="destructive" onClick={() => act(r.id, "reject")} disabled={actionId === r.id}>
+                      Reject
+                    </Button>
+                    <a href={buildWaLink(r, "pending")} target="_blank" rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-xs bg-green-600 hover:bg-green-700 text-white px-3 py-1.5 rounded">
+                      <MessageCircle className="w-3.5 h-3.5" /> WhatsApp: Pending
+                    </a>
                   </div>
                 </div>
               ) : (
-                <div className="text-xs text-muted-foreground">
-                  {r.reviewed_at && `Reviewed ${new Date(r.reviewed_at).toLocaleString("en-IN", { timeZone: "Asia/Kolkata" })}`}
+                <div className="space-y-2 text-xs text-muted-foreground md:text-right">
+                  {r.reviewed_at && <div>Reviewed {new Date(r.reviewed_at).toLocaleString("en-IN", { timeZone: "Asia/Kolkata" })}</div>}
+                  <a href={buildWaLink(r, r.status === "approved" ? "approved" : "rejected")} target="_blank" rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 bg-green-600 hover:bg-green-700 text-white px-3 py-1.5 rounded">
+                    <MessageCircle className="w-3.5 h-3.5" /> WhatsApp customer
+                  </a>
                 </div>
               )}
             </CardContent>
