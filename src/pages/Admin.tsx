@@ -91,6 +91,22 @@ const Admin = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const sendWa = async (r: Submission, kind: "approved" | "rejected") => {
+    const amt = `₹${Number(r.amount).toLocaleString("en-IN")}`;
+    const msg = kind === "approved"
+      ? `Hello ${r.customer_name}, your UPI payment of ${amt} (UTR ${r.utr_number}) for the ${r.plan_name} plan has been verified successfully. Your Softgogy subscription is now active. The official receipt has been emailed to ${r.customer_email}. — Softgogy Team`
+      : `Hello ${r.customer_name}, we could not verify your UPI payment (UTR ${r.utr_number}) for the ${r.plan_name} plan against our bank records. Please reply with a screenshot of the successful UPI transaction so we can re-check. — Softgogy Team`;
+    try {
+      const { data, error } = await supabase.functions.invoke("send-whatsapp", {
+        body: { to: r.customer_phone, message: msg },
+      });
+      if (error || !data?.success) throw new Error(data?.error?.message || data?.error || error?.message || "WhatsApp send failed");
+      toast.success(`WhatsApp ${kind} message sent`);
+    } catch (e: any) {
+      toast.error(`WhatsApp not sent: ${e.message}`);
+    }
+  };
+
   const act = async (id: string, action: "approve" | "reject") => {
     if (action === "approve" && !verifiedRows[id]) {
       toast.error("Confirm bank/UPI statement verification before approval.");
@@ -100,6 +116,8 @@ const Admin = () => {
     try {
       await call(action, id, action === "approve" && verifiedRows[id]);
       toast.success(action === "approve" ? "Approved after verification & receipt sent" : "Rejected");
+      const row = rows.find((x) => x.id === id);
+      if (row) await sendWa(row, action === "approve" ? "approved" : "rejected");
       await fetchList();
     } catch (e: any) {
       toast.error(e.message);
