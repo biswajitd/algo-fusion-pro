@@ -98,6 +98,17 @@ export default function PaymentFlow({ open, onClose, amount, planName }: Props) 
         },
       });
       if (error || !data?.success) throw new Error(data?.error || error?.message || "Submission failed");
+
+      // Auto-send WhatsApp "Verification in Progress" message via Twilio
+      try {
+        const waMessage = `Hello ${form.name.trim()}, this is Softgogy. We have received your UPI payment submission for the ${planName} plan (₹${amount.toLocaleString("en-IN")}, UTR ${utr.trim()}). No receipt has been issued yet — our team will verify the UTR against bank records and activate your access within 2–4 hours after successful verification. — Softgogy Team`;
+        await supabase.functions.invoke("send-whatsapp", {
+          body: { to: form.phone.trim(), message: waMessage },
+        });
+      } catch (waErr) {
+        console.warn("WhatsApp send failed (non-blocking):", waErr);
+      }
+
       setStep(3);
     } catch (e: any) {
       toast.error(e.message || "Could not submit. Please try again.");
