@@ -20,7 +20,7 @@ const FivePaisa = () => {
         "Portfolio tracking and management",
         "Risk management automation",
       ]}
-      size="1.5 GB"
+      size="3 GB"
       segments={["NSE", "F&O"]}
       keyFeatures={[
         {
