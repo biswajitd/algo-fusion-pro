@@ -20,7 +20,7 @@ const Upstox = () => {
         "Advanced risk management features",
         "Real-time portfolio analytics",
       ]}
-      size="1.2 GB"
+      size="3 GB"
       segments={["NSE", "F&O"]}
       keyFeatures={[
         {
