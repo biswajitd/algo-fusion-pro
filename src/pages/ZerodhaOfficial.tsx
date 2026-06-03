@@ -21,7 +21,7 @@ const ZerodhaOfficial = () => {
         "Ultra-fast order execution engine",
         "Professional risk management tools",
       ]}
-      size="1.9 GB"
+      size="3 GB"
       segments={["NSE", "F&O", "MCX"]}
       keyFeatures={[
         {
