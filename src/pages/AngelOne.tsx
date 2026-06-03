@@ -20,7 +20,7 @@ const AngelOne = () => {
         "Comprehensive risk management",
         "Portfolio and P&L tracking",
       ]}
-      size="1.9 GB"
+      size="3 GB"
       segments={["NSE", "F&O"]}
       keyFeatures={[
         {
