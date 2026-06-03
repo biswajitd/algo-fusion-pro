@@ -20,7 +20,7 @@ const Groww = () => {
         "Risk management and stop-loss automation",
         "Portfolio tracking and analytics",
       ]}
-      size="1.9 GB"
+      size="3 GB"
       segments={["NSE", "F&O"]}
       keyFeatures={[
         {
