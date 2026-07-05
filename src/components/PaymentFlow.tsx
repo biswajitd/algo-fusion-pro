@@ -26,12 +26,14 @@ const QR_BY_PLAN: Record<string, string> = {
 };
 
 const detailsSchema = z.object({
-  name: z.string().trim().min(2, "Enter your full name").max(100)
-    .regex(/^[a-zA-Z\s.'-]+$/, "Letters only"),
-  email: z.string().trim().email("Invalid email").max(255),
+  name: z.string().trim().min(2, "Name must be at least 2 characters").max(100, "Name too long")
+    .regex(/^[a-zA-Z\s.'-]+$/, "Name can only contain letters, spaces, and .'-"),
+  email: z.string().trim().email("Invalid email address").max(255, "Email too long"),
   phone: z.string().transform(v => v.replace(/\D/g, ""))
-    .pipe(z.string().regex(/^[0-9]{10,15}$/, "10–15 digit phone")),
+    .pipe(z.string().regex(/^[0-9]{10,15}$/, "Phone must be 10–15 digits")),
 });
+
+const utrSchema = z.string().trim().regex(/^[A-Za-z0-9]{6,30}$/, "UTR must be 6–30 letters or digits");
 
 type Props = {
   open: boolean;
