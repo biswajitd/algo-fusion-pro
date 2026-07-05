@@ -23,6 +23,7 @@ import Essentials from "./pages/Essentials";
 import Documentation from "./pages/Documentation";
 import AboutUs from "./pages/AboutUs";
 import Admin from "./pages/Admin";
+import SoftwareUtilities from "./pages/SoftwareUtilities";
 import Terms from "./pages/Terms";
 import Privacy from "./pages/Privacy";
 import Refund from "./pages/Refund";
@@ -60,6 +61,7 @@ const App = () => (
             <Route path="/documentation" element={<Documentation />} />
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/admin" element={<Admin />} />
+            <Route path="/software-utilities" element={<SoftwareUtilities />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/refund" element={<Refund />} />
