@@ -81,8 +81,17 @@ export default function PaymentFlow({ open, onClose, amount, planName }: Props) 
   };
 
   const submitPayment = async () => {
-    if (!/^[A-Za-z0-9]{6,30}$/.test(utr.trim())) {
-      toast.error("UTR must be 6–30 letters/digits");
+    // Re-validate customer details defensively before submit (mirrors edge function)
+    const details = detailsSchema.safeParse(form);
+    if (!details.success) {
+      const first = details.error.errors[0];
+      toast.error(first?.message ?? "Please review your details");
+      setStep(1);
+      return;
+    }
+    const utrCheck = utrSchema.safeParse(utr);
+    if (!utrCheck.success) {
+      toast.error(utrCheck.error.errors[0]?.message ?? "Invalid UTR");
       return;
     }
     if (!paymentDeclared) {
