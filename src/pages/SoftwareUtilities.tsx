@@ -74,16 +74,26 @@ const SoftwareUtilities = () => {
               ))}
             </div>
 
-            <a
-              href="https://drive.google.com/file/d/1IiufqLAyMeOmCK-d8_tXUZ7RhY6DY8mj/view?usp=drive_link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button variant="hero" className="w-full">
-                <Download className="w-4 h-4" />
-                Download Mock Test Software
-              </Button>
-            </a>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href="https://drive.google.com/file/d/1IiufqLAyMeOmCK-d8_tXUZ7RhY6DY8mj/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1"
+              >
+                <Button variant="hero" size="lg" className="w-full">
+                  <Download className="w-4 h-4" />
+                  Download
+                </Button>
+              </a>
+              <a href="#mock-test-features" className="flex-1">
+                <Button variant="outline" size="lg" className="w-full group">
+                  <Info className="w-4 h-4" />
+                  Learn more
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </a>
+            </div>
             <p className="text-xs text-muted-foreground text-center mt-3">
               Free download • Offline use • Regularly updated
             </p>
