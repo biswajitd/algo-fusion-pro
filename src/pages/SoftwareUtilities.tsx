@@ -33,11 +33,8 @@ const SoftwareUtilities = () => {
     <div className="min-h-screen py-16">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Software &{" "}
-            <span className="bg-gradient-primary bg-clip-text text-transparent">
-              Utilities
-            </span>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-red-600">
+            Utility Vault
           </h1>
           <p className="text-lg text-muted-foreground">
             Free and professional utilities built to help you learn, practice, and get

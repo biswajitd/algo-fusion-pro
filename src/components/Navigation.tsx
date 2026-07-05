@@ -24,7 +24,7 @@ const Navigation = () => {
     { name: "Success Stories", path: "/success-stories" },
     { name: "Pricing", path: "/pricing" },
     { name: "FAQ", path: "/faq" },
-    { name: "Software & Utilities", path: "/software-utilities" },
+    { name: "Utility Vault", path: "/software-utilities", highlight: true },
   ];
 
   return (
@@ -47,7 +47,7 @@ const Navigation = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className="text-foreground hover:text-primary transition-colors"
+                className={`${link.highlight ? "text-red-600 font-semibold hover:text-red-500" : "text-foreground hover:text-primary"} transition-colors`}
               >
                 {link.name}
               </Link>
@@ -88,7 +88,7 @@ const Navigation = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className="block py-2 text-foreground hover:text-primary transition-colors"
+                className={`block py-2 ${link.highlight ? "text-red-600 font-semibold hover:text-red-500" : "text-foreground hover:text-primary"} transition-colors`}
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
