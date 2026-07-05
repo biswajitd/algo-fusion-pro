@@ -65,7 +65,7 @@ const SoftwareUtilities = () => {
               provides detailed answers with explanations.
             </p>
 
-            <div className="space-y-2 mb-6 flex-grow">
+            <div id="mock-test-features" className="space-y-2 mb-6 flex-grow scroll-mt-24">
               {mockTestFeatures.map((f, i) => (
                 <div key={i} className="flex items-start space-x-2">
                   <CheckCircle2 className="w-4 h-4 text-secondary mt-1 flex-shrink-0" />
