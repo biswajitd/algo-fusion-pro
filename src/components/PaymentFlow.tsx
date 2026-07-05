@@ -26,12 +26,14 @@ const QR_BY_PLAN: Record<string, string> = {
 };
 
 const detailsSchema = z.object({
-  name: z.string().trim().min(2, "Enter your full name").max(100)
-    .regex(/^[a-zA-Z\s.'-]+$/, "Letters only"),
-  email: z.string().trim().email("Invalid email").max(255),
+  name: z.string().trim().min(2, "Name must be at least 2 characters").max(100, "Name too long")
+    .regex(/^[a-zA-Z\s.'-]+$/, "Name can only contain letters, spaces, and .'-"),
+  email: z.string().trim().email("Invalid email address").max(255, "Email too long"),
   phone: z.string().transform(v => v.replace(/\D/g, ""))
-    .pipe(z.string().regex(/^[0-9]{10,15}$/, "10–15 digit phone")),
+    .pipe(z.string().regex(/^[0-9]{10,15}$/, "Phone must be 10–15 digits")),
 });
+
+const utrSchema = z.string().trim().regex(/^[A-Za-z0-9]{6,30}$/, "UTR must be 6–30 letters or digits");
 
 type Props = {
   open: boolean;
@@ -61,7 +63,9 @@ export default function PaymentFlow({ open, onClose, amount, planName }: Props) 
   const goToPayment = () => {
     const result = detailsSchema.safeParse(form);
     if (!result.success) {
-      result.error.errors.forEach(e => toast.error(e.message));
+      const first = result.error.errors[0];
+      const field = first?.path?.[0] ? `${String(first.path[0])}: ` : "";
+      toast.error(`${field}${first?.message ?? "Please check the form"}`);
       return;
     }
     setForm({ ...form, phone: result.data.phone });
@@ -77,8 +81,17 @@ export default function PaymentFlow({ open, onClose, amount, planName }: Props) 
   };
 
   const submitPayment = async () => {
-    if (!/^[A-Za-z0-9]{6,30}$/.test(utr.trim())) {
-      toast.error("UTR must be 6–30 letters/digits");
+    // Re-validate customer details defensively before submit (mirrors edge function)
+    const details = detailsSchema.safeParse(form);
+    if (!details.success) {
+      const first = details.error.errors[0];
+      toast.error(first?.message ?? "Please review your details");
+      setStep(1);
+      return;
+    }
+    const utrCheck = utrSchema.safeParse(utr);
+    if (!utrCheck.success) {
+      toast.error(utrCheck.error.errors[0]?.message ?? "Invalid UTR");
       return;
     }
     if (!paymentDeclared) {
