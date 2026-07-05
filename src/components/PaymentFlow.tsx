@@ -63,7 +63,9 @@ export default function PaymentFlow({ open, onClose, amount, planName }: Props) 
   const goToPayment = () => {
     const result = detailsSchema.safeParse(form);
     if (!result.success) {
-      result.error.errors.forEach(e => toast.error(e.message));
+      const first = result.error.errors[0];
+      const field = first?.path?.[0] ? `${String(first.path[0])}: ` : "";
+      toast.error(`${field}${first?.message ?? "Please check the form"}`);
       return;
     }
     setForm({ ...form, phone: result.data.phone });
