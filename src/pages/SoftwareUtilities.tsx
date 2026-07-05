@@ -117,7 +117,7 @@ const SoftwareUtilities = () => {
               understand your legal position quickly.
             </p>
 
-            <div className="space-y-2 mb-6 flex-grow">
+            <div id="legal-help-features" className="space-y-2 mb-6 flex-grow scroll-mt-24">
               {legalHelpFeatures.map((f, i) => (
                 <div key={i} className="flex items-start space-x-2">
                   <CheckCircle2 className="w-4 h-4 text-secondary mt-1 flex-shrink-0" />
@@ -126,16 +126,26 @@ const SoftwareUtilities = () => {
               ))}
             </div>
 
-            <a
-              href="https://legaladviceforall.netlify.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button variant="hero" className="w-full">
-                <ExternalLink className="w-4 h-4" />
-                Open Legal Help Window
-              </Button>
-            </a>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href="https://legaladviceforall.netlify.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1"
+              >
+                <Button variant="hero" size="lg" className="w-full">
+                  <ExternalLink className="w-4 h-4" />
+                  Open Now
+                </Button>
+              </a>
+              <a href="#legal-help-features" className="flex-1">
+                <Button variant="outline" size="lg" className="w-full group">
+                  <Info className="w-4 h-4" />
+                  Learn more
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </a>
+            </div>
             <p className="text-xs text-muted-foreground text-center mt-3">
               Opens in a new tab • Free to use • Private & secure
             </p>
