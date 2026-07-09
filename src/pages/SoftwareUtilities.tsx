@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Download, ExternalLink, GraduationCap, Scale, CheckCircle2, Info, ArrowRight } from "lucide-react";
+import { Download, ExternalLink, GraduationCap, Scale, Sparkles, CheckCircle2, Info, ArrowRight } from "lucide-react";
 
 const mockTestFeatures = [
   "Real exam simulation with timed sections and realistic question formats",
@@ -26,6 +26,19 @@ const legalHelpFeatures = [
   "Regularly updated content to reflect recent judgments and legal changes",
   "Secure and private — no user data is shared without consent",
   "Designed for both citizens and lawyers to speed up legal research and case preparation",
+];
+
+const astroFeatures = [
+  "Swiss Ephemeris engine delivers down-to-the-minute planetary accuracy",
+  "Dynamic life timeline mapping major transits across your full lifespan",
+  "Vimshottari Dasha periods with precise start and end dates",
+  "Historical context for past events plus forecasts for future milestones",
+  "Functional benefic & malefic analysis for personalised guidance",
+  "Safe, tailored gemstone remedies to strengthen your planetary protectors",
+  "Professional 48-page PDF report — pristine and ready to print",
+  "In-depth coverage of core identity, emotional nature, and mental inclinations",
+  "Ideal for professional astrologers to hand premium reports to clients",
+  "Perfect for self-seekers wanting clarity on career peaks and life turning points",
 ];
 
 const SoftwareUtilities = () => {
