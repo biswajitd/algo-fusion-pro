@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Download, ExternalLink, GraduationCap, Scale, CheckCircle2, Info, ArrowRight } from "lucide-react";
+import { Download, ExternalLink, GraduationCap, Scale, Sparkles, CheckCircle2, Info, ArrowRight } from "lucide-react";
 
 const mockTestFeatures = [
   "Real exam simulation with timed sections and realistic question formats",
@@ -28,6 +28,19 @@ const legalHelpFeatures = [
   "Designed for both citizens and lawyers to speed up legal research and case preparation",
 ];
 
+const astroFeatures = [
+  "Swiss Ephemeris engine delivers down-to-the-minute planetary accuracy",
+  "Dynamic life timeline mapping major transits across your full lifespan",
+  "Vimshottari Dasha periods with precise start and end dates",
+  "Historical context for past events plus forecasts for future milestones",
+  "Functional benefic & malefic analysis for personalised guidance",
+  "Safe, tailored gemstone remedies to strengthen your planetary protectors",
+  "Professional 48-page PDF report — pristine and ready to print",
+  "In-depth coverage of core identity, emotional nature, and mental inclinations",
+  "Ideal for professional astrologers to hand premium reports to clients",
+  "Perfect for self-seekers wanting clarity on career peaks and life turning points",
+];
+
 const SoftwareUtilities = () => {
   return (
     <div className="min-h-screen py-16">
@@ -42,7 +55,7 @@ const SoftwareUtilities = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {/* Mock Test */}
           <Card className="bg-gradient-card border-border hover:border-primary transition-all duration-300 hover:shadow-glow p-8 flex flex-col">
             <div className="flex items-center justify-between mb-6">
@@ -145,6 +158,59 @@ const SoftwareUtilities = () => {
             </div>
             <p className="text-xs text-muted-foreground text-center mt-3">
               Opens in a new tab • Free to use • Private & secure
+            </p>
+          </Card>
+
+          {/* Astrology */}
+          <Card className="bg-gradient-card border-border hover:border-primary transition-all duration-300 hover:shadow-glow p-8 flex flex-col">
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <h2 className="text-2xl font-bold mb-1">Decode Your Destiny</h2>
+                <p className="text-primary text-sm font-medium">Astrological Life-Cycle Engine</p>
+              </div>
+              <div className="w-16 h-16 bg-gradient-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                <Sparkles className="w-8 h-8 text-primary-foreground" />
+              </div>
+            </div>
+
+            <p className="text-muted-foreground mb-6 leading-relaxed">
+              Go beyond vague daily horoscopes. Powered by the industry-standard Swiss
+              Ephemeris, this engine turns raw birth data into a stunning 48-page life
+              blueprint — mapping past events, future milestones, Dasha periods and
+              tailored gemstone remedies with mathematical precision.
+            </p>
+
+            <div id="astro-features" className="space-y-2 mb-6 flex-grow scroll-mt-24">
+              {astroFeatures.map((f, i) => (
+                <div key={i} className="flex items-start space-x-2">
+                  <CheckCircle2 className="w-4 h-4 text-secondary mt-1 flex-shrink-0" />
+                  <span className="text-sm text-foreground">{f}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href="https://drive.google.com/file/d/1FXjeTvQC_cQxgHYRj76-LLENDJPHLLBE/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1"
+              >
+                <Button variant="hero" size="lg" className="w-full">
+                  <Download className="w-4 h-4" />
+                  Download
+                </Button>
+              </a>
+              <a href="#astro-features" className="flex-1">
+                <Button variant="outline" size="lg" className="w-full group">
+                  <Info className="w-4 h-4" />
+                  Learn more
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </a>
+            </div>
+            <p className="text-xs text-muted-foreground text-center mt-3">
+              Swiss Ephemeris precision • 48-page PDF • Professional & personal use
             </p>
           </Card>
         </div>
