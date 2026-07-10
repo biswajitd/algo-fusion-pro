@@ -41,6 +41,19 @@ const astroFeatures = [
   "Perfect for self-seekers wanting clarity on career peaks and life turning points",
 ];
 
+const aiTutorFeatures = [
+  "Universal subject mastery — math, science, humanities, coding and beyond",
+  "Multi-format input: type a question or upload PDF, DOCX, TXT or images",
+  "Snap a photo of any textbook page and get instant, accurate solutions",
+  "Generates a beautifully formatted PDF with step-by-step explanations",
+  "Zero installation — portable .exe, just download and double-click",
+  "Perfect for school, college, competitive prep and parents helping kids",
+  "Lightning-fast processing powered by an advanced AI reasoning engine",
+  "Detailed working shown like a personal tutor, not just final answers",
+  "Handles complex equations, proofs, essays, comprehension and diagrams",
+  "Tip: keep uploads to 10–15 pages per request for the fastest results",
+];
+
 const SoftwareUtilities = () => {
   return (
     <div className="min-h-screen py-16">
