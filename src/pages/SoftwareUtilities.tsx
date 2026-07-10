@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Download, ExternalLink, GraduationCap, Scale, Sparkles, CheckCircle2, Info, ArrowRight } from "lucide-react";
+import { Download, ExternalLink, GraduationCap, Scale, Sparkles, Brain, CheckCircle2, Info, ArrowRight } from "lucide-react";
 
 const mockTestFeatures = [
   "Real exam simulation with timed sections and realistic question formats",
@@ -39,6 +39,19 @@ const astroFeatures = [
   "In-depth coverage of core identity, emotional nature, and mental inclinations",
   "Ideal for professional astrologers to hand premium reports to clients",
   "Perfect for self-seekers wanting clarity on career peaks and life turning points",
+];
+
+const aiTutorFeatures = [
+  "Universal subject mastery — math, science, humanities, coding and beyond",
+  "Multi-format input: type a question or upload PDF, DOCX, TXT or images",
+  "Snap a photo of any textbook page and get instant, accurate solutions",
+  "Generates a beautifully formatted PDF with step-by-step explanations",
+  "Zero installation — portable .exe, just download and double-click",
+  "Perfect for school, college, competitive prep and parents helping kids",
+  "Lightning-fast processing powered by an advanced AI reasoning engine",
+  "Detailed working shown like a personal tutor, not just final answers",
+  "Handles complex equations, proofs, essays, comprehension and diagrams",
+  "Tip: keep uploads to 10–15 pages per request for the fastest results",
 ];
 
 const SoftwareUtilities = () => {
@@ -211,6 +224,61 @@ const SoftwareUtilities = () => {
             </div>
             <p className="text-xs text-muted-foreground text-center mt-3">
               Swiss Ephemeris precision • 48-page PDF • Professional & personal use
+            </p>
+          </Card>
+
+          {/* AI Universal Problem Solver & Tutor */}
+          <Card className="bg-gradient-card border-border hover:border-primary transition-all duration-300 hover:shadow-glow p-8 flex flex-col">
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <h2 className="text-2xl font-bold mb-1">AI Universal Problem Solver & Tutor</h2>
+                <p className="text-primary text-sm font-medium">Your On-Demand Academic Companion</p>
+              </div>
+              <div className="w-16 h-16 bg-gradient-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                <Brain className="w-8 h-8 text-primary-foreground" />
+              </div>
+            </div>
+
+            <p className="text-muted-foreground mb-6 leading-relaxed">
+              Stop hitting a wall on tough assignments. This portable AI engine solves
+              problems across every subject and stream — from middle-school algebra to
+              university-level mechanics. Type a question, or drop in a PDF, Word file,
+              text file or even a photo of your textbook, and get a beautifully
+              formatted PDF with step-by-step explanations in seconds. No installation,
+              no bloatware — just download the .exe and start solving.
+            </p>
+
+            <div id="ai-tutor-features" className="space-y-2 mb-6 flex-grow scroll-mt-24">
+              {aiTutorFeatures.map((f, i) => (
+                <div key={i} className="flex items-start space-x-2">
+                  <CheckCircle2 className="w-4 h-4 text-secondary mt-1 flex-shrink-0" />
+                  <span className="text-sm text-foreground">{f}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href="https://drive.google.com/file/d/1OviZciaNBtX2OrLMJ4oQLGudwmLrfgYh/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1"
+              >
+                <Button variant="hero" size="lg" className="w-full">
+                  <Download className="w-4 h-4" />
+                  Download
+                </Button>
+              </a>
+              <a href="#ai-tutor-features" className="flex-1">
+                <Button variant="outline" size="lg" className="w-full group">
+                  <Info className="w-4 h-4" />
+                  Learn more
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </a>
+            </div>
+            <p className="text-xs text-muted-foreground text-center mt-3">
+              Portable .exe • No installation • Step-by-step PDF answers
             </p>
           </Card>
         </div>
