@@ -294,6 +294,61 @@ const SoftwareUtilities = () => {
               Portable .exe • No installation • Step-by-step PDF answers
             </p>
           </Card>
+
+          {/* YouTube Speech Analyzer */}
+          <Card className="bg-gradient-card border-border hover:border-primary transition-all duration-300 hover:shadow-glow p-8 flex flex-col">
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <h2 className="text-2xl font-bold mb-1">YouTube Speech Analyzer</h2>
+                <p className="text-primary text-sm font-medium">Global Insights, Instantly</p>
+              </div>
+              <div className="w-16 h-16 bg-gradient-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                <Mic className="w-8 h-8 text-primary-foreground" />
+              </div>
+            </div>
+
+            <p className="text-muted-foreground mb-6 leading-relaxed">
+              Unlock the power of global video content without ever hitting "play." Paste
+              a list of YouTube URLs and watch the software silently pull captions from
+              every video, detect original languages, translate everything into English, and
+              even convert your final report into lifelike audio. From research to
+              marketing, turn hours of multilingual content into structured, actionable
+              intelligence in seconds.
+            </p>
+
+            <div id="youtube-speech-features" className="space-y-2 mb-6 flex-grow scroll-mt-24">
+              {youtubeSpeechFeatures.map((f, i) => (
+                <div key={i} className="flex items-start space-x-2">
+                  <CheckCircle2 className="w-4 h-4 text-secondary mt-1 flex-shrink-0" />
+                  <span className="text-sm text-foreground">{f}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href="https://drive.google.com/file/d/1OviZciaNBtX2OrLMJ4oQLGudwmLrfgYh/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1"
+              >
+                <Button variant="hero" size="lg" className="w-full">
+                  <Download className="w-4 h-4" />
+                  Download
+                </Button>
+              </a>
+              <a href="#youtube-speech-features" className="flex-1">
+                <Button variant="outline" size="lg" className="w-full group">
+                  <Info className="w-4 h-4" />
+                  Learn more
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </a>
+            </div>
+            <p className="text-xs text-muted-foreground text-center mt-3">
+              Multi-URL batch processing • Auto-translation • PDF + audio output
+            </p>
+          </Card>
         </div>
       </div>
     </div>
