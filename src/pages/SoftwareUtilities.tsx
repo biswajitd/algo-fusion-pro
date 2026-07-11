@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import { Download, ExternalLink, GraduationCap, Scale, Sparkles, Brain, Mic, CheckCircle2, Info, ArrowRight } from "lucide-react";
 
 const mockTestFeatures = [
