@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import { Download, ExternalLink, GraduationCap, Scale, Sparkles, Brain, Mic, CheckCircle2, Info, ArrowRight } from "lucide-react";
 
 const mockTestFeatures = [
@@ -337,13 +338,13 @@ const SoftwareUtilities = () => {
                   Download
                 </Button>
               </a>
-              <a href="#youtube-speech-features" className="flex-1">
+              <Link to="/software-utilities/youtube-speech-analyzer" className="flex-1">
                 <Button variant="outline" size="lg" className="w-full group">
                   <Info className="w-4 h-4" />
                   Learn more
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
-              </a>
+              </Link>
             </div>
             <p className="text-xs text-muted-foreground text-center mt-3">
               Multi-URL batch processing • Auto-translation • PDF + audio output
