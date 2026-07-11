@@ -54,6 +54,19 @@ const aiTutorFeatures = [
   "Tip: keep uploads to 10–15 pages per request for the fastest results",
 ];
 
+const youtubeSpeechFeatures = [
+  "Extract transcripts from multiple YouTube URLs simultaneously — no playback needed",
+  "Zero-playback extraction: skip buffering and load captions instantly in the background",
+  "Automatic language detection tags the original language of every video",
+  "Seamless translation into English for unified cross-language analysis",
+  "Translate final results into any language you choose for global sharing",
+  "Text-to-audio conversion turns translated PDF reports into lifelike audio files",
+  "Sleek desktop GUI designed for efficient batch processing and one-click exports",
+  "Export clean, structured transcripts and insights as print-ready PDFs",
+  "Built for researchers, content creators, marketers and data analysts",
+  "Turn hours of global video content into actionable insights in seconds",
+];
+
 const SoftwareUtilities = () => {
   return (
     <div className="min-h-screen py-16">
