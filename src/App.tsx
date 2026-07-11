@@ -24,6 +24,7 @@ import Documentation from "./pages/Documentation";
 import AboutUs from "./pages/AboutUs";
 import Admin from "./pages/Admin";
 import SoftwareUtilities from "./pages/SoftwareUtilities";
+import YoutubeSpeechAnalyzer from "./pages/YoutubeSpeechAnalyzer";
 import Terms from "./pages/Terms";
 import Privacy from "./pages/Privacy";
 import Refund from "./pages/Refund";
