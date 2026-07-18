@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Download, ExternalLink, GraduationCap, Scale, Sparkles, Brain, Mic, Database, CheckCircle2, Info, ArrowRight } from "lucide-react";
+import { Download, ExternalLink, GraduationCap, Scale, Sparkles, Brain, Mic, Database, Music, CheckCircle2, Info, ArrowRight } from "lucide-react";
 
 const mockTestFeatures = [
   "Real exam simulation with timed sections and realistic question formats",
@@ -79,6 +79,19 @@ const backupProFeatures = [
   "Completely secure, local desktop operation after download for absolute data privacy",
   "Lightweight architecture designed to run silently without draining your computer's system resources",
   "User-friendly interface built for quick configuration, intuitive disk management, and one-click restorations",
+];
+
+const aiSongMashupFeatures = [
+  "AI-powered vocal removal turns any track into a clean instrumental in seconds",
+  "Intelligent song mashup engine blends multiple tracks into fresh, seamless compositions",
+  "Voice mixing tools let you layer your own recordings or reference samples over music",
+  "Lyric generator creates original lyrics in your chosen language and syncs them with the track",
+  "One-click stem separation for vocals, drums, bass, and other instruments",
+  "Real-time preview so you can fine-tune transitions, tempo, and key before exporting",
+  "Export studio-quality mashups, instrumentals, and lyric videos in popular audio formats",
+  "Beginner-friendly interface with flexible controls for hobbyists and professionals alike",
+  "Perfect for content creators, DJs, musicians, and social-media remix projects",
+  "Your personal AI studio for innovation, remixing, and unlimited musical exploration",
 ];
 
 const SoftwareUtilities = () => {
@@ -416,6 +429,61 @@ const SoftwareUtilities = () => {
             </div>
             <p className="text-xs text-muted-foreground text-center mt-3">
               3-in-1 backup + recovery + cleanup • Local & private • Lightweight
+            </p>
+          </Card>
+
+          {/* AI Song Mashup Composer */}
+          <Card className="bg-gradient-card border-border hover:border-primary transition-all duration-300 hover:shadow-glow p-8 flex flex-col">
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <h2 className="text-2xl font-bold mb-1">AI Song Mashup Composer</h2>
+                <p className="text-primary text-sm font-medium">Your Personal AI Music Studio</p>
+              </div>
+              <div className="w-16 h-16 bg-gradient-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                <Music className="w-8 h-8 text-primary-foreground" />
+              </div>
+            </div>
+
+            <p className="text-muted-foreground mb-6 leading-relaxed">
+              Transform the way you create music. AI Song Mashup Composer blends creativity
+              with cutting-edge AI to remove vocals, mix voices, build intelligent mashups,
+              and even generate lyrics in your chosen language — all from a clean, easy-to-use
+              desktop interface. Whether you are a professional musician, a content creator,
+              or a passionate hobbyist, this is your personal studio for innovation, remixing,
+              and musical exploration.
+            </p>
+
+            <div id="ai-song-mashup-features" className="space-y-2 mb-6 flex-grow scroll-mt-24">
+              {aiSongMashupFeatures.map((f, i) => (
+                <div key={i} className="flex items-start space-x-2">
+                  <CheckCircle2 className="w-4 h-4 text-secondary mt-1 flex-shrink-0" />
+                  <span className="text-sm text-foreground">{f}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href="https://drive.google.com/file/d/1YVOQ9cOAWIx4IybMfxk9oUP6YlPkABkq/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1"
+              >
+                <Button variant="hero" size="lg" className="w-full">
+                  <Download className="w-4 h-4" />
+                  Download
+                </Button>
+              </a>
+              <a href="#ai-song-mashup-features" className="flex-1">
+                <Button variant="outline" size="lg" className="w-full group">
+                  <Info className="w-4 h-4" />
+                  Learn more
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </a>
+            </div>
+            <p className="text-xs text-muted-foreground text-center mt-3">
+              Vocal removal • AI mashups • Lyric generation • Studio-quality export
             </p>
           </Card>
         </div>
