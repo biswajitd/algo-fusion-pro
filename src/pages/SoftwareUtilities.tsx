@@ -81,6 +81,19 @@ const backupProFeatures = [
   "User-friendly interface built for quick configuration, intuitive disk management, and one-click restorations",
 ];
 
+const aiSongMashupFeatures = [
+  "AI-powered vocal removal turns any track into a clean instrumental in seconds",
+  "Intelligent song mashup engine blends multiple tracks into fresh, seamless compositions",
+  "Voice mixing tools let you layer your own recordings or reference samples over music",
+  "Lyric generator creates original lyrics in your chosen language and syncs them with the track",
+  "One-click stem separation for vocals, drums, bass, and other instruments",
+  "Real-time preview so you can fine-tune transitions, tempo, and key before exporting",
+  "Export studio-quality mashups, instrumentals, and lyric videos in popular audio formats",
+  "Beginner-friendly interface with flexible controls for hobbyists and professionals alike",
+  "Perfect for content creators, DJs, musicians, and social-media remix projects",
+  "Your personal AI studio for innovation, remixing, and unlimited musical exploration",
+];
+
 const SoftwareUtilities = () => {
   return (
     <div className="min-h-screen py-16">
