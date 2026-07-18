@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Download, ExternalLink, GraduationCap, Scale, Sparkles, Brain, Mic, CheckCircle2, Info, ArrowRight } from "lucide-react";
+import { Download, ExternalLink, GraduationCap, Scale, Sparkles, Brain, Mic, Database, CheckCircle2, Info, ArrowRight } from "lucide-react";
 
 const mockTestFeatures = [
   "Real exam simulation with timed sections and realistic question formats",
@@ -66,6 +66,19 @@ const youtubeSpeechFeatures = [
   "Export clean, structured transcripts and insights as print-ready PDFs",
   "Built for researchers, content creators, marketers and data analysts",
   "Turn hours of global video content into actionable insights in seconds",
+];
+
+const backupProFeatures = [
+  "Comprehensive 3-in-1 data management covering backup, recovery, and storage optimization",
+  "Smart incremental backup technology to save time and drastically reduce storage consumption",
+  "Professional-grade data recovery engine to restore accidentally deleted, formatted, or corrupted files",
+  "Intelligent duplicate file and folder finder to safely identify redundancies and reclaim wasted disk space",
+  "Automated background backups for continuous, stress-free data protection without interrupting your workflow",
+  "Deep scan algorithms capable of rescuing fragmented and lost data across multiple drive types",
+  "Precision duplicate analysis based on core file data and sizes, rather than just matching file names",
+  "Completely secure, local desktop operation after download for absolute data privacy",
+  "Lightweight architecture designed to run silently without draining your computer's system resources",
+  "User-friendly interface built for quick configuration, intuitive disk management, and one-click restorations",
 ];
 
 const SoftwareUtilities = () => {
@@ -348,6 +361,61 @@ const SoftwareUtilities = () => {
             </div>
             <p className="text-xs text-muted-foreground text-center mt-3">
               Multi-URL batch processing • Auto-translation • PDF + audio output
+            </p>
+          </Card>
+
+          {/* Back Up Pro */}
+          <Card className="bg-gradient-card border-border hover:border-primary transition-all duration-300 hover:shadow-glow p-8 flex flex-col">
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <h2 className="text-2xl font-bold mb-1">Back Up Pro</h2>
+                <p className="text-primary text-sm font-medium">Professional Edition</p>
+              </div>
+              <div className="w-16 h-16 bg-gradient-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                <Database className="w-8 h-8 text-primary-foreground" />
+              </div>
+            </div>
+
+            <p className="text-muted-foreground mb-6 leading-relaxed">
+              Safeguard your digital world with a single professional utility. Back Up Pro
+              combines smart incremental backups, a powerful data-recovery engine, and an
+              intelligent duplicate-file cleaner into one lightweight desktop app. Whether
+              you are protecting family photos, rescuing files from a corrupted drive, or
+              reclaiming gigabytes of wasted storage, this 3-in-1 solution works locally
+              and privately on your own computer — no cloud required.
+            </p>
+
+            <div id="backup-pro-features" className="space-y-2 mb-6 flex-grow scroll-mt-24">
+              {backupProFeatures.map((f, i) => (
+                <div key={i} className="flex items-start space-x-2">
+                  <CheckCircle2 className="w-4 h-4 text-secondary mt-1 flex-shrink-0" />
+                  <span className="text-sm text-foreground">{f}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href="https://drive.google.com/file/d/1NCXeU7kGKFdU6Nm8LcgIBtGOlRDLvoCH/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1"
+              >
+                <Button variant="hero" size="lg" className="w-full">
+                  <Download className="w-4 h-4" />
+                  Download
+                </Button>
+              </a>
+              <a href="#backup-pro-features" className="flex-1">
+                <Button variant="outline" size="lg" className="w-full group">
+                  <Info className="w-4 h-4" />
+                  Learn more
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </a>
+            </div>
+            <p className="text-xs text-muted-foreground text-center mt-3">
+              3-in-1 backup + recovery + cleanup • Local & private • Lightweight
             </p>
           </Card>
         </div>
