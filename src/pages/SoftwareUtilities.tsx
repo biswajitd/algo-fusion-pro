@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Download, ExternalLink, GraduationCap, Scale, Sparkles, Brain, Mic, Database, CheckCircle2, Info, ArrowRight } from "lucide-react";
+import { Download, ExternalLink, GraduationCap, Scale, Sparkles, Brain, Mic, Database, Music, CheckCircle2, Info, ArrowRight } from "lucide-react";
 
 const mockTestFeatures = [
   "Real exam simulation with timed sections and realistic question formats",
