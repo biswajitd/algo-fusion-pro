@@ -69,9 +69,9 @@ const youtubeSpeechFeatures = [
 ];
 
 const backupProFeatures = [
-  "Comprehensive 3-in-1 data management covering backup, recovery, and storage optimization",
+  "Comprehensive 4-in-1 data management covering backup, recovery, and storage optimization",
   "Smart incremental backup technology to save time and drastically reduce storage consumption",
-  "Professional-grade data recovery engine to restore accidentally deleted, formatted, or corrupted files",
+  "A Professional‑grade security that locks or encrypts files and folders, with optional encrypted backup to a secure online account",
   "Intelligent duplicate file and folder finder to safely identify redundancies and reclaim wasted disk space",
   "Automated background backups for continuous, stress-free data protection without interrupting your workflow",
   "Deep scan algorithms capable of rescuing fragmented and lost data across multiple drive types",
