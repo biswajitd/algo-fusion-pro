@@ -94,6 +94,45 @@ const aiSongMashupFeatures = [
   "Your personal AI studio for innovation, remixing, and unlimited musical exploration",
 ];
 
+const signaScanFeatures = [
+  "Comprehensive signature verification delivering clear verdicts: GENUINE, INCONCLUSIVE, or FORGED",
+  "Advanced comparative technology rigorously analyzes questioned signatures against enrolled specimens",
+  "Professional-grade analytical reporting generates exportable, detailed PDF documents",
+  "Intelligent per-feature breakdown examines structural and geometric characteristics of every signature",
+  "Streamlined workflows provide instant confidence metrics and similarity scores",
+  "Deep algorithmic analysis detects subtle anomalies, hesitations, and inconsistencies",
+  "Precision scoring based on intricate stroke data and individual writing traits",
+  "Completely secure, offline desktop operation keeps confidential documents on your local machine",
+  "Highly optimized architecture processes high-resolution signature images swiftly",
+  "User-friendly interface for quick specimen enrollment, visual comparisons, and one-click reports",
+];
+
+const mailReplyFeatures = [
+  "Comprehensive 3-in-1 email management: local archiving, attachment analysis, and reply drafting",
+  "Smart auto-detection instantly configures IMAP servers based on your email domain",
+  "Professional-grade security processes login via App Passwords locally — credentials never stored",
+  "Intelligent folder structuring organizes mail by sender, sorting .eml files, bodies, and attachments",
+  "Precision intent categorization distinguishes meetings, invoices, complaints, and urgent orders",
+  "Completely secure, offline desktop operation keeps private emails and attachments on your system",
+  "Lightweight architecture reads, analyzes, and drafts context-aware replies without memory strain",
+  "User-friendly interface for quick date-filtering, custom domain routing, and signature setup",
+  "Automated reply drafting saves hours on repetitive client and customer communications",
+  "Perfect for professionals, freelancers, and small businesses managing high-volume inboxes",
+];
+
+const winRescueFeatures = [
+  "Comprehensive 5-in-1 system management: boot repair, image backups, data rescue, malware defense, and hardware diagnostics",
+  "Flexible deployment runs from live Windows, WinRE, or any bootable WinPE USB drive",
+  "Professional-grade boot repair resolves Blue Screens, boot loops, corrupted BCDs, and damaged MBRs",
+  "Intelligent partition management rescans disks, repairs volumes, assigns letters, and guides recovery",
+  "Automated PC tune-up cleans junk, maintains SSD/HDD, trims startup programs, and restores network connectivity",
+  "Deep diagnostics evaluate S.M.A.R.T. disk health, stress-test CPUs, test RAM, and detect failing components",
+  "Precision malware defense powered by Microsoft Defender for real-time protection and rootkit scanning",
+  "Completely secure, local operation rescues private files to an external drive before high-risk changes",
+  "Robust backup architecture creates full system images and executes bare-metal restorations",
+  "User-friendly interface for driver troubleshooting, registry repair, and fixing update-caused startup failures",
+];
+
 const SoftwareUtilities = () => {
   return (
     <div className="min-h-screen py-16">
