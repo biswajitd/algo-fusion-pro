@@ -943,6 +943,12 @@ const SoftwareUtilities = () => {
             </p>
           </Card>
         </div>
+
+        <div className="max-w-4xl mx-auto mt-12 text-center">
+          <p className="text-base md:text-lg font-medium text-foreground bg-muted/50 rounded-xl py-4 px-6 border border-border">
+            No installation needed — just double-click to run.
+          </p>
+        </div>
       </div>
     </div>
   );
