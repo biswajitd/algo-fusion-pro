@@ -200,11 +200,11 @@ const SoftwareUtilities = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {/* Mock Test */}
+          {/* Mock Test for Engineering Medical Law and ISI Admission Exam */}
           <Card className="bg-gradient-card border-border hover:border-primary transition-all duration-300 hover:shadow-glow p-8 flex flex-col">
             <div className="flex items-center justify-between mb-6">
               <div>
-                <h2 className="text-2xl font-bold mb-1">Mock Test for All Exams</h2>
+                <h2 className="text-2xl font-bold mb-1">Mock Test for Engineering Medical Law and ISI Admission Exam</h2>
                 <p className="text-primary text-sm font-medium">Professional Edition</p>
               </div>
               <div className="w-16 h-16 bg-gradient-primary rounded-xl flex items-center justify-center flex-shrink-0">
@@ -213,14 +213,13 @@ const SoftwareUtilities = () => {
             </div>
 
             <p className="text-muted-foreground mb-6 leading-relaxed">
-              After downloading, take realistic mock tests for government service exams
-              (Officer and Staff posts) and major competitive exams such as CAT, XAT,
-              GMAT, CFA, CLAT and more. The software simulates real exam conditions and
-              provides detailed answers with explanations.
+              Prepare for the toughest entrance exams with a dedicated mock test module for
+              Engineering, Medical, Law, and ISI admissions. Practice under realistic exam
+              conditions with detailed explanations and performance analytics.
             </p>
 
-            <div id="mock-test-features" className="space-y-2 mb-6 flex-grow scroll-mt-24">
-              {mockTestFeatures.map((f, i) => (
+            <div id="mock-test-eng-med-law-features" className="space-y-2 mb-6 flex-grow scroll-mt-24">
+              {mockTestEngMedLawFeatures.map((f, i) => (
                 <div key={i} className="flex items-start space-x-2">
                   <CheckCircle2 className="w-4 h-4 text-secondary mt-1 flex-shrink-0" />
                   <span className="text-sm text-foreground">{f}</span>
@@ -230,7 +229,7 @@ const SoftwareUtilities = () => {
 
             <div className="flex flex-col sm:flex-row gap-3">
               <a
-                href="https://drive.google.com/file/d/1IiufqLAyMeOmCK-d8_tXUZ7RhY6DY8mj/view?usp=drive_link"
+                href="https://drive.google.com/file/d/1Ewi0khwyG3x9rK8lLHIPCQRwnpyLE--N/view?usp=drive_link"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1"
@@ -240,7 +239,7 @@ const SoftwareUtilities = () => {
                   Download
                 </Button>
               </a>
-              <a href="#mock-test-features" className="flex-1">
+              <a href="#mock-test-eng-med-law-features" className="flex-1">
                 <Button variant="outline" size="lg" className="w-full group">
                   <Info className="w-4 h-4" />
                   Learn more
@@ -249,7 +248,208 @@ const SoftwareUtilities = () => {
               </a>
             </div>
             <p className="text-xs text-muted-foreground text-center mt-3">
-              Free download • Offline use • Regularly updated
+              JEE • NEET • CLAT • ISI • Free download
+            </p>
+          </Card>
+
+          {/* Mock Test for Banking Employment Exam */}
+          <Card className="bg-gradient-card border-border hover:border-primary transition-all duration-300 hover:shadow-glow p-8 flex flex-col">
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <h2 className="text-2xl font-bold mb-1">Mock Test for Banking Employment Exam</h2>
+                <p className="text-primary text-sm font-medium">Professional Edition</p>
+              </div>
+              <div className="w-16 h-16 bg-gradient-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                <GraduationCap className="w-8 h-8 text-primary-foreground" />
+              </div>
+            </div>
+
+            <p className="text-muted-foreground mb-6 leading-relaxed">
+              Ace banking and employment recruitment exams with specialized practice sets for
+              IBPS, SBI, RBI, and regional rural banks. Build speed, accuracy, and confidence
+              before the real test.
+            </p>
+
+            <div id="mock-test-banking-features" className="space-y-2 mb-6 flex-grow scroll-mt-24">
+              {mockTestBankingFeatures.map((f, i) => (
+                <div key={i} className="flex items-start space-x-2">
+                  <CheckCircle2 className="w-4 h-4 text-secondary mt-1 flex-shrink-0" />
+                  <span className="text-sm text-foreground">{f}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href="https://drive.google.com/file/d/19t90DsH-agblpvzeZ2LnDup4obBM5u6o/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1"
+              >
+                <Button variant="hero" size="lg" className="w-full">
+                  <Download className="w-4 h-4" />
+                  Download
+                </Button>
+              </a>
+              <a href="#mock-test-banking-features" className="flex-1">
+                <Button variant="outline" size="lg" className="w-full group">
+                  <Info className="w-4 h-4" />
+                  Learn more
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </a>
+            </div>
+            <p className="text-xs text-muted-foreground text-center mt-3">
+              IBPS • SBI • RBI • Free download
+            </p>
+          </Card>
+
+          {/* Mock Test for MBA Admission Exam */}
+          <Card className="bg-gradient-card border-border hover:border-primary transition-all duration-300 hover:shadow-glow p-8 flex flex-col">
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <h2 className="text-2xl font-bold mb-1">Mock Test for MBA Admission Exam</h2>
+                <p className="text-primary text-sm font-medium">Professional Edition</p>
+              </div>
+              <div className="w-16 h-16 bg-gradient-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                <GraduationCap className="w-8 h-8 text-primary-foreground" />
+              </div>
+            </div>
+
+            <p className="text-muted-foreground mb-6 leading-relaxed">
+              Crack MBA entrance exams with focused mock tests for CAT, XAT, GMAT, SNAP,
+              NMAT, and MAT. Sharpen your quantitative, verbal, DI, and reasoning skills with
+              detailed solutions.
+            </p>
+
+            <div id="mock-test-mba-features" className="space-y-2 mb-6 flex-grow scroll-mt-24">
+              {mockTestMBAFeatures.map((f, i) => (
+                <div key={i} className="flex items-start space-x-2">
+                  <CheckCircle2 className="w-4 h-4 text-secondary mt-1 flex-shrink-0" />
+                  <span className="text-sm text-foreground">{f}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href="https://drive.google.com/file/d/1yWCRxn6P6A4LDvgx1LRgrSYYSuilwhn-/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1"
+              >
+                <Button variant="hero" size="lg" className="w-full">
+                  <Download className="w-4 h-4" />
+                  Download
+                </Button>
+              </a>
+              <a href="#mock-test-mba-features" className="flex-1">
+                <Button variant="outline" size="lg" className="w-full group">
+                  <Info className="w-4 h-4" />
+                  Learn more
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </a>
+            </div>
+            <p className="text-xs text-muted-foreground text-center mt-3">
+              CAT • XAT • GMAT • Free download
+            </p>
+          </Card>
+
+          {/* Mock Test for Government Employment Exam */}
+          <Card className="bg-gradient-card border-border hover:border-primary transition-all duration-300 hover:shadow-glow p-8 flex flex-col">
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <h2 className="text-2xl font-bold mb-1">Mock Test for Government Employment Exam</h2>
+                <p className="text-primary text-sm font-medium">Professional Edition</p>
+              </div>
+              <div className="w-16 h-16 bg-gradient-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                <GraduationCap className="w-8 h-8 text-primary-foreground" />
+              </div>
+            </div>
+
+            <p className="text-muted-foreground mb-6 leading-relaxed">
+              Target central and state government jobs with practice tests for SSC, Railway,
+              Defence, Police, and Public Service Commission recruitment exams. Improve your
+              speed and accuracy with realistic simulations.
+            </p>
+
+            <div id="mock-test-govt-features" className="space-y-2 mb-6 flex-grow scroll-mt-24">
+              {mockTestGovtFeatures.map((f, i) => (
+                <div key={i} className="flex items-start space-x-2">
+                  <CheckCircle2 className="w-4 h-4 text-secondary mt-1 flex-shrink-0" />
+                  <span className="text-sm text-foreground">{f}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Button variant="hero" size="lg" className="w-full flex-1" disabled>
+                <Download className="w-4 h-4" />
+                Coming Soon
+              </Button>
+              <a href="#mock-test-govt-features" className="flex-1">
+                <Button variant="outline" size="lg" className="w-full group">
+                  <Info className="w-4 h-4" />
+                  Learn more
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </a>
+            </div>
+            <p className="text-xs text-muted-foreground text-center mt-3">
+              SSC • Railway • Defence • PSC
+            </p>
+          </Card>
+
+          {/* Mock Test for Different Certifications Exam */}
+          <Card className="bg-gradient-card border-border hover:border-primary transition-all duration-300 hover:shadow-glow p-8 flex flex-col">
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <h2 className="text-2xl font-bold mb-1">Mock Test for Different Certifications Exam</h2>
+                <p className="text-primary text-sm font-medium">Professional Edition</p>
+              </div>
+              <div className="w-16 h-16 bg-gradient-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                <GraduationCap className="w-8 h-8 text-primary-foreground" />
+              </div>
+            </div>
+
+            <p className="text-muted-foreground mb-6 leading-relaxed">
+              Prepare for professional certification exams across finance, law, IT, and digital
+              domains. Practice with targeted question banks for CFA, CS, CA foundation, cloud,
+              and more.
+            </p>
+
+            <div id="mock-test-cert-features" className="space-y-2 mb-6 flex-grow scroll-mt-24">
+              {mockTestCertFeatures.map((f, i) => (
+                <div key={i} className="flex items-start space-x-2">
+                  <CheckCircle2 className="w-4 h-4 text-secondary mt-1 flex-shrink-0" />
+                  <span className="text-sm text-foreground">{f}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href="https://drive.google.com/file/d/12CxhmtEU5XEaD2OEUhqVNgpZj8PV8s_J/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1"
+              >
+                <Button variant="hero" size="lg" className="w-full">
+                  <Download className="w-4 h-4" />
+                  Download
+                </Button>
+              </a>
+              <a href="#mock-test-cert-features" className="flex-1">
+                <Button variant="outline" size="lg" className="w-full group">
+                  <Info className="w-4 h-4" />
+                  Learn more
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </a>
+            </div>
+            <p className="text-xs text-muted-foreground text-center mt-3">
+              CFA • CS • CA • IT certifications • Free download
             </p>
           </Card>
 
