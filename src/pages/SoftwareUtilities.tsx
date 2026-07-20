@@ -3,10 +3,62 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Download, ExternalLink, GraduationCap, Scale, Sparkles, Brain, Mic, Database, Music, Fingerprint, Mail, Wrench, CheckCircle2, Info, ArrowRight } from "lucide-react";
 
-const mockTestFeatures = [
+const mockTestEngMedLawFeatures = [
+  "Engineering, medical, law, and ISI admission exam coverage in one package",
+  "Subject-wise practice modules for JEE, NEET, CLAT, and ISI entrance patterns",
   "Real exam simulation with timed sections and realistic question formats",
-  "Extensive question bank covering Officer and Staff level government exams",
-  "Supports major competitive tests including CAT, XAT, GMAT, CFA, and CLAT",
+  "Detailed answers and step-by-step explanations for every question",
+  "Adaptive difficulty to match the candidate's performance and improve weak areas",
+  "Performance analytics with score breakdowns and topic-wise strengths",
+  "Customizable mock tests to practice specific sections or full exams",
+  "Offline desktop use after download for uninterrupted practice",
+  "Regular updates to reflect current exam patterns and question styles",
+  "User-friendly interface designed for quick setup and focused practice",
+];
+
+const mockTestBankingFeatures = [
+  "Specialized question bank for banking recruitment and employment exams",
+  "Coverage of IBPS PO/Clerk, SBI PO/Clerk, RBI Assistant, and regional rural banks",
+  "Real exam simulation with timed sections and realistic question formats",
+  "Detailed answers and step-by-step explanations for every question",
+  "Adaptive difficulty to match the candidate's performance and improve weak areas",
+  "Performance analytics with score breakdowns and topic-wise strengths",
+  "Customizable mock tests to practice specific sections or full exams",
+  "Offline desktop use after download for uninterrupted practice",
+  "Regular updates to reflect current exam patterns and question styles",
+  "User-friendly interface designed for quick setup and focused practice",
+];
+
+const mockTestMBAFeatures = [
+  "MBA entrance exam focus for CAT, XAT, GMAT, SNAP, NMAT, and MAT",
+  "Quantitative aptitude, verbal ability, data interpretation, and logical reasoning sections",
+  "Real exam simulation with timed sections and realistic question formats",
+  "Detailed answers and step-by-step explanations for every question",
+  "Adaptive difficulty to match the candidate's performance and improve weak areas",
+  "Performance analytics with score breakdowns and topic-wise strengths",
+  "Customizable mock tests to practice specific sections or full exams",
+  "Offline desktop use after download for uninterrupted practice",
+  "Regular updates to reflect current exam patterns and question styles",
+  "User-friendly interface designed for quick setup and focused practice",
+];
+
+const mockTestGovtFeatures = [
+  "Comprehensive coverage of central and state government employment exams",
+  "Practice sets for SSC, Railway, Defence, Police, and Public Service Commission tests",
+  "Real exam simulation with timed sections and realistic question formats",
+  "Detailed answers and step-by-step explanations for every question",
+  "Adaptive difficulty to match the candidate's performance and improve weak areas",
+  "Performance analytics with score breakdowns and topic-wise strengths",
+  "Customizable mock tests to practice specific sections or full exams",
+  "Offline desktop use after download for uninterrupted practice",
+  "Regular updates to reflect current exam patterns and question styles",
+  "User-friendly interface designed for quick setup and focused practice",
+];
+
+const mockTestCertFeatures = [
+  "Certification exam practice for professional and technical qualifications",
+  "Coverage of CFA, CS, CA foundation, digital marketing, cloud, and IT certifications",
+  "Real exam simulation with timed sections and realistic question formats",
   "Detailed answers and step-by-step explanations for every question",
   "Adaptive difficulty to match the candidate's performance and improve weak areas",
   "Performance analytics with score breakdowns and topic-wise strengths",
