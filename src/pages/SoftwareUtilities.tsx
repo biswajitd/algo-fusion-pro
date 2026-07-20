@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Download, ExternalLink, GraduationCap, Scale, Sparkles, Brain, Mic, Database, Music, CheckCircle2, Info, ArrowRight } from "lucide-react";
+import { Download, ExternalLink, GraduationCap, Scale, Sparkles, Brain, Mic, Database, Music, Fingerprint, Mail, Wrench, CheckCircle2, Info, ArrowRight } from "lucide-react";
 
 const mockTestFeatures = [
   "Real exam simulation with timed sections and realistic question formats",
@@ -92,6 +92,45 @@ const aiSongMashupFeatures = [
   "Beginner-friendly interface with flexible controls for hobbyists and professionals alike",
   "Perfect for content creators, DJs, musicians, and social-media remix projects",
   "Your personal AI studio for innovation, remixing, and unlimited musical exploration",
+];
+
+const signaScanFeatures = [
+  "Comprehensive signature verification delivering clear verdicts: GENUINE, INCONCLUSIVE, or FORGED",
+  "Advanced comparative technology rigorously analyzes questioned signatures against enrolled specimens",
+  "Professional-grade analytical reporting generates exportable, detailed PDF documents",
+  "Intelligent per-feature breakdown examines structural and geometric characteristics of every signature",
+  "Streamlined workflows provide instant confidence metrics and similarity scores",
+  "Deep algorithmic analysis detects subtle anomalies, hesitations, and inconsistencies",
+  "Precision scoring based on intricate stroke data and individual writing traits",
+  "Completely secure, offline desktop operation keeps confidential documents on your local machine",
+  "Highly optimized architecture processes high-resolution signature images swiftly",
+  "User-friendly interface for quick specimen enrollment, visual comparisons, and one-click reports",
+];
+
+const mailReplyFeatures = [
+  "Comprehensive 3-in-1 email management: local archiving, attachment analysis, and reply drafting",
+  "Smart auto-detection instantly configures IMAP servers based on your email domain",
+  "Professional-grade security processes login via App Passwords locally — credentials never stored",
+  "Intelligent folder structuring organizes mail by sender, sorting .eml files, bodies, and attachments",
+  "Precision intent categorization distinguishes meetings, invoices, complaints, and urgent orders",
+  "Completely secure, offline desktop operation keeps private emails and attachments on your system",
+  "Lightweight architecture reads, analyzes, and drafts context-aware replies without memory strain",
+  "User-friendly interface for quick date-filtering, custom domain routing, and signature setup",
+  "Automated reply drafting saves hours on repetitive client and customer communications",
+  "Perfect for professionals, freelancers, and small businesses managing high-volume inboxes",
+];
+
+const winRescueFeatures = [
+  "Comprehensive 5-in-1 system management: boot repair, image backups, data rescue, malware defense, and hardware diagnostics",
+  "Flexible deployment runs from live Windows, WinRE, or any bootable WinPE USB drive",
+  "Professional-grade boot repair resolves Blue Screens, boot loops, corrupted BCDs, and damaged MBRs",
+  "Intelligent partition management rescans disks, repairs volumes, assigns letters, and guides recovery",
+  "Automated PC tune-up cleans junk, maintains SSD/HDD, trims startup programs, and restores network connectivity",
+  "Deep diagnostics evaluate S.M.A.R.T. disk health, stress-test CPUs, test RAM, and detect failing components",
+  "Precision malware defense powered by Microsoft Defender for real-time protection and rootkit scanning",
+  "Completely secure, local operation rescues private files to an external drive before high-risk changes",
+  "Robust backup architecture creates full system images and executes bare-metal restorations",
+  "User-friendly interface for driver troubleshooting, registry repair, and fixing update-caused startup failures",
 ];
 
 const SoftwareUtilities = () => {
@@ -484,6 +523,171 @@ const SoftwareUtilities = () => {
             </div>
             <p className="text-xs text-muted-foreground text-center mt-3">
               Vocal removal • AI mashups • Lyric generation • Studio-quality export
+            </p>
+          </Card>
+
+          {/* SignaScan Pro */}
+          <Card className="bg-gradient-card border-border hover:border-primary transition-all duration-300 hover:shadow-glow p-8 flex flex-col">
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <h2 className="text-2xl font-bold mb-1">SignaScan Pro</h2>
+                <p className="text-primary text-sm font-medium">Handwritten Signature Verification Expert</p>
+              </div>
+              <div className="w-16 h-16 bg-gradient-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                <Fingerprint className="w-8 h-8 text-primary-foreground" />
+              </div>
+            </div>
+
+            <p className="text-muted-foreground mb-6 leading-relaxed">
+              Empower your document authentication process with a specialized professional utility.
+              SignaScan Pro combines advanced comparative analysis, precise similarity scoring, and
+              comprehensive PDF reporting into one powerful desktop app. Whether you are verifying
+              legal contracts, auditing financial documents, or investigating potential forgery,
+              this expert solution works locally and privately on your own computer — no internet
+              connection required.
+            </p>
+
+            <div id="signascan-features" className="space-y-2 mb-6 flex-grow scroll-mt-24">
+              {signaScanFeatures.map((f, i) => (
+                <div key={i} className="flex items-start space-x-2">
+                  <CheckCircle2 className="w-4 h-4 text-secondary mt-1 flex-shrink-0" />
+                  <span className="text-sm text-foreground">{f}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href="https://drive.google.com/file/d/1omM3eWAtMYVsMA5r-IOcniLvdgHe-Ovp/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1"
+              >
+                <Button variant="hero" size="lg" className="w-full">
+                  <Download className="w-4 h-4" />
+                  Download
+                </Button>
+              </a>
+              <a href="#signascan-features" className="flex-1">
+                <Button variant="outline" size="lg" className="w-full group">
+                  <Info className="w-4 h-4" />
+                  Learn more
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </a>
+            </div>
+            <p className="text-xs text-muted-foreground text-center mt-3">
+              Offline verification • GENUINE / FORGED verdicts • Exportable PDF reports
+            </p>
+          </Card>
+
+          {/* MailReplyAssistant */}
+          <Card className="bg-gradient-card border-border hover:border-primary transition-all duration-300 hover:shadow-glow p-8 flex flex-col">
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <h2 className="text-2xl font-bold mb-1">MailReplyAssistant</h2>
+                <p className="text-primary text-sm font-medium">Intelligent Offline Email Analyzer & Automator</p>
+              </div>
+              <div className="w-16 h-16 bg-gradient-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                <Mail className="w-8 h-8 text-primary-foreground" />
+              </div>
+            </div>
+
+            <p className="text-muted-foreground mb-6 leading-relaxed">
+              Streamline your inbox management with a specialized professional utility.
+              MailReplyAssistant combines automated email harvesting, advanced attachment parsing,
+              and local AI intent detection into one powerful desktop app. Whether you are generating
+              professional drafts, auditing communications, or building a secure client archive,
+              this intelligent solution works locally and privately — no external cloud or
+              subscription required.
+            </p>
+
+            <div id="mailreply-features" className="space-y-2 mb-6 flex-grow scroll-mt-24">
+              {mailReplyFeatures.map((f, i) => (
+                <div key={i} className="flex items-start space-x-2">
+                  <CheckCircle2 className="w-4 h-4 text-secondary mt-1 flex-shrink-0" />
+                  <span className="text-sm text-foreground">{f}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href="https://drive.google.com/file/d/1qGpOnu0P4azJNaw0at4qKUkqLaOOvShc/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1"
+              >
+                <Button variant="hero" size="lg" className="w-full">
+                  <Download className="w-4 h-4" />
+                  Download
+                </Button>
+              </a>
+              <a href="#mailreply-features" className="flex-1">
+                <Button variant="outline" size="lg" className="w-full group">
+                  <Info className="w-4 h-4" />
+                  Learn more
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </a>
+            </div>
+            <p className="text-xs text-muted-foreground text-center mt-3">
+              Local IMAP archiving • AI intent detection • Auto-reply drafting
+            </p>
+          </Card>
+
+          {/* WinRescueKit */}
+          <Card className="bg-gradient-card border-border hover:border-primary transition-all duration-300 hover:shadow-glow p-8 flex flex-col">
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <h2 className="text-2xl font-bold mb-1">WinRescueKit</h2>
+                <p className="text-primary text-sm font-medium">Comprehensive System Recovery & Diagnostic Toolkit</p>
+              </div>
+              <div className="w-16 h-16 bg-gradient-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                <Wrench className="w-8 h-8 text-primary-foreground" />
+              </div>
+            </div>
+
+            <p className="text-muted-foreground mb-6 leading-relaxed">
+              Safeguard your PC's health with a definitive professional utility. WinRescueKit
+              combines advanced boot repair, complete system-image backups, and powerful hardware
+              diagnostics into one versatile application. Whether you are rescuing files from a
+              crashed OS, troubleshooting persistent Blue Screens, or optimizing performance, this
+              all-in-one solution works locally from a live Windows environment or bootable USB —
+              no active internet connection required.
+            </p>
+
+            <div id="winrescue-features" className="space-y-2 mb-6 flex-grow scroll-mt-24">
+              {winRescueFeatures.map((f, i) => (
+                <div key={i} className="flex items-start space-x-2">
+                  <CheckCircle2 className="w-4 h-4 text-secondary mt-1 flex-shrink-0" />
+                  <span className="text-sm text-foreground">{f}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href="https://drive.google.com/file/d/11gsB3WqkxMxtdksyerhzE-6b7Pq20p9Y/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1"
+              >
+                <Button variant="hero" size="lg" className="w-full">
+                  <Download className="w-4 h-4" />
+                  Download
+                </Button>
+              </a>
+              <a href="#winrescue-features" className="flex-1">
+                <Button variant="outline" size="lg" className="w-full group">
+                  <Info className="w-4 h-4" />
+                  Learn more
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </a>
+            </div>
+            <p className="text-xs text-muted-foreground text-center mt-3">
+              Boot repair • System imaging • Hardware diagnostics • Malware defense
             </p>
           </Card>
         </div>
