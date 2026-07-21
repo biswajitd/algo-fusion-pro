@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Download, ExternalLink, GraduationCap, Scale, Sparkles, Brain, Mic, Database, Music, Fingerprint, Mail, Wrench, CheckCircle2, Info, ArrowRight } from "lucide-react";
+import { Download, ExternalLink, GraduationCap, Scale, Sparkles, Brain, Mic, Database, Music, Fingerprint, Mail, Wrench, Stethoscope, Languages, CheckCircle2, Info, ArrowRight } from "lucide-react";
 
 const mockTestEngMedLawFeatures = [
   "Engineering, medical, law, and ISI admission exam coverage in one package",
@@ -183,6 +183,32 @@ const winRescueFeatures = [
   "Completely secure, local operation rescues private files to an external drive before high-risk changes",
   "Robust backup architecture creates full system images and executes bare-metal restorations",
   "User-friendly interface for driver troubleshooting, registry repair, and fixing update-caused startup failures",
+];
+
+const medGuideFeatures = [
+  "Comprehensive clinical reference covering diseases, conditions, symptoms, and toxicological poisoning exposures",
+  "Dual-input interface supporting both rapid free-text typing and hands-free microphone voice queries",
+  "Detailed pharmaceutical monographs with recommended medications, active chemical ingredients, and adult dosing regimens",
+  "Advanced interaction analysis engine highlighting critical adverse drug reactions, warnings, and safety contraindications",
+  "Professional-grade PDF reporting with title bands, medication cards, and emergency warning banners",
+  "Multilingual document generation for seamless translation and export of clinical reference reports",
+  "Hybrid data architecture combining a fast offline database with verified online sources",
+  "Dedicated emergency toxicology protocols with prominent warning alerts for critical poisoning inquiries",
+  "Completely secure, local desktop operation keeping your clinical research and queries strictly private",
+  "User-friendly interface for rapid condition searching, intuitive monograph navigation, and one-click PDF exports",
+];
+
+const speakRightFeatures = [
+  "Comprehensive 3-in-1 system: live speech recognition, real-time grammar correction, and automated PDF progress reporting",
+  "Smart voice-activated recording that engages the moment you talk and stays in standby when silent",
+  "Advanced pre-roll audio buffering that eliminates clipped first words by anticipating speech start",
+  "Live multi-language translation allowing you to speak in your preferred language and see instant English equivalents",
+  "Instant side-by-side grammar evaluation with live transcriptions, identified errors, and corrected sentences",
+  "Professional-grade PDF reporting with color-coded feedback—red strikethroughs for mistakes and green for ideal corrections",
+  "Visual achievement indicators including per-sentence breakdown cards and 'Perfect!' validation ticks",
+  "High-sensitivity audio engine with adaptive noise thresholding for clean capture in noisy environments",
+  "Completely secure, local desktop operation ensuring your voice recordings and practice sessions remain private",
+  "User-friendly interface for rapid language selection, one-click session management, and instant exportable reports",
 ];
 
 const SoftwareUtilities = () => {
@@ -947,6 +973,116 @@ const SoftwareUtilities = () => {
             </div>
             <p className="text-xs text-muted-foreground text-center mt-3">
               Boot repair • System imaging • Hardware diagnostics • Malware defense
+            </p>
+          </Card>
+
+          {/* MedGuide Reference */}
+          <Card className="bg-gradient-card border-border hover:border-primary transition-all duration-300 hover:shadow-glow p-8 flex flex-col">
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <h2 className="text-2xl font-bold mb-1">MedGuide Reference</h2>
+                <p className="text-primary text-sm font-medium">Clinical Decision Support & Pharmacological Reference Expert</p>
+              </div>
+              <div className="w-16 h-16 bg-gradient-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                <Stethoscope className="w-8 h-8 text-primary-foreground" />
+              </div>
+            </div>
+
+            <p className="text-muted-foreground mb-6 leading-relaxed">
+              Empower your clinical research and medical inquiries with a specialized professional utility.
+              MedGuide Reference combines intelligent condition searching, comprehensive pharmaceutical profiling,
+              and authoritative drug interaction analysis into one powerful desktop app. Whether you are reviewing
+              treatment protocols, verifying active chemical compositions, or evaluating emergency toxicology
+              guidelines, this clinical reference solution delivers clear, structured medical insights directly
+              on your computer — drawing from a curated offline database supplemented by authoritative public sources.
+            </p>
+
+            <div id="medguide-features" className="space-y-2 mb-6 flex-grow scroll-mt-24">
+              {medGuideFeatures.map((f, i) => (
+                <div key={i} className="flex items-start space-x-2">
+                  <CheckCircle2 className="w-4 h-4 text-secondary mt-1 flex-shrink-0" />
+                  <span className="text-sm text-foreground">{f}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href="https://drive.google.com/file/d/1JD22rYz4MEDu6ve-V3a5TKK7Y4lr0rzX/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1"
+              >
+                <Button variant="hero" size="lg" className="w-full">
+                  <Download className="w-4 h-4" />
+                  Download
+                </Button>
+              </a>
+              <a href="#medguide-features" className="flex-1">
+                <Button variant="outline" size="lg" className="w-full group">
+                  <Info className="w-4 h-4" />
+                  Learn more
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </a>
+            </div>
+            <p className="text-xs text-muted-foreground text-center mt-3">
+              Clinical reference • Drug interactions • PDF reports • Private & offline
+            </p>
+          </Card>
+
+          {/* SpeakRight English Coach */}
+          <Card className="bg-gradient-card border-border hover:border-primary transition-all duration-300 hover:shadow-glow p-8 flex flex-col">
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <h2 className="text-2xl font-bold mb-1">SpeakRight English Coach</h2>
+                <p className="text-primary text-sm font-medium">Interactive Spoken English & Grammar Fluency Coach</p>
+              </div>
+              <div className="w-16 h-16 bg-gradient-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                <Languages className="w-8 h-8 text-primary-foreground" />
+              </div>
+            </div>
+
+            <p className="text-muted-foreground mb-6 leading-relaxed">
+              Elevate your English speaking confidence with a specialized professional utility.
+              SpeakRight English Coach combines intelligent voice recognition, real-time grammar correction,
+              and visual diagnostic reporting into one powerful desktop app. Whether you are polishing your
+              conversational fluency, translating regional thoughts into natural English, or refining your
+              pronunciation for professional communication, this interactive solution provides a private,
+              judgment-free learning space right on your own computer.
+            </p>
+
+            <div id="speakright-features" className="space-y-2 mb-6 flex-grow scroll-mt-24">
+              {speakRightFeatures.map((f, i) => (
+                <div key={i} className="flex items-start space-x-2">
+                  <CheckCircle2 className="w-4 h-4 text-secondary mt-1 flex-shrink-0" />
+                  <span className="text-sm text-foreground">{f}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href="https://drive.google.com/file/d/1c-p5ddqIoi9kNeNpejhwB3mviz0ITF_N/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1"
+              >
+                <Button variant="hero" size="lg" className="w-full">
+                  <Download className="w-4 h-4" />
+                  Download
+                </Button>
+              </a>
+              <a href="#speakright-features" className="flex-1">
+                <Button variant="outline" size="lg" className="w-full group">
+                  <Info className="w-4 h-4" />
+                  Learn more
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </a>
+            </div>
+            <p className="text-xs text-muted-foreground text-center mt-3">
+              Voice recognition • Grammar correction • PDF reports • Local & private
             </p>
           </Card>
         </div>
