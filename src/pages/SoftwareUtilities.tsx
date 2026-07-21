@@ -384,10 +384,17 @@ const SoftwareUtilities = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3">
-              <Button variant="hero" size="lg" className="w-full flex-1" disabled>
-                <Download className="w-4 h-4" />
-                Coming Soon
-              </Button>
+              <a
+                href="https://drive.google.com/file/d/1tbVUR2b1qwxvRNR_HWTt__rD_DD0tCQu/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1"
+              >
+                <Button variant="hero" size="lg" className="w-full">
+                  <Download className="w-4 h-4" />
+                  Download
+                </Button>
+              </a>
               <a href="#mock-test-govt-features" className="flex-1">
                 <Button variant="outline" size="lg" className="w-full group">
                   <Info className="w-4 h-4" />
