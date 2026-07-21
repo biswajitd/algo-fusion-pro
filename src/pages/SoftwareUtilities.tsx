@@ -975,6 +975,116 @@ const SoftwareUtilities = () => {
               Boot repair • System imaging • Hardware diagnostics • Malware defense
             </p>
           </Card>
+
+          {/* MedGuide Reference */}
+          <Card className="bg-gradient-card border-border hover:border-primary transition-all duration-300 hover:shadow-glow p-8 flex flex-col">
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <h2 className="text-2xl font-bold mb-1">MedGuide Reference</h2>
+                <p className="text-primary text-sm font-medium">Clinical Decision Support & Pharmacological Reference Expert</p>
+              </div>
+              <div className="w-16 h-16 bg-gradient-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                <Stethoscope className="w-8 h-8 text-primary-foreground" />
+              </div>
+            </div>
+
+            <p className="text-muted-foreground mb-6 leading-relaxed">
+              Empower your clinical research and medical inquiries with a specialized professional utility.
+              MedGuide Reference combines intelligent condition searching, comprehensive pharmaceutical profiling,
+              and authoritative drug interaction analysis into one powerful desktop app. Whether you are reviewing
+              treatment protocols, verifying active chemical compositions, or evaluating emergency toxicology
+              guidelines, this clinical reference solution delivers clear, structured medical insights directly
+              on your computer — drawing from a curated offline database supplemented by authoritative public sources.
+            </p>
+
+            <div id="medguide-features" className="space-y-2 mb-6 flex-grow scroll-mt-24">
+              {medGuideFeatures.map((f, i) => (
+                <div key={i} className="flex items-start space-x-2">
+                  <CheckCircle2 className="w-4 h-4 text-secondary mt-1 flex-shrink-0" />
+                  <span className="text-sm text-foreground">{f}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href="https://drive.google.com/file/d/1JD22rYz4MEDu6ve-V3a5TKK7Y4lr0rzX/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1"
+              >
+                <Button variant="hero" size="lg" className="w-full">
+                  <Download className="w-4 h-4" />
+                  Download
+                </Button>
+              </a>
+              <a href="#medguide-features" className="flex-1">
+                <Button variant="outline" size="lg" className="w-full group">
+                  <Info className="w-4 h-4" />
+                  Learn more
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </a>
+            </div>
+            <p className="text-xs text-muted-foreground text-center mt-3">
+              Clinical reference • Drug interactions • PDF reports • Private & offline
+            </p>
+          </Card>
+
+          {/* SpeakRight English Coach */}
+          <Card className="bg-gradient-card border-border hover:border-primary transition-all duration-300 hover:shadow-glow p-8 flex flex-col">
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <h2 className="text-2xl font-bold mb-1">SpeakRight English Coach</h2>
+                <p className="text-primary text-sm font-medium">Interactive Spoken English & Grammar Fluency Coach</p>
+              </div>
+              <div className="w-16 h-16 bg-gradient-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                <Languages className="w-8 h-8 text-primary-foreground" />
+              </div>
+            </div>
+
+            <p className="text-muted-foreground mb-6 leading-relaxed">
+              Elevate your English speaking confidence with a specialized professional utility.
+              SpeakRight English Coach combines intelligent voice recognition, real-time grammar correction,
+              and visual diagnostic reporting into one powerful desktop app. Whether you are polishing your
+              conversational fluency, translating regional thoughts into natural English, or refining your
+              pronunciation for professional communication, this interactive solution provides a private,
+              judgment-free learning space right on your own computer.
+            </p>
+
+            <div id="speakright-features" className="space-y-2 mb-6 flex-grow scroll-mt-24">
+              {speakRightFeatures.map((f, i) => (
+                <div key={i} className="flex items-start space-x-2">
+                  <CheckCircle2 className="w-4 h-4 text-secondary mt-1 flex-shrink-0" />
+                  <span className="text-sm text-foreground">{f}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href="https://drive.google.com/file/d/1c-p5ddqIoi9kNeNpejhwB3mviz0ITF_N/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1"
+              >
+                <Button variant="hero" size="lg" className="w-full">
+                  <Download className="w-4 h-4" />
+                  Download
+                </Button>
+              </a>
+              <a href="#speakright-features" className="flex-1">
+                <Button variant="outline" size="lg" className="w-full group">
+                  <Info className="w-4 h-4" />
+                  Learn more
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </a>
+            </div>
+            <p className="text-xs text-muted-foreground text-center mt-3">
+              Voice recognition • Grammar correction • PDF reports • Local & private
+            </p>
+          </Card>
         </div>
 
         <div className="max-w-4xl mx-auto mt-12 text-center">
