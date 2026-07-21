@@ -185,6 +185,32 @@ const winRescueFeatures = [
   "User-friendly interface for driver troubleshooting, registry repair, and fixing update-caused startup failures",
 ];
 
+const medGuideFeatures = [
+  "Comprehensive clinical reference covering diseases, conditions, symptoms, and toxicological poisoning exposures",
+  "Dual-input interface supporting both rapid free-text typing and hands-free microphone voice queries",
+  "Detailed pharmaceutical monographs with recommended medications, active chemical ingredients, and adult dosing regimens",
+  "Advanced interaction analysis engine highlighting critical adverse drug reactions, warnings, and safety contraindications",
+  "Professional-grade PDF reporting with title bands, medication cards, and emergency warning banners",
+  "Multilingual document generation for seamless translation and export of clinical reference reports",
+  "Hybrid data architecture combining a fast offline database with verified online sources",
+  "Dedicated emergency toxicology protocols with prominent warning alerts for critical poisoning inquiries",
+  "Completely secure, local desktop operation keeping your clinical research and queries strictly private",
+  "User-friendly interface for rapid condition searching, intuitive monograph navigation, and one-click PDF exports",
+];
+
+const speakRightFeatures = [
+  "Comprehensive 3-in-1 system: live speech recognition, real-time grammar correction, and automated PDF progress reporting",
+  "Smart voice-activated recording that engages the moment you talk and stays in standby when silent",
+  "Advanced pre-roll audio buffering that eliminates clipped first words by anticipating speech start",
+  "Live multi-language translation allowing you to speak in your preferred language and see instant English equivalents",
+  "Instant side-by-side grammar evaluation with live transcriptions, identified errors, and corrected sentences",
+  "Professional-grade PDF reporting with color-coded feedback—red strikethroughs for mistakes and green for ideal corrections",
+  "Visual achievement indicators including per-sentence breakdown cards and 'Perfect!' validation ticks",
+  "High-sensitivity audio engine with adaptive noise thresholding for clean capture in noisy environments",
+  "Completely secure, local desktop operation ensuring your voice recordings and practice sessions remain private",
+  "User-friendly interface for rapid language selection, one-click session management, and instant exportable reports",
+];
+
 const SoftwareUtilities = () => {
   return (
     <div className="min-h-screen py-16">
