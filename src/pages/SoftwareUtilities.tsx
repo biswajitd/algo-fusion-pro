@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Download, ExternalLink, GraduationCap, Scale, Sparkles, Brain, Mic, Database, Music, Fingerprint, Mail, Wrench, Stethoscope, Languages, CheckCircle2, Info, ArrowRight } from "lucide-react";
+import { Download, ExternalLink, GraduationCap, Scale, Sparkles, Brain, Mic, Database, Music, Fingerprint, Mail, Wrench, Stethoscope, Languages, FileSpreadsheet, CheckCircle2, Info, ArrowRight } from "lucide-react";
 
 const mockTestEngMedLawFeatures = [
   "Engineering, medical, law, and ISI admission exam coverage in one package",
@@ -210,6 +210,20 @@ const speakRightFeatures = [
   "Completely secure, local desktop operation ensuring your voice recordings and practice sessions remain private",
   "User-friendly interface for rapid language selection, one-click session management, and instant exportable reports",
 ];
+
+const incomeTaxFeatures = [
+  "Universal document support: reads loose or archived pay slips, Form 16 Part B, AIS/TIS, and bank interest statements from a folder",
+  "Smart data consolidation: rapid folder selection automatically gathers all tax documents into a single processing queue",
+  "Dual regime comparison: side-by-side breakdown of tax liability under both Old and New tax regimes",
+  "Discrepancy detection engine highlights disputes, inconsistencies, and mismatches across multiple documents",
+  "Professional Excel reporting generates Income_Tax_Report_FY2025-26.xlsx with clean layouts, title bands, and live formulas",
+  "Secure handling of protected files: skips and logs unreadable or password-protected PDFs without guessing",
+  "Audit & alerts: prominent warnings for missing data or unmatched income streams to prevent filing errors",
+  "Local & private operation: runs entirely on your desktop to keep sensitive financial documents secure",
+  "User-friendly interface with simple folder selection, hands-free automated extraction, and one-click spreadsheet export",
+  "Built for professionals and individuals who want accuracy, transparency, and confidence in tax review",
+];
+
 
 const SoftwareUtilities = () => {
   return (
@@ -1085,7 +1099,58 @@ const SoftwareUtilities = () => {
               Voice recognition • Grammar correction • PDF reports • Local & private
             </p>
           </Card>
+
+          {/* Income Tax Report Generator */}
+          <Card className="bg-gradient-card border-border hover:border-primary transition-all duration-300 hover:shadow-glow p-8 flex flex-col">
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <h2 className="text-2xl font-bold mb-1">Income Tax Report Generator</h2>
+                <p className="text-primary text-sm font-medium">Automated Tax Extraction • Regime Comparison • Discrepancy Analysis</p>
+              </div>
+              <div className="w-16 h-16 bg-gradient-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                <FileSpreadsheet className="w-8 h-8 text-primary-foreground" />
+              </div>
+            </div>
+
+            <p className="text-muted-foreground mb-6 leading-relaxed">
+              Take control of your tax planning with a specialized desktop utility designed for professionals and individuals alike. The Income Tax Report Generator transforms scattered financial documents into a clear, structured Excel analysis, ensuring accuracy, transparency, and confidence in your tax review.
+            </p>
+
+            <div id="income-tax-features" className="space-y-2 mb-6 flex-grow scroll-mt-24">
+              {incomeTaxFeatures.map((f, i) => (
+                <div key={i} className="flex items-start space-x-2">
+                  <CheckCircle2 className="w-4 h-4 text-secondary mt-1 flex-shrink-0" />
+                  <span className="text-sm text-foreground">{f}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href="https://drive.google.com/file/d/1ZqqD1r6Pc5Pgw_FFLASGx0OtqhDZqke9/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1"
+              >
+                <Button variant="hero" size="lg" className="w-full">
+                  <Download className="w-4 h-4" />
+                  Download
+                </Button>
+              </a>
+              <a href="#income-tax-features" className="flex-1">
+                <Button variant="outline" size="lg" className="w-full group">
+                  <Info className="w-4 h-4" />
+                  Learn more
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </a>
+            </div>
+            <p className="text-xs text-muted-foreground text-center mt-3">
+              Old vs New regime • Excel export • Local & private
+            </p>
+          </Card>
         </div>
+
 
         <div className="max-w-4xl mx-auto mt-12 text-center">
           <p className="text-base md:text-lg font-medium text-foreground bg-muted/50 rounded-xl py-4 px-6 border border-border">
