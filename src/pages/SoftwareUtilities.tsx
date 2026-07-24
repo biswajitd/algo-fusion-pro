@@ -211,6 +211,20 @@ const speakRightFeatures = [
   "User-friendly interface for rapid language selection, one-click session management, and instant exportable reports",
 ];
 
+const incomeTaxFeatures = [
+  "Universal document support: reads loose or archived pay slips, Form 16 Part B, AIS/TIS, and bank interest statements from a folder",
+  "Smart data consolidation: rapid folder selection automatically gathers all tax documents into a single processing queue",
+  "Dual regime comparison: side-by-side breakdown of tax liability under both Old and New tax regimes",
+  "Discrepancy detection engine highlights disputes, inconsistencies, and mismatches across multiple documents",
+  "Professional Excel reporting generates Income_Tax_Report_FY2025-26.xlsx with clean layouts, title bands, and live formulas",
+  "Secure handling of protected files: skips and logs unreadable or password-protected PDFs without guessing",
+  "Audit & alerts: prominent warnings for missing data or unmatched income streams to prevent filing errors",
+  "Local & private operation: runs entirely on your desktop to keep sensitive financial documents secure",
+  "User-friendly interface with simple folder selection, hands-free automated extraction, and one-click spreadsheet export",
+  "Built for professionals and individuals who want accuracy, transparency, and confidence in tax review",
+];
+
+
 const SoftwareUtilities = () => {
   return (
     <div className="min-h-screen py-16">
