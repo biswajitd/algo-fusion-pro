@@ -692,7 +692,7 @@ const SoftwareUtilities = () => {
 
             <div className="flex flex-col sm:flex-row gap-3">
               <a
-                href="https://drive.google.com/file/d/1OviZciaNBtX2OrLMJ4oQLGudwmLrfgYh/view?usp=sharing"
+                href="https://drive.google.com/file/d/1oG-5THIWUvAm6mvdiiSbYAz4nkNgJVPB/view?usp=drive_link"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1"
