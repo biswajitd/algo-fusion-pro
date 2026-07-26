@@ -16,7 +16,7 @@ import {
 import { Link } from "react-router-dom";
 
 const DOWNLOAD_URL =
-  "https://drive.google.com/file/d/1OviZciaNBtX2OrLMJ4oQLGudwmLrfgYh/view?usp=sharing";
+  "https://drive.google.com/file/d/1IiufqLAyMeOmCK-d8_tXUZ7RhY6DY8mj/view?usp=drive_link";
 
 const features = [
   {
