@@ -13,6 +13,7 @@ import Groww from "./pages/Groww";
 import AngelOne from "./pages/AngelOne";
 import Upstox from "./pages/Upstox";
 import FivePaisa from "./pages/FivePaisa";
+import Dhan from "./pages/Dhan";
 import SuccessStories from "./pages/SuccessStories";
 import Pricing from "./pages/Pricing"; // ← Restored original Pricing page
 // import Pricing from "./pages/PricingUnderConstruction"; // ← Temporary "Under Construction"
@@ -54,6 +55,7 @@ const App = () => (
             <Route path="/angel-one" element={<AngelOne />} />
             <Route path="/upstox" element={<Upstox />} />
             <Route path="/5paisa" element={<FivePaisa />} />
+            <Route path="/dhan" element={<Dhan />} />
             <Route path="/success-stories" element={<SuccessStories />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/faq" element={<FAQ />} />

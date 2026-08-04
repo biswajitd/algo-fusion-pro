@@ -118,6 +118,22 @@ const PlatformsList = () => {
       link: "/5paisa",
       downloadLink: "https://form.jotform.com/252822152070447",
     },
+    {
+      name: "Dhan",
+      api: "DhanHQ Trading API",
+      description:
+        "Purpose-built for Dhan with the DhanHQ Trading API. Ultra-low-latency execution and intelligent auto-connectivity across NSE, F&O and MCX segments.",
+      features: [
+        "DhanHQ Trading API integration",
+        "Auto-connect without 2FA hassle",
+        "NSE, F&O and MCX support",
+        "Low-latency order routing",
+        "Real-time analytics and risk management",
+      ],
+      size: "2.7 GB",
+      link: "/dhan",
+      downloadLink: "https://drive.google.com/file/d/1-fHwG7IbDh8TsFxXUkyaOfmu5v_40JIE/view?usp=drive_link",
+    },
   ];
 
   return (
