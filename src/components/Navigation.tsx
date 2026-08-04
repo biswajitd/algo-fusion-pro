@@ -14,6 +14,7 @@ const Navigation = () => {
     { name: "Angel One", path: "/angel-one" },
     { name: "Upstox", path: "/upstox" },
     { name: "5Paisa", path: "/5paisa" },
+    { name: "Dhan", path: "/dhan" },
   ];
 
   const navLinks = [
