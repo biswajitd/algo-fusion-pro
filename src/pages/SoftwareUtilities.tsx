@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Download, ExternalLink, GraduationCap, Scale, Sparkles, Brain, Mic, Database, Music, Fingerprint, Mail, Wrench, Stethoscope, Languages, FileSpreadsheet, CheckCircle2, Info, ArrowRight } from "lucide-react";
+import { Download, ExternalLink, GraduationCap, Scale, Sparkles, Brain, Mic, Database, Music, Fingerprint, Mail, Wrench, Stethoscope, Languages, FileSpreadsheet, Presentation, CheckCircle2, Info, ArrowRight } from "lucide-react";
 
 const mockTestEngMedLawFeatures = [
   "Engineering, medical, law, and ISI admission exam coverage in one package",
@@ -222,6 +222,19 @@ const incomeTaxFeatures = [
   "Local & private operation: runs entirely on your desktop to keep sensitive financial documents secure",
   "User-friendly interface with simple folder selection, hands-free automated extraction, and one-click spreadsheet export",
   "Built for professionals and individuals who want accuracy, transparency, and confidence in tax review",
+];
+
+const autodeckFeatures = [
+  "Dual-input interface supporting both direct text box entry and PDF file upload",
+  "Automated PowerPoint generation with attractive, theme-based slides tailored to your content",
+  "Optional in-built voice narration embedded directly into presentation slides for seamless delivery",
+  "Flexible customization: choose the exact number of slides and your preferred slide theme",
+  "Smart summarization engine condenses long text or uploaded PDFs into clear, concise summaries",
+  "Converts PDFs into structured data, enabling easier analysis and reuse of document content",
+  "Perfect for office presentations, team briefings, and professional communication workflows",
+  "Consistent, polished formatting so every deck looks studio-quality without manual design work",
+  "Runs locally on your desktop, keeping confidential documents private and secure",
+  "User-friendly interface designed for quick setup, intuitive navigation, and efficient output",
 ];
 
 
@@ -1147,6 +1160,56 @@ const SoftwareUtilities = () => {
             </div>
             <p className="text-xs text-muted-foreground text-center mt-3">
               Old vs New regime • Excel export • Local & private
+            </p>
+          </Card>
+
+          {/* Autodeck */}
+          <Card className="bg-gradient-card border-border hover:border-primary transition-all duration-300 hover:shadow-glow p-8 flex flex-col">
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <h2 className="text-2xl font-bold mb-1">Autodeck</h2>
+                <p className="text-primary text-sm font-medium">AI-Powered Presentation & Document Summarization Utility</p>
+              </div>
+              <div className="w-16 h-16 bg-gradient-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                <Presentation className="w-8 h-8 text-primary-foreground" />
+              </div>
+            </div>
+
+            <p className="text-muted-foreground mb-6 leading-relaxed">
+              Turn raw text or dense PDFs into polished, professional slide decks in minutes. Autodeck blends automated slide generation, built-in voice narration, and smart summarization into one streamlined desktop tool built for everyday office productivity and confident communication.
+            </p>
+
+            <div id="autodeck-features" className="space-y-2 mb-6 flex-grow scroll-mt-24">
+              {autodeckFeatures.map((f, i) => (
+                <div key={i} className="flex items-start space-x-2">
+                  <CheckCircle2 className="w-4 h-4 text-secondary mt-1 flex-shrink-0" />
+                  <span className="text-sm text-foreground">{f}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href="https://drive.google.com/file/d/1MezD817ieZz6BMvVqUkq3-mx9cOAswqw/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1"
+              >
+                <Button variant="hero" size="lg" className="w-full">
+                  <Download className="w-4 h-4" />
+                  Download
+                </Button>
+              </a>
+              <a href="#autodeck-features" className="flex-1">
+                <Button variant="outline" size="lg" className="w-full group">
+                  <Info className="w-4 h-4" />
+                  Learn more
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </a>
+            </div>
+            <p className="text-xs text-muted-foreground text-center mt-3">
+              Text or PDF input • Voice narration • Instant PowerPoint export
             </p>
           </Card>
         </div>
