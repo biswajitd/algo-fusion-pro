@@ -1277,6 +1277,256 @@ const SoftwareUtilities = () => {
               Text or PDF input • Voice narration • Instant PowerPoint export
             </p>
           </Card>
+
+          {/* DocMind AI */}
+          <Card className="bg-gradient-card border-border hover:border-primary transition-all duration-300 hover:shadow-glow p-8 flex flex-col">
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <h2 className="text-2xl font-bold mb-1">DocMind AI</h2>
+                <p className="text-primary text-sm font-medium">AI-Driven Document Intelligence & Presentation Utility</p>
+              </div>
+              <div className="w-16 h-16 bg-gradient-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                <FileText className="w-8 h-8 text-primary-foreground" />
+              </div>
+            </div>
+
+            <p className="text-muted-foreground mb-6 leading-relaxed">
+              One document in, a dozen useful outputs out. DocMind AI turns any PDF or DOC into polished presentations, executive summaries, cited Q&A, structured datasets and financial insight — enriched with 30+ language translation and lifelike audio narration for your whole team.
+            </p>
+
+            <div id="docmind-features" className="space-y-2 mb-6 flex-grow scroll-mt-24">
+              {docMindFeatures.map((f, i) => (
+                <div key={i} className="flex items-start space-x-2">
+                  <CheckCircle2 className="w-4 h-4 text-secondary mt-1 flex-shrink-0" />
+                  <span className="text-sm text-foreground">{f}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href="https://drive.google.com/file/d/1mcBVjvVISA1xCuiY-87IeffW4fv1Vn3e/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1"
+              >
+                <Button variant="hero" size="lg" className="w-full">
+                  <Download className="w-4 h-4" />
+                  Download
+                </Button>
+              </a>
+              <a href="#docmind-features" className="flex-1">
+                <Button variant="outline" size="lg" className="w-full group">
+                  <Info className="w-4 h-4" />
+                  Learn more
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </a>
+            </div>
+            <p className="text-xs text-muted-foreground text-center mt-3">
+              Slides & summaries • Cited Q&A • 30+ languages
+            </p>
+          </Card>
+
+          {/* Smartdost AI */}
+          <Card className="bg-gradient-card border-border hover:border-primary transition-all duration-300 hover:shadow-glow p-8 flex flex-col">
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <h2 className="text-2xl font-bold mb-1">Smartdost AI</h2>
+                <p className="text-primary text-sm font-medium">AI-Driven Product Price Finder & Comparison Utility</p>
+              </div>
+              <div className="w-16 h-16 bg-gradient-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                <ShoppingCart className="w-8 h-8 text-primary-foreground" />
+              </div>
+            </div>
+
+            <p className="text-muted-foreground mb-6 leading-relaxed">
+              Describe what you want to buy — Smartdost AI does the shopping around. It scans Indian e-commerce and retail sites, ranks every option by price, charts the market spread, and hands you a shareable PDF report so you always pay the right price.
+            </p>
+
+            <div id="smartdost-features" className="space-y-2 mb-6 flex-grow scroll-mt-24">
+              {smartdostFeatures.map((f, i) => (
+                <div key={i} className="flex items-start space-x-2">
+                  <CheckCircle2 className="w-4 h-4 text-secondary mt-1 flex-shrink-0" />
+                  <span className="text-sm text-foreground">{f}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href="https://drive.google.com/file/d/1_JqaJZ7anAN3cDG6XjRKszF4NVxrrh-6/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1"
+              >
+                <Button variant="hero" size="lg" className="w-full">
+                  <Download className="w-4 h-4" />
+                  Download
+                </Button>
+              </a>
+              <a href="#smartdost-features" className="flex-1">
+                <Button variant="outline" size="lg" className="w-full group">
+                  <Info className="w-4 h-4" />
+                  Learn more
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </a>
+            </div>
+            <p className="text-xs text-muted-foreground text-center mt-3">
+              Indian market focus • Price graph • PDF report
+            </p>
+          </Card>
+
+          {/* FloorPlan AI */}
+          <Card className="bg-gradient-card border-border hover:border-primary transition-all duration-300 hover:shadow-glow p-8 flex flex-col">
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <h2 className="text-2xl font-bold mb-1">FloorPlan AI</h2>
+                <p className="text-primary text-sm font-medium">AI-Driven Floor Plan & 3D Visualization Utility</p>
+              </div>
+              <div className="w-16 h-16 bg-gradient-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                <Building2 className="w-8 h-8 text-primary-foreground" />
+              </div>
+            </div>
+
+            <p className="text-muted-foreground mb-6 leading-relaxed">
+              Speak or type your brief and watch a building take shape. FloorPlan AI converts plot area and plain-language requirements into accurate layouts and interactive 3D views, with adjustable interiors, sectional cutaways, and export straight to PDF or AutoCAD.
+            </p>
+
+            <div id="floorplan-features" className="space-y-2 mb-6 flex-grow scroll-mt-24">
+              {floorPlanFeatures.map((f, i) => (
+                <div key={i} className="flex items-start space-x-2">
+                  <CheckCircle2 className="w-4 h-4 text-secondary mt-1 flex-shrink-0" />
+                  <span className="text-sm text-foreground">{f}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href="https://drive.google.com/file/d/1_JqaJZ7anAN3cDG6XjRKszF4NVxrrh-6/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1"
+              >
+                <Button variant="hero" size="lg" className="w-full">
+                  <Download className="w-4 h-4" />
+                  Download
+                </Button>
+              </a>
+              <a href="#floorplan-features" className="flex-1">
+                <Button variant="outline" size="lg" className="w-full group">
+                  <Info className="w-4 h-4" />
+                  Learn more
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </a>
+            </div>
+            <p className="text-xs text-muted-foreground text-center mt-3">
+              Voice or text input • 3D views • PDF & AutoCAD export
+            </p>
+          </Card>
+
+          {/* QuotationBuilder */}
+          <Card className="bg-gradient-card border-border hover:border-primary transition-all duration-300 hover:shadow-glow p-8 flex flex-col">
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <h2 className="text-2xl font-bold mb-1">QuotationBuilder</h2>
+                <p className="text-primary text-sm font-medium">AI-Assisted Quotation Management & Bidding Utility</p>
+              </div>
+              <div className="w-16 h-16 bg-gradient-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                <ClipboardList className="w-8 h-8 text-primary-foreground" />
+              </div>
+            </div>
+
+            <p className="text-muted-foreground mb-6 leading-relaxed">
+              A complete, GST-compliant quotation desk for the Indian market. QuotationBuilder walks you from product specification to searched documents, structured quotations, detailed estimation, and finished bid papers — all tracked in one organised workspace.
+            </p>
+
+            <div id="quotationbuilder-features" className="space-y-2 mb-6 flex-grow scroll-mt-24">
+              {quotationBuilderFeatures.map((f, i) => (
+                <div key={i} className="flex items-start space-x-2">
+                  <CheckCircle2 className="w-4 h-4 text-secondary mt-1 flex-shrink-0" />
+                  <span className="text-sm text-foreground">{f}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href="https://drive.google.com/file/d/1GQJ4ZRccfIvBTC5RcQqx92kGWOnOcJVX/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1"
+              >
+                <Button variant="hero" size="lg" className="w-full">
+                  <Download className="w-4 h-4" />
+                  Download
+                </Button>
+              </a>
+              <a href="#quotationbuilder-features" className="flex-1">
+                <Button variant="outline" size="lg" className="w-full group">
+                  <Info className="w-4 h-4" />
+                  Learn more
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </a>
+            </div>
+            <p className="text-xs text-muted-foreground text-center mt-3">
+              GST-compliant • BOQ & estimation • Bid documents
+            </p>
+          </Card>
+
+          {/* WebForge AI */}
+          <Card className="bg-gradient-card border-border hover:border-primary transition-all duration-300 hover:shadow-glow p-8 flex flex-col">
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <h2 className="text-2xl font-bold mb-1">WebForge AI</h2>
+                <p className="text-primary text-sm font-medium">AI-Driven Text-to-Webpage Conversion Utility</p>
+              </div>
+              <div className="w-16 h-16 bg-gradient-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                <Globe className="w-8 h-8 text-primary-foreground" />
+              </div>
+            </div>
+
+            <p className="text-muted-foreground mb-6 leading-relaxed">
+              Write a paragraph, get a website. WebForge AI turns plain text into a polished, theme-styled webpage you can download locally or publish straight to a fresh GitHub repository — no code, no deployment headaches.
+            </p>
+
+            <div id="webforge-features" className="space-y-2 mb-6 flex-grow scroll-mt-24">
+              {webForgeFeatures.map((f, i) => (
+                <div key={i} className="flex items-start space-x-2">
+                  <CheckCircle2 className="w-4 h-4 text-secondary mt-1 flex-shrink-0" />
+                  <span className="text-sm text-foreground">{f}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href="https://drive.google.com/file/d/1GQJ4ZRccfIvBTC5RcQqx92kGWOnOcJVX/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1"
+              >
+                <Button variant="hero" size="lg" className="w-full">
+                  <Download className="w-4 h-4" />
+                  Download
+                </Button>
+              </a>
+              <a href="#webforge-features" className="flex-1">
+                <Button variant="outline" size="lg" className="w-full group">
+                  <Info className="w-4 h-4" />
+                  Learn more
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </a>
+            </div>
+            <p className="text-xs text-muted-foreground text-center mt-3">
+              Text to webpage • Theme options • GitHub publishing
+            </p>
+          </Card>
         </div>
 
 
