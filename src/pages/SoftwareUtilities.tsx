@@ -237,6 +237,71 @@ const autodeckFeatures = [
   "User-friendly interface designed for quick setup, intuitive navigation, and efficient output",
 ];
 
+const docMindFeatures = [
+  "PowerPoint engine generating a user-defined number of slides with optional embedded voice narration",
+  "Executive summary generator producing concise overviews plus spoken MP3 briefings for review on the move",
+  "Interactive Q&A module that answers questions about your document, citing the exact source page every time",
+  "Data extraction tools pulling metrics, lists, and structured information into tables, JSON, CSV, or Excel",
+  "Side-by-side comparison engine for proposals, quarterly reports, drafts, and research studies",
+  "Multilingual translation suite covering 30+ languages, with plain-language rewriting of dense jargon",
+  "Content drafting assistant that creates new material strictly aligned with the verified source of truth",
+  "Financial analysis toolkit with ratios, trends, Z-scores, red-flag detection, charts, and Excel workbooks",
+  "Insight engine surfacing entities, obligations, risks, timelines, readability scores, and PII exposure",
+  "User-friendly interface built for seamless navigation and professional-grade output in a few clicks",
+];
+
+const smartdostFeatures = [
+  "Simple text input — just describe the product you are looking for in a line or two",
+  "Automated web search scanning Indian e-commerce and retail sites for matching listings",
+  "Comprehensive product listing sorted from lowest to highest price at a glance",
+  "Price visualization graph revealing how the market price varies across vendors",
+  "Professional PDF report with specifications, prices, and vendor details ready to share",
+  "Eliminates hours of manual tab-hopping and comparison spreadsheets",
+  "Tuned for the Indian market, with familiar retailers and rupee pricing",
+  "Helps teams justify purchase decisions with documented, dated evidence",
+  "Runs on your desktop for everyday procurement and personal buying alike",
+  "Clear navigation and efficient output generation for daily organizational use",
+];
+
+const floorPlanFeatures = [
+  "Dual input options — type your requirements or speak them via microphone in multiple languages",
+  "Automated floor plan generation producing accurate layouts from plot area and stated needs",
+  "3D visualization engine delivering interactive views for better spatial understanding",
+  "Adjustable interior layouts to customize rooms, walls, and furnishings",
+  "Sectional and cutaway views illustrating multi-floor structures and independent flats",
+  "Dimension control for wall thickness, room height, and other build parameters",
+  "Export to PDF and AutoCAD formats for professional sharing and downstream drafting",
+  "Purpose-built for architects, civil engineers, and real estate developers",
+  "Suitable for both domestic residences and industrial project layouts",
+  "User-friendly interface designed for quick input, clear visualization, and flexible output",
+];
+
+const quotationBuilderFeatures = [
+  "GST-compliant Indian quotation format with licensed version details (valid until 2027, v1.0, serial number)",
+  "Step-by-step input workflow starting from product specifications — pump details, brand, standards, city",
+  "Flexible document sourcing: select or create a download folder, add price lists, supplier offers, past quotations",
+  "Search configuration panel with adjustable duration, document limits up to 150, image toggle, and proxy settings",
+  "Built-in Test Connection button to validate internet or office proxy setup before a run",
+  "Multi-stage workflow: Search & Download, Analysis & Prepare, Estimation, and Bid Documents",
+  "Extra controls for entering rates, running comparisons, opening folders, and stopping a job mid-run",
+  "Tabbed navigation for Activity, Documents, Items (BOQ), Quotation details, and My Company",
+  "Live workspace log for real-time activity tracking, error reporting, and document handling",
+  "Built for engineers, procurement teams, and business managers preparing compliant, accurate bids",
+];
+
+const webForgeFeatures = [
+  "Text input interface — describe the webpage you want in plain language",
+  "Automated webpage generation producing a fully structured, visually appealing page",
+  "Download option to save generated webpages locally for offline use or further editing",
+  "GitHub integration that pushes your page into a new repository for instant deployment",
+  "Customizable design themes with layout options suited to different use cases",
+  "Error-free publishing workflow handling repository creation and uploads without manual steps",
+  "No coding required — intuitive controls make it accessible to non-technical users",
+  "Great for project documentation, product showcases, blogs, and internal portals",
+  "Consistent, professional styling so every page looks designed, not generated",
+  "Fast turnaround from idea to live page in a handful of clicks",
+];
+
 
 const SoftwareUtilities = () => {
   return (
