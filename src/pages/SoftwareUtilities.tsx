@@ -224,6 +224,19 @@ const incomeTaxFeatures = [
   "Built for professionals and individuals who want accuracy, transparency, and confidence in tax review",
 ];
 
+const autodeckFeatures = [
+  "Dual-input interface supporting both direct text box entry and PDF file upload",
+  "Automated PowerPoint generation with attractive, theme-based slides tailored to your content",
+  "Optional in-built voice narration embedded directly into presentation slides for seamless delivery",
+  "Flexible customization: choose the exact number of slides and your preferred slide theme",
+  "Smart summarization engine condenses long text or uploaded PDFs into clear, concise summaries",
+  "Converts PDFs into structured data, enabling easier analysis and reuse of document content",
+  "Perfect for office presentations, team briefings, and professional communication workflows",
+  "Consistent, polished formatting so every deck looks studio-quality without manual design work",
+  "Runs locally on your desktop, keeping confidential documents private and secure",
+  "User-friendly interface designed for quick setup, intuitive navigation, and efficient output",
+];
+
 
 const SoftwareUtilities = () => {
   return (
