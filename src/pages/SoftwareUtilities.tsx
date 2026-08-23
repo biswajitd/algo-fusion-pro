@@ -302,6 +302,19 @@ const webForgeFeatures = [
   "Fast turnaround from idea to live page in a handful of clicks",
 ];
 
+const stemEngineFeatures = [
+  "Algebra & Calculus modules for equations, derivatives, integrals, and series expansions",
+  "Linear Algebra engine for matrices, eigenvalues, and vector operations",
+  "Physics & Engineering solvers covering mechanics, energy, civil structures, and thermal systems",
+  "Chemistry toolkit for balancing reactions and generating molecular structures",
+  "Astronomy integration delivering planetary positions and astrophysical calculations",
+  "Statistics suite for probabilities, distributions, and hypothesis testing",
+  "Graphing utility producing clear 2D and 3D visualizations of functions and datasets",
+  "Image input support to upload figures or handwritten problems for automated recognition",
+  "Step-by-step structured answers that teach the logic behind every solution",
+  "User-friendly interface with categorized tabs for rapid access to scientific domains",
+];
+
 
 const SoftwareUtilities = () => {
   return (
