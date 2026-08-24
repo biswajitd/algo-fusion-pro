@@ -1712,7 +1712,12 @@ const SoftwareUtilities = () => {
                   Download
                 </Button>
               </a>
-              <a href="#hotelflex-features" className="flex-1">
+              <a
+                href="https://drive.google.com/file/d/14v_7thoRPB1Fq4UHcXZRrkE-iuTOoFfA/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1"
+              >
                 <Button variant="outline" size="lg" className="w-full group">
                   <Info className="w-4 h-4" />
                   Learn more
