@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Download, ExternalLink, GraduationCap, Scale, Sparkles, Brain, Mic, Database, Music, Fingerprint, Mail, Wrench, Stethoscope, Languages, FileSpreadsheet, Presentation, CheckCircle2, Info, ArrowRight, FileText, ShoppingCart, Building2, ClipboardList, Globe, Atom } from "lucide-react";
+import { Download, ExternalLink, GraduationCap, Scale, Sparkles, Brain, Mic, Database, Music, Fingerprint, Mail, Wrench, Stethoscope, Languages, FileSpreadsheet, Presentation, CheckCircle2, Info, ArrowRight, FileText, ShoppingCart, Building2, ClipboardList, Globe, Atom, Clapperboard, Hotel } from "lucide-react";
 
 const mockTestEngMedLawFeatures = [
   "Engineering, medical, law, and ISI admission exam coverage in one package",
@@ -313,6 +313,32 @@ const stemEngineFeatures = [
   "Image input support to upload figures or handwritten problems for automated recognition",
   "Step-by-step structured answers that teach the logic behind every solution",
   "User-friendly interface with categorized tabs for rapid access to scientific domains",
+];
+
+const mediaForgeFeatures = [
+  "High-Definition Video Downloads supporting resolutions up to 4K and 8K across MP4, MKV, and WebM containers",
+  "Integrated Audio Extraction converting online streams into MP3, M4A, FLAC, Opus, WAV, or OGG formats up to 320 kbps",
+  "Batch & Multi-Link Processing for playlists, full channel archives, and custom multi-URL lists",
+  "Subtitles & Captions Toolkit to download SRT/VTT tracks, embed captions, or export plain-text transcripts",
+  "Built-in Session & Cookie Manager with integrated browser capture for login-required platforms",
+  "Metadata & Artwork Embedding preserving uploader info, descriptions, chapter markers, and cover art",
+  "Smart Queue & Bandwidth Control with simultaneous limits, fragment acceleration, speed caps, and pause/resume",
+  "Structured File Organization using custom naming schemes and automated playlist-to-folder structuring",
+  "Engine Logging & Diagnostics with real-time terminal output, error reporting, and one-click retry",
+  "Modern, Intuitive Interface with light/dark themes, clipboard auto-detection, and keyboard shortcuts",
+];
+
+const hotelFlexFeatures = [
+  "Drag-and-Drop Booking Calendar across six zoom levels with room assignments and instant availability validation",
+  "AI Revenue Manager optimizing daily pricing via comp-set rates, booking pace, and seasonality within threshold rules",
+  "Integrated Channel & GDS Management synchronizing rates and inventory across 20+ OTAs and GDS networks",
+  "Direct Booking & Parity Protection with commission-free widgets and real-time OTA rate parity monitoring",
+  "Magic Link Self-Service for contactless registration, ID uploads, express check-out, and pre-arrival upselling",
+  "ReviewMinder Reputation Inbox aggregating reviews from nine platforms with sentiment analysis and reply templates",
+  "Unified Point of Sale & Billing for restaurant, bar, and spa transactions posting directly to guest folios",
+  "Smart Housekeeping & Maintenance tracking room status, auto-assigning cleans, and managing maintenance tickets",
+  "Voucher & Gift Storefront selling gift cards and experience packages with automated liability and folio redemption",
+  "Comprehensive Reporting & Night Audit with one-click close and 85 detailed CSV-exportable reports",
 ];
 
 
@@ -1590,6 +1616,112 @@ const SoftwareUtilities = () => {
             </div>
             <p className="text-xs text-muted-foreground text-center mt-3">
               Science • Math • Engineering • Free download
+            </p>
+          </Card>
+
+          {/* MediaForge */}
+          <Card className="bg-gradient-card border-border hover:border-primary transition-all duration-300 hover:shadow-glow p-8 flex flex-col">
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <h2 className="text-2xl font-bold mb-1">MediaForge</h2>
+                <p className="text-primary text-sm font-medium">Universal Video Downloader & Audio Extraction Suite</p>
+              </div>
+              <div className="w-16 h-16 bg-gradient-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                <Clapperboard className="w-8 h-8 text-primary-foreground" />
+              </div>
+            </div>
+
+            <p className="text-muted-foreground mb-6 leading-relaxed">
+              Empower seamless video saving, pristine audio extraction, and bulk media archiving with
+              this advanced desktop application. MediaForge downloads high-definition media up to 4K and 8K,
+              pulls high-bitrate audio tracks, and queues complete playlists and channels from YouTube,
+              Facebook, Instagram, Vimeo, SoundCloud, Twitch, and over a thousand other supported platforms.
+            </p>
+
+            <div id="mediaforge-features" className="space-y-2 mb-6 flex-grow scroll-mt-24">
+              {mediaForgeFeatures.map((f, i) => (
+                <div key={i} className="flex items-start space-x-2">
+                  <CheckCircle2 className="w-4 h-4 text-secondary mt-1 flex-shrink-0" />
+                  <span className="text-sm text-foreground">{f}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href="https://drive.google.com/file/d/1Snp10Th15CDGnICCz3-ZdOv5b580frJ9/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1"
+              >
+                <Button variant="hero" size="lg" className="w-full">
+                  <Download className="w-4 h-4" />
+                  Download
+                </Button>
+              </a>
+              <a href="#mediaforge-features" className="flex-1">
+                <Button variant="outline" size="lg" className="w-full group">
+                  <Info className="w-4 h-4" />
+                  Learn more
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </a>
+            </div>
+            <p className="text-xs text-muted-foreground text-center mt-3">
+              4K/8K video • Audio extraction • Batch playlists • 1000+ platforms
+            </p>
+          </Card>
+
+          {/* HotelFlex PMS */}
+          <Card className="bg-gradient-card border-border hover:border-primary transition-all duration-300 hover:shadow-glow p-8 flex flex-col">
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <h2 className="text-2xl font-bold mb-1">HotelFlex PMS</h2>
+                <p className="text-primary text-sm font-medium">Comprehensive Hospitality Management Suite</p>
+              </div>
+              <div className="w-16 h-16 bg-gradient-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                <Hotel className="w-8 h-8 text-primary-foreground" />
+              </div>
+            </div>
+
+            <p className="text-muted-foreground mb-6 leading-relaxed">
+              Empower seamless property operations, advanced revenue management, and global distribution
+              with this complete desktop Property Management System. HotelFlex PMS consolidates front-office
+              tasks, point-of-sale operations, automated pricing, and guest reputation management into a
+              single, offline-first application for hotels, resorts, and vacation rentals.
+            </p>
+
+            <div id="hotelflex-features" className="space-y-2 mb-6 flex-grow scroll-mt-24">
+              {hotelFlexFeatures.map((f, i) => (
+                <div key={i} className="flex items-start space-x-2">
+                  <CheckCircle2 className="w-4 h-4 text-secondary mt-1 flex-shrink-0" />
+                  <span className="text-sm text-foreground">{f}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href="https://drive.google.com/file/d/1XuXp3O-N-RhRXQAp32FNIyaInuQs3z6z/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1"
+              >
+                <Button variant="hero" size="lg" className="w-full">
+                  <Download className="w-4 h-4" />
+                  Download
+                </Button>
+              </a>
+              <a href="#hotelflex-features" className="flex-1">
+                <Button variant="outline" size="lg" className="w-full group">
+                  <Info className="w-4 h-4" />
+                  Learn more
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </a>
+            </div>
+            <p className="text-xs text-muted-foreground text-center mt-3">
+              Front office • POS • Channel manager • Night audit
             </p>
           </Card>
         </div>
