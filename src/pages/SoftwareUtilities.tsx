@@ -315,6 +315,32 @@ const stemEngineFeatures = [
   "User-friendly interface with categorized tabs for rapid access to scientific domains",
 ];
 
+const mediaForgeFeatures = [
+  "High-Definition Video Downloads supporting resolutions up to 4K and 8K across MP4, MKV, and WebM containers",
+  "Integrated Audio Extraction converting online streams into MP3, M4A, FLAC, Opus, WAV, or OGG formats up to 320 kbps",
+  "Batch & Multi-Link Processing for playlists, full channel archives, and custom multi-URL lists",
+  "Subtitles & Captions Toolkit to download SRT/VTT tracks, embed captions, or export plain-text transcripts",
+  "Built-in Session & Cookie Manager with integrated browser capture for login-required platforms",
+  "Metadata & Artwork Embedding preserving uploader info, descriptions, chapter markers, and cover art",
+  "Smart Queue & Bandwidth Control with simultaneous limits, fragment acceleration, speed caps, and pause/resume",
+  "Structured File Organization using custom naming schemes and automated playlist-to-folder structuring",
+  "Engine Logging & Diagnostics with real-time terminal output, error reporting, and one-click retry",
+  "Modern, Intuitive Interface with light/dark themes, clipboard auto-detection, and keyboard shortcuts",
+];
+
+const hotelFlexFeatures = [
+  "Drag-and-Drop Booking Calendar across six zoom levels with room assignments and instant availability validation",
+  "AI Revenue Manager optimizing daily pricing via comp-set rates, booking pace, and seasonality within threshold rules",
+  "Integrated Channel & GDS Management synchronizing rates and inventory across 20+ OTAs and GDS networks",
+  "Direct Booking & Parity Protection with commission-free widgets and real-time OTA rate parity monitoring",
+  "Magic Link Self-Service for contactless registration, ID uploads, express check-out, and pre-arrival upselling",
+  "ReviewMinder Reputation Inbox aggregating reviews from nine platforms with sentiment analysis and reply templates",
+  "Unified Point of Sale & Billing for restaurant, bar, and spa transactions posting directly to guest folios",
+  "Smart Housekeeping & Maintenance tracking room status, auto-assigning cleans, and managing maintenance tickets",
+  "Voucher & Gift Storefront selling gift cards and experience packages with automated liability and folio redemption",
+  "Comprehensive Reporting & Night Audit with one-click close and 85 detailed CSV-exportable reports",
+];
+
 
 const SoftwareUtilities = () => {
   return (
