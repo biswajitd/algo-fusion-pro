@@ -1618,6 +1618,112 @@ const SoftwareUtilities = () => {
               Science • Math • Engineering • Free download
             </p>
           </Card>
+
+          {/* MediaForge */}
+          <Card className="bg-gradient-card border-border hover:border-primary transition-all duration-300 hover:shadow-glow p-8 flex flex-col">
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <h2 className="text-2xl font-bold mb-1">MediaForge</h2>
+                <p className="text-primary text-sm font-medium">Universal Video Downloader & Audio Extraction Suite</p>
+              </div>
+              <div className="w-16 h-16 bg-gradient-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                <Clapperboard className="w-8 h-8 text-primary-foreground" />
+              </div>
+            </div>
+
+            <p className="text-muted-foreground mb-6 leading-relaxed">
+              Empower seamless video saving, pristine audio extraction, and bulk media archiving with
+              this advanced desktop application. MediaForge downloads high-definition media up to 4K and 8K,
+              pulls high-bitrate audio tracks, and queues complete playlists and channels from YouTube,
+              Facebook, Instagram, Vimeo, SoundCloud, Twitch, and over a thousand other supported platforms.
+            </p>
+
+            <div id="mediaforge-features" className="space-y-2 mb-6 flex-grow scroll-mt-24">
+              {mediaForgeFeatures.map((f, i) => (
+                <div key={i} className="flex items-start space-x-2">
+                  <CheckCircle2 className="w-4 h-4 text-secondary mt-1 flex-shrink-0" />
+                  <span className="text-sm text-foreground">{f}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href="https://drive.google.com/file/d/1Snp10Th15CDGnICCz3-ZdOv5b580frJ9/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1"
+              >
+                <Button variant="hero" size="lg" className="w-full">
+                  <Download className="w-4 h-4" />
+                  Download
+                </Button>
+              </a>
+              <a href="#mediaforge-features" className="flex-1">
+                <Button variant="outline" size="lg" className="w-full group">
+                  <Info className="w-4 h-4" />
+                  Learn more
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </a>
+            </div>
+            <p className="text-xs text-muted-foreground text-center mt-3">
+              4K/8K video • Audio extraction • Batch playlists • 1000+ platforms
+            </p>
+          </Card>
+
+          {/* HotelFlex PMS */}
+          <Card className="bg-gradient-card border-border hover:border-primary transition-all duration-300 hover:shadow-glow p-8 flex flex-col">
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <h2 className="text-2xl font-bold mb-1">HotelFlex PMS</h2>
+                <p className="text-primary text-sm font-medium">Comprehensive Hospitality Management Suite</p>
+              </div>
+              <div className="w-16 h-16 bg-gradient-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                <Hotel className="w-8 h-8 text-primary-foreground" />
+              </div>
+            </div>
+
+            <p className="text-muted-foreground mb-6 leading-relaxed">
+              Empower seamless property operations, advanced revenue management, and global distribution
+              with this complete desktop Property Management System. HotelFlex PMS consolidates front-office
+              tasks, point-of-sale operations, automated pricing, and guest reputation management into a
+              single, offline-first application for hotels, resorts, and vacation rentals.
+            </p>
+
+            <div id="hotelflex-features" className="space-y-2 mb-6 flex-grow scroll-mt-24">
+              {hotelFlexFeatures.map((f, i) => (
+                <div key={i} className="flex items-start space-x-2">
+                  <CheckCircle2 className="w-4 h-4 text-secondary mt-1 flex-shrink-0" />
+                  <span className="text-sm text-foreground">{f}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href="https://drive.google.com/file/d/1XuXp3O-N-RhRXQAp32FNIyaInuQs3z6z/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1"
+              >
+                <Button variant="hero" size="lg" className="w-full">
+                  <Download className="w-4 h-4" />
+                  Download
+                </Button>
+              </a>
+              <a href="#hotelflex-features" className="flex-1">
+                <Button variant="outline" size="lg" className="w-full group">
+                  <Info className="w-4 h-4" />
+                  Learn more
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </a>
+            </div>
+            <p className="text-xs text-muted-foreground text-center mt-3">
+              Front office • POS • Channel manager • Night audit
+            </p>
+          </Card>
         </div>
 
 
