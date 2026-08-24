@@ -1659,6 +1659,18 @@ const SoftwareUtilities = () => {
                   Download
                 </Button>
               </a>
+              <a
+                href="https://drive.google.com/file/d/1UfHnoAqq3gI9a87ZNOHW0Yr9GBT0tHHB/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1"
+              >
+                <Button variant="outline" size="lg" className="w-full group">
+                  <Info className="w-4 h-4" />
+                  Learn more
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </a>
               <a href="#mediaforge-features" className="flex-1">
                 <Button variant="outline" size="lg" className="w-full group">
                   <Info className="w-4 h-4" />
