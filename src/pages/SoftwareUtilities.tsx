@@ -1765,6 +1765,226 @@ const SoftwareUtilities = () => {
             </p>
           </Card>
 
+          {/* Sentiment AI */}
+          <Card className="bg-gradient-card border-border hover:border-primary transition-all duration-300 hover:shadow-glow p-8 flex flex-col">
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <h2 className="text-2xl font-bold mb-1">Sentiment AI</h2>
+                <p className="text-primary text-sm font-medium">AI-Powered Sentiment Analysis & Opinion Mining Utility</p>
+              </div>
+              <div className="w-16 h-16 bg-gradient-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                <Smile className="w-8 h-8 text-primary-foreground" />
+              </div>
+            </div>
+
+            <p className="text-muted-foreground mb-6 leading-relaxed">
+              Understand what people really feel. Sentiment AI scans reviews, comments, social posts, and feedback to reveal tone, emotion, and opinion trends — then packages everything into clear, shareable PDF reports.
+            </p>
+
+            <div id="sentiment-features" className="space-y-2 mb-6 flex-grow scroll-mt-24">
+              {sentimentFeatures.map((f, i) => (
+                <div key={i} className="flex items-start space-x-2">
+                  <CheckCircle2 className="w-4 h-4 text-secondary mt-1 flex-shrink-0" />
+                  <span className="text-sm text-foreground">{f}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href="https://drive.google.com/file/d/1U98oItHtRHg0mXzIyAT31sRrydIWplXJ/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1"
+              >
+                <Button variant="hero" size="lg" className="w-full">
+                  <Download className="w-4 h-4" />
+                  Download
+                </Button>
+              </a>
+              <a
+                href="https://drive.google.com/file/d/1U98oItHtRHg0mXzIyAT31sRrydIWplXJ/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1"
+              >
+                <Button variant="outline" size="lg" className="w-full group">
+                  <Info className="w-4 h-4" />
+                  Learn more
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </a>
+            </div>
+            <p className="text-xs text-muted-foreground text-center mt-3">
+              Reviews • Social posts • PDF reports • Local & private
+            </p>
+          </Card>
+
+          {/* Pictory AI */}
+          <Card className="bg-gradient-card border-border hover:border-primary transition-all duration-300 hover:shadow-glow p-8 flex flex-col">
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <h2 className="text-2xl font-bold mb-1">Pictory AI</h2>
+                <p className="text-primary text-sm font-medium">AI-Driven Visual Storytelling & Video Creation Utility</p>
+              </div>
+              <div className="w-16 h-16 bg-gradient-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                <Image className="w-8 h-8 text-primary-foreground" />
+              </div>
+            </div>
+
+            <p className="text-muted-foreground mb-6 leading-relaxed">
+              Turn text into compelling videos without touching a timeline. Pictory AI matches your script with scenes, voiceovers, captions, and music, then exports platform-ready videos for marketing, education, and social content.
+            </p>
+
+            <div id="pictory-features" className="space-y-2 mb-6 flex-grow scroll-mt-24">
+              {pictoryFeatures.map((f, i) => (
+                <div key={i} className="flex items-start space-x-2">
+                  <CheckCircle2 className="w-4 h-4 text-secondary mt-1 flex-shrink-0" />
+                  <span className="text-sm text-foreground">{f}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href="https://drive.google.com/file/d/1RNSbjcRestYR0cRC410lZrFIrAuJWXKi/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1"
+              >
+                <Button variant="hero" size="lg" className="w-full">
+                  <Download className="w-4 h-4" />
+                  Download
+                </Button>
+              </a>
+              <a
+                href="https://drive.google.com/file/d/1RNSbjcRestYR0cRC410lZrFIrAuJWXKi/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1"
+              >
+                <Button variant="outline" size="lg" className="w-full group">
+                  <Info className="w-4 h-4" />
+                  Learn more
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </a>
+            </div>
+            <p className="text-xs text-muted-foreground text-center mt-3">
+              Text to video • Auto captions • Multi-platform export
+            </p>
+          </Card>
+
+          {/* Nativeforge AI */}
+          <Card className="bg-gradient-card border-border hover:border-primary transition-all duration-300 hover:shadow-glow p-8 flex flex-col">
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <h2 className="text-2xl font-bold mb-1">Nativeforge AI</h2>
+                <p className="text-primary text-sm font-medium">AI-Powered Native App Builder & Code Generator Utility</p>
+              </div>
+              <div className="w-16 h-16 bg-gradient-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                <Smartphone className="w-8 h-8 text-primary-foreground" />
+              </div>
+            </div>
+
+            <p className="text-muted-foreground mb-6 leading-relaxed">
+              Describe the app you need and Nativeforge AI builds real installable applications for mobile and desktop. From UI layout to cross-platform binaries, it accelerates prototyping and delivery without writing code by hand.
+            </p>
+
+            <div id="nativeforge-features" className="space-y-2 mb-6 flex-grow scroll-mt-24">
+              {nativeforgeFeatures.map((f, i) => (
+                <div key={i} className="flex items-start space-x-2">
+                  <CheckCircle2 className="w-4 h-4 text-secondary mt-1 flex-shrink-0" />
+                  <span className="text-sm text-foreground">{f}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href="https://drive.google.com/file/d/1SzdUvMBXP39T8eYv4Mq9Q0GaFPvkrrTF/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1"
+              >
+                <Button variant="hero" size="lg" className="w-full">
+                  <Download className="w-4 h-4" />
+                  Download
+                </Button>
+              </a>
+              <a
+                href="https://drive.google.com/file/d/1SzdUvMBXP39T8eYv4Mq9Q0GaFPvkrrTF/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1"
+              >
+                <Button variant="outline" size="lg" className="w-full group">
+                  <Info className="w-4 h-4" />
+                  Learn more
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </a>
+            </div>
+            <p className="text-xs text-muted-foreground text-center mt-3">
+              Text to native app • Cross-platform • Offline-first
+            </p>
+          </Card>
+
+          {/* Inkforge AI */}
+          <Card className="bg-gradient-card border-border hover:border-primary transition-all duration-300 hover:shadow-glow p-8 flex flex-col">
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <h2 className="text-2xl font-bold mb-1">Inkforge AI</h2>
+                <p className="text-primary text-sm font-medium">AI-Assisted Document Writing & Drafting Utility</p>
+              </div>
+              <div className="w-16 h-16 bg-gradient-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                <PenTool className="w-8 h-8 text-primary-foreground" />
+              </div>
+            </div>
+
+            <p className="text-muted-foreground mb-6 leading-relaxed">
+              Write faster and clearer with an AI drafting partner. Inkforge AI helps you compose, rewrite, and polish documents across formats and tones — from formal reports to creative copy — while keeping every file local and private.
+            </p>
+
+            <div id="inkforge-features" className="space-y-2 mb-6 flex-grow scroll-mt-24">
+              {inkforgeFeatures.map((f, i) => (
+                <div key={i} className="flex items-start space-x-2">
+                  <CheckCircle2 className="w-4 h-4 text-secondary mt-1 flex-shrink-0" />
+                  <span className="text-sm text-foreground">{f}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href="https://drive.google.com/file/d/1VB_KuhDctOcEn7MB6NuS7b4ZEf9jC1D8/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1"
+              >
+                <Button variant="hero" size="lg" className="w-full">
+                  <Download className="w-4 h-4" />
+                  Download
+                </Button>
+              </a>
+              <a
+                href="https://drive.google.com/file/d/1VB_KuhDctOcEn7MB6NuS7b4ZEf9jC1D8/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1"
+              >
+                <Button variant="outline" size="lg" className="w-full group">
+                  <Info className="w-4 h-4" />
+                  Learn more
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </a>
+            </div>
+            <p className="text-xs text-muted-foreground text-center mt-3">
+              Draft • Rewrite • Templates • Local & private
+            </p>
+          </Card>
+
           {/* HotelFlex PMS */}
           <Card className="bg-gradient-card border-border hover:border-primary transition-all duration-300 hover:shadow-glow p-8 flex flex-col">
             <div className="flex items-center justify-between mb-6">
