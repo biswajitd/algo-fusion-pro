@@ -1200,7 +1200,12 @@ const SoftwareUtilities = () => {
                   Download
                 </Button>
               </a>
-              <a href="#medguide-features" className="flex-1">
+              <a
+                href="https://drive.google.com/file/d/19v2tswrKC6fJ-55S80du5Cym4jCfr5am/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1"
+              >
                 <Button variant="outline" size="lg" className="w-full group">
                   <Info className="w-4 h-4" />
                   Learn more
@@ -1355,7 +1360,12 @@ const SoftwareUtilities = () => {
                   Download
                 </Button>
               </a>
-              <a href="#autodeck-features" className="flex-1">
+              <a
+                href="https://drive.google.com/file/d/1DbvI_jhA78s7yM8AEeYoyhEWhkSeDfX1/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1"
+              >
                 <Button variant="outline" size="lg" className="w-full group">
                   <Info className="w-4 h-4" />
                   Learn more
@@ -1405,7 +1415,12 @@ const SoftwareUtilities = () => {
                   Download
                 </Button>
               </a>
-              <a href="#docmind-features" className="flex-1">
+              <a
+                href="https://drive.google.com/file/d/1a-grFupBk1tAmePP4804vcgOkNb18xbq/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1"
+              >
                 <Button variant="outline" size="lg" className="w-full group">
                   <Info className="w-4 h-4" />
                   Learn more
@@ -1455,7 +1470,12 @@ const SoftwareUtilities = () => {
                   Download
                 </Button>
               </a>
-              <a href="#smartdost-features" className="flex-1">
+              <a
+                href="https://drive.google.com/file/d/1n4dAJbn-7SbUiHtH4es-XCmc4FCyCuGy/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1"
+              >
                 <Button variant="outline" size="lg" className="w-full group">
                   <Info className="w-4 h-4" />
                   Learn more
@@ -1505,7 +1525,12 @@ const SoftwareUtilities = () => {
                   Download
                 </Button>
               </a>
-              <a href="#floorplan-features" className="flex-1">
+              <a
+                href="https://drive.google.com/file/d/1tRUDPifs3K25da14QYhW_QWH1KVbcs8u/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1"
+              >
                 <Button variant="outline" size="lg" className="w-full group">
                   <Info className="w-4 h-4" />
                   Learn more
@@ -1605,7 +1630,12 @@ const SoftwareUtilities = () => {
                   Download
                 </Button>
               </a>
-              <a href="#webforge-features" className="flex-1">
+              <a
+                href="https://drive.google.com/file/d/1yQvOS4Y4O6g2Zx34BVUp-dNLCT2a9-tj/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1"
+              >
                 <Button variant="outline" size="lg" className="w-full group">
                   <Info className="w-4 h-4" />
                   Learn more
