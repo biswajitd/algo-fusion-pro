@@ -341,6 +341,57 @@ const hotelFlexFeatures = [
   "Comprehensive Reporting & Night Audit with one-click close and 85 detailed CSV-exportable reports",
 ];
 
+const sentimentFeatures = [
+  "AI-powered sentiment analysis for reviews, comments, social posts, and customer feedback",
+  "Multi-language support detecting tone and emotion across global text sources",
+  "Real-time polarity scoring with positive, negative, neutral, and mixed classifications",
+  "Entity-aware emotion detection linking opinions to specific products, people, or brands",
+  "Visual dashboards and trend charts showing sentiment shifts over time",
+  "Exportable PDF reports with highlighted phrases, scores, and actionable summaries",
+  "Batch processing of CSV, Excel, or copied text lists for research and marketing teams",
+  "Competitor comparison mode benchmarking sentiment across multiple brands or topics",
+  "Completely secure, local desktop operation keeping your data off the cloud",
+  "User-friendly interface for quick analysis, filtering, and one-click report generation",
+];
+
+const pictoryFeatures = [
+  "AI-driven visual storytelling turning scripts, articles, or text into engaging videos",
+  "Automatic scene selection matching your content with relevant stock imagery and clips",
+  "Built-in voiceover engine with natural-sounding narration in multiple languages",
+  "Caption and subtitle generation for accessibility and social-media reach",
+  "Brand customization with logos, colors, fonts, and intro/outro templates",
+  "Resize and repurpose videos for YouTube, Instagram, TikTok, and LinkedIn formats",
+  "Music library and sound effects to match the mood of every scene",
+  "Storyboard editing for fine-tuning visuals, pacing, and transitions",
+  "Runs locally on your desktop for full control over proprietary content",
+  "User-friendly timeline interface for fast video creation without editing expertise",
+];
+
+const nativeforgeFeatures = [
+  "Text-to-native-app generation producing installable mobile and desktop applications",
+  "Cross-platform export for Android, iOS, Windows, macOS, and Linux from one project",
+  "Pre-built UI component library with native-looking buttons, lists, forms, and navigation",
+  "Offline-first architecture so apps work without constant internet connectivity",
+  "Push notification scaffolding and local data storage built in",
+  "API connector modules to link your app with backend services and databases",
+  "One-click build pipeline packaging binaries, installers, and app-store-ready bundles",
+  "Custom branding with app icons, splash screens, themes, and color palettes",
+  "Local project workspace keeping source code and assets under your control",
+  "User-friendly workflow from idea to working native app in minutes",
+];
+
+const inkforgeFeatures = [
+  "AI-assisted document drafting for reports, letters, contracts, and creative writing",
+  "Smart rewriting tools that simplify, formalize, expand, or shorten any paragraph",
+  "Grammar, tone, and style checking with contextual suggestions and fixes",
+  "Template library for resumes, proposals, invoices, memos, and legal drafts",
+  "Multi-format import and export supporting DOCX, PDF, TXT, and Markdown",
+  "Voice-to-text input for hands-free drafting and quick note capture",
+  "Version history and compare mode to track changes across document revisions",
+  "Cited research assistant gathering web references and summarizing sources",
+  "Completely secure, local desktop operation protecting confidential documents",
+  "User-friendly editor with live preview, side panels, and one-click publishing",
+];
 
 const SoftwareUtilities = () => {
   return (
