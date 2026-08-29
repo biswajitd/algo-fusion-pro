@@ -1,7 +1,35 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Download, ExternalLink, GraduationCap, Scale, Sparkles, Brain, Mic, Database, Music, Fingerprint, Mail, Wrench, Stethoscope, Languages, FileSpreadsheet, Presentation, CheckCircle2, Info, ArrowRight, FileText, ShoppingCart, Building2, ClipboardList, Globe, Atom, Clapperboard, Hotel, Smile, Image, Smartphone, PenTool } from "lucide-react";
+import { Download, ExternalLink, GraduationCap, Scale, Sparkles, Brain, Mic, Database, Music, Fingerprint, Mail, Wrench, Stethoscope, Languages, FileSpreadsheet, Presentation, CheckCircle2, Info, ArrowRight, FileText, ShoppingCart, Building2, ClipboardList, Globe, Atom, Clapperboard, Hotel, Smile, Image, Smartphone, PenTool, Laptop, BarChart3 } from "lucide-react";
+
+const macForgeFeatures = [
+  "Zero-hardware remote cloud compilation — build complete macOS .app bundles from Windows on dedicated GitHub runners",
+  "Dual architecture targeting for native Apple Silicon (arm64), Intel (x86_64), or parallel dual builds in one run",
+  "Automated Spec File Doctor rewrites Windows paths, strips .ico assets, disables console/UPX flags, and injects BUNDLE() blocks",
+  "AST-based dependency generator parses project imports to construct accurate requirements.txt manifests",
+  "Binary verification with lipo validates the processor slice of every compiled binary before delivery",
+  "Single-trigger sentinel pipeline transfers files first, then fires one build trigger to avoid redundant workflow runs",
+  "Smart file scanner excludes virtual environments, bytecode caches, and .git trees with custom .macforgeignore rules",
+  "40 MB ceiling guards keep uploads lean and builds fast",
+  "Live build terminal streams stage status, progress polling, runner logs, and failure-step diagnostics in the UI",
+  "Symlink-preserving archive extraction via ditto keeps macOS frameworks intact for distribution",
+];
+
+const dataForgeFeatures = [
+  "Multi-provider LLM routing — switch instantly between private local models via Ollama and cloud APIs like Anthropic Claude and OpenAI",
+  "Natural language formula generation converts plain English into optimized Excel and Google Sheets formulas with logic explanations",
+  "Macro and script automation writes production-ready VBA macros, Google Apps Scripts, and Python routines",
+  "Formula debugger and logic explainer pinpoints syntax errors and broken references, returning corrected formulas",
+  "Machine learning anomaly detection using Isolation Forest, Z-score, and IQR algorithms to flag outliers and data drift",
+  "Automated data health audits score missing fields, schema inconsistencies, trailing whitespace, and duplicates",
+  "Conversational data exploration for querying, filtering, and aggregating CSV, Excel, and Parquet files in plain English",
+  "Sandboxed Python execution runs pandas and numpy calculations in real time inside a secure runtime",
+  "Dynamic visualization engine builds distribution charts, correlation heatmaps, time-series projections, and category breakdowns",
+  "Executive PDF and Excel reporting compiles findings, dashboards, and anomaly audit logs into formatted documents",
+  "Defensive startup and preflight diagnostics verify interpreter and package compatibility with clear in-browser errors",
+  "Modern modular Streamlit architecture designed for responsive, organized data workflows",
+];
 
 const mockTestEngMedLawFeatures = [
   "Engineering, medical, law, and ISI admission exam coverage in one package",
@@ -1260,7 +1288,12 @@ const SoftwareUtilities = () => {
                   Download
                 </Button>
               </a>
-              <a href="#speakright-features" className="flex-1">
+              <a
+                href="https://drive.google.com/file/d/1O99E3bte9IVYmN78dM2cjF6Yh1ykaejZ/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1"
+              >
                 <Button variant="outline" size="lg" className="w-full group">
                   <Info className="w-4 h-4" />
                   Learn more
@@ -2040,6 +2073,112 @@ const SoftwareUtilities = () => {
             </div>
             <p className="text-xs text-muted-foreground text-center mt-3">
               Front office • POS • Channel manager • Night audit
+            </p>
+          </Card>
+
+          {/* MacForge */}
+          <Card className="bg-gradient-card border-border hover:border-primary transition-all duration-300 hover:shadow-glow p-8 flex flex-col">
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <h2 className="text-2xl font-bold mb-1">MacForge</h2>
+                <p className="text-primary text-sm font-medium">Remote macOS Application Builder & PyInstaller Cloud Packaging Suite</p>
+              </div>
+              <div className="w-16 h-16 bg-gradient-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                <Laptop className="w-8 h-8 text-primary-foreground" />
+              </div>
+            </div>
+
+            <p className="text-muted-foreground mb-6 leading-relaxed">
+              Turn any folder of Python source code on Windows into a native, standalone macOS application
+              bundle — without owning a Mac, installing Git, or typing a single command. MacForge uploads your
+              source, provisions a dedicated macOS runner in the cloud, manages the full compilation lifecycle,
+              and streams the finished .app bundle straight back into your project's local dist folder.
+            </p>
+
+            <div id="macforge-features" className="space-y-2 mb-6 flex-grow scroll-mt-24">
+              {macForgeFeatures.map((f, i) => (
+                <div key={i} className="flex items-start space-x-2">
+                  <CheckCircle2 className="w-4 h-4 text-secondary mt-1 flex-shrink-0" />
+                  <span className="text-sm text-foreground">{f}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href="https://drive.google.com/file/d/1xH93Hr2cPIzpC9eAXQXU7GHlUsN8Espg/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1"
+              >
+                <Button variant="hero" size="lg" className="w-full">
+                  <Download className="w-4 h-4" />
+                  Download
+                </Button>
+              </a>
+              <a href="#macforge-features" className="flex-1">
+                <Button variant="outline" size="lg" className="w-full group">
+                  <Info className="w-4 h-4" />
+                  Learn more
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </a>
+            </div>
+            <p className="text-xs text-muted-foreground text-center mt-3">
+              Cloud macOS runners • arm64 & x86_64 • Spec auto-fix • Live build logs
+            </p>
+          </Card>
+
+          {/* DataForge AI */}
+          <Card className="bg-gradient-card border-border hover:border-primary transition-all duration-300 hover:shadow-glow p-8 flex flex-col">
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <h2 className="text-2xl font-bold mb-1">DataForge AI</h2>
+                <p className="text-primary text-sm font-medium">Spreadsheet Automation, Anomaly Detection & Conversational Analytics</p>
+              </div>
+              <div className="w-16 h-16 bg-gradient-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                <BarChart3 className="w-8 h-8 text-primary-foreground" />
+              </div>
+            </div>
+
+            <p className="text-muted-foreground mb-6 leading-relaxed">
+              An advanced analytics workstation for effortless spreadsheet manipulation, automated data quality
+              audits, and conversational business intelligence. DataForge AI turns plain-English prompts into
+              precise Excel and Google Sheets formulas, applies machine learning to catch anomalies and outliers,
+              runs live statistical computations, and compiles executive-ready reports from local and cloud datasets.
+            </p>
+
+            <div id="dataforge-features" className="space-y-2 mb-6 flex-grow scroll-mt-24">
+              {dataForgeFeatures.map((f, i) => (
+                <div key={i} className="flex items-start space-x-2">
+                  <CheckCircle2 className="w-4 h-4 text-secondary mt-1 flex-shrink-0" />
+                  <span className="text-sm text-foreground">{f}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href="https://drive.google.com/file/d/1suZQREeyQh42rif1FqXq_BKlirLvRT-S/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1"
+              >
+                <Button variant="hero" size="lg" className="w-full">
+                  <Download className="w-4 h-4" />
+                  Download
+                </Button>
+              </a>
+              <a href="#dataforge-features" className="flex-1">
+                <Button variant="outline" size="lg" className="w-full group">
+                  <Info className="w-4 h-4" />
+                  Learn more
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </a>
+            </div>
+            <p className="text-xs text-muted-foreground text-center mt-3">
+              Formula generation • ML anomaly detection • Chat with your data • PDF & Excel reports
             </p>
           </Card>
         </div>
