@@ -2116,6 +2116,12 @@ const SoftwareUtilities = () => {
                   Download
                 </Button>
               </a>
+              <a
+                href="https://drive.google.com/file/d/1sCux4dSpk_gMZbXS_t8MkqAeJfDGVV4M/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1"
+              >
               <a href="#macforge-features" className="flex-1">
                 <Button variant="outline" size="lg" className="w-full group">
                   <Info className="w-4 h-4" />
