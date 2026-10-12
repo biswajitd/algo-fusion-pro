@@ -148,7 +148,6 @@ const Index = () => {
           <li><a href="/Help.pdf" className="hover:text-primary transition-colors" target="_blank">Installation Guide</a></li>
           <li><Link to="/software-features" className="hover:text-primary transition-colors">Software Features</Link></li>
           <li><Link to="/faq" className="hover:text-primary transition-colors">FAQ</Link></li>
-          <li><Link to="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
         </ul>
       </div>
 
