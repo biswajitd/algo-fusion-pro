@@ -25,6 +25,7 @@ const Navigation = () => {
     { name: "Success Stories", path: "/success-stories" },
     { name: "Pricing", path: "/pricing" },
     { name: "FAQ", path: "/faq" },
+    { name: "Privacy", path: "/privacy" },
     { name: "Utility Vault", path: "/software-utilities", highlight: true },
   ];
 
